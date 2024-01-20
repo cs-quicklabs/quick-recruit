@@ -12,4 +12,13 @@ Rails.application.routes.draw do
   resource :session
   resource :password_reset
   resource :password
+
+  resources :campaigns
+  resources :candidates
+  resources :members
+  resources :interviews
+  resources :reports
+  resources :jobs
+  resources :buckets
+  resources :pipeline
 end

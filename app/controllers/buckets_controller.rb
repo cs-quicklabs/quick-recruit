@@ -1,0 +1,3 @@
+class BucketsController < ApplicationController
+    
+end

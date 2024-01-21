@@ -1,14 +1,10 @@
-class CampaignsController < ApplicationController 
+class CampaignsController < ApplicationController
+  def new
+  end
 
-    def new 
+  def show
+  end
 
-    end
-
-    def show
-
-    end
-
-    def index
-
-    end
+  def index
+  end
 end

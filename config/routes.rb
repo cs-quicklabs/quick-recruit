@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   resources :members
   resources :interviews
   resources :reports
-  resources :jobs
+  resources :openings
   resources :buckets
   resources :pipeline
+  resources :checklists
 end

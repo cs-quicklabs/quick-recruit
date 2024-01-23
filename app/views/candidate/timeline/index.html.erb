@@ -1,0 +1,60 @@
+<!--
+  This example requires updating your template:
+
+  ```
+  <html class="h-full bg-white">
+  <body class="h-full">
+  ```
+-->
+<div class="flex min-h-full flex-col">
+  <!-- 3 column wrapper -->
+  <div class="mx-auto w-full max-w-screen-2xl grow lg:flex xl:px-2 -ml-4">
+    <!-- Left sidebar & main wrapper -->
+    <div class="w-80 xl:flex">
+    <%= render partial: 'candidate/profile'%>
+    </div>
+    <div class="flex-1">
+      <!-- Main area -->
+    <%= render partial: 'candidate/nav' %>
+        <div class="px-0 lg:px-6 py-6">
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700">                  
+    <li class="mb-4 ms-6">            
+        <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+            <img class="rounded-full shadow-lg" src="/male-placeholder.png" alt="Bonnie image"/>
+        </span>
+        <div class="items-center justify-between p-1  sm:flex dark:bg-gray-700 dark:border-gray-600">
+            <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">just now</time>
+            <div class="text-xs font-normal text-gray-500 dark:text-gray-300">Bonnie moved <a href="#" class="font-semibold text-blue-600 dark:text-blue-500 hover:underline">Jese Leos</a> to <span class="bg-gray-100 text-gray-800 text-xs font-normal me-2 px-2.5 py-0.5 rounded dark:bg-gray-600 dark:text-gray-300">Funny Group</span></div>
+        </div>
+    </li>
+    <li class="mb-4 ms-6">
+        <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+            <img class="rounded-full shadow-lg" src="/male-placeholder.png" alt="Thomas Lean image"/>
+        </span>
+        <div class="p-1 bg-white  dark:bg-gray-700 dark:border-gray-600">
+            <div class="items-center justify-between mb-2 sm:flex">
+                <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">2 hours ago</time>
+                <div class="text-xs font-normal text-gray-500 lex dark:text-gray-300">Thomas Lean commented on  <a href="#" class="font-semibold text-gray-900 dark:text-white hover:underline">Flowbite Pro</a></div>
+            </div>
+            <div class="p-1 text-xs italic font-normal text-gray-500 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-600 dark:border-gray-500 dark:text-gray-300">Hi ya'll! I wanted to share a webinar zeroheight is having regarding how to best measure your design system! This is the second session of our new webinar series on #DesignSystems discussions where we'll be speaking about Measurement.</div>
+        </div>
+    </li>
+    <li class="ms-6">
+        <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+            <img class="rounded-full shadow-lg" src="/male-placeholder.png" alt="Jese Leos image"/>
+        </span>
+        <div class="items-center justify-between p-1 sm:flex dark:bg-gray-700 dark:border-gray-600">
+            <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0">1 day ago</time>
+            <div class="text-xs font-normal text-gray-500 lex dark:text-gray-300">Jese Leos has changed <a href="#" class="font-semibold text-blue-600 dark:text-blue-500 hover:underline">Pricing page</a> task status to  <span class="font-semibold text-gray-900 dark:text-white">Finished</span></div>
+        </div>
+    </li>
+</ol>
+
+</div>
+    </div>
+    <div class="shrink-0 border-t border-gray-200 px-4 py-6 sm:px-6 lg:w-80 lg:border-l lg:border-t-0 lg:pr-8 xl:pr-6">
+      <!-- Right column area -->
+    </div>
+  </div>
+</div>

@@ -12,9 +12,19 @@ Rails.application.routes.draw do
   resource :session
   resource :password_reset
   resource :password
-
   resources :campaigns
-  resources :candidates
+  
+  resources :candidates, module: 'candidate' do 
+    resources :interviews
+    resources :checklists
+    resources :notes
+    resources :emails
+    resources :reviews
+    resources :campaigns
+    get 'timeline', to: 'timeline#index'
+    get 'resume', to: 'resume#index'
+  end
+
   resources :members
   resources :interviews
   resources :reports

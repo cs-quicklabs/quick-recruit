@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   resources :campaigns
 
   resources :candidates do
+    collection do
+      get "recent"
+    end
     scope module: "candidate" do
       resources :interviews
       resources :checklists

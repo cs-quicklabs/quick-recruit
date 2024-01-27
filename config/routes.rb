@@ -30,7 +30,15 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :members
+  resources :members do
+    scope module: "member" do
+      resources :interviews
+      resources :reviews
+      resources :feedbacks
+      get "timeline", to: "timeline#index"
+    end
+  end
+
   resources :interviews
   resources :reports
   resources :openings

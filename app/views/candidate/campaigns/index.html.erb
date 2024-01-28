@@ -11,11 +11,52 @@
   <div class="mx-auto w-full max-w-screen-2xl grow lg:flex xl:px-2 -ml-4">
     <!-- Left sidebar & main wrapper -->
     <div class="w-80 xl:flex">
-    <%= render partial: 'candidate/profile'%>
+      <%= render partial: 'candidate/profile'%>
     </div>
     <div class="flex-1">
       <!-- Main area -->
-    <%= render partial: 'candidate/nav' %>
+      <%= render partial: 'candidate/nav' %>
+      <div class="relative overflow-x-auto">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+              <th scope="col" class="px-4 py-2">
+                Campaign
+              </th>
+              <th scope="col" class="px-4 py-2">
+                Added on
+              </th>
+              <th scope="col" class="px-4 py-2">
+                Status
+              </th>
+              <th scope="col" class="px-4 py-2">
+                Result
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+              <th scope="row" class="flex items-center px-4 py-2 text-gray-900 whitespace-nowrap dark:text-white">
+                <div class="">
+                  <div class="text-sm font-semibold">Hiring Android Developer</div>
+                </div>
+              </th>
+              <td class="px-4 py-2">
+                Jun 22, 204
+              </td>
+              <td class="px-4 py-2">
+                <div class="flex items-center">
+                  <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>
+                  Read
+                </div>
+              </td>
+              <td class="px-4 py-2">
+                Rejected
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
     <div class="shrink-0 border-t border-gray-200 px-4 py-6 sm:px-6 lg:w-80 lg:border-l lg:border-t-0 lg:pr-8 xl:pr-6">
       <!-- Right column area -->

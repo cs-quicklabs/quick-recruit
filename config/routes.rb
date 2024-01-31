@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   resource :registeration
   resource :session
   resource :password_reset
-  resource :password
   resources :campaigns
+  resources :user
 
   resources :candidates do
     collection do
@@ -37,6 +37,15 @@ Rails.application.routes.draw do
       resources :feedbacks
       get "timeline", to: "timeline#index"
     end
+  end
+
+  scope "/settings" do
+    get "/profile", to: "user#profile", as: "profile"
+    get "/password", to: "user#password", as: "setting_password"
+    patch "/password", to: "user#update_password", as: "edit_password"
+    get "/preferences", to: "user#preferences", as: "user_preferences"
+    patch "/avatar", to: "user#update_avatar", as: "avatar"
+    delete "/avatar", to: "user#destroy_avatar", as: "destroy_avatar"
   end
 
   resources :interviews

@@ -17,6 +17,13 @@ Rails.application.routes.draw do
   resources :candidates do
     collection do
       get "recent"
+      get "hot"
+      get "pipeline"
+      get "champions"
+      get "joinings"
+      get "icebox"
+      get "archive"
+      get "incomplete"
     end
     scope module: "candidate" do
       resources :interviews

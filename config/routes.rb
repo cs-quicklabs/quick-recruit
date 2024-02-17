@@ -46,6 +46,11 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :account do
+    resources :roles, except: [:new, :show]
+    resources :sources, except: [:new, :show]
+  end
+
   scope "/settings" do
     get "/profile", to: "user#profile", as: "profile"
     get "/password", to: "user#password", as: "setting_password"

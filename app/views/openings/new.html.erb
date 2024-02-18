@@ -3,7 +3,7 @@
     <%= render "shared/form_messages", resource: @form, message: local_assigns[:message] %>
     <%= render "shared/form_header", title: "Add New Job Opening", subtitle: "Please fill in details of new Job Opening." %>
     <%= tailwind_form_with(model: @opening, id: dom_id(@opening), url: openings_path, method: "POST") do |form| %>
-      <div class="mt-4 grid gap-4 grid-cols-2 sm:gap-6">
+      <div class="mt-4 grid gap-4 sm:gap-6">
         <div>
           <%= form.text_field :title, "Opening Name", required: true, placeholder: "eg. Android Developer" %>
         </div>

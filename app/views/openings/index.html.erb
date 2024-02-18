@@ -7,7 +7,7 @@
             <h1 class="mr-3 text-lg font-semibold dark:text-white">Job Openings</h1>
             <p class="text-gray-500 dark:text-gray-400 text-sm">Manage all your job openings or add a new one.</p>
           </div>
-          <a type="button" href="/members/new"
+          <a type="button" href="/openings/new"
                 class="btn-primary">
             Add new Openings
           </a>
@@ -29,41 +29,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
-              <th scope="row" class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                <div class="flex items-center">
-                  Senior Android Developer
-                </div>
-              </th>
-              <td class="px-4 py-2">
-                12
-              </td>
-              <td class="px-4 py-2">
-                IT
-              </td>
-              <td class="px-4 py-2">
-                Jan 12, 2024
-              </td>
-              <td class="px-4 py-2">
-                Jan 12, 2024
-              </td>
-              <td class="px-4 py-2">Jan 12, 2023</td>
-              <td class="px-4 py-2">23 days</td>
-              <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                <div class="flex items-center">
-                  <div class="w-3 h-3 mr-2 bg-red-500 border rounded-full"></div>
-                  Inactive
-                </div>
-              </td>
-              <td class="px-4 py-2">
-                <div class="flex -space-x-2 rtl:space-x-reverse">
-                  <img class="w-8 h-8 border-2 border-white rounded-full dark:border-gray-800" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                  <img class="w-8 h-8 border-2 border-white rounded-full dark:border-gray-800" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                  <img class="w-8 h-8 border-2 border-white rounded-full dark:border-gray-800" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                  <img class="w-8 h-8 border-2 border-white rounded-full dark:border-gray-800" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-                </div>
-              </td>
-            </tr>
+            <%= render partial: "opening", collection: @openings, as: :opening %>
           </tbody>
         </table>
       </div>

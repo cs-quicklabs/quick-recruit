@@ -1,3 +1,2 @@
-class Role < ApplicationRecord  
-    belongs_to :candidate
+class Role < ApplicationRecord
 end

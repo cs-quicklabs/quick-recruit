@@ -1,4 +1,3 @@
-  
 <div class="border-b bg-gray-50 border-gray-200 py-4 lg:pl-8 w-full xl:shrink-0 xl:border-b-0 xl:border-r xl:pl-6">
   <!-- Left column area -->
   <!-- drawer component -->
@@ -109,6 +108,13 @@
           <path fill-rule="evenodd" d="M10 15.5a5.5 5.5 0 1 1 11 0 5.5 5.5 0 0 1-11 0Zm6.5-1.5a1 1 0 1 0-2 0v1.5c0 .3.1.5.3.7l1 1a1 1 0 0 0 1.4-1.4l-.7-.7V14Z" clip-rule="evenodd"/>
         </svg>
         <p class="text-gray-900 text-sm dark:text-gray-400">Notice Period: 60 days</p>
+      </dd>
+      <dd class="flex items-center text-sm font-light text-gray-900 dark:text-gray-400">
+        <svg class="w-4 h-4 mr-2 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+          <path fill-rule="evenodd" d="M10 5a2 2 0 0 0-2 2v3h2.4a7.5 7.5 0 0 0 0 11H5a2 2 0 0 1-2-2v-7c0-1.1.9-2 2-2h1V7a4 4 0 1 1 8 0v1.2c-.7 0-1.3.3-2 .6V7a2 2 0 0 0-2-2Z" clip-rule="evenodd"/>
+          <path fill-rule="evenodd" d="M10 15.5a5.5 5.5 0 1 1 11 0 5.5 5.5 0 0 1-11 0Zm6.5-1.5a1 1 0 1 0-2 0v1.5c0 .3.1.5.3.7l1 1a1 1 0 0 0 1.4-1.4l-.7-.7V14Z" clip-rule="evenodd"/>
+        </svg>
+        <p class="text-gray-900 text-sm dark:text-gray-400">Notice Period: <%= link_to candidate.resume.filename, url_for(candidate.resume), target: :_blank %></p>
       </dd>
       <dt class="mb-2 mt-5 font-semibold text-sm leading-none text-gray-900 dark:text-white">Primary Skill</dt>
       <dd class="mb-4 sm:mb-5 ">

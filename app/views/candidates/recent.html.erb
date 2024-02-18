@@ -28,33 +28,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
-              <th scope="row" class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                <div class="flex items-center hover:underline">
-                  <a href="/candidates/1/timeline">
-                    Jese Leos
-                  </a>
-                </div>
-              </th>
-              <td class="px-4 py-2">
-                aashishdhawan@gmail.com
-              </td>
-              <td class="px-4 py-2">
-                9560922504
-              </td>
-              <td class="px-4 py-2">
-                React Developer
-              </td>
-              <td class="px-4 py-2">
-                Senior React Developer
-              </td>
-              <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                <span class="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
-                  New Candidate
-                </span>              </td>
-              <td class="px-4 py-2">Aashish Dhawan</td>
-              <td class="px-4 py-2">20 Nov 2022</td>
-            </tr>
+            <%= render partial: "recent", collection: @candidates, as: :candidate%>
           </tbody>
         </table>
       </div>

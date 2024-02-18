@@ -1,12 +1,14 @@
 <section class="bg-white dark:bg-gray-900">
   <div class="py-8 px-4 mx-auto max-w-2xl lg:py-8">
     <h2 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">Add a new candidate</h2>
-    <%= tailwind_form_with(model: @candidate, id: dom_id(@candidate), url: new_candidate_path) do |form| %>
+    <%= tailwind_form_with(model: @candidate, id: dom_id(@candidate), url: candidates_path) do |form| %>
+      <%= render "shared/form_messages", resource: @candidate, message: local_assigns[:message] %>
       <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
         <div class="sm:col-span-2">
           <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload Resume</label>
           <div class="items-center w-full sm:flex">
             <div class="w-full">
+              <%= form.file_field :resume %>
               <input class="w-full text-sm text-gray-900 bg-gray-50 rounded-sm border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file">
               <p class="mt-1 text-xs font-normal text-gray-500 dark:text-gray-300" id="file_input_help">Upload only PDF Files</p>
             </div>
@@ -38,24 +40,27 @@
       <h2 class="mb-4 mt-8 text-xl font-semibold leading-none text-gray-900 dark:text-white">Professional Information</h2>
       <div class="grid gap-4 mb-4 md:gap-6 md:grid-cols-2 sm:mb-8">
         <div>
-          <%= form.text_field :current_title, "Current Job Title", required: true, placeholder: "Senior Software Engineer" %>
+          <%= form.text_field :current_title, "Current Job Title", placeholder: "Senior Software Engineer" %>
         </div>
         <div>
-          <%= form.text_field :current_company, "Current Employer", required: true, placeholder: "Current Company Name" %>
+          <%= form.text_field :current_company, "Current Employer", placeholder: "Current Company Name" %>
         </div>
         <div>
-          <%= form.text_field :current_ctc, "Current CTC", required: true, placeholder: "12 LPA" %>
+          <%= form.text_field :current_ctc, "Current CTC (LPA)", placeholder: "12" %>
         </div>
         <div>
-          <%= form.text_field :expected_ctc, "Expected CTC", required: true, placeholder: "14 LPA" %>
+          <%= form.text_field :expected_ctc, "Expected CTC (LPA)", placeholder: "14" %>
         </div>
         <div>
-          <%= form.text_field :expereince, "Experience", required: true, placeholder: "5 years" %>
+          <%= form.text_field :experience, "Experience (Years)", placeholder: "5.2" %>
         </div>
         <div>
-          <%= form.text_field :hightest_qualification, "Highest Education Qualification", required: true, placeholder: "B.Tech" %>
+          <%= form.text_field :notice_period, "Notice Period (Days)", placeholder: "30" %>
         </div>
-        <div class="sm:col-span-2">
+        <div>
+          <%= form.text_field :highest_qualification, "Highest Education Qualification", placeholder: "B.Tech" %>
+        </div>
+        <div>
           <label for="user-role" class="inline-flex items-center mb-1 text-sm font-medium text-gray-900 dark:text-white">
             Primary skill
             <button type="button" data-tooltip-target="tooltip-user-skill" data-tooltip-style="dark" class="ml-1">
@@ -67,7 +72,7 @@
               <div class="tooltip-arrow" data-popper-arrow></div>
             </div>
           </label>
-          <%= form.collection_select(:role, @roles, :id, :title, { :prompt => "Select Primary Skill" }, :class => "form-text-field") %>
+          <%= form.collection_select(:role_id, @roles, :id, :title, { :prompt => "Select Primary Skill" }, :class => "form-text-field") %>
         </div>
       </div>
       <h2 class="mb-4 mt-8 text-xl font-semibold leading-none text-gray-900 dark:text-white">Social Information</h2>
@@ -99,7 +104,7 @@
               <div class="tooltip-arrow" data-popper-arrow></div>
             </div>
           </label>
-          <%= form.collection_select(:source, @sources, :id, :title, { :prompt => "Select Source" }, :class => "form-text-field") %>
+          <%= form.collection_select(:source_id, @sources, :id, :title, { :prompt => "Select Source" }, :class => "form-text-field") %>
         </div>
         <div>
           <label for="user-role" class="inline-flex items-center mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -134,7 +139,7 @@
               <div class="tooltip-arrow" data-popper-arrow></div>
             </div>
           </label>
-          <%= form.collection_select(:opening, @openings, :id, :title, { :prompt => "Select Job Opening to associate" }, :class => "form-text-field") %>
+          <%= form.collection_select(:opening_id, @openings, :id, :title, { :prompt => "Select Job Opening to associate" }, :class => "form-text-field") %>
         </div>
         <div class="sm:col-span-2">
           <%= form.text_area :note, "Additional Note", required: true, placeholder: "Add some additional note..", style: "height:120px" %>

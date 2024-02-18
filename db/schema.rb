@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_17_104333) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_18_142026) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,7 +66,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_17_104333) do
     t.integer "bucket", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "role_id"
+    t.bigint "source_id"
+    t.bigint "opening_id"
     t.index ["email"], name: "unique_emails", unique: true
+    t.index ["opening_id"], name: "index_candidates_on_opening_id"
+    t.index ["role_id"], name: "index_candidates_on_role_id"
+    t.index ["source_id"], name: "index_candidates_on_source_id"
   end
 
   create_table "openings", force: :cascade do |t|
@@ -98,4 +104,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_17_104333) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "candidates", "openings"
+  add_foreign_key "candidates", "roles"
+  add_foreign_key "candidates", "sources"
 end

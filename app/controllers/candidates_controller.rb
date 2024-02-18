@@ -6,6 +6,10 @@ class CandidatesController < ApplicationController
   end
 
   def new
+    @candidate = Candidate.new
+    @roles = Role.all
+    @openings = Opening.all
+    @sources = Source.all
   end
 
   def recent

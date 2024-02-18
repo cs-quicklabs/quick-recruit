@@ -28,42 +28,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
-              <th scope="row" class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                <div class="flex items-center hover:underline">
-                  <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/avatar-10.png" alt="iMac Front Image" class="w-auto h-8 mr-3 rounded-full">
-                  <a href="/members/1">
-                    Jese Leos
-                  </a>
-                </div>
-              </th>
-              <td class="px-4 py-2">
-                <div class="inline-flex items-center bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 mr-1" viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                    <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" />
-                  </svg>
-                  Administrator
-                </div>
-              </td>
-              <td class="px-4 py-2">
-                React Developer
-              </td>
-              <td class="px-4 py-2">
-                aashishdhawan@gmail.com
-              </td>
-              <td class="px-4 py-2">
-                9560922504
-              </td>
-              <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                <div class="flex items-center">
-                  <div class="w-3 h-3 mr-2 bg-green-500 border rounded-full"></div>
-                  Active
-                </div>
-              </td>
-              <td class="px-4 py-2">20 Nov 2022</td>
-              <td class="px-4 py-2">20 Nov 2022</td>
-            </tr>
+            <%= render partial: "member", collection: @members, as: :member %>
           </tbody>
         </table>
       </div>

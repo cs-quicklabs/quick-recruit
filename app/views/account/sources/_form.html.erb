@@ -2,7 +2,7 @@
   <div class="space-y-6">
     <%= render "shared/form_messages", resource: source, message: local_assigns[:message] %>
     <%= render "shared/form_header", title: "Candidate Source", subtitle: "Source indicates the primary channel from where we get candidates and their resumes." %>
-    <%= form.text_field :name, "New source", autocomplete: "off" %>
+    <%= form.text_field :title, "New source", autocomplete: "off" %>
     <div class="flex justify-end">
       <%= form.submit "Save", class: "btn-blue" %>
     </div>

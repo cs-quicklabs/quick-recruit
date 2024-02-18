@@ -2,7 +2,7 @@
   <div class="space-y-6">
     <%= render "shared/form_messages", resource: role, message: local_assigns[:message] %>
     <%= render "shared/form_header", title: "Roles or Primary Skill", subtitle: "Role indicates the primary skill the person has. For Example, Android Developer or Fullstack Developer" %>
-    <%= form.text_field :name, "New Role", autocomplete: "off" %>
+    <%= form.text_field :title, "New Role", autocomplete: "off", required: true %>
     <div class="flex justify-end">
       <%= form.submit "Save", class: "btn-blue" %>
     </div>

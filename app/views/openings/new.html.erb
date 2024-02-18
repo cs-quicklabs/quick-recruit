@@ -1,0 +1,17 @@
+<section class="bg-white dark:bg-gray-900">
+  <div class="py-8 px-4 mx-auto max-w-2xl lg:py-8">
+    <%= render "shared/form_messages", resource: @form, message: local_assigns[:message] %>
+    <%= render "shared/form_header", title: "Add New Job Opening", subtitle: "Please fill in details of new Job Opening." %>
+    <%= tailwind_form_with(model: @opening, id: dom_id(@opening), url: openings_path, method: "POST") do |form| %>
+      <div class="mt-4 grid gap-4 grid-cols-2 sm:gap-6">
+        <div>
+          <%= form.text_field :title, "Opening Name", required: true, placeholder: "eg. Android Developer" %>
+        </div>
+      </div>
+      <button type="submit" class="btn-primary mt-4">
+        Add Job Opening
+      </button>
+      <%= link_to 'Cancel', :back, class: "btn-secondary" %>
+    <% end %>
+  </div>
+</section>

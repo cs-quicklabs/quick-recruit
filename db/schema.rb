@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_18_142026) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_19_042757) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -75,6 +75,30 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_18_142026) do
     t.index ["source_id"], name: "index_candidates_on_source_id"
   end
 
+  create_table "events", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "action"
+    t.integer "eventable_id"
+    t.string "eventable_type"
+    t.string "action_for_context"
+    t.integer "trackable_id"
+    t.string "trackable_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.text "body"
+    t.string "notable_type"
+    t.bigint "notable_id"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["notable_type", "notable_id"], name: "index_notes_on_notable"
+    t.index ["user_id"], name: "index_notes_on_user_id"
+  end
+
   create_table "openings", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
@@ -107,4 +131,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_18_142026) do
   add_foreign_key "candidates", "openings"
   add_foreign_key "candidates", "roles"
   add_foreign_key "candidates", "sources"
+  add_foreign_key "notes", "users"
 end

@@ -24,8 +24,11 @@ class CandidatesController < ApplicationController
   end
 
   def create
-    @candidate = Candidate.new(candidate_params)
+    @candidate = Candidate.new(candidate_params.except(:note))
     if @candidate.save
+      Note.new(notable: @candidate, user: current_user, body: candidate_params[:note]).save
+      Event.new(eventable: @candidate, action: "add_candidate", action_for_context: "added new candidate", trackable: @candidate, user: current_user).save
+
       redirect_to new_candidate_path, notice: "New candidate was created successfully"
     else
       redirect_to new_candidate_path, alret: "New candidate was not created successfully"
@@ -60,7 +63,7 @@ class CandidatesController < ApplicationController
   private
 
   def candidate_params
-    params.require(:candidate).permit(:first_name, :last_name, :email, :phone, :location, :biography, :facebook, :role_id, :source_id, :opening_id, :linkedin, :github, :twitter, :portfolio, :website, :current_ctc, :expected_ctc, :current_company, :current_title, :notice_period, :experience, :birth_year, :highest_qualification, :bucket, :resume)
+    params.require(:candidate).permit(:first_name, :last_name, :email, :phone, :location, :biography, :facebook, :role_id, :source_id, :opening_id, :linkedin, :github, :twitter, :portfolio, :website, :current_ctc, :expected_ctc, :current_company, :current_title, :notice_period, :experience, :birth_year, :highest_qualification, :bucket, :resume, :note)
   end
 
   def set_candidate

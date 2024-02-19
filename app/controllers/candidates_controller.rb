@@ -8,6 +8,11 @@ class CandidatesController < ApplicationController
   end
 
   def edit
+    @roles = Role.all
+    @openings = Opening.all
+    @sources = Source.all
+    @candidate.update(candidate_params)
+    redirect_to candidate_path(@candidate), notice: "Candidate was updated successfully"
   end
 
   def update

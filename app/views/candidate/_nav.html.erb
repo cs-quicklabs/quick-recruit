@@ -1,32 +1,32 @@
   <nav id="toggleMobileMenu" class="hidden bg-gray-50 border-b border-gray-200 shadow-sm dark:bg-gray-900 lg:block dark:border-gray-800">
-        <div class="px-0 lg:px-6">
-          <div class="flex items-center">
-            <ul class="flex flex-col mt-0 w-full text-sm font-medium lg:flex-row">
-              <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
-                <a href="/candidates/1/timeline" class="block py-3 px-4 border-b-2 text-primary-600 hover:text-primary-600 dark:text-primary-500 dark:border-primary-500 border-primary-600" aria-current="page">Timeline</a>
-              </li>
-              <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
-                <a href="/candidates/1/resume" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Resume</a>
-              </li>
-              <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
-                <a href="/candidates/1/interviews" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Interviews</a>
-              </li>
-              <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
-                <a href="/candidates/1/checklists" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Checklists</a>
-              </li>
-              <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
-                <a href="/candidates/1/notes" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Notes</a>
-              </li>
-              <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
-                <a href="/candidates/1/emails" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Emails</a>
-              </li>
-              <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
-                <a href="/candidates/1/reviews" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Reviews</a>
-              </li>
-              <li class="block lg:inline">
-                <a href="/candidates/1/campaigns" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Campaigns</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+  <div class="px-0 lg:px-6">
+    <div class="flex items-center">
+      <ul class="flex flex-col mt-0 w-full text-sm font-medium lg:flex-row">
+        <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
+          <a href="<%= candidate_timeline_path(@candidate)%>" class="block py-3 px-4 border-b-2 text-primary-600 hover:text-primary-600 dark:text-primary-500 dark:border-primary-500 border-primary-600" aria-current="page">Timeline</a>
+        </li>
+        <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
+          <a href="<%= candidate_resume_path(@candidate)%>" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Resume</a>
+        </li>
+        <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
+          <a href="/candidates/1/interviews" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Interviews</a>
+        </li>
+        <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
+          <a href="/candidates/1/checklists" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Checklists</a>
+        </li>
+        <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
+          <a href="<%= candidate_notes_path(@candidate)%>" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Notes</a>
+        </li>
+        <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
+          <a href="/candidates/1/emails" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Emails</a>
+        </li>
+        <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
+          <a href="/candidates/1/reviews" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Reviews</a>
+        </li>
+        <li class="block lg:inline">
+          <a href="/candidates/1/campaigns" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Campaigns</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

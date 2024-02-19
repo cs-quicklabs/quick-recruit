@@ -11,7 +11,7 @@
   <div class="mx-auto w-full max-w-screen-2xl grow lg:flex xl:px-2 -ml-4">
     <!-- Left sidebar & main wrapper -->
     <div class="w-80 xl:flex">
-      <%= render partial: 'candidate/profile'%>
+      <%= render partial: 'candidate/profile', locals: { candidate: @candidate }%>
     </div>
     <div class="flex-1">
       <!-- Main area -->
@@ -31,46 +31,7 @@
       </form>
       <div class="px-4 py-6 sm:px-6">
         <ul role="list" class="space-y-8">
-          <li>
-            <div class="flex space-x-3">
-              <div class="flex-shrink-0">
-                <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-              </div>
-              <div>
-                <div class="text-sm">
-                  <a href="#" class="font-medium text-gray-900">Leslie Alexander</a>
-                </div>
-                <div class="mt-1 text-sm text-gray-700">
-                  <p>Ducimus quas delectus ad maxime totam doloribus reiciendis ex. Tempore dolorem maiores. Similique voluptatibus tempore non ut.</p>
-                </div>
-                <div class="mt-2 space-x-2 text-sm">
-                  <span class="font-medium text-gray-500">4d ago</span>
-                  <span class="font-medium text-gray-500">&middot;</span>
-                  <button type="button" class="font-medium text-gray-900">Reply</button>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="flex space-x-3">
-              <div class="flex-shrink-0">
-                <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-              </div>
-              <div>
-                <div class="text-sm">
-                  <a href="#" class="font-medium text-gray-900">Michael Foster</a>
-                </div>
-                <div class="mt-1 text-sm text-gray-700">
-                  <p>Et ut autem. Voluptatem eum dolores sint necessitatibus quos. Quis eum qui dolorem accusantium voluptas voluptatem ipsum. Quo facere iusto quia accusamus veniam id explicabo et aut.</p>
-                </div>
-                <div class="mt-2 space-x-2 text-sm">
-                  <span class="font-medium text-gray-500">4d ago</span>
-                  <span class="font-medium text-gray-500">&middot;</span>
-                  <button type="button" class="font-medium text-gray-900">Reply</button>
-                </div>
-              </div>
-            </div>
-          </li>
+          <%= render partial: "note", collection: @notes, as: :note%>
         </ul>
       </div>
     </div>

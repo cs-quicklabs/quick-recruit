@@ -13,15 +13,11 @@
     <%= candidate.phone %>
   </td>
   <td class="px-4 py-2">
-    React Developer
+    <%= candidate.role.nil? ? "-" : candidate.role.title %>
   </td>
   <td class="px-4 py-2">
-    Senior React Developer
+    <%= candidate.opening.nil? ? "-" : candidate.opening.title %>
   </td>
-  <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-    <span class="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
-      New Candidate
-    </span>              </td>
-  <td class="px-4 py-2">Aashish Dhawan</td>
-  <td class="px-4 py-2">20 Nov 2022</td>
+  <td class="px-4 py-2"><%= candidate.user.name %></td>
+  <td class="px-4 py-2"><%= display_created_at(candidate)%></td>
 </tr>

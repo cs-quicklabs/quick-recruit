@@ -1,7 +1,8 @@
 class Candidate < ApplicationRecord
-  has_one :role
-  has_one :source
+  belongs_to :role
+  belongs_to :source
   belongs_to :opening
+  belongs_to :user
   has_one_attached :resume, dependent: :destroy
 
   has_many :notes, as: :notable, dependent: :destroy

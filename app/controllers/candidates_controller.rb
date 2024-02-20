@@ -2,6 +2,14 @@ class CandidatesController < ApplicationController
   before_action :set_candidate, only: [:show, :edit, :update, :destroy]
 
   def index
+    @recent_count = Candidate.where(bucket: :recent).count
+    @hot_count = Candidate.where(bucket: :hot).count
+    @pipeline_count = Candidate.where(bucket: :pipeline).count
+    @champions_count = Candidate.where(bucket: :champions).count
+    @joinings_count = Candidate.where(bucket: :joinings).count
+    @icebox_count = Candidate.where(bucket: :icebox).count
+    @archive_count = Candidate.where(bucket: :archive).count
+    @incomplete_count = Candidate.where(bucket: :incomplete).count
   end
 
   def show
@@ -31,14 +39,13 @@ class CandidatesController < ApplicationController
   def create
     @candidate = Candidate.new(candidate_params.except(:note))
     @candidate.user = current_user
-    if @candidate.save!
+    if @candidate.save
       Note.new(notable: @candidate, user: current_user, body: candidate_params[:note]).save
       Event.new(eventable: @candidate, action: "add_candidate", action_for_context: "added new candidate", trackable: @candidate, user: current_user).save
 
-      redirect_to new_candidate_path, notice: "New candidate was created successfully"
+      redirect_to candidate_timeline_path(@candidate), notice: "New candidate was created successfully"
     else
-      
-      redirect_to new_candidate_path, alret: "New candidate was not created successfully"
+      redirect_to new_candidate_path, alert: "Failed to add candidate. Please try again."
     end
   end
 

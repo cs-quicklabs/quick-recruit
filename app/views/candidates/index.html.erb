@@ -22,7 +22,7 @@
       <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
         <div class="flex-1 truncate px-4 py-2 text-sm">
           <a href="/candidates/recent" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">New Candidates</a>
-          <p class="text-gray-500">16 Candidates</p>
+          <p class="text-gray-500"><%= @recent_count %> Candidates</p>
         </div>
       </div>
     </li>
@@ -35,7 +35,7 @@
       <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
         <div class="flex-1 truncate px-4 py-2 text-sm">
           <a href="/candidates/hot" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Hot Candidates</a>
-          <p class="text-gray-500">12 Candidates</p>
+          <p class="text-gray-500"><%= @hot_count %>  Candidates</p>
         </div>
       </div>
     </li>
@@ -48,7 +48,7 @@
       <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
         <div class="flex-1 truncate px-4 py-2 text-sm">
           <a href="/candidates/pipeline" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Pipeline</a>
-          <p class="text-gray-500">8 Candidates</p>
+          <p class="text-gray-500"><%= @pipeline_count %>  Candidates</p>
         </div>
       </div>
     </li>
@@ -61,7 +61,7 @@
       <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
         <div class="flex-1 truncate px-4 py-2 text-sm">
           <a href="/candidates/champions" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Champions</a>
-          <p class="text-gray-500">16 Candidates</p>
+          <p class="text-gray-500"><%= @champions_count %>  Candidates</p>
         </div>
       </div>
     </li>
@@ -76,7 +76,7 @@
       <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
         <div class="flex-1 truncate px-4 py-2 text-sm">
           <a href="/candidates/joinings" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Upcoming Joinings</a>
-          <p class="text-gray-500">16 Candidates</p>
+          <p class="text-gray-500"><%= @joinings_count %>  Candidates</p>
         </div>
       </div>
     </li>
@@ -89,7 +89,7 @@
       <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
         <div class="flex-1 truncate px-4 py-2 text-sm">
           <a href="/candidates/icebox" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Iceboxed</a>
-          <p class="text-gray-500">16 Candidates</p>
+          <p class="text-gray-500"><%= @icebox_count %>  Candidates</p>
         </div>
       </div>
     </li>
@@ -102,7 +102,7 @@
       <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
         <div class="flex-1 truncate px-4 py-2 text-sm">
           <a href="/candidates/archive" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Archived Candidates</a>
-          <p class="text-gray-500">12 Candidates</p>
+          <p class="text-gray-500"><%= @archive_count %>  Candidates</p>
         </div>
       </div>
     </li>
@@ -115,7 +115,7 @@
       <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
         <div class="flex-1 truncate px-4 py-2 text-sm">
           <a href="/candidates/incomplete" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Incomplete Profiles</a>
-          <p class="text-gray-500">12 Candidates</p>
+          <p class="text-gray-500"><%= @incomplete_count %>  Candidates</p>
         </div>
       </div>
     </li>

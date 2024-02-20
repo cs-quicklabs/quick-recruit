@@ -41,28 +41,35 @@ class CandidatesController < ApplicationController
   end
 
   def recent
-    @candidates = Candidate.all
+    @candidates = Candidate.where(bucket: :recent)
   end
 
   def hot
+    @candidates = Candidate.where(bucket: :hot)
   end
 
   def pipeline
+    @candidates = Candidate.where(bucket: :pipeline)
   end
 
   def champions
+    @candidates = Candidate.where(bucket: :champions)
   end
 
   def joinings
+    @candidates = Candidate.where(bucket: :joinings)
   end
 
   def icebox
+    @candidates = Candidate.where(bucket: :icebox)
   end
 
   def archive
+    @candidates = Candidate.where(bucket: :archive)
   end
 
   def incomplete
+    @candidates = Candidate.where(bucket: :incomplete)
   end
 
   private

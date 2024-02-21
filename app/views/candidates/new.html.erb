@@ -2,6 +2,7 @@
   <div class="py-8 px-4 mx-auto max-w-2xl lg:py-8">
     <h2 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">Add a new candidate</h2>
     <%= tailwind_form_with(model: @candidate, id: dom_id(@candidate), url: candidates_path) do |form| %>
+      <%= render "shared/error_messages", resource: @candidate %>
       <%= render "shared/form_messages", resource: @candidate, message: local_assigns[:message] %>
       <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
         <div class="sm:col-span-2">

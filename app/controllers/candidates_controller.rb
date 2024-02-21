@@ -45,6 +45,9 @@ class CandidatesController < ApplicationController
 
       redirect_to candidate_timeline_path(@candidate), notice: "New candidate was created successfully"
     else
+      @candidate.errors.full_messages.each do |message|
+        puts message
+      end
       redirect_to new_candidate_path, alert: "Failed to add candidate. Please try again."
     end
   end

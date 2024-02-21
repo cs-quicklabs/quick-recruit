@@ -8,6 +8,8 @@ class Candidate < ApplicationRecord
   has_many :notes, as: :notable, dependent: :destroy
   has_many :events, as: :eventable, dependent: :destroy
 
+  validates :email, uniqueness: true
+
   enum bucket: { recent: 0, hot: 1, pipeline: 2, champions: 3, joinings: 4, icebox: 5, archive: 6, incomplete: 7 }
 
   def name

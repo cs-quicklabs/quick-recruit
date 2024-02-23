@@ -1,9 +1,13 @@
 <section class="bg-white dark:bg-gray-900">
   <div class="py-8 px-4 mx-auto max-w-2xl lg:py-8">
-    <h2 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">Add a new candidate</h2>
-    <%= tailwind_form_with(model: @candidate, id: dom_id(@candidate), url: edit_candidate_path) do |form| %>
+    <h2 class="mb-4 text-2xl font-bold text-gray-900 dark:text-white">Edit Candidate</h2>
+    <%= tailwind_form_with(model: @candidate, id: dom_id(@candidate)) do |form| %>
+      <%= render "shared/error_messages", resource: @candidate %>
       <%= render "shared/form_messages", resource: @candidate, message: local_assigns[:message] %>
       <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
+        <div class="sm:col-span-2">
+          <h2 class="mt-8 text-xl font-semibold leading-none text-gray-900 dark:text-white">Personal Information</h2>
+        </div>
         <div>
           <%= form.text_field :first_name, "First Name", required: true, placeholder: "John" %>
         </div>
@@ -61,7 +65,7 @@
               <div class="tooltip-arrow" data-popper-arrow></div>
             </div>
           </label>
-          <%= form.collection_select(:role_id, @roles, :id, :title, { :prompt => "Select Primary Skill" }, :class => "form-text-field") %>
+          <%= form.collection_select(:role_id, @roles, :id, :title, { :prompt => "Select Primary Skill" }, :class => "form-text-field", :required => true )%>
         </div>
       </div>
       <h2 class="mb-4 mt-8 text-xl font-semibold leading-none text-gray-900 dark:text-white">Social Information</h2>
@@ -93,7 +97,7 @@
               <div class="tooltip-arrow" data-popper-arrow></div>
             </div>
           </label>
-          <%= form.collection_select(:source_id, @sources, :id, :title, { :prompt => "Select Source" }, :class => "form-text-field") %>
+          <%= form.collection_select(:source_id, @sources, :id, :title, { :prompt => "Select Source" }, :class => "form-text-field", :required => true) %>
         </div>
         <div>
           <label for="user-role" class="inline-flex items-center mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -107,15 +111,7 @@
               <div class="tooltip-arrow" data-popper-arrow></div>
             </div>
           </label>
-          <select id="user-role" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-primary-500 focus:border-primary-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-            <option selected="">Hot</option>
-            <option value="ED">New</option>
-            <option value="ED">Archived</option>
-            <option value="CO">Champions</option>
-            <option value="VI">Icebox</option>
-            <option value="VI">Incomplete</option>
-          </select>
-        </div>
+          <%= select_tag :bucket, options_for_select(Candidate.buckets.map {|k, v| [k.humanize.capitalize, k]}, @candidate.bucket), class: "form-text-field", :name => "candidate[bucket]", :selected => @candidate.bucket %>        </div>
         <div class="sm:col-span-2">
           <label for="user-role" class="inline-flex items-center mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Associate with Job Opening
@@ -128,13 +124,13 @@
               <div class="tooltip-arrow" data-popper-arrow></div>
             </div>
           </label>
-          <%= form.collection_select(:opening_id, @openings, :id, :title, { :prompt => "Select Job Opening to associate" }, :class => "form-text-field") %>
+          <%= form.collection_select(:opening_id, @openings, :id, :title, { :prompt => "Select Job Opening to associate" }, :class => "form-text-field", :required => true) %>
         </div>
       </div>
       <button type="submit" class="btn-primary">
-        Add user
+        Edit Candidate
       </button>
-      <%= link_to 'Cancel', :back, class: "btn-secondary" %>
+      <%= link_to 'Cancel', candidate_path(@candidate), class: "btn-secondary" %>
     <% end %>
   </div>
 </section>

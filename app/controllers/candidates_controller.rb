@@ -19,11 +19,11 @@ class CandidatesController < ApplicationController
     @roles = Role.all
     @openings = Opening.all
     @sources = Source.all
-    @candidate.update(candidate_params)
-    redirect_to candidate_path(@candidate), notice: "Candidate was updated successfully"
   end
 
   def update
+    @candidate.update(candidate_params.except(:note))
+    redirect_to candidate_path(@candidate), notice: "Candidate was updated successfully"
   end
 
   def destroy

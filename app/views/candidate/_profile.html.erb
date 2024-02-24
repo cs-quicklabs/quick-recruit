@@ -42,8 +42,10 @@
       </div>
     </div>
     <dl>
-      <dt class="mb-2 text-sm font-medium leading-none text-gray-900 dark:text-white">Biography</dt>
-      <dd class="mb-4 font-light text-gray-900 text-sm sm:mb-5 dark:text-gray-400"><%= candidate.biography.empty? ? "-" : candidate.biography %></dd>
+      <% unless candidate.biography.blank? %>
+        <dt class="mb-2 text-sm font-medium leading-none text-gray-900 dark:text-white">Biography</dt>
+        <dd class="mb-4 font-light text-gray-900 text-sm sm:mb-5 dark:text-gray-400"><%= candidate.biography.empty? ? "-" : candidate.biography %></dd>
+      <% end %>
       <%= render partial: "candidate/profession", locals: {candidate: candidate}%>
       <%= render partial: "candidate/social", locals: {candidate: candidate }%>
       <dt class="mb-2 font-semibold text-sm leading-none text-gray-900 dark:text-white">Bucket</dt>
@@ -52,18 +54,23 @@
           <%= candidate.bucket.titleize %>
         </span>
       </dd>
-      <dt class="mb-2 mt-5 font-semibold text-sm leading-none text-gray-900 dark:text-white">Associated with Job Opening</dt>
-      <dd class="mb-4 sm:mb-5 ">
-        <span class="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
-          <%= candidate.opening.title.titleize %>
-        </span>
-      </dd>
-      <dt class="mb-2 mt-5 font-semibold text-sm leading-none text-gray-900 dark:text-white">Primary Skill</dt>
-      <dd class="mb-4 sm:mb-5 ">
-        <span class="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
-          <%= candidate.role.title.titleize %>
-        </span>
-      </dd>
+      <% unless candidate.opening.blank? %>
+        <dt class="mb-2 mt-5 font-semibold text-sm leading-none text-gray-900 dark:text-white">Associated with Job Opening</dt>
+        <dd class="mb-4 sm:mb-5 ">
+          <span class="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
+            <%= candidate.opening.title.titleize %>
+          </span>
+        </dd>
+      <% end %>
+      <% unless candidate.role.blank? %>
+        <dt class="mb-2 mt-5 font-semibold text-sm leading-none text-gray-900 dark:text-white">Primary Skill</dt>
+        <dd class="mb-4 sm:mb-5 ">
+          <span class="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
+            <%= candidate.role.title.titleize %>
+          </span>
+        </dd>
+      <% end %>
+      <%= render partial: "candidate/other", locals: {candidate: candidate }%>
     </dl>
   </div>
 </div>

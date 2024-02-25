@@ -15,4 +15,12 @@ class Candidate < ApplicationRecord
   def name
     first_name + " " + last_name
   end
+
+  def age
+    if birth_year.nil?
+      "-"
+    else
+      (Date.today.year - birth_year).to_formatted_s + " years"
+    end
+  end
 end

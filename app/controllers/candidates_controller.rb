@@ -23,7 +23,7 @@ class CandidatesController < ApplicationController
 
   def update
     @candidate.update(candidate_params.except(:note))
-    redirect_to candidate_path(@candidate), notice: "Candidate was updated successfully"
+    redirect_to candidate_timeline_path(@candidate), notice: "Candidate was updated successfully"
   end
 
   def destroy
@@ -40,7 +40,10 @@ class CandidatesController < ApplicationController
     @candidate = Candidate.new(candidate_params.except(:note))
     @candidate.user = current_user
     if @candidate.save
-      Note.new(notable: @candidate, user: current_user, body: candidate_params[:note]).save
+      note = Note.new(notable: @candidate, user: current_user, body: candidate_params[:note])
+      if note.save
+        Event.new(eventable: @candidate, action: "add_note", action_for_context: "added a new note", trackable: note, user: current_user).save
+      end
       Event.new(eventable: @candidate, action: "add_candidate", action_for_context: "added new candidate", trackable: @candidate, user: current_user).save
 
       redirect_to candidate_timeline_path(@candidate), notice: "New candidate was created successfully"

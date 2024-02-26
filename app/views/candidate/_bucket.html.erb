@@ -1,0 +1,38 @@
+<div data-controller="bucket">
+  <div class="flex items-center">
+    <dt class="font-semibold text-sm leading-none text-gray-900 dark:text-white">Bucket</dt>
+    <div id="dropdownDefaultButton"  data-tooltip-target="tooltip-bucket" data-dropdown-toggle="dropdownDefaultRadio" class="cursor-pointer p-1 ml-1 text-gray-500 rounded-sm hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+      <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m10.8 17.8-6.4 2.1 2.1-6.4m4.3 4.3L19 9a3 3 0 0 0-4-4l-8.4 8.6m4.3 4.3-4.3-4.3m2.1 2.1L15 9.1m-2.1-2 4.2 4.2"/>
+      </svg>
+    </div>
+  </div>
+  <dd class="mb-4 sm:mb-5">
+    <span class="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
+      <%= candidate.bucket.titleize %>
+    </span>
+  </dd>
+  <div id="tooltip-bucket" role="tooltip" class="inline-block text-xs absolute invisible z-10 py-1 px-2 text-xs font-medium text-white bg-gray-900 rounded-sm shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+    Edit Bucket
+    <div class="tooltip-arrow" data-popper-arrow></div>
+  </div>
+  <!-- Dropdown menu -->
+  <div id="dropdownDefaultRadio"  data-bucket-target="menu" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-60 dark:bg-gray-700 dark:divide-gray-600">
+    <ul class="p-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton" >
+      <% Candidate.buckets.each do |k,v |%>
+        <li class="cursor-pointer" data-action="click->bucket#change" data-bucket-bucket-param="<%= v %>" data-bucket-candidate-param="<%= candidate.id %>">
+          <div class="flex p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-600 ">
+            <div class="flex items-center h-4 mr-2">
+              <input id= "<%= v %>" name="helper-radio" type="radio" value=<%= v %> class="cursor-pointer w-3 h-3 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+            </div>
+            <div class="ms-2 text-xs">
+              <label for="helper-radio-4" class="cursor-pointer font-medium text-gray-900 dark:text-gray-300">
+                <div><%= k.humanize %></div>
+              </label>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -53,6 +53,7 @@ group :development, :test do
 end
 
 gem "aws-sdk-s3", "~> 1.120"
+gem 'requestjs-rails'
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]

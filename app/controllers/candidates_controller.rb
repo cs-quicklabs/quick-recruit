@@ -15,6 +15,10 @@ class CandidatesController < ApplicationController
   def show
   end
 
+  def update_bucket
+    redirect_to candidates_path, notice: "Bucket was updated successfully"
+  end
+
   def edit
     @roles = Role.all
     @openings = Opening.all

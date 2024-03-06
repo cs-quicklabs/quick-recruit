@@ -22,6 +22,8 @@ module Recruit
     # in config/environments, which are processed later.
     #
     config.time_zone = "New Delhi"
+    config.autoload_paths << "#{Rails.root}/interactors"
+
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end

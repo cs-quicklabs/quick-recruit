@@ -8,16 +8,17 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= turbo_refreshes_with method: :morph, scroll: :preserve %>
   </head>
   <body>
     <main class="">
-    <% if user_signed_in? %>
-      <%= render "shared/navbar" %>
-    <% end %>
-    <p class="text-sm font-medium text-center notice bg-green-50"><%= notice %></p>
-    <p class="text-sm font-medium text-center alert bg-red-50"><%= alert %></p>
-    <main>
-      <%= yield %>
-    </main>
-  </body>
-</html>
+      <% if user_signed_in? %>
+        <%= render "shared/navbar" %>
+      <% end %>
+      <p class="text-sm font-medium text-center notice bg-green-50"><%= notice %></p>
+      <p class="text-sm font-medium text-center alert bg-red-50"><%= alert %></p>
+      <main>
+        <%= yield %>
+      </main>
+    </body>
+  </html>

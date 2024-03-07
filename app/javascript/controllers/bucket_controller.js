@@ -8,8 +8,7 @@ export default class extends Controller {
   }
 
   async change({ params }) {
-    console.log(params)
-    const request = new FetchRequest('patch', `/candidates/${params.candidate}/update`, { body: JSON.stringify({ bucket: params.bucket }) })
+    const request = new FetchRequest('patch', `/candidates/${params.candidate}/update`, { body: JSON.stringify({ bucket: params.bucket }), responseKind: 'turbo-stream' })
     const response = await request.perform()
   }
 }

@@ -17,7 +17,7 @@
     <div class="tooltip-arrow" data-popper-arrow></div>
   </div>
   <!-- Dropdown menu -->
-  <div id="dropdownDefaultRadio"  data-bucket-target="menu" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-60 dark:bg-gray-700 dark:divide-gray-600">
+  <div id="dropdownDefaultRadio"  data-bucket-target="menu" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-40 dark:bg-gray-700 dark:divide-gray-600">
     <ul class="p-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton" >
       <% Candidate.buckets.each do |k,v |%>
         <li class="cursor-pointer" data-action="click->bucket#change" data-bucket-bucket-param="<%= v %>" data-bucket-candidate-param="<%= candidate.id %>">

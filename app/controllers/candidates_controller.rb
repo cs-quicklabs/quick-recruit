@@ -61,7 +61,7 @@ class CandidatesController < ApplicationController
   end
 
   def recent
-    @candidates = Candidate.where(bucket: :recent).order(created_at: :desc)
+    @candidates = Candidate.where(bucket: :recent)
   end
 
   def hot

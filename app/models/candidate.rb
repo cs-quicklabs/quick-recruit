@@ -12,6 +12,8 @@ class Candidate < ApplicationRecord
 
   enum bucket: { recent: 0, hot: 1, pipeline: 2, champions: 3, joinings: 4, icebox: 5, archive: 6, incomplete: 7 }
 
+  default_scope { order(created_at: :desc) }
+
   def name
     first_name + " " + last_name
   end

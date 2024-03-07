@@ -8,16 +8,14 @@
           <h1 class="text-white font-extrabold font-mono">Quick Recruit</h1>
         </div>
         <div class="hidden sm:ml-2 sm:block">
-          <div class="flex">
+          <div class="flex space-x-1">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-500 hover:text-white" -->
-            <a href="/" class="bg-gray-900 text-white rounded-sm px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
-            <a href="/members" class="text-gray-300 hover:bg-gray-500 hover:text-white rounded-sm px-3 py-2 text-sm font-medium">Team</a>
-            <a href="/candidates" class="text-gray-300 hover:bg-gray-500 hover:text-white rounded-sm px-3 py-2 text-sm font-medium">Candidates</a>
-            <a href="/campaigns" class="text-gray-300 hover:bg-gray-500 hover:text-white rounded-sm px-3 py-2 text-sm font-medium">Campaigns</a>
-            <a href="/interviews" class="text-gray-300 hover:bg-gray-500 hover:text-white rounded-sm px-3 py-2 text-sm font-medium">Interviews</a>
-            <a href="/openings" class="text-gray-300 hover:bg-gray-500 hover:text-white rounded-sm px-3 py-2 text-sm font-medium">Openings</a>
-            <a href="/checklists" class="text-gray-300 hover:bg-gray-500 hover:text-white rounded-sm px-3 py-2 text-sm font-medium">Checklists</a>
-            <a href="/reports" class="text-gray-300 hover:bg-gray-500 hover:text-white rounded-sm px-3 py-2 text-sm font-medium">Reports</a>
+            <a href=<%= members_path%> class="<%= current_page?(members_path) ? "selected-nav" : "unselected-nav"%>">Team</a>
+            <a href=<%= candidates_path%> class="<%= current_page?(candidates_path) ? "selected-nav" : "unselected-nav"%>">Candidates</a>
+            <a href=<%= campaigns_path%> class="<%= current_page?(campaigns_path) ? "selected-nav" : "unselected-nav"%>">Campaigns</a>
+            <a href=<%= interviews_path%> class="<%= current_page?(interviews_path) ? "selected-nav" : "unselected-nav"%>">Interviews</a>
+            <a href=<%= openings_path%> class="<%= current_page?(openings_path) ? "selected-nav" : "unselected-nav"%>">Openings</a>
+            <a href=<%= reports_path%> class="<%= current_page?(reports_path) ? "selected-nav" : "unselected-nav"%>">Reports</a>
           </div>
         </div>
       </div>

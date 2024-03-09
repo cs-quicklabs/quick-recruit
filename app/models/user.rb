@@ -9,7 +9,9 @@ class User < ApplicationRecord
   end
 
   has_one_attached :avatar
+
   enum role: { data: 0, recruiter: 1, interviewer: 2, admin: 3 }
+
   validate :avatar_content_type
   validate :avatar_size
 

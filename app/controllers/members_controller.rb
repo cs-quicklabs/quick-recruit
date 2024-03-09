@@ -13,6 +13,8 @@ class MembersController < ApplicationController
   end
 
   def create
+    form = UserForm.new(User.new, params[:user])
+    form.save!
     redirect_to members_path, notice: "New member was created successfully"
   end
 end

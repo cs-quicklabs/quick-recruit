@@ -4,14 +4,11 @@
     <%= render "shared/form_header", title: "Add new team member", subtitle: "Please fill in details of new team member." %>
     <%= tailwind_form_with(model: @user, id: dom_id(@user), url: members_path, method: "POST") do |form| %>
       <div class="mt-4 grid gap-4 sm:grid-cols-2 sm:gap-6">
-        <div>
-          <%= form.text_field :first_name, "First Name" %>
-        </div>
-        <div class="w-full">
-          <%= form.text_field :last_name, "Last Name" %>
+        <div class="sm:col-span-2">
+          <%= form.text_field :name, "Full Name", required: true %>
         </div>
         <div>
-          <%= form.text_field :email, "Email" %>
+          <%= form.text_field :email, "Email", required: true %>
         </div>
         <div>
           <label for="user-role" class="inline-flex items-center mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -21,21 +18,17 @@
               <span class="sr-only">Show information</span>
             </button>
             <div id="tooltip-user-role" role="tooltip" class="inline-block absolute invisible z-10 py-1 px-2 max-w-sm text-xs font-normal text-white bg-gray-900 rounded-sm shadow-sm opacity-0 tooltip dark:bg-gray-700">
-              A team member can be either recruiter, interviewer or admin.
+              A team member can be either data collector, recruiter, interviewer or admin.
               <div class="tooltip-arrow" data-popper-arrow></div>
             </div>
           </label>
-          <select id="user_role" class="form-text-field" type="text" name="user[role]">
-            <option selected="">Recruiter</option>
-            <option value="AD">Admin</option>
-            <option value="ED">Interviewer</option>
-          </select>
+          <%= select_tag :bucket, options_for_select(User.roles.map {|k, v| [k.humanize.capitalize, k]}), class: "form-text-field", :name => "user[role]" %>
         </div>
         <div>
-          <%= form.password_field :new_password, "New Password" %>
+          <%= form.password_field :password, "New Password",required: true %>
         </div>
         <div>
-          <%= form.password_field :new_password_confirmation, "Confirm New Password" %>
+          <%= form.password_field :password_confirmation, "Confirm New Password", required: true %>
         </div>
       </div>
       <button type="submit" class="btn-primary mt-4">

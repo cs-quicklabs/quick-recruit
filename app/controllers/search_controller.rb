@@ -9,6 +9,6 @@ class SearchController < ApplicationController
     Candidate.where("first_name iLIKE ANY ( array[?] )", like_keyword)
       .or(Candidate.where("last_name iLIKE ANY ( array[?] )", like_keyword))
       .or(Candidate.where("email iLIKE ANY ( array[?] )", like_keyword))
-      .order(:first_name).limit(20)
+      .order(:first_name).limit(7)
   end
 end

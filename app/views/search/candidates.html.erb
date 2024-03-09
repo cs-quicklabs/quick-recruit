@@ -1,6 +1,6 @@
 <% @candidates.each do |candidate| %>
   <a href="<%= candidate_timeline_path(candidate) %>">
-    <li role="option" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
+    <li role="option" class="border-b border-gray-200 block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900">
       <div class="flex-1 min-w-0">
         <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
           <%= candidate.name %>

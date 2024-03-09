@@ -3,28 +3,28 @@
     <div class="flex items-center">
       <ul class="flex flex-col mt-0 w-full text-sm font-medium lg:flex-row">
         <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
-          <a href="<%= candidate_timeline_path(@candidate)%>" class="block py-3 px-4 border-b-2 text-primary-600 hover:text-primary-600 dark:text-primary-500 dark:border-primary-500 border-primary-600" aria-current="page">Timeline</a>
+          <a href="<%= candidate_timeline_path(@candidate)%>" class="<%= current_page?(candidate_timeline_path(@candidate)) ? "selected-tab" : "unselected-tab"%>">Timeline</a>
         </li>
         <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
-          <a href="<%= candidate_resume_path(@candidate)%>" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Resume</a>
+          <a href="<%= candidate_resume_path(@candidate)%>" class="<%= current_page?(candidate_resume_path(@candidate)) ? "selected-tab" : "unselected-tab"%>">Resume</a>
         </li>
         <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
-          <a href="<%= candidate_interviews_path(@candidate)%>" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Interviews</a>
+          <a href="<%= candidate_interviews_path(@candidate)%>" class="<%= current_page?(candidate_interviews_path(@candidate)) ? "selected-tab" : "unselected-tab"%>">Interviews</a>
         </li>
         <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
-          <a href="<%= candidate_checklists_path(@candidate)%>" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Checklists</a>
+          <a href="<%= candidate_checklists_path(@candidate)%>" class="<%= current_page?(candidate_checklists_path(@candidate)) ? "selected-tab" : "unselected-tab"%>">Checklists</a>
         </li>
         <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
-          <a href="<%= candidate_notes_path(@candidate)%>" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Notes</a>
+          <a href="<%= candidate_notes_path(@candidate)%>" class="<%= current_page?(candidate_notes_path(@candidate)) ? "selected-tab" : "unselected-tab"%>">Notes</a>
         </li>
         <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
-          <a href="<%= candidate_emails_path(@candidate)%>" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Emails</a>
+          <a href="<%= candidate_emails_path(@candidate)%>" class="<%= current_page?(candidate_emails_path(@candidate)) ? "selected-tab" : "unselected-tab"%>">Emails</a>
         </li>
         <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
-          <a href="<%= candidate_reviews_path(@candidate)%>" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Reviews</a>
+          <a href="<%= candidate_reviews_path(@candidate)%>" class="<%= current_page?(candidate_reviews_path(@candidate)) ? "selected-tab" : "unselected-tab"%>">Reviews</a>
         </li>
         <li class="block lg:inline">
-          <a href="<%= candidate_campaigns_path(@candidate)%>" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Campaigns</a>
+          <a href="<%= candidate_campaigns_path(@candidate)%>" class="<%= current_page?(candidate_campaigns_path(@candidate)) ? "selected-tab" : "unselected-tab"%>">Campaigns</a>
         </li>
       </ul>
     </div>

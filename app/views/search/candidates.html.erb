@@ -8,7 +8,7 @@
         <p class="text-sm text-gray-500 truncate dark:text-gray-400">
           <%= candidate.email %>
         </p>
-        <span class="bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Pending</span>
+        <span class="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800"><%= candidate.bucket.titleize %></span>
       </div>
     </li>
   </a>

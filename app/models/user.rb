@@ -15,7 +15,7 @@ class User < ApplicationRecord
   validate :avatar_content_type
   validate :avatar_size
 
-  default_scope { order(role: :desc) }
+  default_scope { order(first_name: :asc) }
 
   def avatar_size
     if avatar.attached? && avatar.blob.byte_size > 1.megabytes

@@ -4,8 +4,11 @@
     <%= render "shared/form_header", title: "Add new team member", subtitle: "Please fill in details of new team member." %>
     <%= tailwind_form_with(model: @user, id: dom_id(@user), url: members_path, method: "POST") do |form| %>
       <div class="mt-4 grid gap-4 sm:grid-cols-2 sm:gap-6">
-        <div class="sm:col-span-2">
-          <%= form.text_field :name, "Full Name", required: true %>
+        <div>
+          <%= form.text_field :first_name, "First Name", required: true %>
+        </div>
+        <div>
+          <%= form.text_field :last_name, "Last Name", required: true %>
         </div>
         <div>
           <%= form.text_field :email, "Email", required: true %>

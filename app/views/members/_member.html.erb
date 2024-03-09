@@ -1,8 +1,8 @@
 <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
   <th scope="row" class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-    <div class="flex items-center hover:underline">
-      <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/avatar-10.png" alt="iMac Front Image" class="w-auto h-8 mr-3 rounded-full">
-      <a href="<%= member_path(member)%>">
+    <div class="flex items-center">
+      <%= display_small_avatar(member) %>
+      <a href="<%= member_path(member)%>" class="ml-2  hover:underline">
         <%= member.name %>
       </a>
     </div>

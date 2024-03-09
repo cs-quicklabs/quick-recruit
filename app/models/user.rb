@@ -15,6 +15,8 @@ class User < ApplicationRecord
   validate :avatar_content_type
   validate :avatar_size
 
+  default_scope { order(created_at: :desc) }
+
   def avatar_size
     if avatar.attached? && avatar.blob.byte_size > 1.megabytes
       errors.add(:avatar, "size should not be more than 1MB")

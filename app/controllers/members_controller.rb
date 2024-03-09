@@ -3,7 +3,8 @@ class MembersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
 
   def index
-    @members = User.all
+    @members = User.with_attached_avatar.all
+    fresh_when @members
   end
 
   def show

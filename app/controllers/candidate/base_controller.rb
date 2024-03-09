@@ -15,7 +15,7 @@ class Candidate::BaseController < ApplicationController
 
   def destroy
   end
-  
+
   private
 
   def set_candidate

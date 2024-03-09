@@ -18,13 +18,13 @@
           <a href="<%= candidate_notes_path(@candidate)%>" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Notes</a>
         </li>
         <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
-          <a href="/candidates/1/emails" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Emails</a>
+          <a href="<%= candidate_emails_path(@candidate)%>" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Emails</a>
         </li>
         <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
-          <a href="/candidates/1/reviews" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Reviews</a>
+          <a href="<%= candidate_reviews_path(@candidate)%>" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Reviews</a>
         </li>
         <li class="block lg:inline">
-          <a href="/candidates/1/campaigns" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Campaigns</a>
+          <a href="<%= candidate_campaigns_path(@candidate)%>" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Campaigns</a>
         </li>
       </ul>
     </div>

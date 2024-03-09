@@ -61,6 +61,10 @@ Rails.application.routes.draw do
     delete "/avatar", to: "user#destroy_avatar", as: "destroy_avatar"
   end
 
+  scope "/search" do
+    get "/candidates", to: "search#candidates"
+  end
+
   resources :interviews
   resources :reports
   resources :openings

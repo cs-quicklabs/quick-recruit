@@ -16,24 +16,8 @@
     <div class="flex-1">
       <!-- Main area -->
       <%= render partial: 'candidate/nav' %>
-      <form class="p-4">
-        <div class="w-full mb-4 border border-gray-200 rounded-sm bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
-          <div class="px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800">
-            <label for="comment" class="sr-only">Your comment</label>
-            <textarea id="comment" rows="4" class="w-full px-0 text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400" placeholder="Add a new note..." required></textarea>
-          </div>
-          <div class="flex items-right justify-end px-3 py-2 border-t dark:border-gray-600">
-            <button type="submit" class="btn-primary">
-              Add Note
-            </button>
-          </div>
-        </div>
-      </form>
-      <div class="px-4 py-6 sm:px-6">
-        <ul role="list" class="space-y-8">
-          <%= render partial: "note", collection: @notes, as: :note%>
-        </ul>
-      </div>
+      <%= render partial: "candidate/notes/form", locals: { note: @note } %>
+      <%= render partial: "candidate/notes/notes", locals: { notes: @notes } %>
     </div>
     <div class="shrink-0 border-t border-gray-200 px-4 py-6 sm:px-6 lg:w-80 lg:border-l lg:border-t-0 lg:pr-8 xl:pr-6">
       <!-- Right column area -->

@@ -1,20 +1,22 @@
-<li>
-  <div class="flex space-x-3">
-    <div class="flex-shrink-0">
-      <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
+<%= turbo_frame_tag dom_id(note) do %>
+  <li class="py-4">
+    <div class="flex space-x-3">
+      <div class="flex-shrink-0">
+        <%= display_medium_avatar(note.user) %>
+      </div>
+      <div>
+        <div class="text-sm">
+          <a href="#" class="font-medium text-gray-900"><%= note.user.name %></a>
+        </div>
+        <div class="mt-1 text-sm text-gray-700">
+          <p class="whitespace-pre-wrap"><%= auto_link_urls_in_text(note.body) %></p>
+        </div>
+        <div class="mt-2 space-x-2 text-sm">
+          <span class="font-medium text-gray-500"><%= display_created_at(note) %></span>
+          <%= edit_button(edit_candidate_note_path(@candidate, note)) %>
+          <%= delete_button(candidate_note_path(@candidate, note)) %>
+        </div>
+      </div>
     </div>
-    <div>
-      <div class="text-sm">
-        <a href="#" class="font-medium text-gray-900"><%= note.user.name %></a>
-      </div>
-      <div class="mt-1 text-sm text-gray-700">
-        <p><%= note.body %></p>
-      </div>
-      <div class="mt-2 space-x-2 text-sm">
-        <span class="font-medium text-gray-500">4d ago</span>
-        <span class="font-medium text-gray-500">&middot;</span>
-        <button type="button" class="font-medium text-gray-900">Reply</button>
-      </div>
-    </div>
-  </div>
-</li>
+  </li>
+<% end %>

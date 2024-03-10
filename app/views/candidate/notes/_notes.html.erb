@@ -1,0 +1,14 @@
+<div class="grid grid-cols-1 gap-4 lg:col-span-2" id="candidate_notes" data-controller="infinite-scroll">
+  <section aria-labelledby="notes_section">
+    <div class="overflow-hidden bg-white" >
+      <div class="p-4">
+        <ul class="space-y-6" id="notes" data-infinite-scroll-target="entries">
+          <%= render partial: "note", collection: @notes, as: :note, cached: true %>
+        </ul>
+      </div>
+    </div>
+    <div class="flex justify-end invisible mt-2 mb-6 mr-2" data-infinite-scroll-target="pagination">
+      <%== render partial: "shared/paginator", locals: { pagy: @pagy } %>
+    </div>
+  </section>
+</div>

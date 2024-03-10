@@ -1,0 +1,13 @@
+<%= form_with(model: note, id: dom_id(note), url: candidate_notes_path(@candidate)) do |form| %>
+  <div class="p-4">
+    <%= render "shared/form_messages", resource: note, message: local_assigns[:message] %>
+    <div class="w-full mb-4 border border-gray-200 rounded-sm bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
+      <div class="px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800">
+        <textarea id="note_body" name="note[body]" rows="4" class="w-full px-0 text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400" placeholder="Add a new note..." required></textarea>
+      </div>
+      <div class="flex items-right justify-end px-3 py-2 border-t dark:border-gray-600">
+      <%= form.submit "Add Note", class: "btn-blue" %>
+      </div>
+    </div>
+  </div>
+<% end %>

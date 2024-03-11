@@ -10,6 +10,7 @@ class CandidatesController < ApplicationController
     @icebox_count = Candidate.where(bucket: :icebox).count
     @archive_count = Candidate.where(bucket: :archive).count
     @incomplete_count = Candidate.where(bucket: :incomplete).count
+    @candidates_count = Candidate.count
   end
 
   def show

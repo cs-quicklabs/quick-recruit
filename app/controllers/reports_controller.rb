@@ -1,2 +1,2 @@
-class ReportsController < ApplicationController
+class ReportsController < BaseController
 end

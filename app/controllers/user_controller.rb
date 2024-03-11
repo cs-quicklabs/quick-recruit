@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UserController < BaseController
   include ActiveStorage::SetCurrent
   before_action :set_user
 

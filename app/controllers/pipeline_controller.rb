@@ -1,2 +1,2 @@
-class PipelineController < ApplicationController
+class PipelineController < BaseController
 end

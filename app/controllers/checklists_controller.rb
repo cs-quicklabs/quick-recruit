@@ -1,3 +1,3 @@
-class ChecklistsController < ApplicationController
+class ChecklistsController < BaseController
     
 end

@@ -1,4 +1,6 @@
 class BaseController < ApplicationController
+  before_action :authenticate_user!
+
   include Pagy::Backend
 
   LIMIT = 30

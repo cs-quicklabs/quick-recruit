@@ -1,4 +1,4 @@
-class OpeningsController < ApplicationController
+class OpeningsController < BaseController
   def index
     @openings = Opening.all
   end

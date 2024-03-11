@@ -1,6 +1,4 @@
-class InterviewsController < ApplicationController
-  before_action :authenticate_user!
-
+class InterviewsController < BaseController
   def index
   end
 end

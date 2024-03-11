@@ -1,4 +1,4 @@
-class SearchController < ApplicationController
+class SearchController < BaseController
   def candidates
     query = "%#{params[:q]}%".split(/\s+/)
     @candidates = candidates_matching_query(query)

@@ -1,4 +1,4 @@
-class CandidatesController < ApplicationController
+class CandidatesController < BaseController
   before_action :set_candidate, only: [:show, :edit, :update, :destroy]
 
   def index

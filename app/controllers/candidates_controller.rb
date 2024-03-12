@@ -62,38 +62,58 @@ class CandidatesController < BaseController
   end
 
   def recent
-    @candidates = Candidate.where(bucket: :recent)
+    @candidates = candidates_for_bucket(:recent)
+
+    fresh_when @candidates
   end
 
   def hot
-    @candidates = Candidate.where(bucket: :hot)
+    @candidates = candidates_for_bucket(:hot)
+
+    fresh_when @candidates
   end
 
   def pipeline
-    @candidates = Candidate.where(bucket: :pipeline)
+    @candidates = candidates_for_bucket(:pipeline)
+
+    fresh_when @candidates
   end
 
   def champions
-    @candidates = Candidate.where(bucket: :champions)
+    @candidates = candidates_for_bucket(:champions)
+
+    fresh_when @candidates
   end
 
   def joinings
-    @candidates = Candidate.where(bucket: :joinings)
+    @candidates = candidates_for_bucket(:joinings)
+
+    fresh_when @candidates
   end
 
   def icebox
-    @candidates = Candidate.where(bucket: :icebox)
+    @candidates = candidates_for_bucket(:icebox)
+
+    fresh_when @candidates
   end
 
   def archive
-    @candidates = Candidate.where(bucket: :archive)
+    @candidates = candidates_for_bucket(:archive)
+
+    fresh_when @candidates
   end
 
   def incomplete
-    @candidates = Candidate.where(bucket: :incomplete)
+    @candidates = candidates_for_bucket(:incomplete)
+
+    fresh_when @candidates
   end
 
   private
+
+  def candidates_for_bucket(bucket)
+    Candidate.where(bucket: bucket).includes(:opening, :role, :user).order(bucket_updated_on: :desc)
+  end
 
   def candidate_params
     params.require(:candidate).permit(:first_name, :last_name, :email, :phone, :location, :biography, :facebook, :role_id, :source_id, :opening_id, :linkedin, :github, :twitter, :portfolio, :website, :current_ctc, :expected_ctc, :current_company, :current_title, :notice_period, :experience, :birth_year, :highest_qualification, :bucket, :resume, :note)

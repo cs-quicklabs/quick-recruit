@@ -1,6 +1,8 @@
 class OpeningsController < BaseController
   def index
     @openings = Opening.all
+
+    fresh_when @openings
   end
 
   def create

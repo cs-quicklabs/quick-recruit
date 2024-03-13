@@ -71,4 +71,7 @@ Rails.application.routes.draw do
   resources :buckets
   resources :pipeline
   resources :checklists
+
+  get :events, controller: :dashboard
+
 end

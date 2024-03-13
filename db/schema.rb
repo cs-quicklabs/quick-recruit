@@ -70,7 +70,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_11_151519) do
     t.bigint "source_id"
     t.bigint "opening_id"
     t.bigint "user_id", default: 1, null: false
-    t.datetime "bucket_updated_on", default: "2024-03-11 15:17:01"
+    t.datetime "bucket_updated_on", default: "2024-03-12 17:10:12"
     t.index ["email"], name: "unique_emails", unique: true
     t.index ["opening_id"], name: "index_candidates_on_opening_id"
     t.index ["role_id"], name: "index_candidates_on_role_id"

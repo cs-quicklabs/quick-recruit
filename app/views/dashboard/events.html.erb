@@ -1,0 +1,18 @@
+<turbo-frame id="events">
+      <div class="px-0 lg:px-6 py-6">
+        <ol class="relative border-s border-gray-200 dark:border-gray-700">
+    <% @events.each do |event| %>
+      <% if lookup_context.template_exists?(event.action, "dashboard", true) %>
+        <% cache [event, event.user] do %>
+          <%= render partial: event.action, locals: { event: event } %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </ol>
+  </div>
+  <% if @events.size > 0 %>
+    <p class="pr-4 mt-2 text-sm text-right text-gray-500">Showing <%= 50.to_s %> recently created events only.</p>
+  <% else %>
+    <p class="pr-4 mt-2 text-sm text-right text-gray-500">No record found.</p>
+  <% end %>
+</turbo-frame>

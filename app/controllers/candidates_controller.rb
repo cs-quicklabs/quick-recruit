@@ -112,7 +112,7 @@ class CandidatesController < BaseController
   private
 
   def candidates_for_bucket(bucket)
-    Candidate.where(bucket: bucket).includes(:opening, :role, :user).order(bucket_updated_on: :desc)
+    Candidate.unscoped.where(bucket: bucket).includes(:opening, :role, :user).order(bucket_updated_on: :desc)
   end
 
   def candidate_params

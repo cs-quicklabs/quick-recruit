@@ -1,4 +1,4 @@
-<div class="border-b bg-gray-50 border-gray-200 py-4 lg:pl-8 w-full xl:shrink-0 xl:border-b-0 xl:border-r xl:pl-6">
+<div class="border-b bg-gray-50 border-gray-200 py-4 lg:pl-8 w-full lg:shrink-0 lg:border-b-0 border-r xl:pl-6">
   <!-- Left column area -->
   <!-- drawer component -->
   <div id="readUserDrawerAdvanced" class="pr-4 overflow-y-auto h-screen bg-gray-50  dark:bg-gray-800">
@@ -53,7 +53,6 @@
       <%= render partial: "candidate/profession", locals: {candidate: candidate}%>
       <%= render partial: "candidate/social", locals: {candidate: candidate }%>
       <%= render partial: "candidate/bucket", locals: {candidate: candidate }%>
-
       <% unless candidate.opening.blank? %>
         <dt class="mb-2 mt-5 font-semibold text-sm leading-none text-gray-900 dark:text-white">Associated with Job Opening</dt>
         <dd class="mb-4 sm:mb-5 ">

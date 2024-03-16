@@ -1,3 +1,2 @@
 class ChecklistsController < BaseController
-    
 end

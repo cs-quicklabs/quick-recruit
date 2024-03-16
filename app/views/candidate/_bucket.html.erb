@@ -1,4 +1,4 @@
-<div id="<%= dom_id(candidate)%>" data-controller="bucket">
+<div id="<%= dom_id(candidate) %>" data-controller="bucket">
   <div class="flex items-center">
     <dt class="font-semibold text-sm leading-none text-gray-900 dark:text-white">Bucket</dt>
     <div id="dropdownDefaultButton"  data-tooltip-target="tooltip-bucket" data-dropdown-toggle="dropdownDefaultRadio" class="cursor-pointer p-1 ml-1 text-gray-500 rounded-sm hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
@@ -19,7 +19,7 @@
   <!-- Dropdown menu -->
   <div id="dropdownDefaultRadio"  data-bucket-target="menu" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-40 dark:bg-gray-700 dark:divide-gray-600">
     <ul class="p-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton" >
-      <% Candidate.buckets.each do |k,v |%>
+      <% Candidate.buckets.each do |k, v| %>
         <li class="cursor-pointer" data-action="click->bucket#change" data-bucket-bucket-param="<%= v %>" data-bucket-candidate-param="<%= candidate.id %>">
           <div class="flex p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-600 ">
             <div class="flex items-center h-4 mr-2">

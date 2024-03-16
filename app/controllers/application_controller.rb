@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
-
   etag {
     ENV["RENDER_GIT_COMMIT"]
   }
+
   private
 
   def authenticate_user!

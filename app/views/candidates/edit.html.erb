@@ -65,7 +65,7 @@
               <div class="tooltip-arrow" data-popper-arrow></div>
             </div>
           </label>
-          <%= form.collection_select(:role_id, @roles, :id, :title, { :prompt => "Select Primary Skill" }, :class => "form-text-field", :required => true )%>
+          <%= form.collection_select(:role_id, @roles, :id, :title, { :prompt => "Select Primary Skill" }, :class => "form-text-field", :required => true) %>
         </div>
       </div>
       <h2 class="mb-4 mt-8 text-xl font-semibold leading-none text-gray-900 dark:text-white">Social Information</h2>
@@ -111,7 +111,7 @@
               <div class="tooltip-arrow" data-popper-arrow></div>
             </div>
           </label>
-          <%= select_tag :bucket, options_for_select(Candidate.buckets.map {|k, v| [k.humanize.capitalize, k]}, @candidate.bucket), class: "form-text-field", :name => "candidate[bucket]", :selected => @candidate.bucket %>        </div>
+          <%= select_tag :bucket, options_for_select(Candidate.buckets.map { |k, v| [k.humanize.capitalize, k] }, @candidate.bucket), class: "form-text-field", :name => "candidate[bucket]", :selected => @candidate.bucket %>        </div>
         <div class="sm:col-span-2">
           <label for="user-role" class="inline-flex items-center mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Associate with Job Opening
@@ -130,7 +130,7 @@
       <button type="submit" class="btn-primary">
         Edit Candidate
       </button>
-      <%= link_to 'Cancel', candidate_timeline_path(@candidate), class: "btn-secondary" %>
+      <%= link_to "Cancel", candidate_timeline_path(@candidate), class: "btn-secondary" %>
     <% end %>
   </div>
 </section>

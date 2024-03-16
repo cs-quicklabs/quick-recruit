@@ -50,14 +50,13 @@ gem "image_processing", "~> 1.2"
 # Database-backed Active Job backend [https://github.com/basecamp/solid_queue]
 gem "solid_queue"
 
-
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
 end
 
 gem "aws-sdk-s3", "~> 1.120"
-gem 'requestjs-rails'
+gem "requestjs-rails"
 gem "rails-patterns"
 gem "pagy"
 

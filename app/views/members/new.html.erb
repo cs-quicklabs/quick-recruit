@@ -25,10 +25,10 @@
               <div class="tooltip-arrow" data-popper-arrow></div>
             </div>
           </label>
-          <%= select_tag :bucket, options_for_select(User.roles.map {|k, v| [k.humanize.capitalize, k]}), class: "form-text-field", :name => "user[role]" %>
+          <%= select_tag :bucket, options_for_select(User.roles.map { |k, v| [k.humanize.capitalize, k] }), class: "form-text-field", :name => "user[role]" %>
         </div>
         <div>
-          <%= form.password_field :password, "New Password",required: true %>
+          <%= form.password_field :password, "New Password", required: true %>
         </div>
         <div>
           <%= form.password_field :password_confirmation, "Confirm New Password", required: true %>
@@ -37,7 +37,7 @@
       <button type="submit" class="btn-primary mt-4">
         Add user
       </button>
-      <%= link_to 'Cancel', :back, class: "btn-secondary" %>
+      <%= link_to "Cancel", :back, class: "btn-secondary" %>
     <% end %>
   </div>
 </section>

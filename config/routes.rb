@@ -73,5 +73,4 @@ Rails.application.routes.draw do
   resources :checklists
 
   get :events, controller: :dashboard
-
 end

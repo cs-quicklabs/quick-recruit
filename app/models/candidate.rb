@@ -7,6 +7,7 @@ class Candidate < ApplicationRecord
 
   has_many :notes, as: :notable, dependent: :destroy
   has_many :events, as: :eventable, dependent: :destroy
+  has_many :emails, dependent: :destroy
 
   validates :email, uniqueness: true
 

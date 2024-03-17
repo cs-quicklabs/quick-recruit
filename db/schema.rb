@@ -79,11 +79,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_17_022634) do
   end
 
   create_table "emails", force: :cascade do |t|
+    t.bigint "candidate_id", null: false
     t.bigint "user_id", null: false
     t.integer "status", default: 0, null: false
     t.integer "kind", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["candidate_id"], name: "index_emails_on_candidate_id"
     t.index ["user_id"], name: "index_emails_on_user_id"
   end
 
@@ -255,6 +257,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_17_022634) do
   add_foreign_key "candidates", "roles"
   add_foreign_key "candidates", "sources"
   add_foreign_key "candidates", "users"
+  add_foreign_key "emails", "candidates"
   add_foreign_key "emails", "users"
   add_foreign_key "notes", "users"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade

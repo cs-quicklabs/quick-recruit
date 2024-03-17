@@ -37,26 +37,8 @@
               </th>
             </tr>
           </thead>
-          <tbody>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-              <th scope="row" class="flex items-center px-4 py-2 text-gray-900 whitespace-nowrap dark:text-white">
-                <div class="">
-                  <div class="text-sm font-semibold">Rejection Email</div>
-                </div>
-              </th>
-              <td class="px-4 py-2">
-                Aashish Dhawan
-              </td>
-              <td class="px-4 py-2">
-                Jun 22, 2024 10:00 AM
-              </td>
-              <td class="px-4 py-2">
-                <div class="flex items-center">
-                  <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>
-                  Read
-                </div>
-              </td>
-            </tr>
+          <tbody id="emails" class="divide-y divide-gray-200">
+            <%= render @emails %>
           </tbody>
         </table>
       </div>
@@ -66,7 +48,7 @@
       <div>
         <h5 class="mr-3 font-semibold dark:text-white">Send Email</h5>
         <p class="text-gray-500 dark:text-gray-400 text-sm">Select which email you want to send to the candidate.</p>
-        <%= button_to "Rejection Email", candidate_emails_path(@candidate, email: 0), class: "font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm" %>
+        <%= button_to "Rejection Email", candidate_emails_path(@candidate, kind: "rejection_email"), class: "font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm" %>
       </div>
     </div>
   </div>

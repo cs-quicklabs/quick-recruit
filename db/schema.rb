@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_16_025447) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_17_022634) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -76,6 +76,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_16_025447) do
     t.index ["role_id"], name: "index_candidates_on_role_id"
     t.index ["source_id"], name: "index_candidates_on_source_id"
     t.index ["user_id"], name: "index_candidates_on_user_id"
+  end
+
+  create_table "emails", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "status", default: 0, null: false
+    t.integer "kind", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_emails_on_user_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -246,6 +255,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_16_025447) do
   add_foreign_key "candidates", "roles"
   add_foreign_key "candidates", "sources"
   add_foreign_key "candidates", "users"
+  add_foreign_key "emails", "users"
   add_foreign_key "notes", "users"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_claimed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade

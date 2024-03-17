@@ -24,6 +24,7 @@ class SendEmail < Patterns::Service
   end
 
   def send_email
+    CandidateMailer.with(candidate: candidate).rejection_email.deliver_later
   end
 
   def add_event

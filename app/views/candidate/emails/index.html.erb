@@ -48,7 +48,11 @@
       <div>
         <h5 class="mr-3 font-semibold dark:text-white">Send Email</h5>
         <p class="text-gray-500 dark:text-gray-400 text-sm">Select which email you want to send to the candidate.</p>
-        <%= button_to "Rejection Email", candidate_emails_path(@candidate, kind: "rejection_email"), class: "font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm" %>
+        <%= button_to "Rejection Email", candidate_emails_path(@candidate, kind: "rejection_email"), class: "font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm", data: {
+                                 controller: "confirmation",
+                                 "confirmation-message-value": "Are you sure you want to send rejection email to this candidate?",
+                                 action: "confirmation#confirm",
+                               } %>
       </div>
     </div>
   </div>

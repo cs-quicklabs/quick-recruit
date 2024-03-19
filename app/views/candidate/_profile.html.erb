@@ -48,7 +48,14 @@
     <dl>
       <% unless candidate.biography.blank? %>
         <dt class="mb-2 text-sm font-medium leading-none text-gray-900 dark:text-white">Biography</dt>
-        <dd class="mb-4 font-light text-gray-900 text-sm sm:mb-5 dark:text-gray-400"><%= candidate.biography.empty? ? "-" : candidate.biography %></dd>
+        <dd class="mb-4 font-light text-gray-900 text-sm sm:mb-5 dark:text-gray-400">
+          <div data-controller="read-more" data-read-more-more-text-value="Read more ↓" data-read-more-less-text-value="Read less ↑">
+            <p class="line-clamp" data-read-more-target="content">
+              <%= candidate.biography %>
+            </p>
+            <button data-action="read-more#toggle" class="text-blue-600">Read more ↓</button>
+          </div>
+        </dd>
       <% end %>
       <%= render partial: "candidate/profession", locals: { candidate: candidate } %>
       <%= render partial: "candidate/social", locals: { candidate: candidate } %>

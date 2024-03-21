@@ -23,11 +23,11 @@
               <th scope="col" class="px-4 py-3">Primary Skill</th>
               <th scope="col" class="px-4 py-3">Job Association</th>
               <th scope="col" class="px-4 py-3 whitespace-nowrap">Added By</th>
-              <th scope="col" class="px-4 py-3 whitespace-nowrap">Added On</th>
+              <th scope="col" class="px-4 py-3 whitespace-nowrap">Archived On</th>
             </tr>
           </thead>
           <tbody>
-            <%= render partial: "recent", collection: @candidates, as: :candidate %>
+            <%= render partial: "archive", collection: @candidates, as: :candidate %>
           </tbody>
         </table>
       </div>

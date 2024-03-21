@@ -11,7 +11,7 @@
         <span class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-yellow-300 border border-yellow-300">
           <%= event.trackable.kind.humanize.titleize %></span>
       <% end %>
-      to <a href="<%= candidate_notes_path(event.eventable) %>" class="font-medium text-gray-900 hover:underline"> to <%= event.eventable.name %></a>
+      to <a href="<%= candidate_notes_path(event.eventable) %>" class="font-medium text-gray-900 hover:underline"><%= event.eventable.name %></a>
     </div>
   </div>
 </li>

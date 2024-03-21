@@ -62,49 +62,49 @@ class CandidatesController < BaseController
   end
 
   def recent
-    @candidates = candidates_for_bucket(:recent)
+    @pagy, @candidates = pagy(candidates_for_bucket(:recent), items: LIMIT)
 
     fresh_when @candidates
   end
 
   def hot
-    @candidates = candidates_for_bucket(:hot)
+    @pagy, @candidates = pagy(candidates_for_bucket(:hot), items: LIMIT)
 
     fresh_when @candidates
   end
 
   def pipeline
-    @candidates = candidates_for_bucket(:pipeline)
+    @pagy, @candidates = pagy(candidates_for_bucket(:pipeline), items: LIMIT)
 
     fresh_when @candidates
   end
 
   def champions
-    @candidates = candidates_for_bucket(:champions)
+    @pagy, @candidates = pagy(candidates_for_bucket(:champions), items: LIMIT)
 
     fresh_when @candidates
   end
 
   def joinings
-    @candidates = candidates_for_bucket(:joinings)
+    @pagy, @candidates = pagy(candidates_for_bucket(:joinings), items: LIMIT)
 
     fresh_when @candidates
   end
 
   def icebox
-    @candidates = candidates_for_bucket(:icebox)
+    @pagy, @candidates = pagy(candidates_for_bucket(:icebox), items: LIMIT)
 
     fresh_when @candidates
   end
 
   def archive
-    @candidates = candidates_for_bucket(:archive)
+    @pagy, @candidates = pagy(candidates_for_bucket(:archive), items: LIMIT)
 
     fresh_when @candidates
   end
 
   def incomplete
-    @candidates = candidates_for_bucket(:incomplete)
+    @pagy, @candidates = pagy(candidates_for_bucket(:incomplete), items: LIMIT)
 
     fresh_when @candidates
   end

@@ -1,5 +1,6 @@
 class Candidate::CandidateController < Candidate::BaseController
   def update_bucket
+    authorize @candidate
     candidate = UpdateBucket.call(@candidate, params[:bucket], current_user).result
 
     respond_to do |format|

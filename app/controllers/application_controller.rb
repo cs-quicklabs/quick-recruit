@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include Pundit::Authorization
+
   etag {
     ENV["RENDER_GIT_COMMIT"]
   }

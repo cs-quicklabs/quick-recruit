@@ -1,6 +1,6 @@
 class Candidate::TimelineController < Candidate::BaseController
   def index
-    @events = Event.where(eventable: @candidate).order(created_at: :desc).limit(50)
+    @events = Event.includes(:eventable, :trackable, :user => { avatar_attachment: :blob }).where(eventable: @candidate).order(created_at: :desc).limit(50)
   end
 
   def show

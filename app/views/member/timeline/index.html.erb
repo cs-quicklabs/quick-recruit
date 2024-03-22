@@ -18,10 +18,11 @@
       <%= render partial: "member/nav", locals: { member: @member } %>
       <div class="px-0 lg:px-6 py-6">
         <ol class="relative border-s border-gray-200 dark:border-gray-700">
-          <% @events.each do |event| %>
-            <%= render partial: "member/timeline/activity", locals: { event: event } %>
+          <% unless @events.nil? %>
+            <% @events.each do |event| %>
+              <%= render partial: "member/timeline/activity", locals: { event: event } %>
+            <% end %>
           <% end %>
-         
         </ol>
       </div>
     </div>

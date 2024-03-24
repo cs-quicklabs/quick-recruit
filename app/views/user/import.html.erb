@@ -1,0 +1,4 @@
+<%= form_tag import_csv_path, method: :post, multipart: true do %>
+  <%= file_field_tag :file, accept: ".csv" %>
+  <%= submit_tag '⚙️ Import' %>
+<% end %>

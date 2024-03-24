@@ -12,11 +12,13 @@ class Candidate::ResumeController < Candidate::BaseController
 
   def create
     @candidate.update(candidate_params)
-    redirect_to candidate_timeline_path(@candidate), notice: "Resume was uploaded successfully"
+    Event.new(eventable: @candidate, action: "upload_resume", action_for_context: "uploaded resume", trackable: @candidate, user: current_user).save
+    redirect_to candidate_timeline_path(@candidate), notice: "Resume was uploaded successfully", status: :see_other
   end
 
   def destroy
     @candidate.resume.purge
+    Event.new(eventable: @candidate, action: "delete_resume", action_for_context: "deleted resume", trackable: @candidate, user: current_user).save
     redirect_to candidate_timeline_path(@candidate), alert: "Resume was deleted successfully", status: :see_other
   end
 

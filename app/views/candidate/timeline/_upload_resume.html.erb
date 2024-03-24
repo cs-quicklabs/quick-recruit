@@ -1,0 +1,10 @@
+<li class="mb-4 ms-6">
+  <span class="absolute flex items-center justify-center w-7 h-7 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+    <%= display_xsmall_avatar(event.user) %>
+  </span>
+  <div class="items-center justify-between p-1  sm:flex dark:bg-gray-700 dark:border-gray-600">
+    <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0"><%= display_created_at_with_time(event) %></time>
+    <div class="text-sm font-normal text-gray-500 dark:text-gray-300"><a href="<%= member_timeline_path(event.user) %>" class="font-medium text-gray-900 hover:underline"><%= event.user.name %></a> uploaded a new resume for <a href="<%= candidate_timeline_path(event.eventable) %>" class="font-medium text-gray-900 hover:underline"><%= event.eventable.name %></a>
+    </div>
+  </div>
+</li>

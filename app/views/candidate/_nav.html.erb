@@ -6,7 +6,7 @@
           <a href="<%= candidate_timeline_path(@candidate) %>" class="<%= current_page?(candidate_timeline_path(@candidate)) ? "selected-tab" : "unselected-tab" %>">Timeline</a>
         </li>
         <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
-          <a href="<%= candidate_resume_path(@candidate) %>" class="<%= current_page?(candidate_resume_path(@candidate)) ? "selected-tab" : "unselected-tab" %>">Resume</a>
+          <a href="<%= candidate_resume_index_path(@candidate) %>" class="<%= current_page?(candidate_resume_index_path(@candidate)) ? "selected-tab" : "unselected-tab" %>">Resume</a>
         </li>
         <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
           <a href="<%= candidate_interviews_path(@candidate) %>" class="<%= current_page?(candidate_interviews_path(@candidate)) ? "selected-tab" : "unselected-tab" %>">Interviews</a>

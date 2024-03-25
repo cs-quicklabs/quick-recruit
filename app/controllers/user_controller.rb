@@ -58,7 +58,7 @@ class UserController < BaseController
     #ImportNotes.new.call(params[:file])
     #ImportAssociations.new.call(params[:file])
     #ImportJobs.new.call(params[:file])
-    ImportResumes.new.call(params[:file])
+    #ImportResumes.new.call(params[:file])
 
     redirect_to request.referer, notice: "Import started..."
   end

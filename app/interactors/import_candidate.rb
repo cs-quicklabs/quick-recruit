@@ -5,7 +5,6 @@ class ImportCandidate
     opened_file = File.open(file)
     options = { headers: true, col_sep: "," }
     CSV.foreach(opened_file, **options) do |row|
-      puts row.to_hash
       candidate = Candidate.find_by_email(row["Email"])
       if candidate.nil?
         first_name = row["First Name"].nil? ? "." : row["First Name"]

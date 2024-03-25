@@ -55,8 +55,8 @@ class UserController < BaseController
     return redirect_to request.referer, notice: "Only CSV files allowed" unless params[:file].content_type == "text/csv"
 
     #ImportCandidate.new.call(params[:file])
-    ImportNotes.new.call(params[:file])
-    #ImportAssociations.new.call(params[:file])
+    #ImportNotes.new.call(params[:file])
+    ImportAssociations.new.call(params[:file])
     #ImportJobs.new.call(params[:file])
     #ImportResumes.new.call(params[:file])
 

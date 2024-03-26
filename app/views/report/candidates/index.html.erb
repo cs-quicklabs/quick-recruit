@@ -1,0 +1,41 @@
+<div class="relative z-0 flex-1 overflow-y-auto focus:outline-none">
+  <!-- Page title & actions -->
+  <div class="px-4 py-2 border-b border-gray-200 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-6">
+    <div class="flex flex-wrap items-baseline">
+      <h1 class="mr-3 text-lg font-semibold dark:text-white">
+        Candidates
+      </h1>
+    </div>
+  </div>
+</div>
+<div class="flex w-full overflow-hidden bg-white">
+  <div class="flex w-full">
+    <%= render partial: "form" %>
+    <% if @candidates.size > 0 %>
+      <div class="w-full overflow-hidden" data-controller="infinite-scroll">
+        <!-- This example requires Tailwind CSS v2.0+ -->
+        <%= render partial: "stats", locals: { stats: @stats } %>
+        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+              <th scope="col" class="px-4 py-3">Name</th>
+              <th scope="col" class="px-4 py-3">Email</th>
+              <th scope="col" class="px-4 py-3">Primary Skill</th>
+              <th scope="col" class="px-4 py-3">Job Association</th>
+              <th scope="col" class="px-4 py-3 whitespace-nowrap">Added By</th>
+              <th scope="col" class="px-4 py-3 whitespace-nowrap">Added On</th>
+            </tr>
+          </thead>
+          <tbody class="table-body" data-infinite-scroll-target="entries">
+            <%= render partial: "candidate", collection: @candidates, as: :candidate, cached: true %>
+          </tbody>
+        </table>
+        <div class="flex justify-end invisible mt-2 mb-6 mr-2" data-infinite-scroll-target="pagination">
+          <%== render partial: "shared/paginator", locals: { pagy: @pagy } %>
+        </div>
+      </div>
+    <% else %>
+      <%= render partial: "shared/no_result_found", cached: true %>
+    <% end %>
+  </div>
+</div>

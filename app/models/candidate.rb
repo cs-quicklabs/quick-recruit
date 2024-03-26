@@ -26,4 +26,9 @@ class Candidate < ApplicationRecord
       (Date.today.year - birth_year).to_formatted_s + " years"
     end
   end
+
+  def self.query(params, includes = nil)
+    return [] if params.empty?
+    CandidateQuery.new(self.unscoped.includes(:role, :opening, :user), params).filter
+  end
 end

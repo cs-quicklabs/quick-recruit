@@ -75,4 +75,8 @@ Rails.application.routes.draw do
   resources :checklists
 
   get :events, controller: :dashboard
+
+  scope "report" do
+    get "/candidates", to: "report/candidates#index", as: "report_candidates"
+  end
 end

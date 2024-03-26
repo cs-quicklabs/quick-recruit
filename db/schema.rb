@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_25_051053) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_26_044103) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -73,8 +73,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_051053) do
     t.datetime "bucket_updated_on", default: "2024-03-11 15:25:45"
     t.string "zoho_id"
     t.string "zoho_job_id"
+    t.bigint "owner_id"
     t.index ["email"], name: "unique_emails", unique: true
     t.index ["opening_id"], name: "index_candidates_on_opening_id"
+    t.index ["owner_id"], name: "index_candidates_on_owner_id"
     t.index ["role_id"], name: "index_candidates_on_role_id"
     t.index ["source_id"], name: "index_candidates_on_source_id"
     t.index ["user_id"], name: "index_candidates_on_user_id"
@@ -260,6 +262,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_25_051053) do
   add_foreign_key "candidates", "roles"
   add_foreign_key "candidates", "sources"
   add_foreign_key "candidates", "users"
+  add_foreign_key "candidates", "users", column: "owner_id"
   add_foreign_key "emails", "candidates"
   add_foreign_key "emails", "users"
   add_foreign_key "notes", "users"

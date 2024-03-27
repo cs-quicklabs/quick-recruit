@@ -12,7 +12,13 @@
                 <label for="role" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Role
                 </label>
-                <%= form.collection_select(:role_id, @roles, :id, :title, { :prompt => "Select Primary Skill" }, :class => "form-text-field", :required => true) %>
+                <%= form.collection_select(:role_id, @roles.order(:title), :id, :title, { :prompt => "Select Primary Skill", :selected => (params["role_id"] if !params["role_id"].blank?) }, :class => "form-text-field") %>
+              </div>
+              <div>
+                <label for="role" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  Job Association 
+                </label>
+                <%= form.collection_select(:opening_id, @openings.order(:title), :id, :title, { :prompt => "Select Associated With", :selected => (params["opening_id"] if !params["opening_id"].blank?) }, :class => "form-text-field") %>
               </div>
               <div class="flex justify-end mt-6">
                 <%= link_to "Reset", report_candidates_path, class: "btn-secondary mr-2" %>

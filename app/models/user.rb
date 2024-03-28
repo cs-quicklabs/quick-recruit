@@ -17,6 +17,11 @@ class User < ApplicationRecord
 
   default_scope { order(first_name: :asc) }
 
+  scope :recruiters, -> { where(role: :recruiter) }
+  scope :admns, -> { where(role: :admin) }
+  scope :interviewers, -> { where(role: :interviewer) }
+  scope :data, -> { where(role: :data) }
+
   def avatar_size
     if avatar.attached? && avatar.blob.byte_size > 1.megabytes
       errors.add(:avatar, "size should not be more than 1MB")

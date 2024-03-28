@@ -1,6 +1,6 @@
 class Report::CandidatesController < Report::BaseController
   def index
-    entries = Candidate.query(candidates_filter_params)
+    entries = Candidate.query(candidates_filter_params).order(created_at: :desc)
     @stats = CandidatesStats.new(entries)
 
     @roles = Role.all

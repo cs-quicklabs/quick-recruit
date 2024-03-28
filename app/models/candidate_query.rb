@@ -11,7 +11,7 @@ class CandidateQuery
     filter_params.each do |filter, value|
       result = result.public_send(filter, value) if present?(value)
     end
-    result.order(first_name: :asc)
+    result
   end
 
   private

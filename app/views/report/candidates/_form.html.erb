@@ -20,6 +20,12 @@
                 </label>
                 <%= form.collection_select(:opening_id, @openings.order(:title), :id, :title, { :prompt => "Select Associated With", :selected => (params["opening_id"] if !params["opening_id"].blank?) }, :class => "form-text-field") %>
               </div>
+              <div>
+                <label for="role" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  Created By
+                </label>
+                <%= form.collection_select(:user_id, User.recruiters, :id, :name, { :prompt => "Select Created by ", :selected => (params["user_id"] if !params["user_id"].blank?) }, :class => "form-text-field") %>
+              </div>
               <div class="flex justify-end mt-6">
                 <%= link_to "Reset", report_candidates_path, class: "btn-secondary mr-2" %>
                 <%= form.submit "Search", class: "btn-primary" %>

@@ -9,6 +9,7 @@ class CandidatesFilter
     opening_id
     user_id
     owner_id
+    bucket
   ].freeze
 
   attr_accessor(*KEYS)

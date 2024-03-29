@@ -38,5 +38,9 @@ class CandidateQuery
     def user_id(param)
       where(user_id: param)
     end
+
+    def bucket(param)
+      where(bucket: param)
+    end
   end
 end

@@ -1,11 +1,34 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  email: MyString
-  password_digest: MyString
-  name: MyText
+admin:
+  email: admin@gmail.com
+  role: admin
+  name: Admin User
+  first_name: Admin
+  last_name: User
+  password_digest: <%= BCrypt::Password.create("password", cost: 4) %>
 
-two:
-  email: MyString
-  password_digest: MyString
-  name: MyText
+
+recruiter:
+  email: recruiter@gmail.com
+  role: recruiter
+  name: Recruiter User
+  first_name: Recruiter
+  last_name: User
+  password_digest: <%= BCrypt::Password.create("password", cost: 4) %>
+
+interviewer:
+  email: interviewer@gmail.com
+  role: interviewer
+  name: Interviewer User
+  first_name: Interviewer
+  last_name: User
+  password_digest: <%= BCrypt::Password.create("password", cost: 4) %>
+
+data:
+  email: data@gmail.com
+  role: data
+  name: Data User
+  first_name: Data
+  last_name: User
+  password_digest: <%= BCrypt::Password.create("password", cost: 4) %>

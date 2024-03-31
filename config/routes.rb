@@ -80,4 +80,9 @@ Rails.application.routes.draw do
   scope "report" do
     get "/candidates", to: "report/candidates#index", as: "report_candidates"
   end
+
+  scope "/public" do
+    get "/openings", to: "public/openings#index", as: "public_openings"
+    get "/openings/:id", to: "public/openings#show", as: "show_public_openings"
+  end
 end

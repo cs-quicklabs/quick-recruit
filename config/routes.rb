@@ -34,7 +34,8 @@ Rails.application.routes.draw do
       resources :campaigns
       resources :resume
       get "timeline", to: "timeline#index"
-      patch "/update", to: "candidate#update_bucket", as: "update_bucket"
+      patch "/update/bucket", to: "candidate#update_bucket", as: "update_bucket"
+      patch "/update/status", to: "candidate#update_status", as: "update_status"
     end
   end
 

@@ -4,6 +4,6 @@
   </span>
   <div class="items-center justify-between p-1  sm:flex dark:bg-gray-700 dark:border-gray-600">
     <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0"><%= display_created_at_with_time(event) %></time>
-    <div class="text-sm font-normal text-gray-500 dark:text-gray-300"><a href="<%= member_timeline_path(event.user) %>" class="font-medium text-gray-900 hover:underline"><%= event.user.name %></a> added a new candidate <a href="#" class="font-medium text-gray-900 hover:underline"><%= event.eventable.name %></a></div>
+    <div class="text-sm font-normal text-gray-500 dark:text-gray-300"><a href="<%= member_timeline_path(event.user) %>" class="font-medium text-gray-900 hover:underline"><%= event.user.name %></a> added the new candidate.</div>
   </div>
 </li>

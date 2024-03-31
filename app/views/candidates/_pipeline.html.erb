@@ -12,9 +12,6 @@
     </div>
   </th>
   <td class="px-4 py-2">
-    <%= candidate.email %>
-  </td>
-  <td class="px-4 py-2">
     <%= candidate.role.nil? ? "-" : candidate.role.title %>
   </td>
   <td class="px-4 py-2">
@@ -23,4 +20,7 @@
   <td class="px-4 py-2"><%= candidate.user.name %></td>
   <td class="px-4 py-2"><%= display_date(candidate.bucket_updated_on) %></td>
   <td class="px-4 py-2"><%= time_ago_in_words(candidate.bucket_updated_on) %></td>
+  <td class="px-4 py-2">
+    <span class="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800"><%= candidate.status.humanize.titleize %></span>
+  </td>
 </tr>

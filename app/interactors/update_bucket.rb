@@ -15,7 +15,7 @@ class UpdateBucket < Patterns::Service
   private
 
   def update_bucket
-    candidate.update(bucket: bucket, bucket_updated_on: Time.zone.now)
+    candidate.update(bucket: bucket, bucket_updated_on: DateTime.now)
   end
 
   def add_event

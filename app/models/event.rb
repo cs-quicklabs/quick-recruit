@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-  ACTIONS = ["add_candidate", "add_note", "update_bucket", "add_user", "send_email", "upload_resume", "delete_resume"].freeze
+  ACTIONS = ["add_candidate", "add_note", "update_bucket", "add_user", "send_email", "upload_resume", "delete_resume", "update_status"].freeze
 
   belongs_to :user
   belongs_to :eventable, polymorphic: true

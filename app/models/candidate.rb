@@ -12,6 +12,7 @@ class Candidate < ApplicationRecord
   validates :email, uniqueness: true
 
   enum bucket: { recent: 0, hot: 1, pipeline: 2, champions: 3, joinings: 4, icebox: 5, archive: 6, incomplete: 7 }
+  enum :status, [:waiting_for_evaluation, :interview_to_be_scheduled, :first_round_scheduled, :second_round_scheduled, :hr_round_scheduled, :offer_to_be_made, :offer_made, :offer_accepted, :offer_declined, :offer_withdrawn, :joined, :on_hold, :incomplete_profile, :no_show, :not_interested, :not_contactable, :follow_up_needed, :rejected_in_screening, :rejected_in_first_round, :rejected_in_second_round, :rejected_in_hr_round, :unqualified, :other, :irrelevant]
 
   default_scope { order(created_at: :desc) }
 

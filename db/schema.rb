@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_26_044103) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_31_113929) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -70,10 +70,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_26_044103) do
     t.bigint "source_id"
     t.bigint "opening_id"
     t.bigint "user_id", default: 1, null: false
-    t.datetime "bucket_updated_on", default: "2024-03-11 15:25:45"
+    t.datetime "bucket_updated_on", default: "2024-03-31 11:45:37", null: false
     t.string "zoho_id"
     t.string "zoho_job_id"
     t.bigint "owner_id"
+    t.integer "status", default: 0
+    t.datetime "status_updated_on", default: "2024-03-31 11:45:37", null: false
     t.index ["email"], name: "unique_emails", unique: true
     t.index ["opening_id"], name: "index_candidates_on_opening_id"
     t.index ["owner_id"], name: "index_candidates_on_owner_id"

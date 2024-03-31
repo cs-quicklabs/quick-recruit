@@ -171,6 +171,7 @@ GEM
       timeout
     net-smtp (0.4.0.1)
       net-protocol
+    newrelic_rpm (9.8.0)
     nio4r (2.7.0)
     nokogiri (1.16.2-aarch64-linux)
       racc (~> 1.4)
@@ -326,6 +327,7 @@ DEPENDENCIES
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
+  newrelic_rpm
   pagy
   pg (~> 1.1)
   puma (>= 5.0)

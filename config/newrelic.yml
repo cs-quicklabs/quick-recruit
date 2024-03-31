@@ -16,7 +16,7 @@ common: &default_settings
 
   # Your application name. Renaming here affects where data displays in New
   # Relic.  For more details, see https://docs.newrelic.com/docs/apm/new-relic-apm/maintenance/renaming-applications
-  app_name: ''
+  app_name: 'Quick Recruit'
 
   distributed_tracing:
     enabled: true
@@ -52,6 +52,8 @@ common: &default_settings
 development:
   <<: *default_settings
   app_name: ' (Development)'
+  monitor_mode: false
+
 
 test:
   <<: *default_settings
@@ -61,6 +63,8 @@ test:
 staging:
   <<: *default_settings
   app_name: ' (Staging)'
+  monitor_mode: false
+
 
 production:
   <<: *default_settings

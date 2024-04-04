@@ -3,7 +3,7 @@ class BaseController < ApplicationController
 
   include Pagy::Backend
 
-  LIMIT = 30
+  LIMIT = 50
 
   def pagy_nil_safe(params, collection, vars = {})
     pagy = Pagy.new(count: collection.count(:all), page: params[:page], **vars)

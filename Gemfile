@@ -59,7 +59,6 @@ gem "aws-sdk-s3", "~> 1.120"
 gem "requestjs-rails"
 gem "rails-patterns"
 gem "pagy"
-gem "newrelic_rpm", "8.16.0"
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]

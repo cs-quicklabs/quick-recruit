@@ -73,7 +73,7 @@ class CandidatesController < BaseController
   end
 
   def pipeline
-    candidates = Candidate.unscoped.where(bucket: bucket).includes(:opening, :role, :owner).order(bucket_updated_on: :desc)
+    candidates = Candidate.unscoped.where(bucket: :pipeline).includes(:opening, :role, :owner).order(bucket_updated_on: :desc)
     unless current_user.admin?
       candidates = Candidate.unscoped.where(bucket: :pipeline, owner: current_user).includes(:opening, :role, :owner).order(bucket_updated_on: :desc)
     end

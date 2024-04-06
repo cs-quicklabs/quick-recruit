@@ -4,7 +4,6 @@ import { FetchRequest } from "@rails/request.js"
 export default class extends Controller {
   static targets = ['menu']
   connect() {
-
   }
 
   async change({ params }) {

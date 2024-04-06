@@ -36,6 +36,7 @@ Rails.application.routes.draw do
       get "timeline", to: "timeline#index"
       patch "/update/bucket", to: "candidate#update_bucket", as: "update_bucket"
       patch "/update/status", to: "candidate#update_status", as: "update_status"
+      patch "/update/owner", to: "candidate#update_owner", as: "update_owner"
     end
   end
 

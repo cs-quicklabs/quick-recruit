@@ -6,4 +6,8 @@ class CandidatePolicy < ApplicationPolicy
   def update_status?
     return true unless user.interviewer?
   end
+
+  def update_owner?
+    user.admin?
+  end
 end

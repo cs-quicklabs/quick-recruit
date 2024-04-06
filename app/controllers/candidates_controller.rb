@@ -73,9 +73,9 @@ class CandidatesController < BaseController
   end
 
   def pipeline
-    candidates = candidates_for_bucket(:pipeline)
+    candidates = Candidate.unscoped.where(bucket: bucket).includes(:opening, :role, :owner).order(bucket_updated_on: :desc)
     unless current_user.admin?
-      candidates = Candidate.unscoped.where(bucket: :pipeline, user: current_user).includes(:opening, :role, :user).order(bucket_updated_on: :desc)
+      candidates = Candidate.unscoped.where(bucket: :pipeline, owner: current_user).includes(:opening, :role, :owner).order(bucket_updated_on: :desc)
     end
     @pagy, @candidates = pagy(candidates, items: LIMIT)
 

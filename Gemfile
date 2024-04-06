@@ -58,7 +58,7 @@ end
 gem "aws-sdk-s3", "~> 1.120"
 gem "requestjs-rails"
 gem "rails-patterns"
-gem "pagy"
+gem "pagy", "7.0.10"
 #gem "newrelic_rpm", "8.16.0"
 gem "appsignal"
 

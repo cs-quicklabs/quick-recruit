@@ -9,7 +9,7 @@ gem "rails", "~> 7.1.3.2"
 gem "sprockets-rails"
 
 # Use postgresql as the database for Active Record
-gem "pg", "~> 1.1"
+gem "pg"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma"
@@ -59,8 +59,7 @@ gem "aws-sdk-s3", "~> 1.120"
 gem "requestjs-rails"
 gem "rails-patterns"
 gem "pagy", "7.0.10"
-#gem "newrelic_rpm", "8.16.0"
-gem "appsignal"
+gem "pundit"
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
@@ -79,4 +78,7 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "pundit"
+group :production do
+  gem "appsignal"
+  #gem "newrelic_rpm", "8.16.0"
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_31_142927) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_06_062735) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,7 +60,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_31_142927) do
     t.string "current_ctc"
     t.string "expected_ctc"
     t.string "notice_period"
-    t.integer "experience"
+    t.decimal "experience", precision: 4, scale: 2
     t.integer "birth_year"
     t.string "highest_qualification"
     t.integer "bucket", default: 0, null: false
@@ -73,7 +73,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_31_142927) do
     t.datetime "bucket_updated_on", default: "2024-03-31 11:45:37", null: false
     t.string "zoho_id"
     t.string "zoho_job_id"
-    t.bigint "owner_id"
+    t.bigint "owner_id", null: false
     t.integer "status", default: 0
     t.datetime "status_updated_on", default: "2024-03-31 11:45:37", null: false
     t.index ["email"], name: "unique_emails", unique: true

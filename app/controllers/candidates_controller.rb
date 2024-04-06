@@ -39,11 +39,13 @@ class CandidatesController < BaseController
     @roles = Role.all
     @openings = Opening.all
     @sources = Source.all
+    @buckets = current_user.recruiter? ? Candidate.buckets.except(:pipeline) : Candidate.buckets
   end
 
   def create
     @candidate = Candidate.new(candidate_params.except(:note))
     @candidate.user = current_user
+    @candidate.owner = current_user
     if @candidate.save
       Event.new(eventable: @candidate, action: "add_candidate", action_for_context: "added new candidate", trackable: @candidate, user: current_user).save
 
@@ -54,9 +56,6 @@ class CandidatesController < BaseController
 
       redirect_to candidate_timeline_path(@candidate), notice: "New candidate was created successfully"
     else
-      @candidate.errors.full_messages.each do |message|
-        puts message
-      end
       redirect_to new_candidate_path, alert: "Failed to add candidate. Please try again."
     end
   end

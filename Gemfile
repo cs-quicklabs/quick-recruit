@@ -79,6 +79,5 @@ group :test do
 end
 
 group :production do
-  gem "appsignal"
-  #gem "newrelic_rpm", "8.16.0"
+  gem "newrelic_rpm", "8.16.0"
 end

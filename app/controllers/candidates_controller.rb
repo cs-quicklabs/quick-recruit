@@ -2,14 +2,15 @@ class CandidatesController < BaseController
   before_action :set_candidate, only: [:show, :edit, :update, :destroy]
 
   def index
-    @recent_count = Candidate.where(bucket: :recent).count
-    @hot_count = Candidate.where(bucket: :hot).count
-    @pipeline_count = Candidate.where(bucket: :pipeline).count
-    @champions_count = Candidate.where(bucket: :champions).count
-    @joinings_count = Candidate.where(bucket: :joinings).count
-    @icebox_count = Candidate.where(bucket: :icebox).count
-    @archive_count = Candidate.where(bucket: :archive).count
-    @incomplete_count = Candidate.where(bucket: :incomplete).count
+    count_all = Candidate.unscoped.group(:bucket).count
+    @recent_count = count_all["recent"] || 0
+    @hot_count = count_all["hot"] || 0
+    @pipeline_count = count_all["pipeline"] || 0
+    @champions_count = count_all["champions"] || 0
+    @joinings_count = count_all["joinings"] || 0
+    @icebox_count = count_all["icebox"] || 0
+    @archive_count = count_all["archive"] || 0
+    @incomplete_count = count_all["incomplete"] || 0
     @candidates_count = Candidate.count
   end
 

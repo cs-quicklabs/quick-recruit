@@ -58,7 +58,7 @@ end
 gem "aws-sdk-s3", "~> 1.120"
 gem "requestjs-rails"
 gem "rails-patterns"
-gem "pagy", "7.0.10"
+gem "pagy", "8.0.2"
 gem "pundit"
 
 group :development do

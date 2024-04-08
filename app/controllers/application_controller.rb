@@ -1,6 +1,13 @@
 class ApplicationController < ActionController::Base
   include Pundit::Authorization
 
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  rescue_from Pundit::NotDefinedError, with: :user_not_authorized
+
+  def user_not_authorized
+    redirect_to(request.referrer || landing_path)
+  end
+
   etag {
     ENV["RENDER_GIT_COMMIT"]
   }
@@ -23,6 +30,10 @@ class ApplicationController < ActionController::Base
 
   def user_signed_in?
     current_user.present?
+  end
+
+  def landing_path
+    root_path
   end
 
   helper_method :user_signed_in?

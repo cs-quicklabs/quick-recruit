@@ -1,4 +1,6 @@
 class OpeningsController < BaseController
+  before_action :set_opening, only: %i[show edit update destroy]
+
   def index
     @openings = Opening.all
 
@@ -15,9 +17,25 @@ class OpeningsController < BaseController
     @opening = Opening.new
   end
 
+  def show
+  end
+
+  def update
+  end
+
+  def edit
+  end
+
+  def destroy
+  end
+
   private
 
   def openings_params
     params.require(:opening).permit(:title)
+  end
+
+  def set_opening
+    @opening ||= Opening.find(params[:id])
   end
 end

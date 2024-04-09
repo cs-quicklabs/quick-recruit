@@ -68,7 +68,11 @@ class CandidatesController < BaseController
   end
 
   def hot
-    @pagy, @candidates = pagy(candidates_for_bucket(:hot), items: LIMIT)
+    candidates = Candidate.unscoped.where(bucket: :hot).includes(:opening, :role, :owner, :user).order(bucket_updated_on: :desc)
+    unless current_user.admin?
+      candidates = Candidate.unscoped.where(bucket: :hot, owner: current_user).includes(:opening, :role, :owner, :user).order(bucket_updated_on: :desc)
+    end
+    @pagy, @candidates = pagy(candidates, items: LIMIT)
 
     fresh_when @candidates
   end

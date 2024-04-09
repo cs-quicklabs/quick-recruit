@@ -40,7 +40,7 @@ class CandidatesController < BaseController
     @roles = Role.all
     @openings = Opening.all
     @sources = Source.all
-    @buckets = current_user.recruiter? ? Candidate.buckets.except(:pipeline) : Candidate.buckets
+    @buckets = current_user.recruiter? ? Candidate.buckets.except(:pipeline, :hot) : Candidate.buckets
   end
 
   def create

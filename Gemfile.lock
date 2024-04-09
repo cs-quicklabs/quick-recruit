@@ -347,7 +347,7 @@ DEPENDENCIES
   rack-mini-profiler
   rails (~> 7.1.3.2)
   rails-patterns
-  redis (>= 4.0.1)
+  redis (= 5.1.0)
   requestjs-rails
   selenium-webdriver
   solid_queue

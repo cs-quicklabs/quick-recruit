@@ -23,6 +23,7 @@ module Recruit
     #
     config.time_zone = "New Delhi"
     config.autoload_paths << "#{Rails.root}/interactors"
+    config.solid_queue.silence_polling = true
 
     # config.eager_load_paths << Rails.root.join("extras")
   end

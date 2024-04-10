@@ -55,7 +55,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
 end
 
-gem "aws-sdk-s3", "~> 1.120"
+gem "aws-sdk-s3"
 gem "requestjs-rails"
 gem "rails-patterns"
 gem "pagy", "7.0.10"
@@ -81,6 +81,3 @@ end
 group :production do
   gem "newrelic_rpm", "9.8.0"
 end
-
-gem "derailed_benchmarks", group: :production
-gem "stackprof", group: :production

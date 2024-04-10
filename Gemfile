@@ -81,3 +81,6 @@ end
 group :production do
   gem "newrelic_rpm", "9.8.0"
 end
+
+gem "derailed_benchmarks", group: :production
+gem "stackprof", group: :production

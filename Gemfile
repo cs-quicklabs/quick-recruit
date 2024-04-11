@@ -52,7 +52,7 @@ end
 gem "aws-sdk-s3", "~> 1.120"
 gem "requestjs-rails"
 gem "rails-patterns"
-gem "pagy", "7.0.10"
+gem "pagy", "8.1.1"
 gem "pundit"
 gem "redis", "5.0.6"
 

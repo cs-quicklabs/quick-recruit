@@ -6,22 +6,22 @@ ruby "3.3.0"
 gem "rails", "~> 7.1.3.2"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails"
+gem "sprockets-rails", "3.4.2"
 
 # Use postgresql as the database for Active Record
-gem "pg"
+gem "pg", "1.5.3"
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma"
+gem "puma", "6.3.1"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails"
+gem "turbo-rails", "2.0.5"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
-gem "stimulus-rails"
+gem "stimulus-rails", "1.3.3"
 
 # Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
 gem "tailwindcss-rails"
@@ -36,7 +36,7 @@ gem "bcrypt", "~> 3.1.7"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 # Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", require: false
+gem "bootsnap", "1.16.0", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
@@ -49,7 +49,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
 end
 
-gem "aws-sdk-s3"
+gem "aws-sdk-s3", "~> 1.120"
 gem "requestjs-rails"
 gem "rails-patterns"
 gem "pagy", "7.0.10"
@@ -73,5 +73,5 @@ group :test do
 end
 
 group :production do
-  gem "newrelic_rpm", "9.8.0"
+  gem "newrelic_rpm", "8.16.0"
 end

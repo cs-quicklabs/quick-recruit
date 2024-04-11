@@ -15,7 +15,7 @@ module CandidateHelper
       "sky"
     when "offer_to_be_made", "offer_made", "offer_accepted", "offer_declined", "joined"
       "green"
-    when "incomplete_profile", "unqualified", "other", "irrelevant"
+    when "incomplete_profile", "unqualified", "other", "irrelevant", "moved_on"
       "gray"
     else
       "primary"

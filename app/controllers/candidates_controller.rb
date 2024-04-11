@@ -93,7 +93,14 @@ class CandidatesController < BaseController
   end
 
   def champions
-    @pagy, @candidates = pagy(candidates_for_bucket(:champions), items: LIMIT)
+    candidates = nil
+    if current_user.admin?
+      candidates = Candidate.unscoped.where(bucket: :champions).includes(:opening, :owner).order(bucket_updated_on: :desc)
+    else
+      candidates = Candidate.unscoped.where(bucket: :champions, owner: current_user).includes(:opening, :owner).order(bucket_updated_on: :desc)
+    end
+
+    @pagy, @candidates = pagy(candidates, items: LIMIT)
 
     fresh_when @candidates
   end
@@ -111,7 +118,14 @@ class CandidatesController < BaseController
   end
 
   def archive
-    @pagy, @candidates = pagy(candidates_for_bucket(:archive), items: LIMIT)
+    candidates = nil
+    if current_user.admin?
+      candidates = Candidate.unscoped.where(bucket: :archive).includes(:opening, :owner).order(bucket_updated_on: :desc)
+    else
+      candidates = Candidate.unscoped.where(bucket: :archive, owner: current_user).includes(:opening, :owner).order(bucket_updated_on: :desc)
+    end
+
+    @pagy, @candidates = pagy(candidates, items: LIMIT)
 
     fresh_when @candidates
   end

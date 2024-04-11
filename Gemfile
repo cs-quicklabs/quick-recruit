@@ -54,6 +54,7 @@ gem "requestjs-rails"
 gem "rails-patterns"
 gem "pagy", "7.0.10"
 gem "pundit"
+gem "redis", "5.0.6"
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]

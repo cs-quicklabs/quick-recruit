@@ -68,8 +68,10 @@ class CandidatesController < BaseController
   end
 
   def hot
-    candidates = Candidate.unscoped.where(bucket: :hot).includes(:opening, :role, :owner, :user).order(bucket_updated_on: :desc)
-    unless current_user.admin?
+    candidates = nil
+    if current_user.admin?
+      candidates = Candidate.unscoped.where(bucket: :hot).includes(:opening, :role, :owner, :user).order(bucket_updated_on: :desc)
+    else
       candidates = Candidate.unscoped.where(bucket: :hot, owner: current_user).includes(:opening, :role, :owner, :user).order(bucket_updated_on: :desc)
     end
     @pagy, @candidates = pagy(candidates, items: LIMIT)
@@ -78,8 +80,10 @@ class CandidatesController < BaseController
   end
 
   def pipeline
-    candidates = Candidate.unscoped.where(bucket: :pipeline).includes(:opening, :role, :owner).order(bucket_updated_on: :desc)
-    unless current_user.admin?
+    candidates = nil
+    if current_user.admin?
+      candidates = Candidate.unscoped.where(bucket: :pipeline).includes(:opening, :role, :owner).order(bucket_updated_on: :desc)
+    else
       candidates = Candidate.unscoped.where(bucket: :pipeline, owner: current_user).includes(:opening, :role, :owner).order(bucket_updated_on: :desc)
     end
     @pagy, @candidates = pagy(candidates, items: LIMIT)

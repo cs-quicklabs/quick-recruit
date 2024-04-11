@@ -248,10 +248,6 @@ GEM
     rake (13.2.1)
     rdoc (6.6.3.1)
       psych (>= 4.0.0)
-    redis (5.1.0)
-      redis-client (>= 0.17.0)
-    redis-client (0.21.1)
-      connection_pool
     regexp_parser (2.9.0)
     reline (0.5.1)
       io-console (~> 0.5)
@@ -347,7 +343,6 @@ DEPENDENCIES
   rack-mini-profiler
   rails (~> 7.1.3.2)
   rails-patterns
-  redis (= 5.1.0)
   requestjs-rails
   selenium-webdriver
   solid_queue

@@ -32,3 +32,12 @@ data:
   first_name: Data
   last_name: User
   password_digest: <%= BCrypt::Password.create("password", cost: 4) %>
+
+inactive:
+  email: inactive@gmail.com
+  role: admin
+  name: Admin User
+  first_name: Admin
+  last_name: User
+  active: false
+  password_digest: <%= BCrypt::Password.create("password", cost: 4) %>

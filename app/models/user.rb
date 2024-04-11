@@ -15,8 +15,6 @@ class User < ApplicationRecord
   validate :avatar_content_type
   validate :avatar_size
 
-  default_scope { order(first_name: :asc) }
-
   scope :recruiters, -> { where(role: :recruiter) }
   scope :admns, -> { where(role: :admin) }
   scope :interviewers, -> { where(role: :interviewer) }

@@ -63,4 +63,13 @@ class OnboardingTest < ActionDispatch::IntegrationTest
     assert_response :unprocessable_entity
     assert_select "p", "Your email or password is incorrect."
   end
+
+  test "inactive can not sign in" do
+    get new_session_url
+    assert_response :success
+
+    post session_url, params: { email: "inactive@gmail.com", password: "password" }
+    assert_response :unprocessable_entity
+    assert_select "p", "Your account has been disabled. Please connect with your admin."
+  end
 end

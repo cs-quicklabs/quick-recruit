@@ -2,7 +2,7 @@ class MembersController < BaseController
   before_action :set_user, only: %i[show edit update destroy]
 
   def index
-    @members = User.with_attached_avatar.all
+    @members = User.with_attached_avatar.all.order(active: :desc, first_name: :asc)
     fresh_when @members
   end
 

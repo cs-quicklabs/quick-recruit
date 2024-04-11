@@ -15,6 +15,7 @@ class CandidatesController < BaseController
   end
 
   def show
+    fresh_when @candidate
   end
 
   def update_bucket

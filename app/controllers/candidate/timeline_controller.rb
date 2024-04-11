@@ -4,6 +4,7 @@ class Candidate::TimelineController < Candidate::BaseController
   end
 
   def show
+    fresh_when @candidate
   end
 
   def edit

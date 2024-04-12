@@ -2,7 +2,7 @@ class OpeningsController < BaseController
   before_action :set_opening, only: %i[show edit update destroy]
 
   def index
-    @openings = Opening.all
+    @openings = Opening.all.order(active: :desc, created_at: :asc)
 
     fresh_when @openings
   end

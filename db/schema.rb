@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_06_062735) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_12_153414) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -70,12 +70,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_06_062735) do
     t.bigint "source_id"
     t.bigint "opening_id"
     t.bigint "user_id", default: 1, null: false
-    t.datetime "bucket_updated_on", default: "2024-03-31 11:45:37", null: false
+    t.datetime "bucket_updated_on", default: "2024-03-31 12:56:12", null: false
     t.string "zoho_id"
     t.string "zoho_job_id"
     t.bigint "owner_id", null: false
     t.integer "status", default: 0
-    t.datetime "status_updated_on", default: "2024-03-31 11:45:37", null: false
+    t.datetime "status_updated_on", default: "2024-03-31 12:56:12", null: false
     t.index ["email"], name: "unique_emails", unique: true
     t.index ["opening_id"], name: "index_candidates_on_opening_id"
     t.index ["owner_id"], name: "index_candidates_on_owner_id"
@@ -207,6 +207,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_06_062735) do
     t.index ["queue_name", "priority", "job_id"], name: "index_solid_queue_poll_by_queue"
   end
 
+  create_table "solid_queue_recurring_executions", force: :cascade do |t|
+    t.bigint "job_id", null: false
+    t.string "task_key", null: false
+    t.datetime "run_at", null: false
+    t.datetime "created_at", null: false
+    t.index ["job_id"], name: "index_solid_queue_recurring_executions_on_job_id", unique: true
+    t.index ["task_key", "run_at"], name: "index_solid_queue_recurring_executions_on_task_key_and_run_at", unique: true
+  end
+
   create_table "solid_queue_scheduled_executions", force: :cascade do |t|
     t.bigint "job_id", null: false
     t.string "queue_name", null: false
@@ -275,5 +284,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_06_062735) do
   add_foreign_key "solid_queue_claimed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_failed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_ready_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
+  add_foreign_key "solid_queue_recurring_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_scheduled_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
 end

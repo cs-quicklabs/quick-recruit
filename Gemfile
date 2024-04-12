@@ -6,22 +6,22 @@ ruby "3.3.0"
 gem "rails", "~> 7.1.3.2"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails", "3.4.2"
+gem "sprockets-rails"
 
 # Use postgresql as the database for Active Record
-gem "pg", "1.5.3"
+gem "pg"
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", "6.3.1"
+gem "puma"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails", "2.0.5"
+gem "turbo-rails"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
-gem "stimulus-rails", "1.3.3"
+gem "stimulus-rails"
 
 # Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
 gem "tailwindcss-rails"
@@ -36,7 +36,7 @@ gem "bcrypt", "~> 3.1.7"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 # Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", "1.16.0", require: false
+gem "bootsnap", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
@@ -54,7 +54,7 @@ gem "requestjs-rails"
 gem "rails-patterns"
 gem "pagy", "7.0.10"
 gem "pundit"
-gem "redis", "5.0.6"
+gem "redis"
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]

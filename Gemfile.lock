@@ -78,7 +78,7 @@ GEM
     addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
     aws-eventstream (1.3.0)
-    aws-partitions (1.912.0)
+    aws-partitions (1.913.0)
     aws-sdk-core (3.191.6)
       aws-eventstream (~> 1, >= 1.3.0)
       aws-partitions (~> 1, >= 1.651.0)
@@ -101,7 +101,7 @@ GEM
     bcrypt (3.1.20)
     bigdecimal (3.1.7)
     bindex (0.8.1)
-    bootsnap (1.16.0)
+    bootsnap (1.18.3)
       msgpack (~> 1.2)
     builder (3.2.4)
     capybara (3.40.0)
@@ -191,11 +191,11 @@ GEM
     nokogiri (1.16.4-x86_64-linux)
       racc (~> 1.4)
     pagy (7.0.10)
-    pg (1.5.3)
+    pg (1.5.6)
     psych (5.1.2)
       stringio
     public_suffix (5.0.5)
-    puma (6.3.1)
+    puma (6.4.2)
       nio4r (~> 2.0)
     pundit (2.3.1)
       activesupport (>= 3.0.0)
@@ -248,8 +248,8 @@ GEM
     rake (13.2.1)
     rdoc (6.6.3.1)
       psych (>= 4.0.0)
-    redis (5.0.6)
-      redis-client (>= 0.9.0)
+    redis (5.1.0)
+      redis-client (>= 0.17.0)
     redis-client (0.21.1)
       connection_pool
     regexp_parser (2.9.0)
@@ -333,7 +333,7 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk-s3 (~> 1.120)
   bcrypt (~> 3.1.7)
-  bootsnap (= 1.16.0)
+  bootsnap
   capybara
   debug
   image_processing (~> 1.2)
@@ -341,20 +341,20 @@ DEPENDENCIES
   jbuilder
   newrelic_rpm (= 8.16.0)
   pagy (= 7.0.10)
-  pg (= 1.5.3)
-  puma (= 6.3.1)
+  pg
+  puma
   pundit
   rack-mini-profiler
   rails (~> 7.1.3.2)
   rails-patterns
-  redis (= 5.0.6)
+  redis
   requestjs-rails
   selenium-webdriver
   solid_queue
-  sprockets-rails (= 3.4.2)
-  stimulus-rails (= 1.3.3)
+  sprockets-rails
+  stimulus-rails
   tailwindcss-rails
-  turbo-rails (= 2.0.5)
+  turbo-rails
   tzinfo-data
   web-console
 

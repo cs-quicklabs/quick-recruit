@@ -18,7 +18,17 @@
     <%= candidate.role.nil? ? "-" : candidate.role.title %>
   </td>
   <td class="px-4 py-2">
-    <%= candidate.opening.nil? ? "-" : candidate.opening.title %>
+    <% if candidate.opening.active? %>
+      <div class="flex items-center">
+        <div class="w-3 h-3 mr-2 bg-green-500 border rounded-full"></div>
+        <%= candidate.opening.nil? ? "-" : candidate.opening.title %>
+      </div>
+    <% else %>
+      <div class="flex items-center">
+        <div class="w-3 h-3 mr-2 bg-red-500 border rounded-full"></div>
+        <%= candidate.opening.nil? ? "-" : candidate.opening.title %>
+      </div>
+    <% end %>
   </td>
   <td class="px-4 py-2"><%= candidate.owner.name %></td>
   <td class="px-4 py-2"><%= candidate.user.name %></td>

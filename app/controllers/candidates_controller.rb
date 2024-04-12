@@ -106,7 +106,14 @@ class CandidatesController < BaseController
   end
 
   def joinings
-    @pagy, @candidates = pagy(candidates_for_bucket(:joinings), items: LIMIT)
+    candidates = nil
+    if current_user.admin?
+      candidates = Candidate.unscoped.where(bucket: :joinings).includes(:opening, :owner).order(bucket_updated_on: :desc)
+    else
+      candidates = Candidate.unscoped.where(bucket: :joinings, owner: current_user).includes(:opening, :owner).order(bucket_updated_on: :desc)
+    end
+
+    @pagy, @candidates = pagy(candidates, items: LIMIT)
 
     fresh_when @candidates
   end
@@ -139,7 +146,7 @@ class CandidatesController < BaseController
   private
 
   def candidates_for_bucket(bucket)
-    Candidate.unscoped.where(bucket: bucket).includes(:opening, :role, :user).order(bucket_updated_on: :desc)
+    Candidate.unscoped.where(bucket: bucket).includes(:opening, :role, :user, :owner).order(bucket_updated_on: :desc)
   end
 
   def candidate_params

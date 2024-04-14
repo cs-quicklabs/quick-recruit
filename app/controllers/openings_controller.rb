@@ -27,7 +27,7 @@ class OpeningsController < BaseController
   end
 
   def edit
-    @roles = Role.all
+    @roles = Role.all.order(title: :asc)
   end
 
   def destroy

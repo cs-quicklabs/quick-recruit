@@ -2,7 +2,7 @@ class OpeningsController < BaseController
   before_action :set_opening, only: %i[show edit update destroy]
 
   def index
-    @openings = Opening.all.order(active: :desc, created_at: :asc)
+    @openings = Opening.includes(:role).all.order(active: :desc, role_id: :desc, created_at: :asc)
 
     fresh_when @openings
   end
@@ -15,15 +15,19 @@ class OpeningsController < BaseController
 
   def new
     @opening = Opening.new
+    @roles = Role.all
   end
 
   def show
   end
 
   def update
+    @opening.update(openings_params)
+    redirect_to opening_path(@opening), notice: "Opening was updated successfully"
   end
 
   def edit
+    @roles = Role.all
   end
 
   def destroy
@@ -32,7 +36,7 @@ class OpeningsController < BaseController
   private
 
   def openings_params
-    params.require(:opening).permit(:title)
+    params.require(:opening).permit(:title, :role_id, :active)
   end
 
   def set_opening

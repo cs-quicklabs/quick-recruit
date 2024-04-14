@@ -49,6 +49,15 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :openings do
+    scope module: "opening" do
+      resources :interviews
+      resources :associations
+      resources :champions
+      get "timeline", to: "timeline#index"
+    end
+  end
+
   namespace :account do
     resources :roles, except: [:new, :show]
     resources :sources, except: [:new, :show]
@@ -71,7 +80,6 @@ Rails.application.routes.draw do
 
   resources :interviews
   resources :reports
-  resources :openings
   resources :buckets
   resources :pipeline
   resources :checklists

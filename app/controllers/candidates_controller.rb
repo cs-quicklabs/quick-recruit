@@ -83,9 +83,9 @@ class CandidatesController < BaseController
   def pipeline
     candidates = nil
     if current_user.admin?
-      candidates = Candidate.unscoped.where(bucket: :pipeline).includes(:opening, :role, :owner).order(bucket_updated_on: :desc)
+      candidates = Candidate.unscoped.where(bucket: :pipeline).includes(:opening, :owner).order(bucket_updated_on: :desc)
     else
-      candidates = Candidate.unscoped.where(bucket: :pipeline, owner: current_user).includes(:opening, :role, :owner).order(bucket_updated_on: :desc)
+      candidates = Candidate.unscoped.where(bucket: :pipeline, owner: current_user).includes(:opening, :owner).order(bucket_updated_on: :desc)
     end
     @pagy, @candidates = pagy(candidates, items: LIMIT)
 
@@ -108,9 +108,9 @@ class CandidatesController < BaseController
   def joinings
     candidates = nil
     if current_user.admin?
-      candidates = Candidate.unscoped.where(bucket: :joinings).includes(:opening, :owner).order(bucket_updated_on: :desc)
+      candidates = Candidate.unscoped.where(bucket: :joinings).includes(:opening, :role, :owner).order(bucket_updated_on: :desc)
     else
-      candidates = Candidate.unscoped.where(bucket: :joinings, owner: current_user).includes(:opening, :owner).order(bucket_updated_on: :desc)
+      candidates = Candidate.unscoped.where(bucket: :joinings, owner: current_user).includes(:opening, :role, :owner).order(bucket_updated_on: :desc)
     end
 
     @pagy, @candidates = pagy(candidates, items: LIMIT)

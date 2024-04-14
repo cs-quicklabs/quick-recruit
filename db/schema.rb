@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_12_153414) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_14_122044) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -126,6 +126,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_12_153414) do
     t.string "location"
     t.integer "opening_type", default: 0
     t.boolean "active", default: true
+    t.bigint "role_id", default: 15, null: false
+    t.index ["role_id"], name: "index_openings_on_role_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -280,6 +282,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_12_153414) do
   add_foreign_key "emails", "candidates"
   add_foreign_key "emails", "users"
   add_foreign_key "notes", "users"
+  add_foreign_key "openings", "roles"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_claimed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_failed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade

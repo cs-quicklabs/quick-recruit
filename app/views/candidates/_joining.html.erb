@@ -18,11 +18,9 @@
     <%= candidate.phone %>
   </td>
   <td class="px-4 py-2">
-    <%= candidate.role.nil? ? "-" : candidate.role.title %>
-  </td>
-  <td class="px-4 py-2">
     <%= candidate.opening.nil? ? "-" : candidate.opening.title %>
   </td>
   <td class="px-4 py-2"><%= candidate.owner.name %></td>
-  <td class="px-4 py-2"><%= display_created_at(candidate) %></td>
+  <td class="px-4 py-2"><%= display_date(candidate.joining_date) %></td>
+  <td class="px-4 py-2"><%= candidate.joining_date.blank? ? "N/A" : distance_of_time_in_words(Time.now, candidate.joining_date) %></td>
 </tr>

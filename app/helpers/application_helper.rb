@@ -18,6 +18,7 @@ module ApplicationHelper
   end
 
   def display_date(date)
+    return "N/A" if date.blank?
     date.to_date.to_formatted_s(:long)
   end
 

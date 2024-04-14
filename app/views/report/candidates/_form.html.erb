@@ -24,7 +24,7 @@
                 <label for="created" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Created By
                 </label>
-                <%= form.collection_select(:user_id, User.recruiters, :id, :name, { :prompt => "Select Created by ", :selected => (params["user_id"] if !params["user_id"].blank?) }, :class => "form-text-field") %>
+                <%= form.collection_select(:user_id, User.owners, :id, :name, { :prompt => "Select Created by ", :selected => (params["user_id"] if !params["user_id"].blank?) }, :class => "form-text-field") %>
               </div>
               <div>
                 <label for="bucket" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">

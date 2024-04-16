@@ -177,7 +177,7 @@ GEM
       timeout
     net-smtp (0.5.0)
       net-protocol
-    newrelic_rpm (8.16.0)
+    newrelic_rpm (9.8.0)
     nio4r (2.7.1)
     nokogiri (1.16.4-aarch64-linux)
       racc (~> 1.4)
@@ -249,8 +249,8 @@ GEM
     rake (13.2.1)
     rdoc (6.6.3.1)
       psych (>= 4.0.0)
-    redis (5.1.0)
-      redis-client (>= 0.17.0)
+    redis (5.2.0)
+      redis-client (>= 0.22.0)
     redis-client (0.22.0)
       connection_pool
     regexp_parser (2.9.0)
@@ -342,7 +342,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   memory_profiler
-  newrelic_rpm (= 8.16.0)
+  newrelic_rpm
   pagy (= 7.0.10)
   pg
   puma

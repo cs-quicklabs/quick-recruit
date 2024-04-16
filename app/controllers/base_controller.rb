@@ -11,7 +11,7 @@ class BaseController < ApplicationController
     return pagy, collection
   end
 
-  def render_partial(partial, collection:, cached: true)
+  def render_partial(partial, collection:, cached: false)
     respond_to do |format|
       format.html
       format.json {
@@ -21,7 +21,7 @@ class BaseController < ApplicationController
     end
   end
 
-  def render_partial_as(partial, collection:, cached: true, as:)
+  def render_partial_as(partial, collection:, cached: false, as:)
     respond_to do |format|
       format.html
       format.json {

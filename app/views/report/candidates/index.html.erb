@@ -27,7 +27,7 @@
             </tr>
           </thead>
           <tbody class="table-body" data-infinite-scroll-target="entries">
-            <%= render partial: "candidate", collection: @candidates, as: :candidate, cached: true %>
+            <%= render partial: "candidate", collection: @candidates, as: :candidate, cached: false %>
           </tbody>
         </table>
         <div class="flex justify-end invisible mt-2 mb-6 mr-2" data-infinite-scroll-target="pagination">
@@ -35,7 +35,7 @@
         </div>
       </div>
     <% else %>
-      <%= render partial: "shared/no_result_found", cached: true %>
+      <%= render partial: "shared/no_result_found", cached: false %>
     <% end %>
   </div>
 </div>

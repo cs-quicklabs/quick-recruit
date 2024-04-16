@@ -251,10 +251,10 @@ GEM
       psych (>= 4.0.0)
     redis (5.2.0)
       redis-client (>= 0.22.0)
-    redis-client (0.22.0)
+    redis-client (0.22.1)
       connection_pool
     regexp_parser (2.9.0)
-    reline (0.5.1)
+    reline (0.5.2)
       io-console (~> 0.5)
     requestjs-rails (0.0.11)
       railties (>= 6.1.0)

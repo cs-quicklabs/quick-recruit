@@ -30,6 +30,12 @@
             </label>
             <%= form.select(:active, [['Active', true], ['Inactive', false]], {}, :class => "form-text-field")%>
           </div>
+          <div>
+            <label for="user-role" class="inline-flex items-center mb-1 text-sm font-medium text-gray-900 dark:text-white">
+              Priority
+            </label>
+            <%= select_tag :bucket, options_for_select(Opening.priorities.map { |k, v| [k.humanize.capitalize, k] }), class: "form-text-field", :name => "opening[priority]" %>
+          </div>
         </div>
       </div>
       <button type="submit" class="btn-primary mt-4">

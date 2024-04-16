@@ -36,7 +36,7 @@ class OpeningsController < BaseController
   private
 
   def openings_params
-    params.require(:opening).permit(:title, :role_id, :active)
+    params.require(:opening).permit(:title, :role_id, :active, :priority)
   end
 
   def set_opening

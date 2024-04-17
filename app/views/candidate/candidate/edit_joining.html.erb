@@ -1,0 +1,11 @@
+<%= turbo_frame_tag dom_id(@candidate, :joining) do %>
+  <div>
+    <dt class="font-semibold text-sm leading-none text-gray-900 dark:text-white">Change Joining Date</dt>
+    <%= form_with(modal: @candidate, url: candidate_update_joining_path(@candidate), method: :patch) do |form| %>
+      <div class="flex items-center mt-2">
+        <%= form.date_field :joining_date, value: @candidate.joining_date, class: "form-text-field" %>
+        <%= form.submit "Save", class: "btn-blue ml-2" %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

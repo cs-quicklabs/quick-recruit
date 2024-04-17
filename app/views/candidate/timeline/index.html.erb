@@ -30,6 +30,7 @@
         <h5 class="mr-3 font-semibold dark:text-white">Quick Actions</h5>
         <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Select which actions you want to perform with this candidate.</p>
         <%= render partial: "candidate/status", locals: { candidate: @candidate } %>
+        <%= render partial: "candidate/joining", locals: { candidate: @candidate } %>
       </div>
     </div>
   </div>

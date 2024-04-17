@@ -25,4 +25,17 @@ class Candidate::CandidateController < Candidate::BaseController
       format.turbo_stream { render turbo_stream: turbo_stream.replace("owner_candidate_" + candidate.id.to_s, partial: "candidate/owner", locals: { candidate: candidate }) }
     end
   end
+
+  def update_joining
+    authorize @candidate
+    candidate = UpdateJoining.call(@candidate, params[:joining_date], current_user).result
+
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.replace("joining_candidate_" + candidate.id.to_s, partial: "candidate/joining", locals: { candidate: candidate }) }
+    end
+  end
+
+  def edit_joining
+    @candidate = Candidate.find(params[:candidate_id])
+  end
 end

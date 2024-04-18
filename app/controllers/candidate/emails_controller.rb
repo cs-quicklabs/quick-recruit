@@ -1,7 +1,7 @@
 class Candidate::EmailsController < Candidate::BaseController
   def index
-    @emails = @candidate.emails.order(created_at: :desc)
-    fresh_when [@candidate] + @emails
+    @emails = Email.where(candidate: @candidate).includes(:user).order(created_at: :desc)
+    fresh_when @candidate
   end
 
   def create

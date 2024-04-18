@@ -21,6 +21,7 @@ class SendEmail < Patterns::Service
     email.user = actor
     email.kind = Email.kinds[kind]
     email.save
+    candidate.touch
   end
 
   def send_email

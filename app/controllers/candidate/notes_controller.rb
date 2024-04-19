@@ -4,7 +4,7 @@ class Candidate::NotesController < Candidate::BaseController
   def index
     @note = Note.new
     @pagy, @notes = pagy_nil_safe(params, @candidate.notes.includes(:user).order(created_at: :desc), items: LIMIT)
-    render_partial("candidate/notes/note", collection: @notes) if stale?(@notes + [@candidate])
+    render_partial("candidate/notes/note", collection: @notes) if stale?(@candidate)
   end
 
   def destroy

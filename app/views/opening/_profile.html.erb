@@ -5,14 +5,16 @@
     <div class="flex items-center mb-4 sm:mb-5">
       <div>
         <h4 id="drawer-label" class="flex items-center mb-1 text-lg font-semibold leading-none text-gray-900  dark:text-white"><%= opening.title %>
-          <a href="<%= edit_opening_path(opening) %>" data-tooltip-target="tooltip-edit" class="p-1 ml-1 text-gray-500 rounded-sm hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke="currentColor" stroke-linecap="square" stroke-linejoin="round" stroke-width="2" d="M7 19H5a1 1 0 0 1-1-1v-1a3 3 0 0 1 3-3h1m4-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm7.4 1.6a2 2 0 0 1 0 2.7l-6 6-3.4.7.7-3.4 6-6a2 2 0 0 1 2.7 0Z"/></svg>
-            <span class="sr-only">Edit Opening</span>
-          </a>
-          <div id="tooltip-edit" role="tooltip" class="inline-block text-xs absolute invisible z-10 py-1 px-2 text-xs font-medium text-white bg-gray-900 rounded-sm shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
-            Edit Opening
-            <div class="tooltip-arrow" data-popper-arrow></div>
-          </div>
+          <% if policy(:opening).edit? %>
+            <a href="<%= edit_opening_path(opening) %>" data-tooltip-target="tooltip-edit" class="p-1 ml-1 text-gray-500 rounded-sm hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke="currentColor" stroke-linecap="square" stroke-linejoin="round" stroke-width="2" d="M7 19H5a1 1 0 0 1-1-1v-1a3 3 0 0 1 3-3h1m4-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm7.4 1.6a2 2 0 0 1 0 2.7l-6 6-3.4.7.7-3.4 6-6a2 2 0 0 1 2.7 0Z"/></svg>
+              <span class="sr-only">Edit Opening</span>
+            </a>
+            <div id="tooltip-edit" role="tooltip" class="inline-block text-xs absolute invisible z-10 py-1 px-2 text-xs font-medium text-white bg-gray-900 rounded-sm shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+              Edit Opening
+              <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+          <% end %>
         </h4>
       </div>
     </div>

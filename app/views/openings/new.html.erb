@@ -36,6 +36,12 @@
             </label>
             <%= select_tag :bucket, options_for_select(Opening.priorities.map { |k, v| [k.humanize.capitalize, k] }), class: "form-text-field", :name => "opening[priority]" %>
           </div>
+          <div>
+            <label for="user-role" class="inline-flex items-center mb-1 text-sm font-medium text-gray-900 dark:text-white">
+              Owner
+            </label>
+            <%= form.collection_select(:owner_id, User.recruiters, :id, :name, { :prompt => "Select Owner" }, :class => "form-text-field", :required => true) %>
+          </div>
         </div>
       </div>
       <button type="submit" class="btn-primary mt-4">

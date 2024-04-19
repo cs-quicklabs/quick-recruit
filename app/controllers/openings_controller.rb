@@ -2,7 +2,12 @@ class OpeningsController < BaseController
   before_action :set_opening, only: %i[show edit update destroy]
 
   def index
-    @openings = Opening.includes(:role).all.order(active: :desc, role_id: :desc, created_at: :asc)
+    @openings = nil
+    if current_user.admin?
+      @openings = Opening.includes(:role, :owner).all.order(active: :desc, role_id: :desc, created_at: :asc)
+    else
+      @openings = Opening.includes(:role, :owner).where(owner: current_user, active: true).order(active: :desc, role_id: :desc, created_at: :asc)
+    end
 
     fresh_when @openings
   end
@@ -36,7 +41,7 @@ class OpeningsController < BaseController
   private
 
   def openings_params
-    params.require(:opening).permit(:title, :role_id, :active, :priority)
+    params.require(:opening).permit(:title, :role_id, :active, :priority, :owner_id)
   end
 
   def set_opening

@@ -4,6 +4,6 @@ class Opening::BaseController < ApplicationController
   private
 
   def set_opening
-    @opening ||= Opening.find(params[:id])
+    @opening ||= Opening.find(params[:opening_id])
   end
 end

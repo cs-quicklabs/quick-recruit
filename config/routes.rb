@@ -52,10 +52,14 @@ Rails.application.routes.draw do
   end
 
   resources :openings do
+    collection do
+      get "description"
+    end
     scope module: "opening" do
       resources :interviews
       resources :associations
       resources :champions
+      resources :description
       get "timeline", to: "timeline#index"
     end
   end

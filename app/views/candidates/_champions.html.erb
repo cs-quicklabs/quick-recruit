@@ -12,13 +12,22 @@
     </div>
   </th>
   <td class="px-4 py-2">
-    <%= candidate.email %>
-  </td>
-  <td class="px-4 py-2">
     <%= candidate.phone %>
   </td>
   <td class="px-4 py-2">
-    <%= candidate.opening.nil? ? "-" : candidate.opening.title %>
+    <% if candidate.opening.active? %>
+      <div class="flex items-center">
+        <div class="w-3 h-3 mr-2 bg-green-500 border rounded-full"></div>
+        <span class="bg-<%= priority_color(candidate.opening.priority) %>-100 text-<%= priority_color(candidate.opening.priority) %>-800 text-xs font-medium me-2 px-1.5 py-0.5 rounded border  border-<%= priority_color(candidate.opening.priority) %>-400"><%= candidate.opening.priority.titleize %></span>
+        <%= candidate.opening.nil? ? "-" : candidate.opening.title %>
+      </div>
+    <% else %>
+      <div class="flex items-center">
+        <div class="w-3 h-3 mr-2 bg-red-500 border rounded-full"></div>
+        <span class="bg-<%= priority_color(candidate.opening.priority) %>-100 text-<%= priority_color(candidate.opening.priority) %>-800 text-xs font-medium me-2 px-1.5 py-0.5 rounded border  border-<%= priority_color(candidate.opening.priority) %>-400"><%= candidate.opening.priority.titleize %></span>
+        <%= candidate.opening.nil? ? "-" : candidate.opening.title %>
+      </div>
+    <% end %>
   </td>
   <td class="px-4 py-2"><%= candidate.owner.name %></td>
   <td class="px-4 py-2"><%= display_date(candidate.bucket_updated_on) %></td>

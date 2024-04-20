@@ -30,6 +30,8 @@ class SendEmail < Patterns::Service
       CandidateMailer.with(candidate: candidate).rejection_email.deliver_later
     when "about_us_email"
       CandidateMailer.with(candidate: candidate).about_us_email.deliver_later
+    when "job_description_email"
+      CandidateMailer.with(candidate: candidate).job_description_email.deliver_later
     end
   end
 

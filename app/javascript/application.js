@@ -4,3 +4,6 @@ import "controllers"
 import 'flowbite'
 import "@rails/request.js"
 
+
+import "trix"
+import "@rails/actiontext"

@@ -2,7 +2,7 @@ class CandidateMailer < ApplicationMailer
   def rejection_email
     candidate = params[:candidate].email
     owner = candidate.owner.email
-    mail(to: [@candidate, owner], from: owner, subject: "Hiring@Crownstack: Interview Result", reply_to: candidate)
+    mail(to: [candidate, owner], from: owner, subject: "Hiring@Crownstack: Interview Result", reply_to: candidate)
   end
 
   def about_us_email

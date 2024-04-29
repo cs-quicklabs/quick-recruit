@@ -11,6 +11,7 @@ class CandidatesController < BaseController
     @icebox_count = count_all["icebox"] || 0
     @archive_count = count_all["archive"] || 0
     @incomplete_count = count_all["incomplete"] || 0
+    @alumni_count = count_all["alumni"] || 0
     @candidates_count = Candidate.count
   end
 

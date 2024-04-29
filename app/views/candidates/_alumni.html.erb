@@ -1,0 +1,37 @@
+<tr class="group border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+  <th scope="row" class=" px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+    <div class="flex items-center hover:underline">
+      <a href="<%= candidate_timeline_path(candidate) %>">
+        <%= candidate.name %>
+      </a>
+      <a href="#" class="font-medium ml-2 invisible group-hover:visible text-primary-600 dark:text-primary-500 inline-flex items-center">
+        <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+          <path fill-rule="evenodd" d="M5 7.8C6.7 6.3 9.2 5 12 5s5.3 1.3 7 2.8a12.7 12.7 0 0 1 2.7 3.2c.2.2.3.6.3 1s-.1.8-.3 1a2 2 0 0 1-.6 1 12.7 12.7 0 0 1-9.1 5c-2.8 0-5.3-1.3-7-2.8A12.7 12.7 0 0 1 2.3 13c-.2-.2-.3-.6-.3-1s.1-.8.3-1c.1-.4.3-.7.6-1 .5-.7 1.2-1.5 2.1-2.2Zm7 7.2a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" clip-rule="evenodd"/>
+        </svg>
+      </a>
+    </div>
+  </th>
+  <td class="px-4 py-2">
+    <%= candidate.phone %>
+  </td>
+  <td class="px-4 py-2">
+    <% if candidate.opening.active? %>
+      <div class="flex items-center">
+        <div class="w-3 h-3 mr-2 bg-green-500 border rounded-full"></div>
+        <span class="bg-<%= priority_color(candidate.opening.priority) %>-100 text-<%= priority_color(candidate.opening.priority) %>-800 text-xs font-medium me-2 px-1.5 py-0.5 rounded border  border-<%= priority_color(candidate.opening.priority) %>-400"><%= candidate.opening.priority.titleize %></span>
+        <%= candidate.opening.nil? ? "-" : candidate.opening.title %>
+      </div>
+    <% else %>
+      <div class="flex items-center">
+        <div class="w-3 h-3 mr-2 bg-red-500 border rounded-full"></div>
+        <span class="bg-<%= priority_color(candidate.opening.priority) %>-100 text-<%= priority_color(candidate.opening.priority) %>-800 text-xs font-medium me-2 px-1.5 py-0.5 rounded border  border-<%= priority_color(candidate.opening.priority) %>-400"><%= candidate.opening.priority.titleize %></span>
+        <%= candidate.opening.nil? ? "-" : candidate.opening.title %>
+      </div>
+    <% end %>
+  </td>
+  <td class="px-4 py-2"><%= candidate.owner.name %></td>
+  <td class="px-4 py-2"><%= display_date(candidate.bucket_updated_on) %></td>
+  <td class="px-4 py-2">
+    <span class="bg-<%= status_color(candidate.status) %>-100 text-<%= status_color(candidate.status) %>-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded"><%= candidate.status.humanize.titleize %></span>
+  </td>
+</tr>

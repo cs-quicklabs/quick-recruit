@@ -143,6 +143,12 @@ class CandidatesController < BaseController
     fresh_when @candidates
   end
 
+  def alumni
+    @pagy, @candidates = pagy(candidates_for_bucket(:alumni), items: LIMIT)
+
+    fresh_when @candidates
+  end
+
   private
 
   def candidates_for_bucket(bucket)

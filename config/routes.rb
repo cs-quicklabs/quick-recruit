@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       get "icebox"
       get "archive"
       get "incomplete"
+      get "alumni"
     end
     scope module: "candidate" do
       resources :interviews

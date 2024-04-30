@@ -4,8 +4,8 @@
       <div class=" divide-y dark:divide-gray-700">
         <div class="flex-row items-center justify-between p-4 space-y-3 sm:flex sm:space-y-0 sm:space-x-4">
           <div>
-            <h1 class="mr-3 text-lg font-semibold dark:text-white">Alumni</h1>
-            <p class="text-gray-500 dark:text-gray-400 text-sm">Following <span class="font-bold"><%= @candidates.count %></span> candidates were either offered or they joined us. These are the best candidates we got from any source.</p>
+            <h1 class="mr-3 text-lg font-semibold dark:text-white">Employees</h1>
+            <p class="text-gray-500 dark:text-gray-400 text-sm">Following <span class="font-bold"><%= @candidates.count %></span> candidates are currenlty part of our team.</p>
           </div>
           <a type="button" href="/candidates/new"
                 class="btn-primary">
@@ -26,7 +26,7 @@
             </tr>
           </thead>
           <tbody>
-            <%= render partial: "alumni", collection: @candidates, as: :candidate %>
+            <%= render partial: "employee", collection: @candidates, as: :candidate %>
           </tbody>
         </table>
       </div>

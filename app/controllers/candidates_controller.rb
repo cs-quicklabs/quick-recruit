@@ -12,6 +12,7 @@ class CandidatesController < BaseController
     @archive_count = count_all["archive"] || 0
     @incomplete_count = count_all["incomplete"] || 0
     @alumni_count = count_all["alumni"] || 0
+    @employees_count = count_all["employees"] || 0
     @candidates_count = Candidate.count
   end
 
@@ -146,6 +147,12 @@ class CandidatesController < BaseController
 
   def alumni
     @pagy, @candidates = pagy(candidates_for_bucket(:alumni), items: LIMIT)
+
+    fresh_when @candidates
+  end
+
+  def employees
+    @pagy, @candidates = pagy(candidates_for_bucket(:employees), items: LIMIT)
 
     fresh_when @candidates
   end

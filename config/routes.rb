@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       get "archive"
       get "incomplete"
       get "alumni"
+      get "employees"
     end
     scope module: "candidate" do
       resources :interviews

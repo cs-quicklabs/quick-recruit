@@ -132,5 +132,18 @@
         </div>
       </div>
     </li>
+    <li class="col-span-1 flex rounded-sm shadow-sm">
+      <button data-tooltip-target="tooltip-employees" type="button" class="flex w-16 flex-shrink-0 items-center justify-center bg-blue-600 rounded-l-md text-sm font-medium text-white">I</button>
+      <div id="tooltip-employees" role="tooltip" class="max-w-sm absolute z-10 invisible inline-block px-2 py-1 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-sm shadow-sm opacity-0 tooltip dark:bg-gray-700">
+        This bucket contains those candidates who are currently part of us.
+        <div class="tooltip-arrow" data-popper-arrow></div>
+      </div>
+      <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
+        <div class="flex-1 truncate px-4 py-2 text-sm">
+          <a href="/candidates/employees" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Employees</a>
+          <p class="text-gray-500"><%= @employees_count %>  Candidates</p>
+        </div>
+      </div>
+    </li>
   </ul>
 </div>

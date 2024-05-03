@@ -1,12 +1,75 @@
 <div class="py-8 px-4 mx-auto max-w-4xl lg:py-8 text-sm">
-  <p class="text-sm font-semibold leading-7 text-indigo-600">JOB DESCRIPTION</p>
-  <h2 class="py-4 text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl"><%= @opening.title %></h2>
+  <div class="w-24 mb-8">
+    <svg class="w-24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320"><defs><style>
+          .cls-1 {
+          	fill: #f7ce0f;
+          }
+          .cls-2 {
+          	fill: #1f2f5f;
+          }
+          .cls-3 {
+          	isolation: isolate;
+          }
+          .cls-4 {
+          	fill: #ee2c68;
+          }
+          .cls-5 {
+          	fill: #3cbda7;
+          }
+          .cls-6 {
+          	fill: #04a4bd;
+          }
+          .cls-7 {
+          	mix-blend-mode: multiply;
+          }
+        </style></defs><g class="cls-3"><g id="Layer_1"><g><g><g class="cls-7"><path class="cls-5" d="M98.32,35.07c22.28-11,47.1-15.84,71.88-14.02,24.78,1.82,48.63,10.23,69.06,24.37,20.44,14.14,36.72,33.48,47.16,56.03,10.44,22.55,14.66,47.48,12.23,72.21l-41.66-4.11c1.71-17.3-1.25-34.74-8.55-50.52-7.31-15.77-18.7-29.31-32.99-39.2-14.3-9.89-30.98-15.78-48.31-17.05-17.34-1.27-34.7,2.11-50.29,9.81l-18.53-37.53Z"></path></g><g class="cls-7"><path class="cls-4" d="M207.41,291.01c-26.65,9.65-55.61,10.93-83.01,3.69-27.4-7.24-51.94-22.67-70.35-44.22-18.41-21.55-29.8-48.21-32.66-76.41-2.86-28.2,2.94-56.6,16.64-81.41l36.64,20.23c-9.58,17.36-13.64,37.23-11.64,56.95,2,19.73,9.97,38.37,22.85,53.45,12.88,15.08,30.04,25.87,49.21,30.94,19.17,5.07,39.43,4.17,58.07-2.58l14.25,39.36Z"></path></g><g class="cls-7"><path class="cls-6" d="M43.41,206.97c-7.59-18.85-10.5-39.26-8.48-59.49,2.02-20.22,8.92-39.65,20.1-56.63,11.18-16.97,26.31-30.98,44.09-40.82,17.78-9.84,37.69-15.23,58-15.69l.86,37.75c-14.21,.32-28.14,4.09-40.58,10.98-12.44,6.89-23.02,16.69-30.84,28.56-7.82,11.87-12.65,25.47-14.06,39.61-1.42,14.15,.62,28.43,5.93,41.62l-35.03,14.11Z"></path></g><g class="cls-7"><path class="cls-1" d="M278.9,118.73c7.1,20.45,8.8,42.38,4.95,63.67-3.85,21.3-13.13,41.24-26.94,57.9-13.81,16.66-31.68,29.49-51.89,37.23-20.21,7.74-42.07,10.14-63.48,6.97l5.55-37.4c14.98,2.22,30.27,.54,44.41-4.87,14.14-5.42,26.64-14.39,36.3-26.04,9.66-11.66,16.15-25.61,18.85-40.51,2.69-14.9,1.5-30.24-3.46-44.54l35.72-12.4Z"></path></g></g><g><path class="cls-2" d="M164.77,165.85c-2.69,8.72-7.71,15.8-15.07,21.25-7.36,5.44-15.64,8.16-24.84,8.16-10.3,0-18.18-3.33-23.63-9.98-5.46-6.65-7.29-15.1-5.5-25.33,1.79-10.23,6.58-18.66,14.37-25.28,7.79-6.62,16.83-9.94,27.13-9.94,9.2,0,16.53,2.71,21.98,8.12,5.45,5.41,8,12.48,7.62,21.2h-16.79c-.24-4.13-1.76-7.49-4.55-10.08-2.8-2.59-6.45-3.89-10.95-3.89-5.47,0-10.27,1.85-14.39,5.56-4.12,3.7-6.69,8.44-7.71,14.21-1.02,5.84-.13,10.64,2.69,14.41s6.95,5.65,12.42,5.65c4.44,0,8.51-1.29,12.21-3.89,3.7-2.59,6.44-5.98,8.2-10.18h16.79Z"></path><path class="cls-2" d="M202.67,124.74c7.46,0,13.26,2.17,17.39,6.49,4.13,4.33,5.63,9.9,4.5,16.72h-15.93c.44-2.88-.13-5.21-1.72-6.98-1.59-1.77-3.93-2.66-7.02-2.66-2.77,0-5.13,.64-7.09,1.92-1.96,1.28-3.13,3-3.51,5.16-.34,1.97,.31,3.56,1.96,4.77,1.65,1.21,3.82,2.05,6.51,2.51,2.69,.46,5.6,1.12,8.73,1.97,3.13,.85,5.98,1.85,8.55,3,2.57,1.15,4.54,3.08,5.93,5.8,1.39,2.72,1.73,6.08,1.03,10.08-1.17,6.69-4.72,11.99-10.65,15.89-5.93,3.9-13.08,5.85-21.44,5.85s-14.44-2.13-18.81-6.39c-4.37-4.26-5.99-9.97-4.87-17.12h16.41c-.44,2.89,.27,5.26,2.13,7.13,1.86,1.87,4.62,2.8,8.29,2.8,3.15,0,5.86-.69,8.13-2.07,2.27-1.38,3.6-3.18,3.99-5.41,.33-1.9-.33-3.44-1.99-4.62-1.66-1.18-3.83-2-6.52-2.46-2.69-.46-5.59-1.13-8.72-2.02-3.13-.89-5.98-1.88-8.55-3-2.57-1.12-4.55-3.02-5.95-5.71-1.4-2.69-1.75-6-1.06-9.93,1.16-6.62,4.53-11.9,10.11-15.84,5.58-3.93,12.29-5.9,20.14-5.9Z"></path></g></g></g></g></svg>
+  </div>
+  <p class="text-sm font-semibold leading-7 text-theme-600">JOB DESCRIPTION</p>
+  <h2 class="pb-4 text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl"><%= @opening.title %></h2>
   <div class="mb-4"><strong>Company Overview:</strong></div>
-  <p class="text-sm">  Crownstack is a proven Digital Transformation Service provider mostly serving the US market.  Our approach to work is proactive, collaborative, and committed. We believe in design-led engineering to build digital experiences for mobile, web and other platforms. We leverage agile development processes to deliver work in successive sprints.</p>
-  <p class="text-sm mt-4 mb-4">As a part of our latest transformation, we are searching for experienced Developers to join our rapidly growing team of 60+ members in Noida locations. </p>
+  <p class="text-sm">  Crownstack is a proven Digital Transformation Service provider mostly serving the US market.  We are a User Experience and quality-focused digital engineering company, empowering enterprises to develop and implement cutting-edge digital business models.
+  </p>
+  <p class="text-sm mt-4 mb-4">Our team of 60+ passionate engineers and designers propels an engineering-driven, people-centric culture, making us a great place to work. Over the years, with a commitment to clean coding and intuitive user experiences, we have achieved an impressive growth.
+  </p>
+  <p class="text-sm mt-4 mb-4">
+    Our employee-centric HR policies, competitive pay scale, vibrant work environment, and collaboration with super-talented peers make it the perfect place to nurture your career and make an impact.
+  </p>
   <div class="text-sm">
     <%= @opening.description %>
   </div>
   <p class="text-sm font-bold italic mt-4">We are an equal opportunity employer that values diversity at all levels. All qualified applicants will receive consideration for employment without regard to race, color, religion, gender, national origin, age, sexual orientation, gender identity or  disability.
   </p>
+  <div class="mt-8 my-8 grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:gap-8 bg-gray-100 p-4 rounded ">
+    <div class="dark:border-gray-700 dark:bg-gray-800">
+      <h3 class="mb-4 text-lg font-extrabold dark:text-white">Some Useful Links</h3>
+      <ul role="list" class="mb-4 text-theme-600 dark:text-theme-500 font-semibold ">
+        <li> <a href="https://www.crownstack.com/about" target="_blank" class="hover:underline">About Us</a> </li>
+        <li> <a href="https://www.crownstack.com/pdfs/cs-mission-and-vision-statement.pdf" target="_blank" class="hover:underline">Our Mission and Vision</a> </li>
+        <li> <a href="https://www.crownstack.com/pdfs/cs-culture-code-guidelines.pdf" target="_blank" class="hover:underline">Our Culture Code</a> </li>
+        <li> <a href="https://www.crownstack.com/work" target="_blank" class="hover:underline">Our Work</a> </li>
+        <li> <a href="https://www.crownstack.com/technologies" target="_blank" class="hover:underline">Our Technologies</a> </li>
+        <li> <a href="https://www.crownstack.com/careers" target="_blank" class="hover:underline">Why Join Us?</a> </li>
+      </ul>
+    </div>
+    <div class="dark:border-gray-700 dark:bg-gray-800">
+      <h3 class="mb-4 text-lg font-bold dark:text-white">Other Useful Information</h3>
+      <ul role="list" class="mb-4 dark:text-theme-500 text-sm">
+        <li> Team Size - 60+ </li>
+        <li> Job Type -  Full Time </li>
+        <li> Job Location - Sector 2, Noida </li>
+        <li> Company Foundation Year -  2017 </li>
+        <li> Remote Or Hybrid -  5 days a week in office </li>
+        <li> Nature of Business -  Service based, US Focused </li>
+      </ul>
+    </div>
+  </div>
+  <section class="dark:bg-gray-900 mt-4">
+    <div class="mx-auto flex max-w-screen-xl px-4 py-4 sm:py-4 lg:px-6 2xl:max-w-screen-2xl"> <img class="mb-4 hidden  h-48 rounded-lg md:flex lg:mb-0 lg:flex" src="/assets/founders.png" alt="founders">
+      <div class="max-w-screen-md lg:ml-16">
+        <h2 class="text-lg font-extrabold text-gray-900 dark:text-white">We would love to work with you</h2>
+        <p class="mb-4 mt-2 text-gray-900 text-sm">We are always searching for bright candidates like you to add to our already excellent team of developers and designers. If you want to work with highly skilled and passionate people and have a desire to learn new things and push yourself to new hights, please come join us.</p>
+        <div class="flex flex-col sm:flex-row sm:space-x-4 sm:space-y-0"> <a href="https://www.crownstack.com/contact" target="_blank" class="justify-center rounded-md bg-theme-600 px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-theme-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-theme-600">Apply Now <span aria-hidden="true">→</span></a> </div>
+      </div>
+    </div>
+  </section>
 </div>

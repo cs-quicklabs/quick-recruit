@@ -1,10 +1,6 @@
 class Public::ApplyController < Public::PublicController
   def index
     @candidate = Candidate.new
-    @roles = Role.all
-    @openings = Opening.all
-    @sources = Source.all
-    @buckets = current_user.recruiter? ? Candidate.buckets.except(:pipeline) : Candidate.buckets
   end
 
   def create

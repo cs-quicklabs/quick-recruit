@@ -1,0 +1,8 @@
+<p><%= "First Name: " +  @content[:first_name] %></p>
+<p><%= "Last Name: " +  @content[:last_name] %></p>
+<p><%= "Email: " +  @content[:email] %></p>
+<p><%= "Phone: " +  @content[:phone] %></p>
+<% unless @content[:opening_id].empty? %>
+  <p><%= "Opening: " +  Opening.find(@content[:opening_id]).title %></p>
+<% end %>
+<p><%= "Biography: " +  @content[:biography] %></p>

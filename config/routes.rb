@@ -75,8 +75,8 @@ Rails.application.routes.draw do
   scope "/settings" do
     get "/profile", to: "user#profile", as: "profile"
     get "/password", to: "user#password", as: "setting_password"
-    #get "/import", to: "user#import", as: "import"
-    #post "/import_csv", to: "user#import_csv", as: "import_csv"
+    get "/import", to: "user#import", as: "import"
+    post "/import_csv", to: "user#import_csv", as: "import_csv"
     patch "/password", to: "user#update_password", as: "edit_password"
     get "/preferences", to: "user#preferences", as: "user_preferences"
     patch "/avatar", to: "user#update_avatar", as: "avatar"
@@ -100,7 +100,10 @@ Rails.application.routes.draw do
   end
 
   scope "/public" do
+    get "/thanks", to: "public/apply#thanks", as: "public_thanks"
     get "/openings", to: "public/openings#index", as: "public_openings"
+    get "/openings/apply", to: "public/apply#index", as: "public_apply"
+    post "/openings/apply", to: "public/apply#create", as: "public_apply_create"
     get "/openings/:id", to: "public/openings#show", as: "show_public_openings"
   end
 end

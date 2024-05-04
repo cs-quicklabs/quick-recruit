@@ -19,6 +19,6 @@ class CandidateMailer < ApplicationMailer
 
   def lead_email
     @content = params[:content]
-    mail(to: ["aditi@crownstack.com", "aashishdhawan@crownstack.com"], subject: "Hiring@Crownstack: New Lead from Website")
+    mail(to: ["shweta@crownstack.com", "aditi@crownstack.com", "aashishdhawan@crownstack.com"], subject: "Hiring@Crownstack: New Lead from Website")
   end
 end

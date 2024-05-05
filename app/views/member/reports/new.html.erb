@@ -1,0 +1,28 @@
+<div class="py-8 px-4 mx-auto max-w-4xl lg:py-8">
+  <h1 class="mr-3 text-lg font-semibold dark:text-white">Create A New report</h1>
+  <p class="text-gray-500 dark:text-gray-400 text-sm">You can submit a daily, weekly, quarterly or yearly report for future reference.</p>
+  <%= tailwind_form_with(model: @report, id: dom_id(@report), url: member_reports_path(@member), method: "POST") do |form| %>
+    <div class="mt-4 mb-2 grid gap-4 sm:gap-6">
+      <div>
+        <%= form.text_field :title, "Report Title", required: true, placeholder: "Please enter suitable title for report" %>
+      </div>
+    </div>
+    <div class="field mt-8">
+      <%= form.rich_text_area :content, required: true %>
+      <div class="flex items-center space-x-2 mt-4">
+        <button type="submit" class="btn-primary" name="commit" value="submitted">
+          Submit Report
+        </button>
+        <button type="submit" class="btn-secondary" name="commit" value="draft">
+          Save as Draft
+        </button>
+        <div class="flex self-end items-right">
+          <a type="button" href="<%= member_reports_path(@member) %>"
+                class="btn-secondary justify-self-end">
+            Cancel
+          </a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

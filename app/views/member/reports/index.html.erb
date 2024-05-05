@@ -20,14 +20,14 @@
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-              <th scope="col" class="px-4 py-2">
-                Interview
+              <th scope="col w-full" class="px-4 py-2">
+                Title
               </th>
               <th scope="col" class="px-4 py-2">
-                Candidate
+                Submitted By
               </th>
               <th scope="col" class="px-4 py-2">
-                Date
+                Created At
               </th>
               <th scope="col" class="px-4 py-2">
                 Status
@@ -38,29 +38,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-              <th scope="row" class="flex items-center px-4 py-2 text-gray-900 whitespace-nowrap dark:text-white">
-                <div class="">
-                  <div class="text-sm font-semibold">Online Interview</div>
-                </div>
-              </th>
-              <td class="px-4 py-2">
-                Aashish Dhawan
-              </td>
-              <td class="px-4 py-2">
-                Jun 22, 2024 10:00 AM
-              </td>
-              <td class="px-4 py-2">
-                <div class="flex items-center">
-                  <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>
-                  Online
-                </div>
-              </td>
-              <td class="px-4 py-2">
-                <!-- Modal toggle -->
-                <a href="#" type="button" data-modal-target="editUserModal" data-modal-show="editUserModal" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-              </td>
-            </tr>
+            <%= render @reports %>
           </tbody>
         </table>
         <!-- Edit user modal -->
@@ -128,6 +106,13 @@
     </div>
     <div class="shrink-0 border-t border-gray-200 px-4 py-6 sm:px-6 lg:w-80 lg:border-l lg:border-t-0 lg:pr-8 xl:pr-6">
       <!-- Right column area -->
+      <div>
+        <h5 class="mr-3 font-semibold dark:text-white">Submit New Report</h5>
+        <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">You can submit a daily, weekly, quarterly or yearly report for future reference.</p>
+        <a href="<%= new_member_report_path(@member) %>" class="btn-primary">
+          Submit Report
+        </a>
+      </div>
     </div>
   </div>
 </div>

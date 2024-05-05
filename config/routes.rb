@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       get "employees"
       get "contractors"
     end
+
     scope module: "candidate" do
       resources :interviews
       resources :checklists
@@ -50,6 +51,7 @@ Rails.application.routes.draw do
       resources :interviews
       resources :reviews
       resources :feedbacks
+      resources :reports
       get "timeline", to: "timeline#index"
     end
   end

@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       get "alumni"
       get "employees"
       get "contractors"
+      get "leads"
     end
 
     scope module: "candidate" do

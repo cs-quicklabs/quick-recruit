@@ -14,6 +14,7 @@ class CandidatesController < BaseController
     @alumni_count = count_all["alumni"] || 0
     @employees_count = count_all["employees"] || 0
     @contractors_count = count_all["contractors"] || 0
+    @leads_count = count_all["leads"] || 0
 
     @candidates_count = Candidate.count
   end
@@ -161,6 +162,12 @@ class CandidatesController < BaseController
 
   def contractors
     @pagy, @candidates = pagy(candidates_for_bucket(:contractors), items: LIMIT)
+
+    fresh_when @candidates
+  end
+
+  def leads
+    @pagy, @candidates = pagy(candidates_for_bucket(:leads), items: LIMIT)
 
     fresh_when @candidates
   end

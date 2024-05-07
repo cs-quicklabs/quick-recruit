@@ -36,4 +36,8 @@ class User < ApplicationRecord
       errors.add(:avatar, "must be a JPEG or PNG")
     end
   end
+
+  def self.bot
+    find_by(email: "bot@crownstack.com")
+  end
 end

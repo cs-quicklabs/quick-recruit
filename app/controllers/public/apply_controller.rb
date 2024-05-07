@@ -4,7 +4,7 @@ class Public::ApplyController < Public::PublicController
   end
 
   def create
-    CandidateMailer.with(content: candidate_params).lead_email.deliver_later
+    ApplyForJob.call(candidate_params)
     redirect_to public_thanks_path, notice: "Thank you for applying!"
   end
 

@@ -56,9 +56,7 @@
           <%= form.text_area :biography, "Tell us about yourself", placeholder: "Some personal and professional details about yourself..", style: "height:120px" %>
         </div>
       </div>
-      <button type="submit" class="btn-primary">
-        Apply
-      </button>
+      <%= form.submit 'Submit Application', class: "btn-primary", data: {disable_with: "Please wait..."} %>
       <%= link_to "Cancel", public_openings_path, class: "btn-secondary" %>
     <% end %>
   </div>

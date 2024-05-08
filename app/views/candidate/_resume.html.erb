@@ -14,7 +14,7 @@
     <% end %>
   </dd>
 <% else  %>
-  <% if candidate.incomplete? %>
+  <% if candidate.incomplete? or candidate.leads? %>
     <dd class="border border-gray-200 p-4 mt-2">
       <div class="flex items-center text-sm font-light text-gray-900 dark:text-gray-400">
         <p class="text-xs text-italic mb-2">No resume attached. Please upload a PDF file to upload new resume.</p>

@@ -167,7 +167,7 @@ class CandidatesController < BaseController
   end
 
   def leads
-    @pagy, @candidates = pagy(candidates_for_bucket(:leads), items: LIMIT)
+    @pagy, @candidates = pagy(candidates_for_bucket(:leads).order(created_at: :desc), items: LIMIT)
 
     fresh_when @candidates
   end

@@ -167,7 +167,14 @@ class CandidatesController < BaseController
   end
 
   def leads
-    @pagy, @candidates = pagy(candidates_for_bucket(:leads).order(created_at: :desc), items: LIMIT)
+    candidates = nil
+    if current_user.admin?
+      candidates = Candidate.unscoped.where(bucket: :leads).includes(:opening, :owner).order(created_at: :desc)
+    else
+      candidates = Candidate.unscoped.where(bucket: :leads, owner: current_user).includes(:opening, :owner).order(created_at: :desc)
+    end
+
+    @pagy, @candidates = pagy(candidates, items: LIMIT)
 
     fresh_when @candidates
   end

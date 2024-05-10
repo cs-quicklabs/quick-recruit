@@ -14,20 +14,7 @@
 <div class="mx-auto max-w-screen-2xl lg:px-8">
   <ul role="list" class="mt-3 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
     <li class="col-span-1 flex rounded-sm shadow-sm">
-      <button data-tooltip-target="tooltip-new" type="button" class="flex w-16 flex-shrink-0 items-center justify-center bg-yellow-500 rounded-l-md text-sm font-medium text-white">A</button>
-      <div id="tooltip-new" role="tooltip" class="max-w-sm absolute z-10 invisible inline-block px-2 py-1 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-sm shadow-sm opacity-0 tooltip dark:bg-gray-700">
-        This bucket contains newly added candidates and need review.
-        <div class="tooltip-arrow" data-popper-arrow></div>
-      </div>
-      <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
-        <div class="flex-1 truncate px-4 py-2 text-sm">
-          <a href="/candidates/recent" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Recent</a>
-          <p class="text-gray-500"><%= @recent_count %> Candidates</p>
-        </div>
-      </div>
-    </li>
-    <li class="col-span-1 flex rounded-sm shadow-sm">
-      <button data-tooltip-target="tooltip-hot" type="button" class="flex w-16 flex-shrink-0 items-center justify-center bg-red-500 rounded-l-md text-sm font-medium text-white">B</button>
+      <button data-tooltip-target="tooltip-hot" type="button" class="flex w-16 flex-shrink-0 items-center justify-center bg-red-500 rounded-l-md text-sm font-medium text-white">A</button>
       <div id="tooltip-hot" role="tooltip" class="max-w-sm absolute z-10 invisible inline-block px-2 py-1 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-sm shadow-sm opacity-0 tooltip dark:bg-gray-700">
         This bucket contains those candidates which we need to look and decide when to process.
         <div class="tooltip-arrow" data-popper-arrow></div>
@@ -40,7 +27,7 @@
       </div>
     </li>
     <li class="col-span-1 flex rounded-sm shadow-sm">
-      <button data-tooltip-target="tooltip-pipeline" type="button" class="flex w-16 flex-shrink-0 items-center justify-center bg-yellow-500 rounded-l-md text-sm font-medium text-white">C</button>
+      <button data-tooltip-target="tooltip-pipeline" type="button" class="flex w-16 flex-shrink-0 items-center justify-center bg-yellow-500 rounded-l-md text-sm font-medium text-white">B</button>
       <div id="tooltip-pipeline" role="tooltip" class="max-w-sm absolute z-10 invisible inline-block px-2 py-1 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-sm shadow-sm opacity-0 tooltip dark:bg-gray-700">
         This bucket contains those candidates which are currently in our pipeline under various campaigns.
         <div class="tooltip-arrow" data-popper-arrow></div>
@@ -53,7 +40,7 @@
       </div>
     </li>
     <li class="col-span-1 flex rounded-sm shadow-sm">
-      <button data-tooltip-target="tooltip-champions" type="button" class="flex w-16 flex-shrink-0 items-center justify-center bg-green-500 rounded-l-md text-sm font-medium text-white">D</button>
+      <button data-tooltip-target="tooltip-champions" type="button" class="flex w-16 flex-shrink-0 items-center justify-center bg-green-500 rounded-l-md text-sm font-medium text-white">C</button>
       <div id="tooltip-champions" role="tooltip" class="max-w-sm absolute z-10 invisible inline-block px-2 py-1 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-sm shadow-sm opacity-0 tooltip dark:bg-gray-700">
         This bucket contains those candidates which cleared our process but did not join us and we might consider them in future.
         <div class="tooltip-arrow" data-popper-arrow></div>
@@ -65,62 +52,49 @@
         </div>
       </div>
     </li>
+    <li class="col-span-1 flex rounded-sm shadow-sm">
+      <button data-tooltip-target="tooltip-employees" type="button" class="flex w-16 flex-shrink-0 items-center justify-center bg-gray-500 rounded-l-md text-sm font-medium text-white">D</button>
+      <div id="tooltip-employees" role="tooltip" class="max-w-sm absolute z-10 invisible inline-block px-2 py-1 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-sm shadow-sm opacity-0 tooltip dark:bg-gray-700">
+        This bucket contains those candidates who are currently part of us.
+        <div class="tooltip-arrow" data-popper-arrow></div>
+      </div>
+      <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
+        <div class="flex-1 truncate px-4 py-2 text-sm">
+          <a href="/candidates/employees" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Employees</a>
+          <p class="text-gray-500"><%= @employees_count %>  Candidates</p>
+        </div>
+      </div>
+    </li>
   </ul>
-  <ul role="list" class="mt-3 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4 py-4">
+  <ul role="list" class="mt-3 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
     <li class="col-span-1 flex rounded-sm shadow-sm">
-      <button data-tooltip-target="tooltip-joinings" type="button" class="flex w-16 flex-shrink-0 items-center justify-center bg-yellow-500 rounded-l-md text-sm font-medium text-white">E</button>
-      <div id="tooltip-joinings" role="tooltip" class="max-w-sm absolute z-10 invisible inline-block px-2 py-1 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-sm shadow-sm opacity-0 tooltip dark:bg-gray-700">
-        This bucket contains those candidates which are joining in next few days.
+      <button data-tooltip-target="tooltip-leads" type="button" class="flex w-16 flex-shrink-0 items-center justify-center bg-red-500 rounded-l-md text-sm font-medium text-white">E</button>
+      <div id="tooltip-leads" role="tooltip" class="max-w-sm absolute z-10 invisible inline-block px-2 py-1 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-sm shadow-sm opacity-0 tooltip dark:bg-gray-700">
+        This bucket contains those leads which were collected from our career portal.
         <div class="tooltip-arrow" data-popper-arrow></div>
       </div>
       <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
         <div class="flex-1 truncate px-4 py-2 text-sm">
-          <a href="/candidates/joinings" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Joinings</a>
-          <p class="text-gray-500"><%= @joinings_count %>  Candidates</p>
+          <a href="/candidates/leads" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Leads</a>
+          <p class="text-gray-500"><%= @leads_count %>  Candidates</p>
         </div>
       </div>
     </li>
     <li class="col-span-1 flex rounded-sm shadow-sm">
-      <button data-tooltip-target="tooltip-icebox" type="button" class="flex w-16 flex-shrink-0 items-center justify-center bg-green-500 rounded-l-md text-sm font-medium text-white">F</button>
-      <div id="tooltip-icebox" role="tooltip" class="max-w-sm max-w-sm absolute z-10 invisible inline-block px-2 py-1 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-sm shadow-sm opacity-0 tooltip dark:bg-gray-700">
-        This bucket contains those candidate which should be followed up with after some time.
+      <button data-tooltip-target="tooltip-new" type="button" class="flex w-16 flex-shrink-0 items-center justify-center bg-yellow-500 rounded-l-md text-sm font-medium text-white">F</button>
+      <div id="tooltip-new" role="tooltip" class="max-w-sm absolute z-10 invisible inline-block px-2 py-1 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-sm shadow-sm opacity-0 tooltip dark:bg-gray-700">
+        This bucket contains newly added candidates and need review.
         <div class="tooltip-arrow" data-popper-arrow></div>
       </div>
       <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
         <div class="flex-1 truncate px-4 py-2 text-sm">
-          <a href="/candidates/icebox" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Iceboxed</a>
-          <p class="text-gray-500"><%= @icebox_count %>  Candidates</p>
+          <a href="/candidates/recent" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Recent</a>
+          <p class="text-gray-500"><%= @recent_count %> Candidates</p>
         </div>
       </div>
     </li>
     <li class="col-span-1 flex rounded-sm shadow-sm">
-      <button data-tooltip-target="tooltip-archived" type="button" class="flex w-16 flex-shrink-0 items-center justify-center bg-gray-500 rounded-l-md text-sm font-medium text-white">G</button>
-      <div id="tooltip-archived" role="tooltip" class="max-w-sm absolute z-10 invisible inline-block px-2 py-1 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-sm shadow-sm opacity-0 tooltip dark:bg-gray-700">
-        This bucket contains those candidates which are not fit for us and we might not consider in future as well.
-        <div class="tooltip-arrow" data-popper-arrow></div>
-      </div>
-      <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
-        <div class="flex-1 truncate px-4 py-2 text-sm">
-          <a href="/candidates/archive" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Archived</a>
-          <p class="text-gray-500"><%= @archive_count %>  Candidates</p>
-        </div>
-      </div>
-    </li>
-    <li class="col-span-1 flex rounded-sm shadow-sm">
-      <button data-tooltip-target="tooltip-incomplete" type="button" class="flex w-16 flex-shrink-0 items-center justify-center bg-red-500 rounded-l-md text-sm font-medium text-white">H</button>
-      <div id="tooltip-incomplete" role="tooltip" class="max-w-sm absolute z-10 invisible inline-block px-2 py-1 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-sm shadow-sm opacity-0 tooltip dark:bg-gray-700">
-        This bucket contains those candidates for which we do not have enough data.
-        <div class="tooltip-arrow" data-popper-arrow></div>
-      </div>
-      <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
-        <div class="flex-1 truncate px-4 py-2 text-sm">
-          <a href="/candidates/incomplete" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Incomplete</a>
-          <p class="text-gray-500"><%= @incomplete_count %>  Candidates</p>
-        </div>
-      </div>
-    </li>
-    <li class="col-span-1 flex rounded-sm shadow-sm">
-      <button data-tooltip-target="tooltip-alumni" type="button" class="flex w-16 flex-shrink-0 items-center justify-center bg-green-500 rounded-l-md text-sm font-medium text-white">I</button>
+      <button data-tooltip-target="tooltip-alumni" type="button" class="flex w-16 flex-shrink-0 items-center justify-center bg-green-500 rounded-l-md text-sm font-medium text-white">G</button>
       <div id="tooltip-alumni" role="tooltip" class="max-w-sm absolute z-10 invisible inline-block px-2 py-1 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-sm shadow-sm opacity-0 tooltip dark:bg-gray-700">
         This bucket contains those candidates who are no longer with us.
         <div class="tooltip-arrow" data-popper-arrow></div>
@@ -133,20 +107,7 @@
       </div>
     </li>
     <li class="col-span-1 flex rounded-sm shadow-sm">
-      <button data-tooltip-target="tooltip-employees" type="button" class="flex w-16 flex-shrink-0 items-center justify-center bg-gray-500 rounded-l-md text-sm font-medium text-white">J</button>
-      <div id="tooltip-employees" role="tooltip" class="max-w-sm absolute z-10 invisible inline-block px-2 py-1 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-sm shadow-sm opacity-0 tooltip dark:bg-gray-700">
-        This bucket contains those candidates who are currently part of us.
-        <div class="tooltip-arrow" data-popper-arrow></div>
-      </div>
-      <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
-        <div class="flex-1 truncate px-4 py-2 text-sm">
-          <a href="/candidates/employees" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Employees</a>
-          <p class="text-gray-500"><%= @employees_count %>  Candidates</p>
-        </div>
-      </div>
-    </li>
-    <li class="col-span-1 flex rounded-sm shadow-sm">
-      <button data-tooltip-target="tooltip-contractors" type="button" class="flex w-16 flex-shrink-0 items-center justify-center bg-gray-500 rounded-l-md text-sm font-medium text-white">K</button>
+      <button data-tooltip-target="tooltip-contractors" type="button" class="flex w-16 flex-shrink-0 items-center justify-center bg-gray-500 rounded-l-md text-sm font-medium text-white">H</button>
       <div id="tooltip-contractors" role="tooltip" class="max-w-sm absolute z-10 invisible inline-block px-2 py-1 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-sm shadow-sm opacity-0 tooltip dark:bg-gray-700">
         This bucket contains those candidates which have worked with us as contractors in past.
         <div class="tooltip-arrow" data-popper-arrow></div>
@@ -158,16 +119,57 @@
         </div>
       </div>
     </li>
+  </ul>
+  <ul role="list" class="mt-3 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
     <li class="col-span-1 flex rounded-sm shadow-sm">
-      <button data-tooltip-target="tooltip-leads" type="button" class="flex w-16 flex-shrink-0 items-center justify-center bg-red-500 rounded-l-md text-sm font-medium text-white">L</button>
-      <div id="tooltip-leads" role="tooltip" class="max-w-sm absolute z-10 invisible inline-block px-2 py-1 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-sm shadow-sm opacity-0 tooltip dark:bg-gray-700">
-        This bucket contains those leads which were collected from our career portal.
+      <button data-tooltip-target="tooltip-incomplete" type="button" class="flex w-16 flex-shrink-0 items-center justify-center bg-red-500 rounded-l-md text-sm font-medium text-white">I</button>
+      <div id="tooltip-incomplete" role="tooltip" class="max-w-sm absolute z-10 invisible inline-block px-2 py-1 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-sm shadow-sm opacity-0 tooltip dark:bg-gray-700">
+        This bucket contains those candidates for which we do not have enough data.
         <div class="tooltip-arrow" data-popper-arrow></div>
       </div>
       <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
         <div class="flex-1 truncate px-4 py-2 text-sm">
-          <a href="/candidates/leads" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Leads</a>
-          <p class="text-gray-500"><%= @leads_count %>  Candidates</p>
+          <a href="/candidates/incomplete" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Incomplete</a>
+          <p class="text-gray-500"><%= @incomplete_count %>  Candidates</p>
+        </div>
+      </div>
+    </li>
+    <li class="col-span-1 flex rounded-sm shadow-sm">
+      <button data-tooltip-target="tooltip-joinings" type="button" class="flex w-16 flex-shrink-0 items-center justify-center bg-yellow-500 rounded-l-md text-sm font-medium text-white">J</button>
+      <div id="tooltip-joinings" role="tooltip" class="max-w-sm absolute z-10 invisible inline-block px-2 py-1 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-sm shadow-sm opacity-0 tooltip dark:bg-gray-700">
+        This bucket contains those candidates which are joining in next few days.
+        <div class="tooltip-arrow" data-popper-arrow></div>
+      </div>
+      <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
+        <div class="flex-1 truncate px-4 py-2 text-sm">
+          <a href="/candidates/joinings" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Joinings</a>
+          <p class="text-gray-500"><%= @joinings_count %>  Candidates</p>
+        </div>
+      </div>
+    </li>
+    <li class="col-span-1 flex rounded-sm shadow-sm">
+      <button data-tooltip-target="tooltip-icebox" type="button" class="flex w-16 flex-shrink-0 items-center justify-center bg-green-500 rounded-l-md text-sm font-medium text-white">K</button>
+      <div id="tooltip-icebox" role="tooltip" class="max-w-sm max-w-sm absolute z-10 invisible inline-block px-2 py-1 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-sm shadow-sm opacity-0 tooltip dark:bg-gray-700">
+        This bucket contains those candidate which should be followed up with after some time.
+        <div class="tooltip-arrow" data-popper-arrow></div>
+      </div>
+      <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
+        <div class="flex-1 truncate px-4 py-2 text-sm">
+          <a href="/candidates/icebox" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Icebox</a>
+          <p class="text-gray-500"><%= @icebox_count %>  Candidates</p>
+        </div>
+      </div>
+    </li>
+    <li class="col-span-1 flex rounded-sm shadow-sm">
+      <button data-tooltip-target="tooltip-archived" type="button" class="flex w-16 flex-shrink-0 items-center justify-center bg-gray-500 rounded-l-md text-sm font-medium text-white">L</button>
+      <div id="tooltip-archived" role="tooltip" class="max-w-sm absolute z-10 invisible inline-block px-2 py-1 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-sm shadow-sm opacity-0 tooltip dark:bg-gray-700">
+        This bucket contains those candidates which are not fit for us and we might not consider in future as well.
+        <div class="tooltip-arrow" data-popper-arrow></div>
+      </div>
+      <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
+        <div class="flex-1 truncate px-4 py-2 text-sm">
+          <a href="/candidates/archive" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Archive</a>
+          <p class="text-gray-500"><%= @archive_count %>  Candidates</p>
         </div>
       </div>
     </li>

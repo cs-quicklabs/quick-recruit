@@ -1,4 +1,4 @@
-class Account::RolesController < ApplicationController
+class Account::RolesController < Account::BaseController
   before_action :set_role, only: %i[edit update destroy]
 
   def index

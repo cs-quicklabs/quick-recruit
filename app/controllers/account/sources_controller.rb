@@ -1,4 +1,4 @@
-class Account::SourcesController < ApplicationController
+class Account::SourcesController < Account::BaseController
   before_action :set_source, only: %i[edit update destroy]
 
   def index

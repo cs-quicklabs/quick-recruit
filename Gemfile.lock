@@ -183,7 +183,7 @@ GEM
       timeout
     net-smtp (0.5.0)
       net-protocol
-    newrelic_rpm (8.16.0)
+    newrelic_rpm (9.9.0)
     nio4r (2.7.1)
     nokogiri (1.16.5-aarch64-linux)
       racc (~> 1.4)
@@ -353,7 +353,7 @@ DEPENDENCIES
   jbuilder
   letter_opener
   memory_profiler
-  newrelic_rpm (= 8.16.0)
+  newrelic_rpm (= 9.9.0)
   pagy (= 8.4.0)
   pg
   puma

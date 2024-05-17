@@ -1,0 +1,5 @@
+<p>Dear <%= @owner.name %>,</p>
+<p>Candidate <%= @candidate.name %> has been moved to bucket <%= @candidate.bucket.titleize%>. </p>
+<p>Please click on link below to see candidate profile </p>
+<%= link_to @candidate.name, candidate_timeline_url(@candidate) %>
+<p>Thanks</p>

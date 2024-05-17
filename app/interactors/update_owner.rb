@@ -8,6 +8,7 @@ class UpdateOwner < Patterns::Service
   def call
     update_owner
     add_event
+    notify_owner
 
     candidate
   end
@@ -20,6 +21,10 @@ class UpdateOwner < Patterns::Service
 
   def add_event
     Event.new(eventable: candidate, action: "update_owner", action_for_context: candidate.owner.name, trackable: candidate, user: actor).save
+  end
+
+  def notify_owner
+    RecruiterMailer.with(candidate: candidate).candidate_assigned_email.deliver_later
   end
 
   attr_reader :candidate, :owner, :actor

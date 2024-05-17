@@ -39,9 +39,5 @@ class ApplyForJob < Patterns::Service
     CandidateMailer.with(content: params).lead_email.deliver_later
   end
 
-  def add_event
-    Event.new(eventable: user, action: "add_report", action_for_context: "added a new report", trackable: report, user: submitter).save
-  end
-
   attr_reader :first_name, :last_name, :email, :phone, :biography, :opening_id, :params
 end

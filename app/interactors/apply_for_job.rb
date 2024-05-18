@@ -21,10 +21,9 @@ class ApplyForJob < Patterns::Service
   private
 
   def create_candidate
-    return Candidate.new if opening_id.blank?
-
-    opening = Opening.find(opening_id)
-    Candidate.create!(first_name: first_name, last_name: last_name, email: email, phone: phone, biography: biography, opening_id: opening_id, role: opening.role, bucket: Candidate.buckets[:leads], user: User.bot, owner: opening.owner, status: Candidate.statuses[:waiting_for_evaluation], source: Source.find_by_title("Website"))
+    #Opening becomes "to Be Decided" if form is submitted without selecting an opening
+    opening = opening_id.blank? ? Opening.find(20) : Opening.find(opening_id)
+    Candidate.create!(first_name: first_name, last_name: last_name, email: email, phone: phone, biography: biography, opening_id: opening.id, role: opening.role, bucket: Candidate.buckets[:leads], user: User.bot, owner: opening.owner, status: Candidate.statuses[:waiting_for_evaluation], source: Source.find_by_title("Website"))
   end
 
   def existing_candidate

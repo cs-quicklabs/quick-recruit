@@ -8,7 +8,7 @@ class AddNote < Patterns::Service
   def call
     add_note
     add_event
-    notify_owner
+    notify_owner if candidate.owner != actor
 
     note
   end
@@ -26,7 +26,7 @@ class AddNote < Patterns::Service
   end
 
   def notify_owner
-    RecruiterMailer.with(candidate: candidate).new_note_email.deliver_later if candidate.owner != actor
+    RecruiterMailer.with(candidate: candidate).new_note_email.deliver_later
   end
 
   attr_reader :candidate, :note, :actor

@@ -8,7 +8,7 @@ class UpdateOwner < Patterns::Service
   def call
     update_owner
     add_event
-    notify_owner
+    notify_owner if candidate.owner != actor
 
     candidate
   end

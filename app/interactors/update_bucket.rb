@@ -8,7 +8,7 @@ class UpdateBucket < Patterns::Service
   def call
     update_bucket
     add_event
-    notify_owner
+    notify_owner if candidate.owner != actor
 
     candidate
   end

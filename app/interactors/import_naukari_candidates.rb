@@ -49,7 +49,7 @@ class ImportNaukariCandidates
                              user_id: 14,
                              owner_id: 14,
                              zoho_id: row["Candidate Id"],
-                             role_id: row["Role Id"],
+                             role_id: row["Role Id"].nil? ? 15 : row["Role Id"],
                              opening_id: 20,
                              highest_qualification: education)
         unless row["Created Time"].nil?

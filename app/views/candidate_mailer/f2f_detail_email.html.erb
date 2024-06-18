@@ -1,9 +1,9 @@
 <p>Dear <%= @candidate.name %>,</p>
 <p>Since your face-to-face round is scheduled with us, we are excited to host you in our office. Here is some information which you might find useful as you are visiting us.</p>
-<p><b>Office Address:</b> Ofis Square Tower, A-1, Sector 3, Noida. (Old Wipro Office)</p>
+<p><b>Office Address:</b> Ofis Square Tower, A-1, Sector 3, Noida.</p>
 <p><b>Nearest Metro Station:</b> <a href="https://maps.app.goo.gl/d2xBmazo9QJ3tzjd6">Metro Station, Sector 16, Noida.</a></p>
 <p><b>Google Map Location:</b> <a href="https://maps.app.goo.gl/ZzyTv7DqT4cWzXWC7"> Open Google Map link </a></p>
 <p> <b>What to bring:</b> Please bring a copy of your resume.</p>
-<p> Office is walking distance from metro station. You can take a rickshaw or walk to reach office. Here is <a href="https://maps.app.goo.gl/RLHzAKBreQ2DXCnj8"> preview of walking distance from metro to office.</a></p>
+<p> Office is walking distance (4 minutes) from metro station. You can take a rickshaw or walk to reach office. Here is <a href="https://maps.app.goo.gl/kHkPx9Z7iva4sZnk8"> preview of walking distance from metro to office.</a></p>
 <p> <b>What to do after reaching office?</b> Once you reach office, please call our recruiter <b><%= @candidate.owner.name %></b> on phone number <b><a href="tel:<%= @candidate.owner.phone %>"><%= @candidate.owner.phone %></a></b>. Our recruiter will assign <b><%= User.rakhi.name %></b> from our HR team to help you throughout your interview journey and as long as you are in office. You can reach out to <b><%= User.rakhi.name %></b> on phone number <b><a href="tel:<%= User.rakhi.phone %>"><%= User.rakhi.phone %></a></b> as well if need arises.</p>
 <p>Thanks</p>

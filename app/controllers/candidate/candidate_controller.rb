@@ -19,7 +19,8 @@ class Candidate::CandidateController < Candidate::BaseController
 
   def update_owner
     authorize @candidate
-    candidate = UpdateOwner.call(@candidate, params[:owner_id], current_user).result
+    owner = User.find(params[:owner_id])
+    candidate = UpdateOwner.call(@candidate, owner, current_user).result
 
     respond_to do |format|
       format.turbo_stream { render turbo_stream: turbo_stream.replace("owner_candidate_" + candidate.id.to_s, partial: "candidate/owner", locals: { candidate: candidate }) }

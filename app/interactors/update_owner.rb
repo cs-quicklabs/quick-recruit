@@ -1,8 +1,9 @@
 class UpdateOwner < Patterns::Service
-  def initialize(candidate, owner, actor)
+  def initialize(candidate, owner, actor, notify = true)
     @candidate = candidate
     @owner = owner
     @actor = actor
+    @notify = notify
   end
 
   def call
@@ -16,7 +17,7 @@ class UpdateOwner < Patterns::Service
   private
 
   def update_owner
-    candidate.update(owner_id: owner)
+    candidate.update(owner_id: owner.id)
   end
 
   def add_event
@@ -24,8 +25,8 @@ class UpdateOwner < Patterns::Service
   end
 
   def notify_owner
-    RecruiterMailer.with(candidate: candidate).candidate_assigned_email.deliver_later
+    RecruiterMailer.with(candidate: candidate).candidate_assigned_email.deliver_later if notify
   end
 
-  attr_reader :candidate, :owner, :actor
+  attr_reader :candidate, :owner, :actor, :notify
 end

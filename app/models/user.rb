@@ -40,4 +40,20 @@ class User < ApplicationRecord
   def self.bot
     find_by(email: "bot@crownstack.com")
   end
+
+  def self.shivangi
+    find_by(email: "shivangi@crownstack.com")
+  end
+
+  def self.rakhi
+    find_by(email: "rakhi@crownstack.com")
+  end
+
+  def self.aashish
+    find_by(email: "aashishdhawan@crownstack.com")
+  end
+
+  def self.aditi
+    find_by(email: "aditi@crownstack.com")
+  end
 end

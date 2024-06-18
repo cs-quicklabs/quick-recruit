@@ -1,8 +1,9 @@
 class UpdateBucket < Patterns::Service
-  def initialize(candidate, bucket, actor)
+  def initialize(candidate, bucket, actor, notify = true)
     @candidate = candidate
     @bucket = bucket
     @actor = actor
+    @notify = notify
   end
 
   def call
@@ -24,8 +25,8 @@ class UpdateBucket < Patterns::Service
   end
 
   def notify_owner
-    RecruiterMailer.with(candidate: candidate).candidate_moved_email.deliver_later
+    RecruiterMailer.with(candidate: candidate).candidate_moved_email.deliver_later if notify
   end
 
-  attr_reader :candidate, :bucket, :actor
+  attr_reader :candidate, :bucket, :actor, :notify
 end

@@ -20,9 +20,12 @@ class ApplyForJob < Patterns::Service
 
   def call
     candidate = existing_candidate || create_candidate
-    update_bucket(candidate) if candidate.persisted?
 
-    send_email
+    if candidate.persisted?
+      move_to_leads(candidate)
+      assign_to_recruiter(candidate)
+      send_email
+    end
 
     candidate
   end
@@ -40,17 +43,22 @@ class ApplyForJob < Patterns::Service
     candidate = Candidate.find_by_email(email) or Candidate.find_by_phone(phone)
 
     # update old info to newest one
-    candidate.update(first_name: first_name, last_name: last_name, biography: biography, location: location, birth_year: birth_year, current_company: current_company, current_title: current_title, current_ctc: current_ctc, expected_ctc: expected_ctc, notice_period: notice_period, experience: experience, highest_qualification: highest_qualification) if candidate.persisted?
+    candidate.update(first_name: first_name, last_name: last_name, biography: biography, location: location, birth_year: birth_year, current_company: current_company, current_title: current_title, current_ctc: current_ctc, expected_ctc: expected_ctc, notice_period: notice_period, experience: experience, highest_qualification: highest_qualification) unless candidate.nil?
 
     candidate
   end
 
-  def update_bucket(candidate)
-    UpdateBucket.call(candidate, Candidate.buckets[:leads], User.bot).result
+  def move_to_leads(candidate)
+    UpdateBucket.call(candidate, Candidate.buckets[:leads], User.bot, false).result
   end
 
   def send_email
     CandidateMailer.with(content: params).lead_email.deliver_later
+  end
+
+  def assign_to_recruiter(candidate)
+    # by default all leads from website are assigned to Shivangi
+    UpdateOwner.call(candidate, User.shivangi, User.bot, false).result
   end
 
   attr_reader :first_name, :last_name, :email, :phone, :biography, :opening_id, :location, :birth_year, :current_title, :current_company, :current_ctc, :expected_ctc, :notice_period, :experience, :highest_qualification, :params

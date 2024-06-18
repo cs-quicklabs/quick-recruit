@@ -34,6 +34,8 @@ class SendEmail < Patterns::Service
       CandidateMailer.with(candidate: candidate).job_description_email.deliver_later
     when "not_a_match_email"
       CandidateMailer.with(candidate: candidate).not_a_match_email.deliver_later
+    when "f2f_detail_email"
+      CandidateMailer.with(candidate: candidate).f2f_detail_email.deliver_later
     end
   end
 

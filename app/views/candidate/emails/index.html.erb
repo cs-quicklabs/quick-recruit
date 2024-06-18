@@ -68,6 +68,11 @@
                                  "confirmation-message-value": "Are you sure you want to send Not a Match email to this candidate?",
                                  action: "confirmation#confirm",
                                } %>
+        <%= button_to "F2F Interview Details Email", candidate_emails_path(@candidate, kind: "f2f_detail_email"), class: "font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm", data: {
+                                 controller: "confirmation",
+                                 "confirmation-message-value": "Are you sure you want to send details for Face to Face round to this candidate?",
+                                 action: "confirmation#confirm",
+                               } %>
       </div>
     </div>
   </div>

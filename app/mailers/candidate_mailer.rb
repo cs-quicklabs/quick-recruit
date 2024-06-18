@@ -27,4 +27,10 @@ class CandidateMailer < ApplicationMailer
     @content = params[:content]
     mail(to: [User.shivangi.email, User.aditi.email, User.aashish.email], subject: "Hiring@Crownstack: New Lead from Website")
   end
+
+  def f2f_detail_email
+    @candidate = params[:candidate]
+    @owner = @candidate.owner
+    mail(to: [@candidate.email, @owner.email], bcc: [User.aditi.email, User.aashish.email, User.rakhi.email], subject: "Hiring@Crownstack: Face-to-Face Interview Details", reply_to: @owner.email)
+  end
 end

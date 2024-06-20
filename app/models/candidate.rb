@@ -37,4 +37,14 @@ class Candidate < ApplicationRecord
 
   def status_color
   end
+
+  def being_recycled?
+    Recycle.where(candidate_id: id).exists?
+  end
+
+  def recycled?
+    recycle = Recycle.where(candidate_id: id).last
+
+    recycle.present? && recycle.recycled?
+  end
 end

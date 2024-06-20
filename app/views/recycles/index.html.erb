@@ -1,0 +1,57 @@
+<section class="bg-gray-50 dark:bg-gray-900 py-3 sm:py-5 min-h-screen">
+  <div class="px-4 mx-auto max-w-screen-2xl lg:px-8">
+    <div class="relative overflow-hidden bg-white shadow-md dark:bg-gray-800 sm:rounded-sm">
+      <div class=" divide-y dark:divide-gray-700">
+        <div class="flex-row items-center justify-between p-4 space-y-3 sm:flex sm:space-y-0 sm:space-x-4">
+          <div>
+            <h1 class="mr-3 text-lg font-semibold dark:text-white">Recycle Candidates</h1>
+            <p class="text-gray-500 dark:text-gray-400 text-sm"><span class="font-bold"><%= @recycles.count %></span> candidates need to be recycled.</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap pt-1 pb-4 border-t dark:border-gray-700 px-4 space-y-3 sm:flex sm:space-y-0 sm:space-x-4">
+          <div class="items-center hidden mt-3 mr-4 text-sm font-medium text-gray-900 md:flex dark:text-white">
+            Show records only for:
+          </div>
+          <div class="flex flex-wrap">
+            <% @recruiters.each do |recruiter| %>
+              <a href="<%= recycle_path(recruiter: recruiter.id) %>">
+                <div class="flex items-center mt-3 mr-4">
+                  <% if params[:recruiter].to_i ==  recruiter.id %>
+                    <input id="all-products" type="radio" value="" name="show-only"
+                   class="w-4 h-4 bg-gray-100 border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 cursor-pointer" checked>
+                  <% else %>
+                    <input id="all-products" type="radio" value="" name="show-only"
+                   class="w-4 h-4 bg-gray-100 border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 cursor-pointer" >
+                  <% end%>
+                  <label for="all-products" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                    <%= recruiter.name %>
+                  </label>
+                </div>
+              </a>
+            <% end %>
+            <% unless params[:recruiter].nil? %>
+              <%= link_to "Show All", recycle_path, class: "underline mt-3 mr-4 font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm" %>
+            <% end %>
+          </div>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+              <tr>
+                <th scope="col" class="px-4 py-3">Name</th>
+                <th scope="col" class="px-4 py-3">Job Association</th>
+                <th scope="col" class="px-4 py-3 whitespace-nowrap">Owner</th>
+                <th scope="col" class="px-4 py-3 whitespace-nowrap">Added On</th>
+                <th scope="col" class="px-4 py-3 whitespace-nowrap">Duration</th>
+                <th scope="col" class="px-4 py-3 whitespace-nowrap">Bucket</th>
+                <th scope="col" class="px-4 py-3 whitespace-nowrap">Last known Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%= render partial: "candidate", collection: @recycles, as: :recycle %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>

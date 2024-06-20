@@ -36,6 +36,15 @@ class Candidate::CandidateController < Candidate::BaseController
     end
   end
 
+  def toggle_recycle
+    authorize @candidate
+    candidate = ToggleRecycle.call(@candidate, current_user).result
+
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.replace("recycle_candidate_" + candidate.id.to_s, partial: "candidate/recycle", locals: { candidate: candidate }) }
+    end
+  end
+
   def edit_joining
     @candidate = Candidate.find(params[:candidate_id])
   end

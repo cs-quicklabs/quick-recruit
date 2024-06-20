@@ -14,4 +14,8 @@ class CandidatePolicy < ApplicationPolicy
   def update_owner?
     user.admin?
   end
+
+  def toggle_recycle?
+    return true unless user.interviewer?
+  end
 end

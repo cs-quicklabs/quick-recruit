@@ -27,4 +27,12 @@ export default class extends Controller {
         })
         const response = await request.perform()
     }
+
+    async toggle_recycle({ params }) {
+        const request = new FetchRequest('patch', `/candidates/${params.candidate}/toggle/recycle`, {
+            body: JSON.stringify({ status: params.candidate }), responseKind: 'turbo-stream'
+        })
+        const response = await request.perform()
+    }
+
 }

@@ -43,6 +43,7 @@ Rails.application.routes.draw do
       patch "/update/status", to: "candidate#update_status", as: "update_status"
       patch "/update/owner", to: "candidate#update_owner", as: "update_owner"
       patch "/update/joining", to: "candidate#update_joining", as: "update_joining"
+      patch "/toggle/recycle", to: "candidate#toggle_recycle", as: "toggle_recycle"
       get "/edit/joining", to: "candidate#edit_joining", as: "edit_joining"
     end
   end
@@ -97,6 +98,7 @@ Rails.application.routes.draw do
   resources :checklists
 
   get :events, controller: :dashboard
+  get :recycle, controller: :recycles, action: :index
 
   scope "report" do
     get "/candidates", to: "report/candidates#index", as: "report_candidates"

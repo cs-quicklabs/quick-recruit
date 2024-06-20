@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_04_132520) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_20_111728) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -142,6 +142,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_04_132520) do
     t.bigint "owner_id", default: 1, null: false
     t.index ["owner_id"], name: "index_openings_on_owner_id"
     t.index ["role_id"], name: "index_openings_on_role_id"
+  end
+
+  create_table "recycles", force: :cascade do |t|
+    t.bigint "candidate_id", null: false
+    t.boolean "recycled", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["candidate_id"], name: "index_recycles_on_candidate_id"
   end
 
   create_table "reports", force: :cascade do |t|
@@ -321,6 +329,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_04_132520) do
   add_foreign_key "notes", "users"
   add_foreign_key "openings", "roles"
   add_foreign_key "openings", "users", column: "owner_id"
+  add_foreign_key "recycles", "candidates"
   add_foreign_key "reports", "users"
   add_foreign_key "reports", "users", column: "submitter_id"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade

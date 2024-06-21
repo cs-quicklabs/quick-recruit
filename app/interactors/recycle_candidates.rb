@@ -1,21 +1,28 @@
 class RecycleCandidates < Patterns::Service
   def call
     User.recruiters.each do |recruiter|
-      recycle_candidates_for(recruiter)
+      recycle_complete_profiles_for(recruiter) # profiles which has complete data
+      recycle_incomplete_profiles_for(recruiter) # profiles which has incomplete data
     end
   end
 
   private
 
-  def recycle_candidates_for(recruiter)
+  def recycle_complete_profiles_for(recruiter)
     openings = recruiter.openings
     openings.each do |opening|
       count = count_of_new_profiles_needed_for(recruiter, opening)
-      recycle_candidates_for_opening(recruiter, opening, count) if count > 0
+      recycle_profiles_for_opening(recruiter, opening, count) if count > 0
     end
   end
 
-  def find_candidates_for_opening(recruiter, opening, count)
+  def recycle_incomplete_profiles_for(recruiter)
+    count = count_of_profiles_needed_for_to_be_decided(recruiter)
+    candidates = recycle_to_be_decided_incomplete_profiles_for(recruiter, count) if count > 0
+    add_profiles_to_recycle_table(candidates, recruiter)
+  end
+
+  def find_profiles_for_opening(recruiter, opening, count)
     profiles_fetched = 0
     candidates_fetched = []
 
@@ -40,25 +47,20 @@ class RecycleCandidates < Patterns::Service
 
     return unless profiles_fetched < count
 
-    candidates = recycle_incomplete_for(recruiter, opening, count - profiles_fetched)
-    profiles_fetched += candidates.count
-    candidates_fetched += candidates
-    puts "Found " + candidates.count.to_s + " incomplete for " + recruiter.name + " for " + opening.title
-
-    candidates = recycle_to_be_decided_incomplete_for(recruiter, opening, count - profiles_fetched)
-    profiles_fetched += candidates.count
-    candidates_fetched += candidates
-    puts "Found " + candidates.count.to_s + " to be decided incomplete for " + recruiter.name + " for " + opening.title
-
     puts "Found " + candidates_fetched.count.to_s + " profiles for " + recruiter.name + " for " + opening.title + " out of " + count.to_s + " needed."
     return candidates_fetched
   end
 
-  def recycle_candidates_for_opening(recruiter, opening, count)
-    candidates = find_candidates_for_opening(recruiter, opening, count)
-    puts "interting " + candidates.count.to_s + " into table"
+  def recycle_profiles_for_opening(recruiter, opening, count)
+    candidates = find_profiles_for_opening(recruiter, opening, count)
+    add_profiles_to_recycle_table(candidates, recruiter)
+  end
+
+  def add_profiles_to_recycle_table(candidates, recruiter)
+    return if candidates.nil? or candidates.empty?
+    puts "inserting " + candidates.count.to_s + " records into table"
     candidates.each do |candidate|
-      Recycle.create!(candidate: candidate)
+      Recycle.create(candidate: candidate)
       add_event_for(candidate)
       candidate.update(owner: recruiter)
     end
@@ -73,6 +75,14 @@ class RecycleCandidates < Patterns::Service
     quota_per_opening = total_quota_per_recruiter / recruiter.openings.count
     existing_profiles = Recycle.includes(candidate: [:user, :role, :opening, :owner]).where(candidate: { owner_id: recruiter.id, role_id: opening.role_id }).count
     count = quota_per_opening - existing_profiles
+    count = count.positive? ? count : 0
+    return count
+  end
+
+  def count_of_profiles_needed_for_to_be_decided(recruiter)
+    total_quota_per_recruiter = 80 # 80 profiles per recruiter
+    existing_profiles = Recycle.includes(candidate: [:user, :role, :opening, :owner]).where(candidate: { owner_id: recruiter.id }).count
+    count = total_quota_per_recruiter - existing_profiles
     count = count.positive? ? count : 0
     return count
   end
@@ -97,7 +107,8 @@ class RecycleCandidates < Patterns::Service
     filter_unique_candidates(candidates, count)
   end
 
-  def recycle_to_be_decided_incomplete_for(recruiter, opening, count)
+  def recycle_to_be_decided_incomplete_profiles_for(recruiter, count)
+    count = count_of_profiles_needed_for_to_be_decided(recruiter)
     candidates = Candidate.where(bucket: "incomplete", role_id: Role.find_by_title("To Be Decided").id).order(created_at: :desc)
     filter_unique_candidates(candidates, count)
   end

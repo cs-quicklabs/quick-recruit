@@ -58,9 +58,9 @@ class RecycleCandidates < Patterns::Service
     candidates = find_candidates_for_opening(recruiter, opening, count)
     puts "interting " + candidates.count.to_s + " into table"
     candidates.each do |candidate|
-      candidate.update(owner: recruiter)
-      Recycle.create(candidate: candidate)
+      Recycle.create!(candidate: candidate)
       add_event_for(candidate)
+      candidate.update(owner: recruiter)
     end
   end
 
@@ -78,22 +78,43 @@ class RecycleCandidates < Patterns::Service
   end
 
   def recycle_champions_for(recruiter, opening, count)
-    Candidate.where(bucket: "champions", role_id: opening.role_id).where("bucket_updated_on < ? ", 6.months.ago).limit(count)
+    candidates = Candidate.where(bucket: "champions", role_id: opening.role_id).where("bucket_updated_on < ? ", 6.months.ago)
+    filter_unique_candidates(candidates, count)
   end
 
   def recycle_icebox_for(recruiter, opening, count)
-    Candidate.where(bucket: "icebox", role_id: opening.role_id).where("bucket_updated_on < ? ", 6.months.ago).limit(count)
+    candidates = Candidate.where(bucket: "icebox", role_id: opening.role_id).where("bucket_updated_on < ? ", 6.months.ago)
+    filter_unique_candidates(candidates, count)
   end
 
   def recycle_recent_for(recruiter, opening, count)
-    Candidate.where(bucket: "recent", role_id: opening.role_id).order(created_at: :desc).limit(count)
+    candidates = Candidate.where(bucket: "recent", role_id: opening.role_id).order(created_at: :desc)
+    filter_unique_candidates(candidates, count)
   end
 
   def recycle_incomplete_for(recruiter, opening, count)
-    Candidate.where(bucket: "incomplete", role_id: opening.role_id).order(created_at: :desc).limit(count)
+    candidates = Candidate.where(bucket: "incomplete", role_id: opening.role_id).order(created_at: :desc)
+    filter_unique_candidates(candidates, count)
   end
 
   def recycle_to_be_decided_incomplete_for(recruiter, opening, count)
-    Candidate.where(bucket: "incomplete", role_id: Role.find_by_title("To Be Decided").id).order(created_at: :desc).limit(count)
+    candidates = Candidate.where(bucket: "incomplete", role_id: Role.find_by_title("To Be Decided").id).order(created_at: :desc)
+    filter_unique_candidates(candidates, count)
+  end
+
+  def filter_unique_candidates(candidates, count)
+    unique_candidates_count = 0
+    unique_candidates = []
+
+    candidates.each do |candidate|
+      break if unique_candidates_count == count
+      unless Recycle.find_by_candidate_id(candidate.id).present?
+        unique_candidates_count += 1
+        unique_candidates << candidate
+      end
+    end
+
+    puts "Found " + unique_candidates.count.to_s + " unique candidates"
+    return unique_candidates
   end
 end

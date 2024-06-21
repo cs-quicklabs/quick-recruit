@@ -59,12 +59,16 @@ class RecycleCandidates < Patterns::Service
     candidates.each do |candidate|
       candidate.update(owner: recruiter)
       Recycle.create(candidate: candidate)
-      Event.new(eventable: candidate, action: "recycle", action_for_context: candidate.bucket, trackable: candidate, user: User.bot).save
+      add_event_for(candidate)
     end
   end
 
+  def add_event_for(candidate)
+    Event.new(eventable: candidate, action: "recycle", action_for_context: candidate.bucket, trackable: candidate, user: User.bot).save
+  end
+
   def count_of_new_profiles_needed_for(recruiter, opening)
-    total_quota_per_recruiter = 64 # 64 profiles per recruiter
+    total_quota_per_recruiter = 80 # 64 profiles per recruiter
     quota_per_opening = total_quota_per_recruiter / recruiter.openings.count
     existing_profiles = Recycle.includes(candidate: [:user, :role, :opening, :owner]).where(candidate: { owner_id: recruiter.id, role_id: opening.role_id }).count
     count = quota_per_opening - existing_profiles

@@ -21,7 +21,7 @@ class ApplyForJob < Patterns::Service
   def call
     candidate = existing_candidate || create_candidate
 
-    if candidate.persisted?
+    if candidate.persisted? && !candidate.archive?
       move_to_leads(candidate)
       assign_to_recruiter(candidate)
       send_email

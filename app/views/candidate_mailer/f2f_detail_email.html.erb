@@ -5,5 +5,9 @@
 <p><b>Google Map Location:</b> <a href="https://maps.app.goo.gl/ZzyTv7DqT4cWzXWC7"> Open Google Map link </a></p>
 <p> <b>What to bring:</b> Please bring a copy of your resume.</p>
 <p> Office is walking distance (4 minutes) from metro station. You can take a rickshaw or walk to reach office. Here is <a href="https://maps.app.goo.gl/kHkPx9Z7iva4sZnk8"> preview of walking distance from metro to office.</a></p>
-<p> <b>What to do after reaching office?</b> Once you reach office, please call our recruiter <b><%= @candidate.owner.name %></b> on phone number <b><a href="tel:<%= @candidate.owner.phone %>"><%= @candidate.owner.phone %></a></b>. Our recruiter will assign <b><%= User.rakhi.name %></b> from our HR team to help you throughout your interview journey and as long as you are in office. You can reach out to <b><%= User.rakhi.name %></b> on phone number <b><a href="tel:<%= User.rakhi.phone %>"><%= User.rakhi.phone %></a></b> as well if need arises.</p>
+<% if @candidate.owner.id != User.rakhi.id  %>
+  <p> <b>What to do after reaching office?</b> Once you reach office, please call our recruiter <b><%= @candidate.owner.name %></b> on phone number <b><a href="tel:<%= @candidate.owner.phone %>"><%= @candidate.owner.phone %></a></b>. Our recruiter will assign <b><%= User.rakhi.name %></b> from our HR team to help you throughout your interview journey and as long as you are in office. You can reach out to <b><%= User.rakhi.name %></b> on phone number <b><a href="tel:<%= User.rakhi.phone %>"><%= User.rakhi.phone %></a></b> as well if need arises.</p>
+<% else %>
+  <p> <b>What to do after reaching office?</b> Once you reach office, please call our recruiter <b><%= @candidate.owner.name %></b> on phone number <b><a href="tel:<%= @candidate.owner.phone %>"><%= @candidate.owner.phone %></a></b>. Our recruiter will help you throughout your interview journey and as long as you are in office. </p>
+<% end %>
 <p>Thanks</p>

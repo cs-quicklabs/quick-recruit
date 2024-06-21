@@ -50,12 +50,13 @@ class RecycleCandidates < Patterns::Service
     candidates_fetched += candidates
     puts "Found " + candidates.count.to_s + " to be decided incomplete for " + recruiter.name + " for " + opening.title
 
-    puts "Found " + profiles_fetched.to_s + " profiles for " + recruiter.name + " for " + opening.title + " out of " + count.to_s + " needed."
+    puts "Found " + candidates_fetched.count.to_s + " profiles for " + recruiter.name + " for " + opening.title + " out of " + count.to_s + " needed."
     return candidates_fetched
   end
 
   def recycle_candidates_for_opening(recruiter, opening, count)
     candidates = find_candidates_for_opening(recruiter, opening, count)
+    puts "interting " + candidates.count.to_s + " into table"
     candidates.each do |candidate|
       candidate.update(owner: recruiter)
       Recycle.create(candidate: candidate)
@@ -68,7 +69,7 @@ class RecycleCandidates < Patterns::Service
   end
 
   def count_of_new_profiles_needed_for(recruiter, opening)
-    total_quota_per_recruiter = 80 # 64 profiles per recruiter
+    total_quota_per_recruiter = 80 # 80 profiles per recruiter
     quota_per_opening = total_quota_per_recruiter / recruiter.openings.count
     existing_profiles = Recycle.includes(candidate: [:user, :role, :opening, :owner]).where(candidate: { owner_id: recruiter.id, role_id: opening.role_id }).count
     count = quota_per_opening - existing_profiles

@@ -16,4 +16,10 @@ class RecruiterMailer < ApplicationMailer
     @owner = params[:candidate].owner
     mail(to: @owner.email, subject: "Quick Recruit: New note added for #{@candidate.name}")
   end
+
+  def recycled_candidates_email
+    @recruiter = params[:recruiter]
+    @count = params[:count]
+    mail(to: [@recruiter.email, User.aashish.email, User.aditi.email], subject: "Quick Recruit: Recycling Report")
+  end
 end

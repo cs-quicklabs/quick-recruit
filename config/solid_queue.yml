@@ -5,7 +5,7 @@ default: &default
       recurring_tasks:
         recycle_candidates_job:
           class: RecycleCandidatesJob
-          schedule: "0 0 * * *"
+          schedule: "0 0 * * 1-5"
   workers:
     - queues: "*"
       threads: 5

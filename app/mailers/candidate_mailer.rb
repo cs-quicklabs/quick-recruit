@@ -33,4 +33,16 @@ class CandidateMailer < ApplicationMailer
     @owner = @candidate.owner
     mail(to: [@candidate.email, @owner.email], bcc: [User.aditi.email, User.aashish.email, User.rakhi.email], subject: "Hiring@Crownstack: Face-to-Face Interview Details", reply_to: @owner.email)
   end
+
+  def position_closed_email
+    @candidate = params[:candidate]
+    @owner = @candidate.owner
+    mail(to: [@candidate.email, @owner.email], subject: "Hiring@Crownstack: Information on Application", reply_to: @owner.email)
+  end
+
+  def send_resume_email
+    @candidate = params[:candidate]
+    @owner = @candidate.owner
+    mail(to: [@candidate.email, @owner.email], subject: "Hiring@Crownstack: Resume Required", reply_to: @owner.email)
+  end
 end

@@ -36,6 +36,10 @@ class SendEmail < Patterns::Service
       CandidateMailer.with(candidate: candidate).not_a_match_email.deliver_later
     when "f2f_detail_email"
       CandidateMailer.with(candidate: candidate).f2f_detail_email.deliver_later
+    when "position_closed_email"
+      CandidateMailer.with(candidate: candidate).position_closed_email.deliver_later
+    when "send_resume_email"
+      CandidateMailer.with(candidate: candidate).send_resume_email.deliver_later
     end
   end
 

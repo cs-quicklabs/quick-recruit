@@ -58,19 +58,29 @@
                                  "confirmation-message-value": "Are you sure you want to send Job Description email to this candidate?",
                                  action: "confirmation#confirm",
                                } %>
-        <%= button_to "Rejection Email", candidate_emails_path(@candidate, kind: "rejection_email"), class: "font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm", data: {
+        <%= button_to "F2F Interview Details Email", candidate_emails_path(@candidate, kind: "f2f_detail_email"), class: "font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm", data: {
+                                 controller: "confirmation",
+                                 "confirmation-message-value": "Are you sure you want to send details for Face to Face round to this candidate?",
+                                 action: "confirmation#confirm",
+                               } %>
+        <%= button_to "Please send resume Email", candidate_emails_path(@candidate, kind: "send_resume_email"), class: "font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm", data: {
+                                 controller: "confirmation",
+                                 "confirmation-message-value": "Are you sure you want to ask this candidate to send resume?",
+                                 action: "confirmation#confirm",
+                               } %>
+        <%= button_to "Rejection Email", candidate_emails_path(@candidate, kind: "rejection_email"), class: "font-medium text-red-600 dark:text-red-500 hover:underline text-sm", data: {
                                  controller: "confirmation",
                                  "confirmation-message-value": "Are you sure you want to send rejection email to this candidate?",
                                  action: "confirmation#confirm",
                                } %>
-        <%= button_to "Not A Match Email", candidate_emails_path(@candidate, kind: "not_a_match_email"), class: "font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm", data: {
+        <%= button_to "Not A Match Email", candidate_emails_path(@candidate, kind: "not_a_match_email"), class: "font-medium text-red-600 dark:text-red-500 hover:underline text-sm", data: {
                                  controller: "confirmation",
                                  "confirmation-message-value": "Are you sure you want to send Not a Match email to this candidate?",
                                  action: "confirmation#confirm",
                                } %>
-        <%= button_to "F2F Interview Details Email", candidate_emails_path(@candidate, kind: "f2f_detail_email"), class: "font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm", data: {
+        <%= button_to "Sorry, Position Closed Email", candidate_emails_path(@candidate, kind: "position_closed_email"), class: "font-medium text-red-600 dark:text-red-500 hover:underline text-sm", data: {
                                  controller: "confirmation",
-                                 "confirmation-message-value": "Are you sure you want to send details for Face to Face round to this candidate?",
+                                 "confirmation-message-value": "Are you sure you want to inform candidate that position has been closed?",
                                  action: "confirmation#confirm",
                                } %>
       </div>

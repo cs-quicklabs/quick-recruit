@@ -57,8 +57,8 @@ class ApplyForJob < Patterns::Service
   end
 
   def assign_to_recruiter(candidate)
-    # by default all leads from website are assigned to Shivangi
-    UpdateOwner.call(candidate, User.shivangi, User.bot, false).result
+    # by default all leads from website are assigned to Rakhi
+    UpdateOwner.call(candidate, User.rakhi, User.bot, false).result
   end
 
   attr_reader :first_name, :last_name, :email, :phone, :biography, :opening_id, :location, :birth_year, :current_title, :current_company, :current_ctc, :expected_ctc, :notice_period, :experience, :highest_qualification, :params

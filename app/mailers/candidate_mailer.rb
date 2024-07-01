@@ -25,7 +25,7 @@ class CandidateMailer < ApplicationMailer
 
   def lead_email
     @content = params[:content]
-    mail(to: [User.shivangi.email, User.aditi.email, User.aashish.email], subject: "Hiring@Crownstack: New Lead from Website")
+    mail(to: [User.rakhi.email, User.aditi.email, User.aashish.email], subject: "Hiring@Crownstack: New Lead from Website")
   end
 
   def f2f_detail_email

@@ -86,9 +86,14 @@ class CandidatesController < BaseController
   end
 
   def pipeline
+    @recruiters = User.recruiters
     candidates = nil
     if current_user.admin?
-      candidates = Candidate.unscoped.where(bucket: :pipeline).includes(:opening, :owner).order(bucket_updated_on: :desc)
+      if params[:recruiter].present?
+        candidates = Candidate.unscoped.where(bucket: :pipeline, owner: params[:recruiter]).includes(:opening, :owner).order(bucket_updated_on: :desc)
+      else
+        candidates = Candidate.unscoped.where(bucket: :pipeline).includes(:opening, :owner).order(bucket_updated_on: :desc)
+      end
     else
       candidates = Candidate.unscoped.where(bucket: :pipeline, owner: current_user).includes(:opening, :owner).order(bucket_updated_on: :desc)
     end

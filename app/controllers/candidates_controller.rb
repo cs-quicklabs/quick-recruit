@@ -104,11 +104,7 @@ class CandidatesController < BaseController
 
   def champions
     candidates = nil
-    if current_user.admin?
-      candidates = Candidate.unscoped.where(bucket: :champions).includes(:opening, :owner).order(bucket_updated_on: :desc)
-    else
-      candidates = Candidate.unscoped.where(bucket: :champions, owner: current_user).includes(:opening, :owner).order(bucket_updated_on: :desc)
-    end
+    candidates = Candidate.unscoped.where(bucket: :champions).includes(:opening, :owner).order(bucket_updated_on: :desc)
 
     @pagy, @candidates = pagy(candidates, items: LIMIT)
 

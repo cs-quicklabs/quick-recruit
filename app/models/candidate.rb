@@ -35,6 +35,16 @@ class Candidate < ApplicationRecord
     CandidateQuery.new(self.unscoped.includes(:role, :opening, :user), params).filter
   end
 
+  def self.new_candidates_query(params, includes = nil)
+    return [] if params.empty?
+    NewCandidatesQuery.new(self.unscoped.includes(:opening, :user), params).filter
+  end
+
+  def self.update_candidates_query(params, includes = nil)
+    return [] if params.empty?
+    UpdateCandidatesQuery.new(self.unscoped.includes(:opening, :user), params).filter
+  end
+
   def status_color
   end
 

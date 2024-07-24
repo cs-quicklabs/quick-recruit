@@ -15,6 +15,12 @@
                 <%= form.collection_select(:created_by, User.owners, :id, :name, { :prompt => "Select Created by ", :selected => (params["created_by"] if !params["created_by"].blank?) }, :class => "form-text-field") %>
               </div>
               <div>
+                <label for="created" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  Candidate Owner
+                </label>
+                <%= form.collection_select(:owner_id, User.owners, :id, :name, { :prompt => "Select owner", :selected => (params["owner_id"] if !params["owner_id"].blank?) }, :class => "form-text-field") %>
+              </div>
+              <div>
                 <label for="date" class="block text-sm font-medium text-gray-700">
                   Updated After Date
                 </label>

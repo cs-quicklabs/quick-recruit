@@ -35,6 +35,10 @@ class UpdateCandidatesQuery
       where(user_id: param)
     end
 
+    def owner_id(param)
+      where(owner_id: param)
+    end
+
     def bucket(param)
       where(bucket: param)
     end

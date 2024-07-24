@@ -42,7 +42,7 @@ class Candidate < ApplicationRecord
 
   def self.update_candidates_query(params, includes = nil)
     return [] if params.empty?
-    UpdateCandidatesQuery.new(self.unscoped.includes(:opening, :user), params).filter
+    UpdateCandidatesQuery.new(self.unscoped.includes(:opening, :user, :owner), params).filter
   end
 
   def status_color

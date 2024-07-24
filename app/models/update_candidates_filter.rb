@@ -10,6 +10,7 @@ class UpdateCandidatesFilter
     updated_before_date
     bucket
     status
+    owner_id
   ].freeze
 
   attr_accessor(*KEYS)

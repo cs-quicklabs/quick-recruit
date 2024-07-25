@@ -26,6 +26,6 @@ class NewCandidatesStats
   end
 
   def pipeline
-    entries.where(status: [:joined, :offer_accepted, :offer_made, :offer_to_be_made, :second_round_scheduled, :rejected_in_second_round, :hr_round_scheduled, :rejected_in_hr_round, :first_round_scheduled, :rejected_in_first_round, :waiting_for_evaluation, :interview_to_be_scheduled, :rejected_in_screening, :not_interested, :no_show, :not_contactable]).size
+    entries.where(status: [:joined, :offer_accepted, :offer_made, :offer_to_be_made, :second_round_scheduled, :rejected_in_second_round, :hr_round_scheduled, :rejected_in_hr_round, :first_round_scheduled, :rejected_in_first_round, :waiting_for_evaluation, :interview_to_be_scheduled]).size
   end
 end

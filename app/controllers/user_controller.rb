@@ -1,6 +1,7 @@
 class UserController < BaseController
   include ActiveStorage::SetCurrent
   before_action :set_user
+  before_action :build_form, only: [:update_password, :password]
 
   def update
     #authorize @user
@@ -87,5 +88,9 @@ class UserController < BaseController
 
   def change_password_params
     params.require(:user).permit(:original_password, :new_password, :new_password_confirmation)
+  end
+
+  def build_form
+    @form ||= ChangePasswordForm.new(@user)
   end
 end

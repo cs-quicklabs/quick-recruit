@@ -27,6 +27,12 @@
                 <%= form.date_field :created_before_date, class: "form-text-field mt-1", value: params["created_before_date"].blank? ? (Date.today).to_formatted_s(:db) : params["created_before_date"] %>
               </div>
               <div>
+                <label for="opening" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  Job Association 
+                </label>
+                <%= form.collection_select(:opening_id, @openings.order(:title), :id, :title, { :prompt => "Select Associated With", :selected => (params["opening_id"] if !params["opening_id"].blank?) }, :class => "form-text-field") %>
+              </div>
+              <div>
                 <label for="bucket" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Bucket
                 </label>

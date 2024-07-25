@@ -43,6 +43,10 @@ class NewCandidatesQuery
       where(status: param)
     end
 
+    def opening_id(param)
+      where(opening_id: param)
+    end
+
     def created_after_date(param)
       where("created_at >= ?", Date.parse(param.to_s))
     end

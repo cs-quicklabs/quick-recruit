@@ -10,6 +10,7 @@ class NewCandidatesFilter
     created_before_date
     bucket
     status
+    opening_id
   ].freeze
 
   attr_accessor(*KEYS)

@@ -2,7 +2,7 @@ class Report::NewCandidatesController < Report::BaseController
   def index
     entries = Candidate.new_candidates_query(candidates_filter_params)
     @openings = Opening.active
-    @stats = CandidatesStats.new(entries)
+    @stats = NewCandidatesStats.new(entries)
 
     @sources = Source.all
 

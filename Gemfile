@@ -80,5 +80,5 @@ group :test do
 end
 
 group :production do
-  gem "newrelic_rpm", "9.10.0"
+  gem "newrelic_rpm", "9.12.0"
 end

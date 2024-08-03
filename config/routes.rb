@@ -44,6 +44,7 @@ Rails.application.routes.draw do
       patch "/update/owner", to: "candidate#update_owner", as: "update_owner"
       patch "/update/joining", to: "candidate#update_joining", as: "update_joining"
       patch "/toggle/recycle", to: "candidate#toggle_recycle", as: "toggle_recycle"
+      patch "/reject_and_icebox", to: "candidate#reject_and_icebox", as: "reject_and_icebox"
       get "/edit/joining", to: "candidate#edit_joining", as: "edit_joining"
     end
   end

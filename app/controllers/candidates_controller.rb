@@ -170,9 +170,9 @@ class CandidatesController < BaseController
   def leads
     candidates = nil
     if current_user.admin?
-      candidates = Candidate.unscoped.where(bucket: :leads).includes(:opening, :owner).order(created_at: :desc)
+      candidates = Candidate.unscoped.where(bucket: :leads).includes(:opening, :owner, :user).order(created_at: :desc)
     else
-      candidates = Candidate.unscoped.where(bucket: :leads, owner: current_user).includes(:opening, :owner).order(created_at: :desc)
+      candidates = Candidate.unscoped.where(bucket: :leads, owner: current_user).includes(:opening, :owner, :user).order(created_at: :desc)
     end
 
     @pagy, @candidates = pagy(candidates, items: LIMIT)

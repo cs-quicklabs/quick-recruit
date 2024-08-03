@@ -15,6 +15,10 @@ class CandidatePolicy < ApplicationPolicy
     user.admin?
   end
 
+  def reject_and_icebox?
+    return true unless user.interviewer?
+  end
+
   def toggle_recycle?
     return true unless user.interviewer?
   end

@@ -36,6 +36,11 @@ class Candidate::CandidateController < Candidate::BaseController
     end
   end
 
+  def reject_and_icebox
+    RejectAndIceboxLead.call(@candidate, current_user)
+    redirect_to leads_candidates_path, notice: "Candidate rejected in screening and moved to icebox"
+  end
+
   def toggle_recycle
     authorize @candidate
     candidate = ToggleRecycle.call(@candidate, current_user).result

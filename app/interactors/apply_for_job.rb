@@ -1,27 +1,12 @@
 class ApplyForJob < Patterns::Service
   def initialize(params)
     @params = params
-    @first_name = params[:first_name]
-    @last_name = params[:last_name]
-    @email = params[:email]
-    @phone = params[:phone]
-    @biography = params[:biography]
-    @opening_id = params[:opening_id]
-    @location = params[:location]
-    @birth_year = params[:birth_year]
-    @current_company = params[:current_company]
-    @current_title = params[:current_title]
-    @current_ctc = params[:current_ctc]
-    @expected_ctc = params[:expected_ctc]
-    @notice_period = params[:notice_period]
-    @experience = params[:experience]
-    @highest_qualification = params[:highest_qualification]
   end
 
   def call
     candidate = existing_candidate || create_candidate
 
-    if candidate.persisted? && !candidate.archive?
+    if should_create_new_lead_for?(candidate)
       move_to_leads(candidate)
       assign_to_recruiter(candidate)
       send_email
@@ -32,16 +17,17 @@ class ApplyForJob < Patterns::Service
 
   private
 
+  def should_create_new_lead_for?(candidate)
+    candidate.persisted? && !candidate.archive? && candidate.bucket != Candidate.buckets[:leads]
+  end
+
   def create_candidate
     #Opening becomes "to Be Decided" if form is submitted without selecting an opening
-    opening = opening_id.blank? ? Opening.find(20) : Opening.find(opening_id)
+    opening = params[:opening_id].blank? ? Opening.find(20) : Opening.find(params[:opening_id])
 
-<<<<<<< Updated upstream
-    Candidate.create!(first_name: first_name, last_name: last_name, email: email, phone: phone, biography: biography, opening_id: opening.id, role: opening.role, bucket: Candidate.buckets[:leads], user: User.bot, owner: opening.owner, status: Candidate.statuses[:waiting_for_evaluation], source: Source.find_by_title("Website"), location: location, birth_year: birth_year, current_company: current_company, current_title: current_title, current_ctc: current_ctc, expected_ctc: expected_ctc, notice_period: notice_period, experience: experience, highest_qualification: highest_qualification)
-=======
     candidate = Candidate.new(params.except(:note))
     candidate.role = opening.role
-    candidate.opening = opening
+    candidate.opening_id = opening.id
     candidate.bucket = Candidate.buckets[:leads]
     candidate.user = User.bot
     candidate.owner = opening.owner
@@ -51,18 +37,14 @@ class ApplyForJob < Patterns::Service
     candidate.save
 
     candidate
->>>>>>> Stashed changes
   end
 
   def existing_candidate
-    candidate = Candidate.find_by_email(email) or Candidate.find_by_phone(phone)
+    candidate = Candidate.find_by_email(params[:email]) or Candidate.find_by_phone(params[:phone])
+    params[:opening_id] = 20.to_s if params[:opening_id].blank?
 
     # update old info to newest one
-<<<<<<< Updated upstream
-    candidate.update(first_name: first_name, last_name: last_name, biography: biography, location: location, birth_year: birth_year, current_company: current_company, current_title: current_title, current_ctc: current_ctc, expected_ctc: expected_ctc, notice_period: notice_period, experience: experience, highest_qualification: highest_qualification) unless candidate.nil?
-=======
-    candidate.update(params) unless candidate.nil?
->>>>>>> Stashed changes
+    candidate.update!(params.except(:resume)) unless candidate.nil?
 
     candidate
   end
@@ -80,9 +62,5 @@ class ApplyForJob < Patterns::Service
     UpdateOwner.call(candidate, User.shivangi, User.bot, false).result
   end
 
-<<<<<<< Updated upstream
-  attr_reader :first_name, :last_name, :email, :phone, :biography, :opening_id, :location, :birth_year, :current_title, :current_company, :current_ctc, :expected_ctc, :notice_period, :experience, :highest_qualification, :params
-=======
   attr_reader :first_name, :last_name, :email, :phone, :biography, :opening_id, :location, :birth_year, :current_title, :current_company, :current_ctc, :expected_ctc, :notice_period, :experience, :highest_qualification, :linkedin, :resume, :params
->>>>>>> Stashed changes
 end

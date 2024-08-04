@@ -42,7 +42,7 @@
         <div class="sm:col-span-2">
           <div class="py-4">
             <h2 class="text-lg mb-1 font-semibold leading-none text-gray-900 dark:text-white">Upload Resume</h2>
-            <label class="block mb-2 text-xs text-gray-500 dark:text-white" for="file_input">Please upload PDF resume file only. Other file types fill result in automatic rejection by our ATS.</label>
+            <label class="block mb-2 text-sm text-gray-500 dark:text-white" for="file_input">Please upload PDF resume file only. Other file types fill result in automatic rejection by our ATS.</label>
             <div class="items-center w-full sm:flex">
               <div class="w-full">
                 <%= form.file_field :resume, accept: 'application/pdf', required: true  %>
@@ -83,19 +83,22 @@
           <%= form.text_field :current_company, "Current Employer", required: true, placeholder: "Current Company Name" %>
         </div>
         <div>
-          <%= form.text_field :current_ctc, "Current CTC in LPA", required: true, placeholder: "12" %>
+          <%= form.text_field :current_ctc, "Current CTC in LPA", required: true, placeholder: "12.0" %>
         </div>
         <div>
-          <%= form.text_field :expected_ctc, "Expected CTC in LPA", required: true, placeholder: "14" %>
+          <%= form.text_field :expected_ctc, "Expected CTC in LPA", required: true, placeholder: "14.0" %>
         </div>
         <div>
-          <%= form.text_field :experience, "Experience in Years", required: true, placeholder: "5" %>
+          <%= form.text_field :experience, "Experience in Years", required: true, placeholder: "5", minlength: 2, maxlength: 2, pattern: "[0-9]{2}"%>
         </div>
         <div>
           <%= form.text_field :notice_period, "Notice Period in Days", required: true, placeholder: "30", minlength: 2, maxlength: 2, pattern: "[0-9]{2}"%>
         </div>
         <div>
           <%= form.text_field :highest_qualification, "Highest Education Qualification", required: true, placeholder: "B.Tech" %>
+        </div>
+        <div>
+          <%= form.text_field :linkedin, "Linkedin", placeholder: "Linkedin Profile URL", required: true %>
         </div>
       </div>
       <%= form.submit 'Submit Application', class: "btn-primary", data: {disable_with: "Please wait..."} %>

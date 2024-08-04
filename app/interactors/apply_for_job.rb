@@ -16,6 +16,7 @@ class ApplyForJob < Patterns::Service
     @notice_period = params[:notice_period]
     @experience = params[:experience]
     @highest_qualification = params[:highest_qualification]
+    @linkedin = params[:linkedin]
   end
 
   def call
@@ -36,14 +37,14 @@ class ApplyForJob < Patterns::Service
     #Opening becomes "to Be Decided" if form is submitted without selecting an opening
     opening = opening_id.blank? ? Opening.find(20) : Opening.find(opening_id)
 
-    Candidate.create!(first_name: first_name, last_name: last_name, email: email, phone: phone, biography: biography, opening_id: opening.id, role: opening.role, bucket: Candidate.buckets[:leads], user: User.bot, owner: opening.owner, status: Candidate.statuses[:waiting_for_evaluation], source: Source.find_by_title("Website"), location: location, birth_year: birth_year, current_company: current_company, current_title: current_title, current_ctc: current_ctc, expected_ctc: expected_ctc, notice_period: notice_period, experience: experience, highest_qualification: highest_qualification)
+    Candidate.create!(first_name: first_name, last_name: last_name, email: email, phone: phone, biography: biography, opening_id: opening.id, role: opening.role, bucket: Candidate.buckets[:leads], user: User.bot, owner: opening.owner, status: Candidate.statuses[:waiting_for_evaluation], source: Source.find_by_title("Website"), location: location, birth_year: birth_year, current_company: current_company, current_title: current_title, current_ctc: current_ctc, expected_ctc: expected_ctc, notice_period: notice_period, experience: experience, highest_qualification: highest_qualification, linkedin: linkedin)
   end
 
   def existing_candidate
     candidate = Candidate.find_by_email(email) or Candidate.find_by_phone(phone)
 
     # update old info to newest one
-    candidate.update(first_name: first_name, last_name: last_name, biography: biography, location: location, birth_year: birth_year, current_company: current_company, current_title: current_title, current_ctc: current_ctc, expected_ctc: expected_ctc, notice_period: notice_period, experience: experience, highest_qualification: highest_qualification) unless candidate.nil?
+    candidate.update(first_name: first_name, last_name: last_name, biography: biography, location: location, birth_year: birth_year, current_company: current_company, current_title: current_title, current_ctc: current_ctc, expected_ctc: expected_ctc, notice_period: notice_period, experience: experience, highest_qualification: highest_qualification, linkedin: linkedin) unless candidate.nil?
 
     candidate
   end
@@ -61,5 +62,5 @@ class ApplyForJob < Patterns::Service
     UpdateOwner.call(candidate, User.rakhi, User.bot, false).result
   end
 
-  attr_reader :first_name, :last_name, :email, :phone, :biography, :opening_id, :location, :birth_year, :current_title, :current_company, :current_ctc, :expected_ctc, :notice_period, :experience, :highest_qualification, :params
+  attr_reader :first_name, :last_name, :email, :phone, :biography, :opening_id, :location, :birth_year, :current_title, :current_company, :current_ctc, :expected_ctc, :notice_period, :experience, :highest_qualification, :linkedin, :params
 end

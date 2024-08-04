@@ -85,6 +85,9 @@
         <div>
           <%= form.text_field :highest_qualification, "Highest Education Qualification", required: true, placeholder: "B.Tech" %>
         </div>
+        <div>
+          <%= form.text_field :linkedin, "Linkedin Profile URL", placeholder: "https://www.linkedin.com/in/profileId", required: true %>
+        </div>
       </div>
       <%= form.submit 'Submit Application', class: "btn-primary", data: {disable_with: "Please wait..."} %>
       <%= link_to "Cancel", public_openings_path, class: "btn-secondary" %>

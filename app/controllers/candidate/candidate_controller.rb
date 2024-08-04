@@ -37,8 +37,14 @@ class Candidate::CandidateController < Candidate::BaseController
   end
 
   def reject_and_icebox
+    old_bucket = @candidate.bucket
+
     RejectAndIceboxLead.call(@candidate, current_user)
-    redirect_to leads_candidates_path, notice: "Candidate rejected in screening and moved to icebox"
+    if old_bucket == "hot"
+      redirect_to hot_candidates_path, notice: "Candidate rejected in screening and moved to icebox"
+    else
+      redirect_to leads_candidates_path, notice: "Candidate rejected in screening and moved to icebox"
+    end
   end
 
   def toggle_recycle

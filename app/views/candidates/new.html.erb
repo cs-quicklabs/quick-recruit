@@ -6,10 +6,11 @@
       <%= render "shared/form_messages", resource: @candidate, message: local_assigns[:message] %>
       <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
         <div class="sm:col-span-2">
-          <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload Resume</label>
+          <label class="block text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload Resume</label>
+          <label class="block mb-2 text-xs text-gray-500 dark:text-white" for="file_input">Please upload PDF resume file only. Other file types fill result in automatic rejection by our ATS.</label>
           <div class="items-center w-full sm:flex">
             <div class="w-full">
-              <%= form.file_field :resume %>
+              <%= form.file_field :resume, accept: 'application/pdf', required: true  %>
             </div>
           </div>
           <h2 class="mt-8 text-xl font-semibold leading-none text-gray-900 dark:text-white">Personal Information</h2>

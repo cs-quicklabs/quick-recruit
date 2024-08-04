@@ -36,14 +36,33 @@ class ApplyForJob < Patterns::Service
     #Opening becomes "to Be Decided" if form is submitted without selecting an opening
     opening = opening_id.blank? ? Opening.find(20) : Opening.find(opening_id)
 
+<<<<<<< Updated upstream
     Candidate.create!(first_name: first_name, last_name: last_name, email: email, phone: phone, biography: biography, opening_id: opening.id, role: opening.role, bucket: Candidate.buckets[:leads], user: User.bot, owner: opening.owner, status: Candidate.statuses[:waiting_for_evaluation], source: Source.find_by_title("Website"), location: location, birth_year: birth_year, current_company: current_company, current_title: current_title, current_ctc: current_ctc, expected_ctc: expected_ctc, notice_period: notice_period, experience: experience, highest_qualification: highest_qualification)
+=======
+    candidate = Candidate.new(params.except(:note))
+    candidate.role = opening.role
+    candidate.opening = opening
+    candidate.bucket = Candidate.buckets[:leads]
+    candidate.user = User.bot
+    candidate.owner = opening.owner
+    candidate.status = Candidate.statuses[:waiting_for_evaluation]
+    candidate.source = Source.find_by_title("Website")
+
+    candidate.save
+
+    candidate
+>>>>>>> Stashed changes
   end
 
   def existing_candidate
     candidate = Candidate.find_by_email(email) or Candidate.find_by_phone(phone)
 
     # update old info to newest one
+<<<<<<< Updated upstream
     candidate.update(first_name: first_name, last_name: last_name, biography: biography, location: location, birth_year: birth_year, current_company: current_company, current_title: current_title, current_ctc: current_ctc, expected_ctc: expected_ctc, notice_period: notice_period, experience: experience, highest_qualification: highest_qualification) unless candidate.nil?
+=======
+    candidate.update(params) unless candidate.nil?
+>>>>>>> Stashed changes
 
     candidate
   end
@@ -53,7 +72,7 @@ class ApplyForJob < Patterns::Service
   end
 
   def send_email
-    CandidateMailer.with(content: params).lead_email.deliver_later
+    CandidateMailer.with(content: params.except(:resume)).lead_email.deliver_later
   end
 
   def assign_to_recruiter(candidate)
@@ -61,5 +80,9 @@ class ApplyForJob < Patterns::Service
     UpdateOwner.call(candidate, User.shivangi, User.bot, false).result
   end
 
+<<<<<<< Updated upstream
   attr_reader :first_name, :last_name, :email, :phone, :biography, :opening_id, :location, :birth_year, :current_title, :current_company, :current_ctc, :expected_ctc, :notice_period, :experience, :highest_qualification, :params
+=======
+  attr_reader :first_name, :last_name, :email, :phone, :biography, :opening_id, :location, :birth_year, :current_title, :current_company, :current_ctc, :expected_ctc, :notice_period, :experience, :highest_qualification, :linkedin, :resume, :params
+>>>>>>> Stashed changes
 end

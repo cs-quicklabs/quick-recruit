@@ -48,11 +48,11 @@ class NewCandidatesQuery
     end
 
     def created_after_date(param)
-      where("created_at >= ?", Date.parse(param.to_s))
+      where("created_at >= ?", Date.parse(param.to_s).beginning_of_day)
     end
 
     def created_before_date(param)
-      where("created_at <= ?", Date.parse(param.to_s))
+      where("created_at <= ?", Date.parse(param.to_s).end_of_day)
     end
   end
 end

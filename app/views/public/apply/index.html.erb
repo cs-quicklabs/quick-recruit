@@ -42,7 +42,7 @@
         <div class="sm:col-span-2">
           <div class="py-4">
             <h2 class="text-lg mb-1 font-semibold leading-none text-gray-900 dark:text-white">Upload Resume</h2>
-            <label class="block mb-2 text-sm text-gray-500 dark:text-white" for="file_input">Please upload PDF resume file only. Other file types fill result in automatic rejection by our ATS.</label>
+            <label class="block mb-2 text-sm text-gray-500 dark:text-white" for="file_input">Please upload PDF resume file only. Other file types fill result in automatic rejection by our ATS. PDF file should be less than 5 MB.</label>
             <div class="items-center w-full sm:flex">
               <div class="w-full">
                 <%= form.file_field :resume, accept: 'application/pdf', required: true  %>

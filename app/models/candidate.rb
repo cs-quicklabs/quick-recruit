@@ -12,6 +12,7 @@ class Candidate < ApplicationRecord
 
   validates :email, uniqueness: true
   validate :correct_resume_mime_type
+  validate :resume_file_size
 
   enum bucket: { recent: 0, hot: 1, pipeline: 2, champions: 3, joinings: 4, icebox: 5, archive: 6, incomplete: 7, alumni: 8, employees: 9, contractors: 10, leads: 11 }
 
@@ -64,6 +65,12 @@ class Candidate < ApplicationRecord
   def correct_resume_mime_type
     if resume.attached? && !resume.content_type.in?(%w(application/pdf))
       errors.add(:resume, "Must be a PDF file")
+    end
+  end
+
+  def resume_file_size
+    if resume.attached? && resume.blob.byte_size > 5.megabytes
+      errors.add(:resume, "Size should not be more than 5MB")
     end
   end
 end

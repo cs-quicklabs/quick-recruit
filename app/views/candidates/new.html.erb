@@ -7,7 +7,7 @@
       <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
         <div class="sm:col-span-2">
           <label class="block text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload Resume</label>
-          <label class="block mb-2 text-xs text-gray-500 dark:text-white" for="file_input">Please upload PDF resume file only. Other file types fill result in automatic rejection by our ATS.</label>
+          <label class="block mb-2 text-xs text-gray-500 dark:text-white" for="file_input">Please upload PDF resume file only. PDF file size should be less than 5 MB.</label>
           <div class="items-center w-full sm:flex">
             <div class="w-full">
               <%= form.file_field :resume, accept: 'application/pdf', required: true  %>

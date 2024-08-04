@@ -1,6 +1,6 @@
 class FinishRecycle < Patterns::Service
   def call
-    notify_about_recycled_candidates
+    #notify_about_recycled_candidates
     remove_recycled_candidates
   end
 

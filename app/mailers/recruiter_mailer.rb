@@ -25,8 +25,10 @@ class RecruiterMailer < ApplicationMailer
 
   def daily_activity_report_email
     @recruiter = params[:recruiter]
-    @count = params[:count]
-    @daily_report_url = params[:daily_report_url]
+    @new_candidates_count = params[:new_candidates_count]
+    @updated_candidates_count = params[:updated_candidates_count]
+    @new_candidates_daily_report_url = params[:new_candidates_daily_report_url]
+    @updated_candidates_daily_report_url = params[:updated_candidates_daily_report_url]
     mail(to: [@recruiter.email, User.aashish.email, User.aditi.email], subject: "Quick Recruit: Daily Activity Report")
   end
 end

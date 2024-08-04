@@ -22,4 +22,11 @@ class RecruiterMailer < ApplicationMailer
     @count = params[:count]
     mail(to: [@recruiter.email, User.aashish.email, User.aditi.email], subject: "Quick Recruit: Recycling Report")
   end
+
+  def daily_activity_report_email
+    @recruiter = params[:recruiter]
+    @count = params[:count]
+    @daily_report_url = params[:daily_report_url]
+    mail(to: [@recruiter.email, User.aashish.email, User.aditi.email], subject: "Quick Recruit: Daily Activity Report")
+  end
 end

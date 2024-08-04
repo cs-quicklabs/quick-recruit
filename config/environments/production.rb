@@ -89,6 +89,8 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { :host => "recruit.quicklabs.in" }
 
+  config.default_url_options = { host: "recruit.quicklabs.in" }
+
   # Enable DNS rebinding protection and other `Host` header attacks.
   config.hosts = [
     "recruit.quicklabs.in",     # Allow requests from example.com

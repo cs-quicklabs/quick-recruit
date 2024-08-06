@@ -10,6 +10,8 @@ class Candidate < ApplicationRecord
   has_many :events, as: :eventable, dependent: :destroy
   has_many :emails, dependent: :destroy
 
+  normalizes :email, with: ->email { email.downcase.strip }
+
   validates :email, uniqueness: true
   validate :correct_resume_mime_type
   validate :resume_file_size

@@ -9,7 +9,7 @@ class ApplyForJob < Patterns::Service
     if should_create_new_lead_for?(candidate)
       move_to_leads(candidate)
       assign_to_recruiter(candidate)
-      send_email
+      send_email(candidate)
     end
 
     candidate
@@ -53,8 +53,8 @@ class ApplyForJob < Patterns::Service
     UpdateBucket.call(candidate, Candidate.buckets[:leads], User.bot, false).result
   end
 
-  def send_email
-    CandidateMailer.with(content: params.except(:resume)).lead_email.deliver_later
+  def send_email(candidate)
+    CandidateMailer.with(candidate: candidate, content: params.except(:resume)).lead_email.deliver_later
   end
 
   def assign_to_recruiter(candidate)

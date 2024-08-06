@@ -6,4 +6,5 @@
   <p><%= "Opening: " +  Opening.find(@content[:opening_id]).title %></p>
 <% end %>
 <p><%= "Biography: " +  @content[:biography] %></p>
-<%= link_to "See All Leads", leads_candidates_url %>
+<p><%= link_to "See Candidate", candidate_timeline_url(@candidate) %></p>
+<p><%= link_to "See All Leads", leads_candidates_url %></p>

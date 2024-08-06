@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   rescue_from Pundit::NotDefinedError, with: :user_not_authorized
+  rescue_from ActionController::InvalidAuthenticityToken, with: :handle_invalid_authenticity_token
 
   def user_not_authorized
     redirect_to(request.referrer || landing_path)
@@ -13,6 +14,11 @@ class ApplicationController < ActionController::Base
   }
 
   private
+
+  def handle_invalid_authenticity_token
+    logout current_user unless current_user.nil?
+    redirect_to new_session_path, alert: "You must be signed in to do that." unless user_signed_in?
+  end
 
   def authenticate_user!
     redirect_to new_session_path, alert: "You must be signed in to do that." unless user_signed_in?

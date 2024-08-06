@@ -8,7 +8,6 @@ class ApplyForJob < Patterns::Service
 
     if should_create_new_lead_for?(candidate)
       move_to_leads(candidate)
-      assign_to_recruiter(candidate)
       send_email(candidate)
     end
 
@@ -45,6 +44,9 @@ class ApplyForJob < Patterns::Service
 
     # update old info to newest one
     candidate.update!(params) unless candidate.nil?
+
+    # assign owner
+    candidate.update!(owner: Opening.find(params[:opening_id]).owner) unless candidate.nil?
 
     candidate
   end

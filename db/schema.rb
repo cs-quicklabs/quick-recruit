@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_20_111728) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_08_153809) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -140,6 +140,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_20_111728) do
     t.bigint "role_id", default: 15, null: false
     t.integer "priority", default: 0
     t.bigint "owner_id", default: 1, null: false
+    t.string "resume_screening_checklist"
+    t.string "telephonic_screening_checklist"
+    t.string "first_round_score"
+    t.string "second_round_score"
+    t.string "hr_round_score"
     t.index ["owner_id"], name: "index_openings_on_owner_id"
     t.index ["role_id"], name: "index_openings_on_role_id"
   end

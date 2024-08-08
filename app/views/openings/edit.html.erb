@@ -4,12 +4,12 @@
     <%= render "shared/form_header", title: "Edit Job Opening", subtitle: "Please update the details of new Job Opening." %>
     <%= tailwind_form_with(model: @opening, id: dom_id(@opening)) do |form| %>
       <div class="mt-4 mb-2 grid gap-4 sm:gap-6">
-        <div>
-          <%= form.text_field :title, "Opening Name", required: true, placeholder: "eg. Android Developer" %>
-        </div>
       </div>
       <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
-        <div class="sm:col-span-2 space-y-2">
+        <div class="sm:col-span-2 space-y-4">
+          <div>
+            <%= form.text_field :title, "Opening Name", required: true, placeholder: "eg. Android Developer" %>
+          </div>
           <div>
             <label for="user-role" class="inline-flex items-center mb-1 text-sm font-medium text-gray-900 dark:text-white">
               Primary skill
@@ -41,6 +41,21 @@
               Owner
             </label>
             <%= form.collection_select(:owner_id, User.recruiters, :id, :name, { :prompt => "Select Owner" }, :class => "form-text-field", :required => true) %>
+          </div>
+          <div>
+            <%= form.text_field :resume_screening_checklist, "Resume Screening Checklist (Optional)" %>
+          </div>
+          <div>
+            <%= form.text_field :telephonic_screening_checklist, "Telephonic Screening Checklist (Optional)" %>
+          </div>
+          <div>
+            <%= form.text_field :first_round_score, "First Round Score Survey (Optional)" %>
+          </div>
+          <div>
+            <%= form.text_field :second_round_score, "Second Round Score Survey (Optional)" %>
+          </div>
+          <div>
+            <%= form.text_field :hr_round_score, "HR Round Score Survey (Optional)" %>
           </div>
         </div>
       </div>

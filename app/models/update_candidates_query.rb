@@ -54,5 +54,13 @@ class UpdateCandidatesQuery
     def updated_before_date(param)
       where("updated_at <= ?", Date.parse(param.to_s).end_of_day)
     end
+
+    def bucket_updated_after_date(param)
+      where("bucket_updated_on >= ?", Date.parse(param.to_s).beginning_of_day)
+    end
+
+    def bucket_updated_before_date(param)
+      where("bucket_updated_on <= ?", Date.parse(param.to_s).end_of_day)
+    end
   end
 end

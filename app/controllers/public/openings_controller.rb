@@ -10,5 +10,9 @@ class Public::OpeningsController < Public::PublicController
 
   def show
     @opening = Opening.find(params[:id])
+    respond_to do |format|
+      format.json { render json: @opening }
+      format.html
+    end
   end
 end

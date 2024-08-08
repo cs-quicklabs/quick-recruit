@@ -1,6 +1,6 @@
 class RecycleCandidates < Patterns::Service
   def call
-    User.owners.each do |recruiter|
+    User.recruiters.each do |recruiter|
       recycle_complete_profiles_for(recruiter) # profiles which has complete data
       recycle_incomplete_profiles_for(recruiter) # profiles which has incomplete data
     end

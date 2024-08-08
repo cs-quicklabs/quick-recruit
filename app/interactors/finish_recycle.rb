@@ -6,7 +6,7 @@ class FinishRecycle < Patterns::Service
   end
 
   def notify_about_recycled_candidates
-    User.owners.each do |recruiter|
+    User.recruiters.each do |recruiter|
       count = Recycle.includes(candidate: [:owner]).where(recycled: true, candidate: { owner_id: recruiter.id }).count
       RecruiterMailer.with(recruiter: recruiter, count: count).recycled_candidates_email.deliver_later
     end

@@ -1,7 +1,7 @@
 class RecyclesController < BaseController
   def index
     @recycles = get_recycles
-    @recruiters = User.owners
+    @recruiters = User.recruiters
   end
 
   private

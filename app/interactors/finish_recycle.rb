@@ -2,7 +2,7 @@ class FinishRecycle < Patterns::Service
   def call
     notify_about_recycled_candidates
     remove_recycled_candidates
-    remove_candidates_associated_with_inactive_openings
+    #remove_candidates_associated_with_inactive_openings
   end
 
   def notify_about_recycled_candidates

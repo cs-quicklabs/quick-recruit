@@ -21,13 +21,13 @@ class DailyActivityReport < Patterns::Service
   end
 
   def updated_candidates_count(recruiter)
-    params = { created_by: recruiter.id.to_s, updated_after_date: Date.yesterday.to_formatted_s(:db), updated_before_date: Date.yesterday.to_formatted_s(:db), bucket: :pipeline }
+    params = { created_by: recruiter.id.to_s, updated_after_date: Date.yesterday.to_formatted_s(:db), updated_before_date: Date.yesterday.to_formatted_s(:db) }
 
     Candidate.update_candidates_query(params).count
   end
 
   def pipelined_candidates_count(recruiter)
-    params = { owner_id: recruiter.id.to_s, bucket_updated_after_date: Date.yesterday.to_formatted_s(:db), bucket_updated_before_date: Date.yesterday.to_formatted_s(:db) }
+    params = { owner_id: recruiter.id.to_s, bucket_updated_after_date: Date.yesterday.to_formatted_s(:db), bucket_updated_before_date: Date.yesterday.to_formatted_s(:db), bucket: :pipeline }
 
     Candidate.update_candidates_query(params).count
   end

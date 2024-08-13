@@ -10,31 +10,31 @@
     <% end %>
   </div>
   <dd class="mb-4 sm:mb-5">
-    <span class="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
-      <%= candidate.bucket.titleize %>
-    </span>
-  </dd>
-  <% if policy(candidate).update_bucket? %>
-    <div id="tooltip-bucket" role="tooltip" class="inline-block text-xs absolute invisible z-10 py-1 px-2 text-xs font-medium text-white bg-gray-900 rounded-sm shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
-      Edit Bucket
-      <div class="tooltip-arrow" data-popper-arrow></div>
-    </div>
-    <!-- Dropdown menu -->
-    <div id="dropdownDefaultRadio"  data-bucket-target="menu" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-40 dark:bg-gray-700 dark:divide-gray-600">
-      <ul class="p-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton" >
-        <% buckets = current_user.admin? ? Candidate.buckets :  Candidate.buckets.except(:pipeline)%>
-        <% buckets.each do |k, v| %>
-          <li class="cursor-pointer" data-action="click->bucket#change" data-bucket-bucket-param="<%= v %>" data-bucket-candidate-param="<%= candidate.id %>">
-            <div class="flex p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-600 ">
-              <div class="ms-2 text-xs">
-                <label class="cursor-pointer font-medium text-gray-900 dark:text-gray-300">
-                  <div><%= k.humanize %></div>
-                </label>
+    <span class="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800 hover:underline cursor-pointer">
+      <a href=<%= "/candidates/#{candidate.bucket}" %>><%= candidate.bucket.titleize %></a>
+      </span>
+    </dd>
+    <% if policy(candidate).update_bucket? %>
+      <div id="tooltip-bucket" role="tooltip" class="inline-block text-xs absolute invisible z-10 py-1 px-2 text-xs font-medium text-white bg-gray-900 rounded-sm shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+        Edit Bucket
+        <div class="tooltip-arrow" data-popper-arrow></div>
+      </div>
+      <!-- Dropdown menu -->
+      <div id="dropdownDefaultRadio"  data-bucket-target="menu" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-40 dark:bg-gray-700 dark:divide-gray-600">
+        <ul class="p-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton" >
+          <% buckets = current_user.admin? ? Candidate.buckets :  Candidate.buckets.except(:pipeline)%>
+          <% buckets.each do |k, v| %>
+            <li class="cursor-pointer" data-action="click->bucket#change" data-bucket-bucket-param="<%= v %>" data-bucket-candidate-param="<%= candidate.id %>">
+              <div class="flex p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-600 ">
+                <div class="ms-2 text-xs">
+                  <label class="cursor-pointer font-medium text-gray-900 dark:text-gray-300">
+                    <div><%= k.humanize %></div>
+                  </label>
+                </div>
               </div>
-            </div>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-</div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>

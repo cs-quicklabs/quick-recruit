@@ -43,6 +43,13 @@ class Candidate::CandidateController < Candidate::BaseController
     redirect_to redirect_path, notice: "Candidate rejected in screening and moved to icebox"
   end
 
+  def reward_to_recruiter
+    recruiter = User.find(params[:recruiter_id])
+    RewardCandidateToRecruiter.call(@candidate, recruiter, current_user)
+
+    redirect_to candidate_timeline_path(@candidate), notice: "Candidate was awarded to #{recruiter.name}"
+  end
+
   def toggle_recycle
     authorize @candidate
     candidate = ToggleRecycle.call(@candidate, current_user).result

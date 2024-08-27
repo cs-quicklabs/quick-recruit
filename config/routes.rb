@@ -45,6 +45,7 @@ Rails.application.routes.draw do
       patch "/update/joining", to: "candidate#update_joining", as: "update_joining"
       patch "/toggle/recycle", to: "candidate#toggle_recycle", as: "toggle_recycle"
       patch "/reject_and_icebox", to: "candidate#reject_and_icebox", as: "reject_and_icebox"
+      patch "/reward_to_recruiter/:recruiter_id", to: "candidate#reward_to_recruiter", as: "reward_to_recruiter"
       get "/edit/joining", to: "candidate#edit_joining", as: "edit_joining"
     end
   end

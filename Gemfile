@@ -52,7 +52,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
 end
 
-gem "aws-sdk-s3", "~> 1.151"
+gem "aws-sdk-s3", "~> 1.159"
 gem "requestjs-rails"
 gem "rails-patterns"
 gem "pagy", "8.4.0"

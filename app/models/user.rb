@@ -52,6 +52,10 @@ class User < ApplicationRecord
     find_by(email: "aditi@crownstack.com")
   end
 
+  def self.rashi
+    find_by(email: "rashigupta@crownstack.com")
+  end
+
   def openings
     Opening.where(owner: self, active: true)
   end

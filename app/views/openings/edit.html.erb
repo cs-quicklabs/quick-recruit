@@ -43,19 +43,19 @@
             <%= form.collection_select(:owner_id, User.owners, :id, :name, { :prompt => "Select Owner" }, :class => "form-text-field", :required => true) %>
           </div>
           <div>
-            <%= form.text_field :resume_screening_checklist, "Resume Screening Checklist (Optional)" %>
+            <%= form.text_field :resume_screening_checklist, "Resume Screening Checklist (Optional)", required: true %>
           </div>
           <div>
-            <%= form.text_field :telephonic_screening_checklist, "Telephonic Screening Checklist (Optional)" %>
+            <%= form.text_field :telephonic_screening_checklist, "Telephonic Screening Checklist (Optional)", required: true %>
           </div>
           <div>
-            <%= form.text_field :first_round_score, "First Round Score Survey (Optional)" %>
+            <%= form.text_field :first_round_score, "First Round Score Survey (Optional)", required: true %>
           </div>
           <div>
-            <%= form.text_field :second_round_score, "Second Round Score Survey (Optional)" %>
+            <%= form.text_field :second_round_score, "Second Round Score Survey (Optional)", required: true %>
           </div>
           <div>
-            <%= form.text_field :hr_round_score, "HR Round Score Survey (Optional)" %>
+            <%= form.text_field :hr_round_score, "HR Round Score Survey (Optional)", required: true %>
           </div>
         </div>
       </div>

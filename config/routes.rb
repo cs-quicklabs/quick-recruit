@@ -101,6 +101,7 @@ Rails.application.routes.draw do
 
   get :events, controller: :dashboard
   get :recycle, controller: :recycles, action: :index
+  post :recycle, controller: :recycles, action: :settle
 
   scope "report" do
     get "/candidates", to: "report/candidates#index", as: "report_candidates"

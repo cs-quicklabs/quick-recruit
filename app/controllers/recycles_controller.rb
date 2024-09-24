@@ -4,6 +4,12 @@ class RecyclesController < BaseController
     @recruiters = User.recruiters
   end
 
+  def settle
+    FinishRecycle.call
+    RecycleCandidates.call
+    redirect_to recycle_path, notice: "Recycles settled successfully"
+  end
+
   private
 
   def recycles_for_admin

@@ -40,7 +40,7 @@
             <label for="user-role" class="inline-flex items-center mb-1 text-sm font-medium text-gray-900 dark:text-white">
               Owner
             </label>
-            <%= form.collection_select(:owner_id, User.recruiters, :id, :name, { :prompt => "Select Owner" }, :class => "form-text-field", :required => true) %>
+            <%= form.collection_select(:owner_id, User.owners, :id, :name, { :prompt => "Select Owner" }, :class => "form-text-field", :required => true) %>
           </div>
           <div>
             <%= form.text_field :resume_screening_checklist, "Resume Screening Checklist (Optional)" %>

@@ -14,23 +14,15 @@
     <% end %>
   </dd>
 <% else  %>
-  <% if candidate.incomplete? or candidate.leads? %>
-    <dd class="border border-gray-200 p-4 mt-2">
-      <div class="flex items-center text-sm font-light text-gray-900 dark:text-gray-400">
-        <p class="text-xs text-italic mb-2">No resume attached. Please upload a PDF file to upload new resume.</p>
-      </div>
-      <div>
-        <%= form_with(model: candidate, id: dom_id(candidate, :resume), url: candidate_resume_index_path(candidate), method: "POST") do |form| %>
-          <%= form.file_field :resume, class: "form-text-field" %>
-          <%= form.submit "Upload Resume", class: "px-2 py-1 shadow shadow-lg mt-2 text-xs font-medium text-center text-white bg-blue-700 rounded-sm hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200", data: { disable_with: "Submitting.." }  %>
-        <% end %>
-      </div>
-    </dd>
-  <% else %>
-    <dd class="mt-2">
-      <div class="flex items-center text-sm font-light text-gray-900 dark:text-gray-400">
-        <p class="text-xs text-italic mb-2">No resume attached.</p>
-      </div>
-    </dd>
-  <% end %>
+  <dd class="border border-gray-200 p-4 mt-2">
+    <div class="flex items-center text-sm font-light text-gray-900 dark:text-gray-400">
+      <p class="text-xs text-italic mb-2">No resume attached. Please upload a PDF file to upload new resume.</p>
+    </div>
+    <div>
+      <%= form_with(model: candidate, id: dom_id(candidate, :resume), url: candidate_resume_index_path(candidate), method: "POST") do |form| %>
+        <%= form.file_field :resume, class: "form-text-field" %>
+        <%= form.submit "Upload Resume", class: "px-2 py-1 shadow shadow-lg mt-2 text-xs font-medium text-center text-white bg-blue-700 rounded-sm hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200", data: { disable_with: "Submitting.." }  %>
+      <% end %>
+    </div>
+  </dd>
 <% end %>

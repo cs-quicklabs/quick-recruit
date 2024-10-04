@@ -79,16 +79,7 @@ test:
 #
 
 production:
-  primary: &primary_production
     <<: *default
     database: recruit_production
     username: recruit
     password: <%= ENV["RECRUIT_DATABASE_PASSWORD"] %>
-  cache:
-    <<: *primary_production
-    database: app_production_cache
-    migrations_paths: db/cache_migrate
-  queue:
-    <<: *primary_production
-    database: app_production_queue
-    migrations_paths: db/queue_migrate

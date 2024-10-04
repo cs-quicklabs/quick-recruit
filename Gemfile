@@ -42,7 +42,7 @@ gem "bootsnap", require: false
 gem "image_processing", "~> 1.2"
 
 # Database-backed Active Job backend [https://github.com/basecamp/solid_queue]
-gem "solid_queue", "0.7.0"
+gem "solid_queue"
 
 # A database-backed ActiveSupport::Cache::Store [https://github.com/rails/solid_cache]
 gem "solid_cache"

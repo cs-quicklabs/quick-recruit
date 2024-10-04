@@ -83,3 +83,8 @@ production:
     database: recruit_production
     username: recruit
     password: <%= ENV["RECRUIT_DATABASE_PASSWORD"] %>
+    cache: 
+      <<: *default
+      database: recruit_production_cache
+      migrations_paths: db/cache_migrate
+

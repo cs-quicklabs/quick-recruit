@@ -12,8 +12,6 @@ class OpeningsController < BaseController
     else
       @openings = Opening.includes(:role, :owner).where(owner: current_user, active: true).order(active: :desc, role_id: :desc, created_at: :asc)
     end
-
-    fresh_when @openings
   end
 
   def create

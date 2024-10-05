@@ -20,7 +20,6 @@ class CandidatesController < BaseController
   end
 
   def show
-    fresh_when @candidate
   end
 
   def update_bucket
@@ -69,8 +68,6 @@ class CandidatesController < BaseController
 
   def recent
     @pagy, @candidates = pagy(candidates_for_bucket(:recent), items: LIMIT)
-
-    fresh_when @candidates
   end
 
   def hot
@@ -81,8 +78,6 @@ class CandidatesController < BaseController
       candidates = Candidate.unscoped.where(bucket: :hot, owner: current_user).includes(:opening, :role, :owner, :user).order(bucket_updated_on: :desc)
     end
     @pagy, @candidates = pagy(candidates, items: LIMIT)
-
-    fresh_when @candidates
   end
 
   def pipeline
@@ -98,8 +93,6 @@ class CandidatesController < BaseController
       candidates = Candidate.unscoped.where(bucket: :pipeline, owner: current_user).includes(:opening, :owner).order(bucket_updated_on: :desc)
     end
     @pagy, @candidates = pagy(candidates, items: LIMIT)
-
-    fresh_when @candidates
   end
 
   def champions
@@ -107,8 +100,6 @@ class CandidatesController < BaseController
     candidates = Candidate.unscoped.where(bucket: :champions).includes(:opening, :owner).order(bucket_updated_on: :desc)
 
     @pagy, @candidates = pagy(candidates, items: LIMIT)
-
-    fresh_when @candidates
   end
 
   def joinings
@@ -120,14 +111,10 @@ class CandidatesController < BaseController
     end
 
     @pagy, @candidates = pagy(candidates, items: LIMIT)
-
-    fresh_when @candidates
   end
 
   def icebox
     @pagy, @candidates = pagy(candidates_for_bucket(:icebox), items: LIMIT)
-
-    fresh_when @candidates
   end
 
   def archive
@@ -139,32 +126,22 @@ class CandidatesController < BaseController
     end
 
     @pagy, @candidates = pagy(candidates, items: LIMIT)
-
-    fresh_when @candidates
   end
 
   def incomplete
     @pagy, @candidates = pagy(candidates_for_bucket(:incomplete), items: LIMIT)
-
-    fresh_when @candidates
   end
 
   def alumni
     @pagy, @candidates = pagy(candidates_for_bucket(:alumni), items: LIMIT)
-
-    fresh_when @candidates
   end
 
   def employees
     @pagy, @candidates = pagy(candidates_for_bucket(:employees), items: LIMIT)
-
-    fresh_when @candidates
   end
 
   def contractors
     @pagy, @candidates = pagy(candidates_for_bucket(:contractors), items: LIMIT)
-
-    fresh_when @candidates
   end
 
   def leads
@@ -176,8 +153,6 @@ class CandidatesController < BaseController
     end
 
     @pagy, @candidates = pagy(candidates, items: LIMIT)
-
-    fresh_when @candidates
   end
 
   private

@@ -3,7 +3,6 @@ class MembersController < BaseController
 
   def index
     @members = User.with_attached_avatar.where(active: true).order(active: :desc, first_name: :asc)
-    fresh_when @members
   end
 
   def show

@@ -45,7 +45,7 @@ gem "image_processing", "~> 1.2"
 gem "solid_queue"
 
 # A database-backed ActiveSupport::Cache::Store [https://github.com/rails/solid_cache]
-gem "solid_cache", "0.6.0"
+gem "solid_cache"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

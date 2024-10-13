@@ -81,7 +81,7 @@ class RecycleCandidates < Patterns::Service
   end
 
   def recycle_champions_for(recruiter, opening, count)
-    candidates = Candidate.where(bucket: "champions", role_id: opening.role_id).where("next_recycle_on < ? ", DateTime.now).order(next_recycle_on: :asc)
+    candidates = Candidate.where(bucket: "champions", role_id: opening.role_id).where("bucket_updated_on > ? ", 6.months.ago).order(next_recycle_on: :asc)
     filter_unique_candidates(candidates, count)
   end
 

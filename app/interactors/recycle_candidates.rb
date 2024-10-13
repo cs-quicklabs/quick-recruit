@@ -40,13 +40,6 @@ class RecycleCandidates < Patterns::Service
 
     return unless profiles_fetched < count
 
-    candidates = recycle_recent_for(recruiter, opening, count - profiles_fetched)
-    profiles_fetched += candidates.count
-    candidates_fetched += candidates
-    puts "Found " + candidates.count.to_s + " recent for " + recruiter.name + " for " + opening.title
-
-    return unless profiles_fetched < count
-
     puts "Found " + candidates_fetched.count.to_s + " profiles for " + recruiter.name + " for " + opening.title + " out of " + count.to_s + " needed."
     return candidates_fetched
   end
@@ -88,17 +81,17 @@ class RecycleCandidates < Patterns::Service
   end
 
   def recycle_champions_for(recruiter, opening, count)
-    candidates = Candidate.where(bucket: "champions", role_id: opening.role_id).where("bucket_updated_on > ? ", 6.months.ago)
+    candidates = Candidate.where(bucket: "champions", role_id: opening.role_id).where("next_recycle_on < ? ", DateTime.now).order(next_recycle_on: :asc)
     filter_unique_candidates(candidates, count)
   end
 
   def recycle_icebox_for(recruiter, opening, count)
-    candidates = Candidate.where(bucket: "icebox", role_id: opening.role_id).where("bucket_updated_on > ? ", 6.months.ago)
+    candidates = Candidate.where(bucket: "icebox", role_id: opening.role_id).where("next_recycle_on < ? ", DateTime.now).order(next_recycle_on: :asc)
     filter_unique_candidates(candidates, count)
   end
 
   def recycle_recent_for(recruiter, opening, count)
-    candidates = Candidate.where(bucket: "recent", role_id: opening.role_id).where("bucket_updated_on > ? ", 6.months.ago).order(created_at: :desc)
+    candidates = Candidate.where(bucket: "recent", role_id: opening.role_id).where("next_recycle_on < ? ", DateTime.now).order(next_recycle_on: :asc)
     filter_unique_candidates(candidates, count)
   end
 

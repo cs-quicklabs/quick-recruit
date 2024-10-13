@@ -1,0 +1,27 @@
+<%= turbo_frame_tag dom_id(candidate, :recycle_date) do %>
+  <% if candidate.icebox? %>
+    <div>
+      <div class="flex items-center">
+        <dt class="font-semibold text-sm leading-none text-gray-900 dark:text-white">Change Recycle Date</dt>
+        <% if policy(candidate).update_recycle? %>
+          <div id="changeStatusButton"  data-tooltip-target="tooltip-joining" class="cursor-pointer p-1 ml-1 text-gray-500 rounded-sm hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+            <a href="<%= candidate_edit_recycle_path(candidate)%>">
+              <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m10.8 17.8-6.4 2.1 2.1-6.4m4.3 4.3L19 9a3 3 0 0 0-4-4l-8.4 8.6m4.3 4.3-4.3-4.3m2.1 2.1L15 9.1m-2.1-2 4.2 4.2"/>
+              </svg>
+            </a>
+          </div>
+          <div id="tooltip-joining" role="tooltip" class="inline-block text-xs absolute invisible z-10 py-1 px-2 text-xs font-medium text-white bg-gray-900 rounded-sm shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+            Edit Recycle Date
+            <div class="tooltip-arrow" data-popper-arrow></div>
+          </div>
+        <% end %>
+      </div>
+      <dd class="mb-4 sm:mb-5">
+        <span class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded">
+          Next Recyle On: <%= display_date(candidate.next_recycle_on) %>
+        </span>
+      </dd>
+    </div>
+  <% end %>
+<% end %>

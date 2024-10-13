@@ -20,7 +20,7 @@ class FinishRecycle < Patterns::Service
   end
 
   def update_candidate(candidate)
-    candidate.update(bucket_updated_on: DateTime.now)
+    candidate.update(bucket_updated_on: DateTime.now, next_recycle_on: 6.months.from_now)
     Event.new(eventable: candidate, action: "finish_recycle", action_for_context: candidate.bucket, trackable: candidate, user: User.bot).save
   end
 

@@ -8,8 +8,9 @@ class UpdateBucket < Patterns::Service
 
   def call
     update_bucket
+    update_next_recycle_date
     add_event
-    notify_owner if candidate.owner != actor
+    notify_owner
 
     candidate
   end
@@ -25,7 +26,11 @@ class UpdateBucket < Patterns::Service
   end
 
   def notify_owner
-    RecruiterMailer.with(candidate: candidate).candidate_moved_email.deliver_later if notify
+    RecruiterMailer.with(candidate: candidate).candidate_moved_email.deliver_later if notify && candidate.owner != actor
+  end
+
+  def update_next_recycle_date
+    candidate.update(next_recycle_on: 6.months.from_now) if candidate.bucket == "icebox" && candidate.next_recycle_on.nil?
   end
 
   attr_reader :candidate, :bucket, :actor, :notify

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_10_04_123557) do
+ActiveRecord::Schema[8.0].define(version: 2024_10_13_062905) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -87,6 +87,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_10_04_123557) do
     t.integer "status", default: 0
     t.datetime "status_updated_on", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.date "joining_date"
+    t.datetime "next_recycle_on", null: false
     t.index ["email"], name: "unique_emails", unique: true
     t.index ["opening_id"], name: "index_candidates_on_opening_id"
     t.index ["owner_id"], name: "index_candidates_on_owner_id"

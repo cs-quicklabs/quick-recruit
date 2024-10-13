@@ -36,6 +36,15 @@ class Candidate::CandidateController < Candidate::BaseController
     end
   end
 
+  def update_recycle
+    authorize @candidate
+    candidate = UpdateRecycle.call(@candidate, params[:next_recycle_on], current_user).result
+
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.replace("recycle_date_candidate_" + candidate.id.to_s, partial: "candidate/recycle_date", locals: { candidate: candidate }) }
+    end
+  end
+
   def reject_and_icebox
     redirect_path = @candidate.bucket == "hot" ? hot_candidates_path : leads_candidates_path
 
@@ -60,6 +69,10 @@ class Candidate::CandidateController < Candidate::BaseController
   end
 
   def edit_joining
+    @candidate = Candidate.find(params[:candidate_id])
+  end
+
+  def edit_recycle
     @candidate = Candidate.find(params[:candidate_id])
   end
 end

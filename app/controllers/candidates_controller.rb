@@ -52,6 +52,7 @@ class CandidatesController < BaseController
     @candidate = Candidate.new(candidate_params.except(:note))
     @candidate.user = current_user
     @candidate.owner = current_user
+    @candidate.next_recycle_on = DateTime.now
     if @candidate.save
       Event.new(eventable: @candidate, action: "add_candidate", action_for_context: "added new candidate", trackable: @candidate, user: current_user).save
 

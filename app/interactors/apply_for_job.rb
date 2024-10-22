@@ -32,6 +32,7 @@ class ApplyForJob < Patterns::Service
     candidate.owner = opening.owner
     candidate.status = Candidate.statuses[:waiting_for_evaluation]
     candidate.source = Source.find_by_title("Website")
+    candidate.next_recycle_on = DateTime.now
 
     candidate.save
 

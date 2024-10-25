@@ -55,13 +55,14 @@ class UserController < BaseController
     return redirect_to request.referer, notice: "No file added" if params[:file].nil?
     return redirect_to request.referer, notice: "Only CSV files allowed" unless params[:file].content_type == "text/csv"
 
-    ImportNaukariCandidates.new.call(params[:file])
-    #ImportNotes.new.call(params[:file])
-    #ImportAssociations.new.call(params[:file])
-    #ImportJobs.new.call(params[:file])
-    #ImportResumes.new.call(params[:file])
+    file = params[:file]
+    bucket = params[:import][:bucket]
+    opening_id = params[:import][:opening_id].to_i
+    style = params[:import][:style]
 
-    redirect_to request.referer, notice: "Import started..."
+    style.constantize.new.call(params[:file], bucket, opening_id)
+
+    redirect_to request.referer, notice: "Operation Completed"
   end
 
   def preferences

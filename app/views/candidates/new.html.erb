@@ -118,7 +118,8 @@
               <div class="tooltip-arrow" data-popper-arrow></div>
             </div>
           </label>
-          <%= select_tag :bucket, options_for_select(@buckets.map { |k, v| [k.humanize.capitalize, k] }), class: "form-text-field", :name => "candidate[bucket]" %>        </div>
+          <%= select_tag :bucket, options_for_select(@buckets.map { |k, v| [k.humanize.capitalize, k] }), class: "form-text-field", :name => "candidate[bucket]" %>
+        </div>
         <div class="sm:col-span-2">
           <label for="user-role" class="inline-flex items-center mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Associate with Job Opening

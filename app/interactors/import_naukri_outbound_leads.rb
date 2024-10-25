@@ -1,7 +1,7 @@
-class ImportNaukariCandidates
+class ImportNaukriOutboundLeads
   require "csv"
 
-  def call(file)
+  def call(file, bucket, opening_id)
     opened_file = File.open(file)
     options = { headers: true, col_sep: "," }
     CSV.foreach(opened_file, **options) do |row|
@@ -43,15 +43,16 @@ class ImportNaukariCandidates
                              current_title: row["Designation"],
                              experience: experience,
                              source_id: 1,
-                             bucket: "incomplete",
+                             bucket: bucket,
                              current_ctc: salary,
                              birth_year: year_of_birth,
                              user_id: 14,
                              owner_id: 14,
                              zoho_id: row["Candidate Id"],
                              role_id: row["Role Id"].nil? ? 15 : row["Role Id"],
-                             opening_id: 20,
-                             highest_qualification: education)
+                             opening_id: opening_id,
+                             highest_qualification: education,
+                             next_recycle_on: DateTime.now)
         unless row["Created Time"].nil?
           Note.create(body: "Created in Zoho on " + row["Created Time"], user_id: 4, notable: c)
         end

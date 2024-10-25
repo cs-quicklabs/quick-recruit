@@ -53,25 +53,8 @@ class ImportNaukriOutboundLeads
                              opening_id: opening_id,
                              highest_qualification: education,
                              next_recycle_on: DateTime.now)
-        unless row["Created Time"].nil?
-          Note.create(body: "Created in Zoho on " + row["Created Time"], user_id: 4, notable: c)
-        end
-
-        unless row["Comment 1"].nil?
-          Note.create(body: row["Comment 1"], user_id: 4, notable: c)
-        end
-        unless row["Comment 2"].nil?
-          Note.create(body: row["Comment 2"], user_id: 4, notable: c)
-        end
-        unless row["Comment 3"].nil?
-          Note.create(body: row["Comment 3"], user_id: 4, notable: c)
-        end
-        unless row["Comment 4"].nil?
-          Note.create(body: row["Comment 4"], user_id: 4, notable: c)
-        end
-        unless row["Comment 5"].nil?
-          Note.create(body: row["Comment 5"], user_id: 4, notable: c)
-        end
+      else
+        candidate.update(bucket: bucket, opening_id: opening_id)
       end
     end
   end

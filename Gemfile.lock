@@ -202,7 +202,7 @@ GEM
     nokogiri (1.16.7-x86_64-linux)
       racc (~> 1.4)
     pagy (8.4.0)
-    pg (1.5.8)
+    pg (1.5.9)
     psych (5.1.2)
       stringio
     public_suffix (6.0.1)

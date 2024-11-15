@@ -15,6 +15,7 @@ class CandidatesController < BaseController
     @employees_count = count_all["employees"] || 0
     @contractors_count = count_all["contractors"] || 0
     @leads_count = count_all["leads"] || 0
+    @nurture_count = count_all["nurture"] || 0
 
     @candidates_count = Candidate.count
   end
@@ -69,6 +70,10 @@ class CandidatesController < BaseController
 
   def recent
     @pagy, @candidates = pagy(candidates_for_bucket(:recent), items: LIMIT)
+  end
+
+  def nurture
+    @pagy, @candidates = pagy(candidates_for_bucket(:nurture), items: LIMIT)
   end
 
   def hot

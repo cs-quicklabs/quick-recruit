@@ -156,6 +156,13 @@ class CandidatesController < BaseController
     @pagy, @candidates = pagy(candidates, items: LIMIT)
   end
 
+  def settle_leads
+    Candidate.where(bucket: :leads, status: :rejected_in_screening).each do |candidate|
+      UpdateBucket.call(candidate, :archive, current_user, false)
+    end
+    redirect_to leads_candidates_path, notice: "Leads were settled successfully"
+  end
+
   private
 
   def candidates_for_bucket(bucket)

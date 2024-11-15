@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       get "employees"
       get "contractors"
       get "leads"
+      post "leads", to: "candidates#settle_leads"
     end
 
     scope module: "candidate" do

@@ -31,6 +31,10 @@
           </tbody>
         </table>
       </div>
+            <div class="flex justify-end mt-2 mb-6 mr-2">
+        <%== render partial: "shared/paginator", locals: { pagy: @pagy } %>
+      </div>
+
     </div>
   </div>
 </section>

@@ -50,7 +50,7 @@
         <li> <a href="https://www.crownstack.com/pdfs/cs-culture-code-guidelines.pdf" target="_blank" class="hover:underline">Our Culture Code</a> </li>
         <li> <a href="https://www.crownstack.com/work" target="_blank" class="hover:underline">Our Work</a> </li>
         <li> <a href="https://www.crownstack.com/technologies" target="_blank" class="hover:underline">Our Technologies</a> </li>
-                <li> <a href="https://blog.crownstack.com/tags/process" target="_blank" class="hover:underline">Our Process</a> </li>
+        <li> <a href="https://blog.crownstack.com/tags/process" target="_blank" class="hover:underline">Our Process</a> </li>
 
         <li> <a href="https://www.crownstack.com/careers" target="_blank" class="hover:underline">Why Join Us?</a> </li>
       </ul>
@@ -67,13 +67,27 @@
       </ul>
     </div>
   </div>
-  <section class="dark:bg-gray-900">
-    <div class="mx-auto flex max-w-screen-xl px-4 py-4 sm:py-4 lg:px-6 2xl:max-w-screen-2xl"> <img class="mb-4 hidden  h-48 rounded-lg md:flex lg:mb-0 lg:flex" src=<%= asset_url("founders.png")%> alt="founders">
-      <div class="max-w-screen-md lg:ml-16">
-        <h2 class="text-lg font-extrabold text-gray-900 dark:text-white">We would love to work with you</h2>
-        <p class="mb-4 mt-2 text-gray-900 text-sm">We are always searching for bright candidates like you to add to our already excellent team of developers and designers. If you want to work with highly skilled and passionate people and have a desire to learn new things and push yourself to new hights, please come join us.</p>
-        <div class="flex flex-col sm:flex-row sm:space-x-4 sm:space-y-0"> <a href=<%= "/public/openings/apply?opening_id="  + @opening.id.to_s %> target="_blank" class="justify-center rounded-md bg-theme-600 px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-theme-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-theme-600">Apply Now <span aria-hidden="true">→</span></a> </div>
+  <% if @opening.active? %>
+    <section class="dark:bg-gray-900">
+      <div class="mx-auto flex max-w-screen-xl px-4 py-4 sm:py-4 lg:px-6 2xl:max-w-screen-2xl"> <img class="mb-4 hidden  h-48 rounded-lg md:flex lg:mb-0 lg:flex" src=<%= asset_url("founders.png") %> alt="founders">
+        <div class="max-w-screen-md lg:ml-16">
+          <h2 class="text-lg font-extrabold text-gray-900 dark:text-white">We would love to work with you</h2>
+          <p class="mb-4 mt-2 text-gray-900 text-sm">We are always searching for bright candidates like you to add to our already excellent team of developers and designers. If you want to work with highly skilled and passionate people and have a desire to learn new things and push yourself to new hights, please come join us.</p>
+
+          <div class="flex flex-col sm:flex-row sm:space-x-4 sm:space-y-0"> <a href=<%= "/public/openings/apply?opening_id=" + @opening.id.to_s %> target="_blank" class="justify-center rounded-md bg-theme-600 px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-theme-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-theme-600">Apply Now <span aria-hidden="true">→</span></a> </div>
+
+        </div>
+      </div>
+    </section>
+  <% else  %>
+    <div class="flex items-center p-4 mb-4 text-sm text-yellow-800 border border-yellow-300 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 dark:border-yellow-800" role="alert">
+      <svg class="shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+      </svg>
+      <span class="sr-only">Info</span>
+      <div>
+        <span class="font-medium">Alert!</span> This job opening is not active right now and we are no longer accepting applications.
       </div>
     </div>
-  </section>
+  <% end %>
 </div>

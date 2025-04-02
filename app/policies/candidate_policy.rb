@@ -7,6 +7,10 @@ class CandidatePolicy < ApplicationPolicy
     return true unless user.interviewer?
   end
 
+  def update_campaign?
+    return true unless user.interviewer?
+  end
+
   def update_joining?
     return true unless user.interviewer?
   end

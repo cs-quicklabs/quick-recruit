@@ -45,6 +45,15 @@ class Candidate::CandidateController < Candidate::BaseController
     end
   end
 
+  def update_campaign
+    authorize @candidate
+    candidate = UpdateCampaign.call(@candidate, params[:campaign_id], current_user).result
+
+    respond_to do |format|
+      format.turbo_stream { render turbo_stream: turbo_stream.replace("campaign_candidate_" + candidate.id.to_s, partial: "candidate/campaign", locals: { candidate: candidate }) }
+    end
+  end
+
   def reject_and_icebox
     redirect_path = @candidate.bucket == "hot" ? hot_candidates_path : leads_candidates_path
 

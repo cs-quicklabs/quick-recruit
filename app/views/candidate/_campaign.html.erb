@@ -1,8 +1,8 @@
-<div id="status_<%= dom_id(candidate) %>" data-controller="status">
+<div id="campaign_<%= dom_id(candidate) %>" data-controller="candidate">
   <div class="flex items-center">
-    <dt class="font-semibold text-sm leading-none text-gray-900 dark:text-white">Change Status</dt>
+    <dt class="font-semibold text-sm leading-none text-gray-900 dark:text-white">Change Campaign</dt>
     <% if policy(candidate).update_status? %>
-      <div id="changeStatusButton"  data-tooltip-target="tooltip-status" data-dropdown-toggle="statusMenu" class="cursor-pointer p-1 ml-1 text-gray-500 rounded-sm hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+      <div id="changeCampaignButton"  data-tooltip-target="tooltip-status" data-dropdown-toggle="campaignMenu" class="cursor-pointer p-1 ml-1 text-gray-500 rounded-sm hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
         <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m10.8 17.8-6.4 2.1 2.1-6.4m4.3 4.3L19 9a3 3 0 0 0-4-4l-8.4 8.6m4.3 4.3-4.3-4.3m2.1 2.1L15 9.1m-2.1-2 4.2 4.2"/>
         </svg>
@@ -10,28 +10,27 @@
     <% end %>
   </div>
   <dd class="mb-4 sm:mb-5">
-    <span class="bg-<%= status_color(candidate.status) %>-100 text-<%= status_color(candidate.status) %>-800 text-xs font-medium inline-flex items-center px-2 py-0.5 rounded">
-      <%= candidate.status.titleize %>
+    <span class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2 py-0.5 rounded">
+      <%= @candidate.campaigns.first.name %>
     </span>
   </dd>
-  <% if policy(candidate).update_status? %>
+  <% if policy(candidate).update_campaign? %>
     <div id="tooltip-status" role="tooltip" class="inline-block text-xs absolute invisible z-10 py-1 px-2 text-xs font-medium text-white bg-gray-900 rounded-sm shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
-      Edit status
+      Change Campaign
       <div class="tooltip-arrow" data-popper-arrow></div>
     </div>
     <!-- Dropdown menu -->
-    <div id="statusMenu"  data-status-target="menu" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow shadow-lg w-60 dark:bg-gray-700 dark:divide-gray-600">
-      <ul class="p-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="changeStatusButton" >
-        <% Candidate.statuses.each do |k, v| %>
-          <li class="cursor-pointer" data-action="click->status#change" data-status-status-param="<%= v %>" data-status-candidate-param="<%= candidate.id %>">
+    <div id="campaignMenu"  data-candidate-target="menu" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow shadow-lg w-60 dark:bg-gray-700 dark:divide-gray-600">
+      <ul class="p-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="changeCampaignButton" >
+        <% Campaign.all.each do |k, v| %>
+          <li class="cursor-pointer" data-action="click->candidate#update_campaign" data-candidate-campaign-param="<%= k.id %>" data-candidate-candidate-param="<%= candidate.id %>">
             <div class="hidden bg-green-400 bg-red-400 bg-yellow-400 bg-fuchsia-400 bg-gray-400 bg-sky-400 bg-primary-400 "></div>
             <div class="hidden bg-green-100 bg-red-100 bg-yellow-100 bg-fuchsia-100 bg-gray-100 bg-sky-100 bg-primary-100 "></div>
             <div class="hidden text-green-800 text-red-800 text-yellow-800 text-primary-800 text-fuchsia-800 text-gray-800 text-sky-800"></div>
             <div class="flex p-1 rounded hover:bg-gray-200 dark:hover:bg-gray-600 ">
               <div class="ms-2 text-xs flex items-center">
-                <div class="h-2.5 w-2.5 rounded-full bg-<%= status_color(k)%>-400 me-2"></div>
                 <label class="cursor-pointer font-medium text-gray-900 dark:text-gray-300">
-                  <div><%= k.humanize.titleize %></div>
+                  <div><%= k.name %></div>
                 </label>
               </div>
             </div>

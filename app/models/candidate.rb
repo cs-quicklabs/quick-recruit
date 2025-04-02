@@ -10,6 +10,8 @@ class Candidate < ApplicationRecord
   has_many :events, as: :eventable, dependent: :destroy
   has_many :emails, dependent: :destroy
 
+  has_and_belongs_to_many :campaigns
+
   normalizes :email, with: ->email { email.downcase.strip }
 
   validates :email, uniqueness: true

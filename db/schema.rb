@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_10_13_062905) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_02_134237) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -50,6 +50,22 @@ ActiveRecord::Schema[8.0].define(version: 2024_10_13_062905) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "campaigns", force: :cascade do |t|
+    t.string "name"
+    t.bigint "owner_id", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.boolean "active", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_campaigns_on_owner_id"
+  end
+
+  create_table "campaigns_candidates", id: false, force: :cascade do |t|
+    t.bigint "candidate_id", null: false
+    t.bigint "campaign_id", null: false
   end
 
   create_table "candidates", force: :cascade do |t|
@@ -343,6 +359,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_10_13_062905) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "campaigns", "users", column: "owner_id"
   add_foreign_key "candidates", "openings"
   add_foreign_key "candidates", "roles"
   add_foreign_key "candidates", "sources"

@@ -43,6 +43,7 @@ Rails.application.routes.draw do
       get "timeline", to: "timeline#index"
       patch "/update/bucket", to: "candidate#update_bucket", as: "update_bucket"
       patch "/update/status", to: "candidate#update_status", as: "update_status"
+      patch "/update/campaign", to: "candidate#update_campaign", as: "update_campaign"
       patch "/update/owner", to: "candidate#update_owner", as: "update_owner"
       patch "/update/joining", to: "candidate#update_joining", as: "update_joining"
       patch "/update/recycle", to: "candidate#update_recycle", as: "update_recycle"
@@ -102,6 +103,7 @@ Rails.application.routes.draw do
   resources :buckets
   resources :pipeline
   resources :checklists
+  resources :campaigns
 
   get :events, controller: :dashboard
   get :recycle, controller: :recycles, action: :index

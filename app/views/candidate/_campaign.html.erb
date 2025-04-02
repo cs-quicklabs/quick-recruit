@@ -11,7 +11,7 @@
   </div>
   <dd class="mb-4 sm:mb-5">
     <span class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2 py-0.5 rounded">
-      <%= @candidate.campaigns.first.name %>
+      <%=  @candidate.campaigns.empty? ? "No Campaign Assigned": @candidate.campaigns.first.name %>
     </span>
   </dd>
   <% if policy(candidate).update_campaign? %>

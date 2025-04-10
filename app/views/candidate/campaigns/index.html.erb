@@ -21,16 +21,16 @@
           <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" class="px-4 py-2">
-                Campaign Name
+                Sprint Name
               </th>
               <th scope="col" class="px-4 py-2">
-                Campaign dates
+                Date Range
               </th>
               <th scope="col" class="px-4 py-2">
-                Campaign Owner
+                Owner
               </th>
               <th scope="col" class="px-4 py-2">
-                Campaign Status
+                Status
               </th>
             </tr>
           </thead>
@@ -44,8 +44,8 @@
     <div class="shrink-0 border-t border-gray-200 px-4 py-6 sm:px-6 lg:w-80 lg:border-l lg:border-t-0 lg:pr-8 xl:pr-6">
       <!-- Right column area -->
       <div>
-        <h5 class="mr-3 font-semibold dark:text-white">Campaign</h5>
-        <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Manage which campaign this candidate belongs to by selecting the correct campagin.</p>
+        <h5 class="mr-3 font-semibold dark:text-white">Sprint</h5>
+        <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Manage which sprint this candidate belongs to by selecting the correct sprint.</p>
         <%= render partial: "candidate/campaign", locals: { candidate: @candidate } %>
 
       </div>

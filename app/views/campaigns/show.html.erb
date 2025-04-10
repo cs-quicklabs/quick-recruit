@@ -5,11 +5,11 @@
         <div class="flex-row items-center justify-between p-4 space-y-3 sm:flex sm:space-y-0 sm:space-x-4">
           <div>
             <h1 class="mr-3 text-lg font-semibold dark:text-white"><%= @campaign.name %></h1>
-            <p class="text-gray-500 dark:text-gray-400 text-sm">Following <span class="font-bold"><%= @candidates.count %></span> candidates are currently in this campaign under various stages.</p>
+            <p class="text-gray-500 dark:text-gray-400 text-sm">Following <span class="font-bold"><%= @candidates.count %></span> candidates are currently in this sprint under various stages.</p>
           </div>
           <a type="button" href="/candidates/new"
                 class="btn-primary">
-            Close Campaign
+            Close Sprint
           </a>
         </div>
       </div>

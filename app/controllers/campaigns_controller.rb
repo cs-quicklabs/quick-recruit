@@ -22,7 +22,7 @@ class CampaignsController < BaseController
   def create
     @campaign = Campaign.create(campaign_params)
     @campaign.save
-    redirect_to campaigns_path, notice: "New campaign was created successfully"
+    redirect_to campaigns_path, notice: "New Sprint was created successfully"
   end
 
   def index

@@ -15,7 +15,7 @@
             <a href=<%= member_timeline_path(current_user) %> class="<%= current_page?(member_timeline_path(current_user)) ? "selected-nav" : "unselected-nav" %>"><%= current_user.first_name%></a>
             <a href=<%= candidates_path %> class="<%= current_page?(candidates_path) ? "selected-nav" : "unselected-nav" %>">Candidates</a>
             <a href=<%= pipeline_candidates_path %> class="<%= current_page?(pipeline_candidates_path) ? "selected-nav" : "unselected-nav" %>">Pipeline</a>
-            <a href=<%= campaigns_path %> class="<%= current_page?(campaigns_path) ? "selected-nav" : "unselected-nav" %>">Campaigns</a>
+            <a href=<%= campaigns_path %> class="<%= current_page?(campaigns_path) ? "selected-nav" : "unselected-nav" %>">Sprints</a>
             <a href=<%= recycle_path %> class="<%= current_page?(recycle_path) ? "selected-nav" : "unselected-nav" %>">Recycle</a>
             <a href=<%= openings_path(active: true) %> class="<%= current_page?(openings_path) ? "selected-nav" : "unselected-nav" %>">Openings</a>
             <a href=<%= reports_path %> class="<%= current_page?(reports_path) ? "selected-nav" : "unselected-nav" %>">Reports</a>

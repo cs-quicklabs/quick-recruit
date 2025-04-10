@@ -1,6 +1,6 @@
 <div id="campaign_<%= dom_id(candidate) %>" data-controller="candidate">
   <div class="flex items-center">
-    <dt class="font-semibold text-sm leading-none text-gray-900 dark:text-white">Change Campaign</dt>
+    <dt class="font-semibold text-sm leading-none text-gray-900 dark:text-white">Change Sprint</dt>
     <% if policy(candidate).update_status? %>
       <div id="changeCampaignButton"  data-tooltip-target="tooltip-status" data-dropdown-toggle="campaignMenu" class="cursor-pointer p-1 ml-1 text-gray-500 rounded-sm hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
         <svg class="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -11,12 +11,12 @@
   </div>
   <dd class="mb-4 sm:mb-5">
     <span class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2 py-0.5 rounded">
-      <%=  @candidate.campaigns.empty? ? "No Campaign Assigned": @candidate.campaigns.first.name %>
+      <%=  @candidate.campaigns.empty? ? "No Sprint Assigned": @candidate.campaigns.first.name %>
     </span>
   </dd>
   <% if policy(candidate).update_campaign? %>
     <div id="tooltip-status" role="tooltip" class="inline-block text-xs absolute invisible z-10 py-1 px-2 text-xs font-medium text-white bg-gray-900 rounded-sm shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
-      Change Campaign
+      Change Sprint
       <div class="tooltip-arrow" data-popper-arrow></div>
     </div>
     <!-- Dropdown menu -->

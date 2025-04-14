@@ -21,13 +21,13 @@
               <th scope="col" class="px-4 py-3">Name</th>
               <th scope="col" class="px-4 py-3">Job Association</th>
               <th scope="col" class="px-4 py-3 whitespace-nowrap">Owner</th>
-              <th scope="col" class="px-4 py-3 whitespace-nowrap">Added On</th>
-              <th scope="col" class="px-4 py-3 whitespace-nowrap">Duration</th>
+              <th scope="col" class="px-4 py-3 whitespace-nowrap">Bucket Updated On</th>
+              <th scope="col" class="px-4 py-3 whitespace-nowrap">Bucket</th>
               <th scope="col" class="px-4 py-3 whitespace-nowrap">Last known Status</th>
             </tr>
           </thead>
           <tbody>
-            <%= render partial: "candidates/pipeline", collection: @candidates, as: :candidate %>
+            <%= render partial: "candidate", collection: @candidates, as: :candidate %>
           </tbody>
         </table>
       </div>

@@ -1,12 +1,16 @@
 class RecycleCandidates < Patterns::Service
   def call
     User.recruiters.each do |recruiter|
-      recycle_complete_profiles_for(recruiter) # profiles which has complete data
-      recycle_incomplete_profiles_for(recruiter) # profiles which has incomplete data
+      recycle_profiles_for(recruiter)
     end
   end
 
   private
+
+  def recycle_profiles_for(recruiter)
+    recycle_complete_profiles_for(recruiter) # profiles which are in Icebox, Champions. Since they have been processed, we assume they have complete data.
+    recycle_incomplete_profiles_for(recruiter) # profiles which are in incomplete bucket.
+  end
 
   def recycle_complete_profiles_for(recruiter)
     openings = recruiter.openings
@@ -81,17 +85,12 @@ class RecycleCandidates < Patterns::Service
   end
 
   def recycle_champions_for(recruiter, opening, count)
-    candidates = Candidate.where(bucket: "champions", role_id: opening.role_id).where("bucket_updated_on > ? ", 6.months.ago).order(next_recycle_on: :asc)
+    candidates = Candidate.where(bucket: "champions", role_id: opening.role_id).where("bucket_updated_on > ? ", 6.months.ago).order(bucket_updated_on: :asc)
     filter_unique_candidates(candidates, count)
   end
 
   def recycle_icebox_for(recruiter, opening, count)
     candidates = Candidate.where(bucket: "icebox", role_id: opening.role_id).where("next_recycle_on < ? ", DateTime.now).order(next_recycle_on: :asc)
-    filter_unique_candidates(candidates, count)
-  end
-
-  def recycle_recent_for(recruiter, opening, count)
-    candidates = Candidate.where(bucket: "recent", role_id: opening.role_id).where("next_recycle_on < ? ", DateTime.now).order(next_recycle_on: :asc)
     filter_unique_candidates(candidates, count)
   end
 
@@ -102,7 +101,7 @@ class RecycleCandidates < Patterns::Service
 
   def recycle_to_be_decided_incomplete_profiles_for(recruiter, count)
     count = count_of_profiles_needed_for_to_be_decided(recruiter)
-    candidates = Candidate.where(bucket: "incomplete", role_id: Role.find_by_title("To Be Decided").id).order(created_at: :desc)
+    candidates = Candidate.where(bucket: "incomplete").order(created_at: :desc)
     filter_unique_candidates(candidates, count)
   end
 

@@ -7,7 +7,8 @@ class CampaignsController < BaseController
   end
 
   def show
-    @candidates = @campaign.candidates.order(bucket_updated_on: :desc)
+    @candidates = @campaign.candidates
+    @candidates.order(updated_at: :desc)
   end
 
   def edit

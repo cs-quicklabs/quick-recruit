@@ -27,7 +27,7 @@
     <% end %>
   </td>
   <td class="px-4 py-2"><%= candidate.owner.name %></td>
-  <td class="px-4 py-2"><%= display_date(candidate.bucket_updated_on) %></td>
+  <td class="px-4 py-2"><%= display_date(candidate.updated_at) %></td>
   <td class="px-4 py-2"><span class="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
       <%= candidate.bucket.titleize %>
     </span></td>

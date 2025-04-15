@@ -1,5 +1,5 @@
 class CampaignsController < BaseController
-  before_action :set_campaign, only: %i[show edit update destroy]
+  before_action :set_campaign, only: %i[show edit update destroy close]
 
   def new
     @campaign = Campaign.new
@@ -7,7 +7,7 @@ class CampaignsController < BaseController
   end
 
   def show
-    @candidates = @campaign.candidates
+    @candidates = @campaign.candidates.includes(:opening, :owner)
     @candidates.order(updated_at: :desc)
   end
 
@@ -18,6 +18,11 @@ class CampaignsController < BaseController
   end
 
   def destroy
+  end
+
+  def close
+    @campaign.update(active: false)
+    redirect_to campaigns_path, notice: "Sprint was closed successfully"
   end
 
   def create

@@ -104,6 +104,7 @@ Rails.application.routes.draw do
   resources :pipeline
   resources :checklists
   resources :campaigns
+  post "/campaigns/:id/close", to: "campaigns#close", as: "close_campaign"
 
   get :events, controller: :dashboard
   get :recycle, controller: :recycles, action: :index

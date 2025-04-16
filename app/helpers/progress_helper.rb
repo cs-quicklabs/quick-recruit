@@ -24,4 +24,14 @@ module ProgressHelper
     end
     html.html_safe
   end
+
+  def display_campaign_numbers(campaign)
+    display_campaign_numbers = ""
+    campaign.candidates.reorder("").group(:status).count.each do |status, count|
+      status_name = status.humanize
+      status_count = count
+      display_campaign_numbers << status_name + ": " + status_count.to_s + "<br>"
+    end
+    display_campaign_numbers.html_safe
+  end
 end

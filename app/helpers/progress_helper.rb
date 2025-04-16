@@ -27,7 +27,7 @@ module ProgressHelper
 
   def display_campaign_numbers(campaign)
     display_campaign_numbers = ""
-    campaign.candidates.reorder("").group(:status).count.each do |status, count|
+    campaign.candidates.reorder("").group(:status).count.sort_by { |key, value| value }.each do |status, count|
       status_name = status.humanize
       status_count = count
       display_campaign_numbers << status_name + ": " + status_count.to_s + "<br>"

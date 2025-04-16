@@ -6,8 +6,8 @@ module ProgressHelper
     rejected_candidates = candidates.where(status: ["rejected_in_screening", "rejected_in_first_round", "rejected_in_second_round", "not_interested", "rejected_in_hr_round"]).count
     pipelined_candidates = candidates.where(status: ["interview_to_be_scheduled", "first_round_scheduled", "second_round_scheduled", "hr_round_scheduled"]).count
     selected_candidates = candidates.where(status: ["offer_to_be_made", "offer_made", "offer_accepted", "joined"]).count
-
     not_contactable = candidates.where(status: ["on_hold", "no_show", "not_contactable", "follow_up_needed"]).count
+    champions = candidates.where(status: ["offer_withdrawn", "offer_declined"]).count
     html = ""
     if total_candidates > 0
       progress = ((waiting_candidates) / total_candidates.to_f) * 100
@@ -21,6 +21,8 @@ module ProgressHelper
       html << "<div class='bg-yellow-400 h-1.5' style='width: #{progress}%'></div>"
       progress = ((selected_candidates) / total_candidates.to_f) * 100
       html << "<div class='bg-green-400 h-1.5' style='width: #{progress}%'></div>"
+      progress = ((champions) / total_candidates.to_f) * 100
+      html << "<div class='bg-fuchsia-400 h-1.5' style='width: #{progress}%'></div>"
     end
     html.html_safe
   end

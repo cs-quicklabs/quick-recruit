@@ -22,13 +22,13 @@ class CampaignsController < BaseController
 
   def close
     @campaign.update(active: false)
-    redirect_to campaigns_path, notice: "Sprint was closed successfully"
+    redirect_to campaigns_path(active: true), notice: "Sprint was closed successfully"
   end
 
   def create
     @campaign = Campaign.create(campaign_params)
     @campaign.save
-    redirect_to campaigns_path, notice: "New Sprint was created successfully"
+    redirect_to campaigns_path(active: true), notice: "New Sprint was created successfully"
   end
 
   def index

@@ -51,7 +51,7 @@ class CampaignsController < BaseController
   private
 
   def campaign_params
-    params.require(:campaign).permit(:name, :owner_id)
+    params.require(:campaign).permit(:name, :owner_id, :start_date, :end_date, :active)
   end
 
   def set_campaign

@@ -18,6 +18,21 @@
           </div>
         </div>
       </div>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 sm:gap-6">
+
+        <div>
+          <label for="start_date" class="inline-flex items-center mb-1 text-sm font-medium text-gray-900 dark:text-white">
+            Start Date
+          </label>
+          <%= form.date_field :start_date, class: "form-text-field" %>
+        </div>
+        <div>
+          <label for="end_date" class="inline-flex items-center mb-1 text-sm font-medium text-gray-900 dark:text-white">
+            End Date
+          </label>
+          <%= form.date_field :end_date, class: "form-text-field" %>
+        </div>
+      </div>
       <button type="submit" class="btn-primary mt-4">
         Add New Sprint
       </button>

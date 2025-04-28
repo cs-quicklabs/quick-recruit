@@ -36,4 +36,14 @@ module ProgressHelper
     end
     display_campaign_numbers.html_safe
   end
+
+  def display_opening_associations(opening)
+    display_opening_associations = ""
+    Candidate.where(opening: opening.id).reorder("").group(:bucket).count.sort_by { |key, value| value }.each do |bucket, count|
+      bucket_name = bucket.humanize
+      association_count = count
+      display_opening_associations << "<a class='font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm' href='/report/candidates?opening_id=#{opening.id}&bucket=#{bucket}'>#{association_count.to_s} #{bucket_name}</a>"
+    end
+    display_opening_associations.html_safe
+  end
 end

@@ -3,6 +3,7 @@ class Opening < ApplicationRecord
   belongs_to :owner, class_name: "User", foreign_key: "owner_id", optional: true
   has_rich_text :description
   has_rich_text :note
+  has_many :candidates, dependent: :destroy
 
   scope :active, -> { where(active: true) }
 

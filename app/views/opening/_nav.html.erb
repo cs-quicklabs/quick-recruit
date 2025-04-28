@@ -12,7 +12,7 @@
           <a href="" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Associations</a>
         </li>
         <li class="block lg:inline">
-          <a href="" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Champions</a>
+          <a href=<%= opening_note_index_path(@opening) %> class="<%= current_page?(opening_note_index_path(@opening)) ? "selected-tab" : "unselected-tab" %>">Internal Note</a>
         </li>
         <li class="block lg:inline">
           <a href=<%= opening_description_index_path(@opening) %> class="<%= current_page?(opening_description_index_path(@opening)) ? "selected-tab" : "unselected-tab" %>">Job Description</a>

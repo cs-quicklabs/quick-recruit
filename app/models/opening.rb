@@ -2,6 +2,7 @@ class Opening < ApplicationRecord
   belongs_to :role
   belongs_to :owner, class_name: "User", foreign_key: "owner_id", optional: true
   has_rich_text :description
+  has_rich_text :note
 
   scope :active, -> { where(active: true) }
 

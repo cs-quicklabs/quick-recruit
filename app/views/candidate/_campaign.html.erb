@@ -22,7 +22,7 @@
     <!-- Dropdown menu -->
     <div id="campaignMenu"  data-candidate-target="menu" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow shadow-lg w-60 dark:bg-gray-700 dark:divide-gray-600">
       <ul class="p-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="changeCampaignButton" >
-        <% Campaign.all.each do |k, v| %>
+        <% Campaign.active.each do |k, v| %>
           <li class="cursor-pointer" data-action="click->candidate#update_campaign" data-candidate-campaign-param="<%= k.id %>" data-candidate-candidate-param="<%= candidate.id %>">
             <div class="hidden bg-green-400 bg-red-400 bg-yellow-400 bg-fuchsia-400 bg-gray-400 bg-sky-400 bg-primary-400 "></div>
             <div class="hidden bg-green-100 bg-red-100 bg-yellow-100 bg-fuchsia-100 bg-gray-100 bg-sky-100 bg-primary-100 "></div>

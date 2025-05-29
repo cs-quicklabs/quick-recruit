@@ -109,6 +109,7 @@ Rails.application.routes.draw do
   post "/campaigns/:id/close", to: "campaigns#close", as: "close_campaign"
 
   get :events, controller: :dashboard
+  get :recycles, controller: :dashboard
   get :recycle, controller: :recycles, action: :index
   post :recycle, controller: :recycles, action: :settle
 

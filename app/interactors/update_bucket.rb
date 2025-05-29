@@ -30,7 +30,7 @@ class UpdateBucket < Patterns::Service
   end
 
   def update_next_recycle_date
-    candidate.update(next_recycle_on: 6.months.from_now) if candidate.bucket == "icebox" && candidate.next_recycle_on.nil?
+    candidate.update(next_recycle_on: 6.months.from_now) if candidate.bucket == "icebox"
   end
 
   attr_reader :candidate, :bucket, :actor, :notify

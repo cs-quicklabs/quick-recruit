@@ -7,7 +7,7 @@ class DashboardController < BaseController
     if current_user.admin?
       @recycles = Candidate.unscoped.where("next_recycle_on > ?", DateTime.now).where(bucket: :icebox).includes(:owner, :opening).order(next_recycle_on: :asc).limit(50)
     else
-      @remirecyclesnders = Candidate.unscoped.where("next_recycle_on > ?", DateTime.now).where(owner_id: current_user.id, bucket: :icebox).includes(:owner, :opening).order(next_recycle_on: :asc).limit(50)
+      @recycles = Candidate.unscoped.where("next_recycle_on > ?", DateTime.now).where(owner_id: current_user.id, bucket: :icebox).includes(:owner, :opening).order(next_recycle_on: :asc).limit(50)
     end
   end
 

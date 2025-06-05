@@ -1,5 +1,5 @@
 <%= turbo_frame_tag dom_id(candidate, :recycle_date) do %>
-  <% if candidate.icebox? %>
+  <% if candidate.icebox? or candidate.champions? or candidate.alumni? %>
     <div>
       <div class="flex items-center">
         <dt class="font-semibold text-sm leading-none text-gray-900 dark:text-white">Change Recycle Date</dt>

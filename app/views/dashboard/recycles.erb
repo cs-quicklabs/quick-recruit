@@ -5,12 +5,13 @@
         <li class="flex justify-between gap-x-6 py-2">
           <div class="flex min-w-0 gap-x-4">
             <div class="min-w-0 flex-auto">
-              <p class="text-sm font-semibold text-gray-900 hover:underline"><a href="<%= candidate_timeline_path(candidate)%>"><%= candidate.name %></a></p>
+              <p class="text-sm font-medium text-gray-900 hover:underline"><a href="<%= candidate_timeline_path(candidate)%>"><%= candidate.name %></a></p>
               <p class="mt-1 truncate text-xs text-gray-500"><%= candidate.opening.title %></p>
             </div>
           </div>
-          <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
-            <p class="mt-1 text-xs text-gray-500">Owner: <%= candidate.owner.name %></p>
+          <div class="hidden shrink-0 sm:flex flex-col sm:items-end ">
+            <p class="mt-1 text-xs text-gray-500 text-right">Owner: <%= candidate.owner.name %></p>
+            <p class="mt-1 text-xs text-gray-500 text-right">Bucket: <%= candidate.bucket.humanize %></p>
           </div>
         </li>
 

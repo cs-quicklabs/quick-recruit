@@ -8,7 +8,7 @@ class CandidatePolicy < ApplicationPolicy
   end
 
   def update_campaign?
-    return true unless user.interviewer?
+    return true if (record.pipeline? and not user.interviewer?)
   end
 
   def update_joining?

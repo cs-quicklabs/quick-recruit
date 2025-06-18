@@ -16,7 +16,9 @@ class UpdateCampaign < Patterns::Service
 
   def update_campaign
     candidate.campaigns.destroy_all
-    candidate.campaigns << campaign unless candidate.campaigns.include?(campaign)
+    unless campaign.nil?
+      candidate.campaigns << campaign unless candidate.campaigns.include?(campaign)
+    end
   end
 
   def add_event

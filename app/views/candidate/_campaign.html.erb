@@ -7,10 +7,18 @@
       </svg>
     </div>
   </div>
-  <dd class="mb-4 sm:mb-5">
+  <dd class="mb-4 sm:mb-5 flex items-center">
     <span class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2 py-0.5 rounded">
       <%=  @candidate.campaigns.empty? ? "No Sprint Assigned": @candidate.campaigns.first.name %>
     </span>
+    <% unless @candidate.campaigns.empty? %>
+      <div data-action="click->candidate#update_campaign" data-candidate-campaign-param="<%= nil %>" data-candidate-candidate-param="<%= candidate.id %>">
+
+        <svg class="w-5 h-5 text-red-800 dark:text-white cursor-pointer ml-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+          <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm7.707-3.707a1 1 0 0 0-1.414 1.414L10.586 12l-2.293 2.293a1 1 0 1 0 1.414 1.414L12 13.414l2.293 2.293a1 1 0 0 0 1.414-1.414L13.414 12l2.293-2.293a1 1 0 0 0-1.414-1.414L12 10.586 9.707 8.293Z" clip-rule="evenodd"/>
+        </svg>
+      </div>
+    <% end %>
   </dd>
   <div id="tooltip-status" role="tooltip" class="inline-block text-xs absolute invisible z-10 py-1 px-2 text-xs font-medium text-white bg-gray-900 rounded-sm shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
     Change Sprint

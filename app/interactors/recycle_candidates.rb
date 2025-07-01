@@ -68,7 +68,7 @@ class RecycleCandidates < Patterns::Service
   end
 
   def count_of_new_profiles_needed_for(recruiter, opening)
-    total_quota_per_recruiter = 10 # 10 profiles per recruiter
+    total_quota_per_recruiter = 20 # 10 profiles per recruiter
     quota_per_opening = total_quota_per_recruiter / recruiter.openings.count
     existing_profiles = Recycle.includes(candidate: [:user, :role, :opening, :owner]).where(candidate: { owner_id: recruiter.id, role_id: opening.role_id }).count
     count = quota_per_opening - existing_profiles
@@ -77,7 +77,7 @@ class RecycleCandidates < Patterns::Service
   end
 
   def count_of_profiles_needed_for_to_be_decided(recruiter)
-    total_quota_per_recruiter = 10 # 10 profiles per recruiter
+    total_quota_per_recruiter = 20 # 10 profiles per recruiter
     existing_profiles = Recycle.includes(candidate: [:user, :role, :opening, :owner]).where(candidate: { owner_id: recruiter.id }).count
     count = total_quota_per_recruiter - existing_profiles
     count = count.positive? ? count : 0

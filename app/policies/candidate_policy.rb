@@ -27,6 +27,10 @@ class CandidatePolicy < ApplicationPolicy
     return true unless user.interviewer?
   end
 
+  def reject_and_archive?
+    return true unless user.interviewer?
+  end
+
   def toggle_recycle?
     return true unless user.interviewer?
   end

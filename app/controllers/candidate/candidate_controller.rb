@@ -61,6 +61,13 @@ class Candidate::CandidateController < Candidate::BaseController
     redirect_to redirect_path, notice: "Candidate rejected in screening and moved to icebox"
   end
 
+  def reject_and_archive
+    redirect_path = @candidate.bucket == "hot" ? hot_candidates_path : leads_candidates_path
+
+    RejectAndArchiveLead.call(@candidate, current_user)
+    redirect_to redirect_path, notice: "Candidate rejected in screening and moved to archive bucket"
+  end
+
   def reward_to_recruiter
     recruiter = User.find(params[:recruiter_id])
     RewardCandidateToRecruiter.call(@candidate, recruiter, current_user)

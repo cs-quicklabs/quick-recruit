@@ -49,6 +49,8 @@ Rails.application.routes.draw do
       patch "/update/recycle", to: "candidate#update_recycle", as: "update_recycle"
       patch "/toggle/recycle", to: "candidate#toggle_recycle", as: "toggle_recycle"
       patch "/reject_and_icebox", to: "candidate#reject_and_icebox", as: "reject_and_icebox"
+      patch "/reject_and_archive", to: "candidate#reject_and_archive", as: "reject_and_archive"
+
       patch "/reward_to_recruiter/:recruiter_id", to: "candidate#reward_to_recruiter", as: "reward_to_recruiter"
       get "/edit/joining", to: "candidate#edit_joining", as: "edit_joining"
       get "/edit/recycle", to: "candidate#edit_recycle", as: "edit_recycle"

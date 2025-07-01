@@ -6,10 +6,17 @@
           <dt class="font-semibold text-sm leading-none text-gray-900 dark:text-white">Quick Actions</dt>
         </div>
         <dd class="mb-4 sm:mb-5" >
-          <div class="flex items-center mt-2 mb-4">
+          <div class="flex items-center mt-2">
             <%= button_to "Reject & Icebox Candidate", candidate_reject_and_icebox_path(@candidate), method: :patch, class: "font-medium text-red-600 dark:text-red-500 hover:underline text-sm"%>
+
           </div>
+                    <div class="flex items-center mb-4">
+            <%= button_to "Reject & Archive Candidate", candidate_reject_and_archive_path(@candidate), method: :patch, class: "font-medium text-red-600 dark:text-red-500 hover:underline text-sm"%>
+
+          </div>
+
         </dd>
+        
       </div>
       <div>
         <div class="flex items-center">

@@ -35,17 +35,18 @@ class CampaignsController < BaseController
     @campaigns = nil
     if current_user.admin?
       if params[:active].present?
-        @campaigns = Campaign.includes(:owner).where(active: params[:active]).order(created_at: :asc)
+        @campaigns = Campaign.includes(:owner).where(active: params[:active]).order(created_at: :desc)
       else
-        @campaigns = Campaign.includes(:owner).all.order(created_at: :asc)
+        @campaigns = Campaign.includes(:owner).all.order(created_at: :desc)
       end
     else
       if params[:active].present?
-        @campaigns = Campaign.includes(:owner).where(owner: current_user, active: params[:active]).order(created_at: :asc)
+        @campaigns = Campaign.includes(:owner).where(owner: current_user, active: params[:active]).order(created_at: :desc)
       else
-        @campaigns = Campaign.includes(:owner).where(owner: current_user).order(created_at: :asc)
+        @campaigns = Campaign.includes(:owner).where(owner: current_user).order(created_at: :desc)
       end
     end
+    @campaigns.limit(24) if @campaigns.present?
   end
 
   private

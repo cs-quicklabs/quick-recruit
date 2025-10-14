@@ -33,4 +33,10 @@ class RecruiterMailer < ApplicationMailer
     @pipelined_candidates_daily_report_url = params[:pipelined_candidates_daily_report_url]
     mail(to: [@recruiter.email, User.aashish.email, User.aditi.email], subject: "Quick Recruit: Daily Activity Report")
   end
+
+  def feedback_received_email
+    @feedback = params[:feedback]
+    @receiver = params[:feedback].user  
+    mail(to: [@receiver.email, @feedback.submitter.email], subject: "Quick Recruit: New Feedback received")
+  end
 end

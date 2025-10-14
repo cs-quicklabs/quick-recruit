@@ -1,0 +1,32 @@
+<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+  <th scope="row" class="flex items-center px-4 py-2 text-gray-900 whitespace-nowrap dark:text-white">
+    <div class="w-full hover:underline">
+      <a class="flex items-center" href="<%= member_feedback_path(@member, feedback) %>">
+      <% if feedback.positive? %>
+        <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>
+      <% elsif feedback.negative? %>
+        <div class="h-2.5 w-2.5 rounded-full bg-red-500 me-2"></div>
+      <% else %>
+        <div class="h-2.5 w-2.5 rounded-full bg-gray-500 me-2"></div>
+      <% end %>
+      <div class="text-sm font-semibold"><%= feedback.title %></div>
+      </a>
+    </div>
+  </th>
+  <td class="px-4 py-2">
+    <%= feedback.submitter.name %>
+  </td>
+  <td class="px-4 py-2">
+    <%= display_created_at(feedback) %>
+  </td>
+  <td class="px-4 py-2">
+    <div class="flex items-center">
+      <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>
+      <%= feedback.status %>
+    </div>
+  </td>
+  <td class="px-4 py-2">
+    <!-- Modal toggle -->
+    <a href="<%= edit_member_feedback_path(@member, feedback) %>" type="button"  class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+  </td>
+</tr>

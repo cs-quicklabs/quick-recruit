@@ -1,0 +1,31 @@
+<main class="max-w-4xl px-4 pt-10 pb-12 mx-auto space-y-6 lg:pb-16">
+  <div class="px-4 py-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8">
+    <div class="flex-1 min-w-0">
+      <h3 class="text-2xl font-bold leading-tight text-gray-900 mt-4">
+        <%= @feedback.title %>
+      </h3>
+      <div class="flex mt-4 space-x-3">
+        <div class="flex-shrink-0">
+          <%= display_medium_avatar(@feedback.user) %>
+        </div>
+        <div>
+          <div class="text-sm">
+            <a href="<%= member_feedbacks_path(@feedback.submitter) %>" class="font-medium text-gray-900 hover:underline"><%= @feedback.user.name %></a>
+          </div>
+          <div class="mt-1 space-x-2 text-sm">
+            <span class="font-medium text-gray-500"><%= @feedback.submitter.name %> created on <%= display_created_at(@feedback) %>.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex mt-4 sm:mt-0 sm:ml-4">
+      <%= link_to "Back", "javascript:history.back()", class: "btn-secondary" %>
+      <%= link_to "Edit", edit_member_feedback_path(@member, @feedback), class: "btn-blue ml-3" %>
+    </div>
+  </div>
+  <% cache @feedback do %>
+    <div class="mt-1 text-sm text-gray-700 sm:px-6 lg:px-8">
+      <p><%= @feedback.content %></p>
+    </div>
+  <% end %>
+</main>

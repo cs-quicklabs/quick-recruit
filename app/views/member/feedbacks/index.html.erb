@@ -16,83 +16,42 @@
     <div class="flex-1">
       <!-- Main area -->
       <%= render partial: "member/nav", locals: { member: @member } %>
-      <form class="p-4">
-        <div class="w-full mb-4 border border-gray-200 rounded-sm bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
-          <div class="px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800">
-            <label for="comment" class="sr-only">Your comment</label>
-            <textarea id="comment" rows="4" class="w-full px-0 text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400" placeholder="Add a review..." required></textarea>
-          </div>
-          <div class="flex items-right justify-end px-3 py-2 border-t dark:border-gray-600">
-            <div class="flex items-center mr-4">
-              <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-              </svg>
-              <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-              </svg>
-              <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-              </svg>
-              <svg class="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-              </svg>
-              <svg class="w-4 h-4 ms-1 text-gray-300 dark:text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
-              </svg>
-            </div>
-            <button type="submit" class="btn-primary">
-              Add Review
-            </button>
-          </div>
-        </div>
-      </form>
-      <div class="px-4 sm:px-6">
-        <ul role="list" class="space-y-8">
-          <li>
-            <div class="flex space-x-3">
-              <div class="flex-shrink-0">
-                <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-              </div>
-              <div>
-                <div class="text-sm">
-                  <a href="#" class="font-medium text-gray-900">Leslie Alexander</a>
-                </div>
-                <div class="mt-1 text-sm text-gray-700">
-                  <p>Ducimus quas delectus ad maxime totam doloribus reiciendis ex. Tempore dolorem maiores. Similique voluptatibus tempore non ut.</p>
-                </div>
-                <div class="mt-2 space-x-2 text-sm">
-                  <span class="font-medium text-gray-500">4d ago</span>
-                  <span class="font-medium text-gray-500">&middot;</span>
-                  <button type="button" class="font-medium text-gray-900">Reply</button>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="flex space-x-3">
-              <div class="flex-shrink-0">
-                <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-              </div>
-              <div>
-                <div class="text-sm">
-                  <a href="#" class="font-medium text-gray-900">Michael Foster</a>
-                </div>
-                <div class="mt-1 text-sm text-gray-700">
-                  <p>Et ut autem. Voluptatem eum dolores sint necessitatibus quos. Quis eum qui dolorem accusantium voluptas voluptatem ipsum. Quo facere iusto quia accusamus veniam id explicabo et aut.</p>
-                </div>
-                <div class="mt-2 space-x-2 text-sm">
-                  <span class="font-medium text-gray-500">4d ago</span>
-                  <span class="font-medium text-gray-500">&middot;</span>
-                  <button type="button" class="font-medium text-gray-900">Reply</button>
-                </div>
-              </div>
-            </div>
-          </li>
-        </ul>
+      <div class="relative overflow-x-auto">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+              <th scope="col w-full" class="px-4 py-2">
+                Title
+              </th>
+              <th scope="col" class="px-4 py-2">
+                Submitted By
+              </th>
+              <th scope="col" class="px-4 py-2">
+                Created At
+              </th>
+              <th scope="col" class="px-4 py-2">
+                Status
+              </th>
+              <th scope="col" class="px-4 py-2">
+                Action
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @feedbacks %>
+          </tbody>
+        </table>
       </div>
     </div>
     <div class="shrink-0 border-t border-gray-200 px-4 py-6 sm:px-6 lg:w-80 lg:border-l lg:border-t-0 lg:pr-8 xl:pr-6">
       <!-- Right column area -->
+      <div>
+        <h5 class="mr-3 font-semibold dark:text-white">Submit New Feedback</h5>
+        <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Submit a new feedback which can help your team members.</p>
+        <a href="<%= new_member_feedback_path(@member) %>" class="btn-primary">
+          Submit Feedback
+        </a>
+      </div>
     </div>
   </div>
 </div>

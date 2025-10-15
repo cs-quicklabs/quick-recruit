@@ -21,12 +21,7 @@
   </td>
   <td class="px-4 py-2">
     <div class="flex items-center">
-      <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>
-      <%= feedback.status %>
+      <%= feedback.status.titleize %>
     </div>
-  </td>
-  <td class="px-4 py-2">
-    <!-- Modal toggle -->
-    <a href="<%= edit_member_feedback_path(@member, feedback) %>" type="button"  class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
   </td>
 </tr>

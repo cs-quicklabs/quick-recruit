@@ -24,12 +24,17 @@ class Member::FeedbacksController < Member::BaseController
   end
 
   def edit
+    authorize @feedback
   end
 
   def show
+    authorize @feedback
   end
 
   def destroy
+    authorize @feedback
+    @feedback.destroy
+    redirect_to member_feedbacks_path(@member), notice: "Feedback was deleted successfully"
   end
 
   private

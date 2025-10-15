@@ -32,9 +32,6 @@
               <th scope="col" class="px-4 py-2">
                 Status
               </th>
-              <th scope="col" class="px-4 py-2">
-                Action
-              </th>
             </tr>
           </thead>
           <tbody>
@@ -45,6 +42,7 @@
     </div>
     <div class="shrink-0 border-t border-gray-200 px-4 py-6 sm:px-6 lg:w-80 lg:border-l lg:border-t-0 lg:pr-8 xl:pr-6">
       <!-- Right column area -->
+      <% if current_user.admin? %>
       <div>
         <h5 class="mr-3 font-semibold dark:text-white">Submit New Feedback</h5>
         <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Submit a new feedback which can help your team members.</p>
@@ -52,6 +50,7 @@
           Submit Feedback
         </a>
       </div>
+      <% end %>
     </div>
   </div>
 </div>

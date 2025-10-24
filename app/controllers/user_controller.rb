@@ -84,7 +84,7 @@ class UserController < BaseController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :role_id, :manager_id, :job_id, :discipline_id, :avatar)
+    params.require(:user).permit(:first_name, :last_name, :email, :role_id, :manager_id, :job_id, :discipline_id, :avatar, :phone)
   end
 
   def change_password_params

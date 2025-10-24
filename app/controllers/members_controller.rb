@@ -22,12 +22,19 @@ class MembersController < BaseController
   end
 
   def update
+    @user.update(user_params)
+    redirect_to member_timeline_path(@user), notice: "Member was updated successfully"
   end
 
   def destroy
   end
 
   private
+
+    def user_params
+      params.require(:user).permit(:first_name, :last_name, :phone, :location )
+    end
+
 
   def set_user
     @user ||= User.find(params[:id])

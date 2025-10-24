@@ -1,17 +1,8 @@
 <tr class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
-  <th scope="row" class="px-4 py-2 hover:underline font-medium text-gray-900 whitespace-nowrap dark:text-white">
-    <a href="<%= campaign_path(campaign)%>">
-      <%= campaign.name %>
-    </a>
-  </th>
-
-  <td class="px-4 py-2 font-medium whitespace-nowrap w-full">
-    <%= render partial: "progress", locals: { campaign: campaign } %>
-  </td>
+  <th scope="row" class="px-4 py-2 hover:underline font-medium text-gray-900 whitespace-nowrap dark:text-white"><a href="<%= campaign_path(campaign) %>"><%= campaign.name %></a></th>
+  <td class="px-4 py-2 font-medium whitespace-nowrap w-full"><%= render partial: "progress", locals: { campaign: campaign } %></td>
   <td class="px-4 py-2 whitespace-nowrap">
-    <div class="flex -space-x-4 w-28">
-      <%= campaign.owner.name %>
-    </div>
+    <div class="flex -space-x-4 w-28"><%= campaign.owner.name %></div>
   </td>
-  <td class="px-4 py-2 whitespace-nowrap dark:text-white "><%= display_date(campaign.start_date) %> - <%= display_date(campaign.end_date) %></td>
+  <td class="px-4 py-2 whitespace-nowrap dark:text-white"><%= display_date(campaign.start_date) %> - <%= display_date(campaign.end_date) %></td>
 </tr>

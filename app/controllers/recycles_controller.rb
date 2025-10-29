@@ -2,6 +2,8 @@ class RecyclesController < BaseController
   def index
     @recycles = get_recycles
     @recruiters = User.recruiters
+    @recruiters = @recruiters +  [current_user] unless @recruiters.include?(current_user)
+
   end
 
   def settle

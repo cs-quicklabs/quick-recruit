@@ -1,14 +1,14 @@
 class OpeningPolicy < ApplicationPolicy
   def show?
-    user.admin? or user.recruiter?
+    user.admin? or user.recruiter? or user.recruiter_admin?
   end
 
   def edit?
-    user.admin?
+    user.admin? or user.recruiter_admin?
   end
 
   def update?
-    user.admin?
+    user.admin? or user.recruiter_admin?
   end
 
   def index?
@@ -16,6 +16,6 @@ class OpeningPolicy < ApplicationPolicy
   end
 
   def create?
-    user.admin?
+    user.admin? or user.recruiter_admin?
   end
 end

@@ -6,6 +6,8 @@
   <%= render "shared/navbar/data" %>
 <% elsif current_user.interviewer? %>
   <%= render "shared/navbar/interviewer" %>
+<% elsif current_user.recruiter_admin? %>
+  <%= render "shared/navbar/recruiter_admin" %>
 <% else %>
   <%= render "shared/navbar/default" %>
 <% end %>

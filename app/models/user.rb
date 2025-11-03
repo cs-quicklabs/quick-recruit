@@ -10,12 +10,12 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
-  enum :role, data: 0, recruiter: 1, interviewer: 2, admin: 3
+  enum :role, data: 0, recruiter: 1, interviewer: 2, admin: 3, recruiter_admin: 4
 
   validate :avatar_content_type
   validate :avatar_size
 
-  scope :recruiters, -> { where(role: :recruiter, active: true) }
+  scope :recruiters, -> { where(role: [:recruiter, :recruiter_admin], active: true) }
   scope :admins, -> { where(role: :admin, active: true) }
   scope :data, -> { where(role: :data, active: true) }
   scope :owners, -> { where(role: [:admin, :recruiter], active: true).order(:first_name) }
@@ -28,6 +28,10 @@ class User < ApplicationRecord
 
   def name
     first_name + " " + last_name
+  end
+
+  def admin_or_recruiter_admin?
+    admin? or recruiter_admin?
   end
 
   def avatar_content_type

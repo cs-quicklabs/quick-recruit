@@ -78,7 +78,7 @@ class CandidatesController < BaseController
 
   def hot
     candidates = nil
-    if current_user.admin?
+    if current_user.admin_or_recruiter_admin?
       candidates = Candidate.unscoped.where(bucket: :hot).includes(:opening, :role, :owner, :user).order(bucket_updated_on: :desc)
     else
       candidates = Candidate.unscoped.where(bucket: :hot, owner: current_user).includes(:opening, :role, :owner, :user).order(bucket_updated_on: :desc)
@@ -89,7 +89,7 @@ class CandidatesController < BaseController
   def pipeline
     @recruiters = User.recruiters
     candidates = nil
-    if current_user.admin?
+    if current_user.admin_or_recruiter_admin?
       @recruiters = @recruiters +  [current_user] unless @recruiters.include?(current_user)
 
       if params[:recruiter].present?
@@ -112,7 +112,7 @@ class CandidatesController < BaseController
 
   def joinings
     candidates = nil
-    if current_user.admin?
+    if current_user.admin_or_recruiter_admin?
       candidates = Candidate.unscoped.where(bucket: :joinings).includes(:opening, :role, :owner).order(joining_date: :asc)
     else
       candidates = Candidate.unscoped.where(bucket: :joinings, owner: current_user).includes(:opening, :role, :owner).order(joining_date: :asc)
@@ -127,7 +127,7 @@ class CandidatesController < BaseController
 
   def archive
     candidates = nil
-    if current_user.admin?
+    if current_user.admin_or_recruiter_admin?
       candidates = Candidate.unscoped.where(bucket: :archive).includes(:opening, :owner).order(bucket_updated_on: :desc)
     else
       candidates = Candidate.unscoped.where(bucket: :archive, owner: current_user).includes(:opening, :owner).order(bucket_updated_on: :desc)
@@ -154,7 +154,7 @@ class CandidatesController < BaseController
 
   def leads
     candidates = nil
-    if current_user.admin?
+    if current_user.admin_or_recruiter_admin?
       candidates = Candidate.unscoped.where(bucket: :leads).includes(:opening, :owner, :user).order(created_at: :desc)
     else
       candidates = Candidate.unscoped.where(bucket: :leads, owner: current_user).includes(:opening, :owner, :user).order(created_at: :desc)

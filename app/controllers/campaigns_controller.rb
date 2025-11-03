@@ -33,7 +33,7 @@ class CampaignsController < BaseController
 
   def index
     @campaigns = nil
-    if current_user.admin?
+    if current_user.admin_or_recruiter_admin?
       if params[:active].present?
         @campaigns = Campaign.includes(:owner).where(active: params[:active]).order(created_at: :desc)
       else

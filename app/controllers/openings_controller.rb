@@ -3,7 +3,7 @@ class OpeningsController < BaseController
 
   def index
     @openings = nil
-    if current_user.admin?
+    if current_user.admin_or_recruiter_admin?
       if params[:active].present?
         @openings = Opening.includes(:role, :owner).where(active: params[:active]).order(active: :desc, role_id: :desc, created_at: :asc)
       else

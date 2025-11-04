@@ -1,14 +1,14 @@
 class FeedbackPolicy < ApplicationPolicy
   def show?
-    user.admin? or (record.user == user)
+    user.admin_or_recruiter_admin? or (record.user == user)
   end
 
   def edit?
-    user.admin?
+    user.admin_or_recruiter_admin?
   end
 
   def update?
-    user.admin?
+    user.admin_or_recruiter_admin?
   end
 
   def index?
@@ -16,10 +16,10 @@ class FeedbackPolicy < ApplicationPolicy
   end
 
   def create?
-    user.admin?
+    user.admin_or_recruiter_admin?
   end
 
   def destroy?
-    user.admin?
+    user.admin_or_recruiter_admin?
   end
 end

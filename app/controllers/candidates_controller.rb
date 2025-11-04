@@ -91,6 +91,7 @@ class CandidatesController < BaseController
     @pagy, @candidates = pagy(candidates, items: LIMIT)
   end
 
+
   def pipeline
     @recruiters = User.recruiters
     candidates = nil

@@ -1,5 +1,5 @@
 <div data-controller="candidate" id="lead<%= dom_id(candidate) %>">
-  <% if current_user.admin? %>
+  <% if current_user.admin_or_recruiter_admin? %>
     <% if candidate.leads? or candidate.hot? %>
       <div>
         <div class="flex items-center">

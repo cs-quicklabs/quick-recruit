@@ -6,13 +6,13 @@
   <body class="h-full">
   ```
 -->
+
 <div class="flex min-h-full flex-col">
   <!-- 3 column wrapper -->
   <div class="mx-auto w-full grow lg:flex xl:px-2 -ml-4">
     <!-- Left sidebar & main wrapper -->
-    <div class="w-80 xl:flex">
-      <%= render partial: "candidate/profile", locals: { candidate: @candidate } %>
-    </div>
+    <div class="w-80 xl:flex"><%= render partial: "candidate/profile", locals: { candidate: @candidate } %></div>
+
     <div class="flex-1">
       <!-- Main area -->
       <%= render partial: "candidate/nav", locals: { candidate: @candidate } %>
@@ -37,18 +37,19 @@
               </th>
             </tr>
           </thead>
-          <tbody id="emails" class="divide-y divide-gray-200">
-            <%= render @emails %>
-          </tbody>
+          <tbody id="emails" class="divide-y divide-gray-200"><%= render @emails %></tbody>
         </table>
       </div>
     </div>
+
     <div class="shrink-0 border-t border-gray-200 px-4 py-4 sm:px-6 lg:w-80 lg:border-l lg:border-t-0 lg:pr-8 xl:pr-6">
-      <% if (!@candidate.opening.nil? and @candidate.opening.active?) or current_user.admin? %>
+      <% if (!@candidate.opening.nil? and @candidate.opening.active?) or current_user.admin_or_recruiter_admin? %>
         <!-- Right column area -->
         <div>
           <h5 class="mr-3 font-semibold dark:text-white">Send Email</h5>
+
           <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Select which email you want to send to the candidate.</p>
+
           <%= button_to "About Us & Job Description Email", candidate_emails_path(@candidate, kind: "about_us_and_jd_email"), class: "font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm", data: {
                                                                                                                                           controller: "confirmation",
                                                                                                                                           "confirmation-message-value": "Are you sure you want to send Company Profile & JD email to this candidate?",
@@ -94,10 +95,17 @@
       <% else %>
         <div id="alert-additional-content-2" class="p-4 mb-4 text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800" role="alert">
           <div class="flex items-center">
-            <svg class="flex-shrink-0 w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+            <svg
+              class="flex-shrink-0 w-4 h-4 me-2"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
             </svg>
             <span class="sr-only">Info</span>
+
             <h3 class="text-md font-medium">Unable to send emails</h3>
           </div>
           <div class="mt-2 mb-4 text-sm">

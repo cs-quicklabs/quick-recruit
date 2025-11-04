@@ -1,6 +1,6 @@
 class CandidatePolicy < ApplicationPolicy
   def update_bucket?
-    user.admin? or (user.recruiter? and (record.incomplete? or record.icebox?))
+    user.admin_or_recruiter_admin? or (user.recruiter? and (record.incomplete? or record.icebox?))
   end
 
   def update_status?
@@ -8,7 +8,7 @@ class CandidatePolicy < ApplicationPolicy
   end
 
   def update_campaign?
-    return true if (record.pipeline? and not user.interviewer?) or user.admin?
+    return true if (record.pipeline? and not user.interviewer?) or user.admin_or_recruiter_admin?
   end
 
   def update_joining?
@@ -20,7 +20,7 @@ class CandidatePolicy < ApplicationPolicy
   end
 
   def update_owner?
-    user.admin?
+    user.admin_or_recruiter_admin?
   end
 
   def reject_and_icebox?

@@ -15,10 +15,10 @@ class User < ApplicationRecord
   validate :avatar_content_type
   validate :avatar_size
 
-  scope :recruiters, -> { where(role: [:recruiter, :recruiter_admin], active: true) }
+  scope :recruiters, -> { where(role: [:recruiter, :recruiter_admin], active: true).order(:first_name) }
   scope :admins, -> { where(role: :admin, active: true) }
   scope :data, -> { where(role: :data, active: true) }
-  scope :owners, -> { where(role: [:admin, :recruiter], active: true).order(:first_name) }
+  scope :owners, -> { where(role: [:admin, :recruiter, :recruiter_admin], active: true).order(:first_name) }
 
   def avatar_size
     if avatar.attached? && avatar.blob.byte_size > 1.megabytes

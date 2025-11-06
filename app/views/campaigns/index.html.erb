@@ -2,16 +2,13 @@
   <div class="mx-auto max-w-screen-2xl lg:px-8">
     <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-sm overflow-hidden">
       <div class="border-b dark:border-gray-700">
-        <div class=" divide-y dark:divide-gray-700">
+        <div class="divide-y dark:divide-gray-700">
           <div class="flex-row items-center justify-between p-4 space-y-3 sm:flex sm:space-y-0 sm:space-x-4">
             <div>
               <h1 class="mr-3 text-lg font-semibold dark:text-white">Sprints</h1>
               <p class="text-gray-500 dark:text-gray-400 text-sm">Manage all your sprints or create new one.</p>
             </div>
-            <a type="button" href="/campaigns/new"
-                class="btn-primary">
-              Add new Sprint
-            </a>
+            <a type="button" href="/campaigns/new" class="btn-primary">Add new Sprint</a>
           </div>
         </div>
       </div>
@@ -19,34 +16,52 @@
         <div class="items-center hidden mr-4 text-sm font-medium text-gray-900 md:flex dark:text-white">
           Show records only for:
         </div>
+
         <div class="flex flex-wrap items-center">
           <div class="flex items-center mr-4">
             <a href="<%= campaigns_path(active: true) %>">
               <% if params[:active].present? && params[:active] == 'true' %>
-                <input id="all-products" type="radio" value="" name="show-only"
-                   class="w-4 h-4 bg-gray-100 border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 cursor-pointer" checked>
+                <input
+                  id="all-products"
+                  type="radio"
+                  value=""
+                  name="show-only"
+                  class="w-4 h-4 bg-gray-100 border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 cursor-pointer"
+                  checked
+                >
               <% else %>
-                <input id="all-products" type="radio" value="" name="show-only"
-                   class="w-4 h-4 bg-gray-100 border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 cursor-pointer">
+                <input
+                  id="all-products"
+                  type="radio"
+                  value=""
+                  name="show-only"
+                  class="w-4 h-4 bg-gray-100 border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 cursor-pointer"
+                >
               <% end %>
-              <label for="all-products" class="mr-4 text-sm font-medium text-gray-900 dark:text-gray-300">
-                Ongoing Sprints
-              </label>
+              <label for="all-products" class="mr-4 text-sm font-medium text-gray-900 dark:text-gray-300">Ongoing Sprints</label>
             </a>
             <a href="<%= campaigns_path(active: false) %>">
               <% if params[:active].present? && params[:active] == 'false' %>
-                <input id="all-products" type="radio" value="" name="show-only"
-                   class="w-4 h-4 bg-gray-100 border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 cursor-pointer" checked>
+                <input
+                  type="radio"
+                  value=""
+                  name="show-only"
+                  class="w-4 h-4 bg-gray-100 border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 cursor-pointer"
+                  checked
+                >
               <% else %>
-                <input id="all-products" type="radio" value="" name="show-only"
-                   class="w-4 h-4 bg-gray-100 border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 cursor-pointer">
+                <input
+                  type="radio"
+                  value=""
+                  name="show-only"
+                  class="w-4 h-4 bg-gray-100 border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 cursor-pointer"
+                >
               <% end %>
-              <label for="all-products" class="text-sm font-medium text-gray-900 dark:text-gray-300">
-                Completed Sprints
-              </label>
+              <label for="all-products" class="text-sm font-medium text-gray-900 dark:text-gray-300">Completed Sprints</label>
             </a>
           </div>
-        </a>
+        </div>
+
         <% unless params[:active].nil? %>
           <%= link_to "Show All", campaigns_path, class: "underline mr-4 font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm" %>
         <% end %>
@@ -62,10 +77,7 @@
             <th scope="col" class="px-4 py-3">Date Range</th>
           </tr>
         </thead>
-        <tbody>
-          <%= render partial: "campaign", collection: @campaigns, as: :campaign %>
-
-        </tbody>
+        <tbody><%= render partial: "campaign", collection: @campaigns, as: :campaign %></tbody>
       </table>
     </div>
   </div>

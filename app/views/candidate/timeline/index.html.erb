@@ -1,18 +1,9 @@
-<!--
-  This example requires updating your template:
-
-  ```
-  <html class="h-full bg-white">
-  <body class="h-full">
-  ```
--->
 <div class="flex min-h-full flex-col">
   <!-- 3 column wrapper -->
   <div class="mx-auto w-full grow lg:flex xl:px-2 -ml-4">
     <!-- Left sidebar & main wrapper -->
-    <div class="w-80 xl:flex">
-      <%= render partial: "candidate/profile", locals: { candidate: @candidate } %>
-    </div>
+    <div class="w-80 xl:flex"><%= render partial: "candidate/profile", locals: { candidate: @candidate } %></div>
+
     <div class="flex-1">
       <!-- Main area -->
       <%= render partial: "candidate/nav" %>
@@ -24,11 +15,14 @@
         </ol>
       </div>
     </div>
+
     <div class="shrink-0 border-t border-gray-200 px-4 py-6 sm:px-6 lg:w-80 lg:border-l lg:border-t-0 lg:pr-8 xl:pr-6">
       <!-- Right column area -->
       <div>
         <h5 class="mr-3 font-semibold dark:text-white">Quick Actions</h5>
+
         <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Select which actions you want to perform with this candidate.</p>
+
         <%= render partial: "candidate/status", locals: { candidate: @candidate } %>
         <%= render partial: "candidate/joining", locals: { candidate: @candidate } %>
         <%= render partial: "candidate/recycle", locals: { candidate: @candidate } %>
@@ -37,3 +31,4 @@
       </div>
     </div>
   </div>
+</div>

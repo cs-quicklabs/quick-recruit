@@ -1,4 +1,4 @@
-<% if current_user.admin? %>
+<% if current_user.admin? or current_user.super_admin? %>
   <%= render "shared/navbar/admin" %>
 <% elsif current_user.recruiter? %>
   <%= render "shared/navbar/recruiter" %>

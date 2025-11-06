@@ -28,6 +28,6 @@ class RecyclesController < BaseController
   end
 
   def get_recycles
-    current_user.admin? ? recycles_for_admin : recycles_for_recruiter
+    (current_user.admin? or current_user.super_admin?) ? recycles_for_admin : recycles_for_recruiter
   end
 end

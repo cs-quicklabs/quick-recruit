@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
-  enum :role, data: 0, recruiter: 1, interviewer: 2, admin: 3, recruiter_admin: 4
+  enum :role, data: 0, recruiter: 1, interviewer: 2, admin: 3, recruiter_admin: 4, super_admin: 5
 
   validate :avatar_content_type
   validate :avatar_size
@@ -31,7 +31,7 @@ class User < ApplicationRecord
   end
 
   def admin_or_recruiter_admin?
-    admin? or recruiter_admin?
+    admin? or recruiter_admin? or super_admin?
   end
 
   def avatar_content_type
@@ -42,10 +42,6 @@ class User < ApplicationRecord
 
   def self.bot
     find_by(email: "bot@crownstack.com")
-  end
-
-  def self.rakhi
-    find_by(email: "rakhi@crownstack.com")
   end
 
   def self.aashish

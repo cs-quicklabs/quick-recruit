@@ -60,10 +60,6 @@ class ApplyForJob < Patterns::Service
     CandidateMailer.with(candidate: candidate, content: params.except(:resume)).lead_email.deliver_later
   end
 
-  def assign_to_recruiter(candidate)
-    # by default all leads from website are assigned to Rakhi
-    UpdateOwner.call(candidate, User.rakhi, User.bot, false).result
-  end
 
   attr_reader :params
 end

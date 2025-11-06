@@ -1,80 +1,117 @@
 <nav class="bg-gray-800">
   <div class="mx-auto max-w-screen-2xl sm:px-6 lg:px-8">
     <div class="relative flex h-12 items-center justify-between">
-      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-      </div>
+      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden"></div>
+
       <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-        <div class="flex items-center flex-shrink-0">
-          <a href="/">
-            <h1 class="text-white font-extrabold font-mono">Quick Recruit</h1>
-          </a>
-        </div>
+        <div class="flex items-center flex-shrink-0"><a href="/"><h1 class="text-white font-extrabold font-mono">Quick Recruit</h1>        </a></div>
         <div class="hidden sm:ml-2 sm:block">
           <div class="flex space-x-1">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-500 hover:text-white" -->
-            <a href=<%= member_timeline_path(current_user) %> class="<%= current_page?(member_timeline_path(current_user)) ? "selected-nav" : "unselected-nav" %>"><%= current_user.first_name%></a>
+            <a href="<%= member_timeline_path(current_user) %>" class="<%= current_page?(member_timeline_path(current_user)) ? "selected-nav" : "unselected-nav" %>"><%= current_user.first_name %></a>
           </div>
         </div>
       </div>
-      <div class="flex  w-96 px-2 lg:ml-6 lg:justify-end" data-behavior="autocomplete" data-controller="search" data-search-url-value="/search/candidates">
+
+      <div
+        class="flex w-96 px-2 lg:ml-6 lg:justify-end"
+        data-behavior="autocomplete"
+        data-controller="search"
+        data-search-url-value="/search/candidates"
+      >
         <div class="w-full max-w-xs lg:max-w-sm justify-end">
           <div class="relative">
             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <!-- Heroicon name: solid/search -->
-              <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <svg
+                class="w-5 h-5 text-gray-400"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
                 <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
               </svg>
             </div>
-            <input id="search" name="search" class="block w-full py-1 pl-10 pr-3 leading-5 text-gray-300 placeholder-gray-400 bg-gray-700 border border-transparent rounded-sm focus:outline-none focus:bg-white focus:border-white focus:ring-white focus:text-gray-900 sm:text-sm" placeholder="Search Candidates" type="search" data-search-target="input" autocomplete="off" spellcheck="false">
+            <input
+              id="search"
+              name="search"
+              class="block w-full py-1 pl-10 pr-3 leading-5 text-gray-300 placeholder-gray-400 bg-gray-700 border border-transparent rounded-sm focus:outline-none focus:bg-white focus:border-white focus:ring-white focus:text-gray-900 sm:text-sm"
+              placeholder="Search Candidates"
+              type="search"
+              data-search-target="input"
+              autocomplete="off"
+              spellcheck="false"
+            >
           </div>
           <div class="relative">
-            <div class="absolute left-0 z-10 block w-full mt-2 origin-top-right bg-white rounded-sm shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-              <ul data-search-target="results" hidden="">
-              </ul>
+            <div
+              class="absolute left-0 z-10 block w-full mt-2 origin-top-right bg-white rounded-sm shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+              role="menu"
+              aria-orientation="vertical"
+              aria-labelledby="options-menu"
+            >
+              <ul data-search-target="results" hidden=""></ul>
             </div>
           </div>
         </div>
       </div>
+
       <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-2 sm:pr-0">
         <a href="/candidates/new" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
           <span class="absolute -inset-1.5"></span>
           <span class="sr-only">View notifications</span>
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-            <path d="M5 12h14"/><path d="M12 5v14"/>          </svg>
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path d="M5 12h14" />
+            <path d="M12 5v14" />
+          </svg>
         </a>
+
         <!-- Profile dropdown -->
         <div class="relative ml-3">
           <div>
-            <button type="button" class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+            <button
+              type="button"
+              class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+              id="user-menu-button"
+              aria-expanded="false"
+              aria-haspopup="true"
+              data-dropdown-toggle="user-dropdown"
+              data-dropdown-placement="bottom"
+            >
               <span class="absolute -inset-1.5"></span>
               <span class="sr-only">Open user menu</span>
               <%= display_small_avatar(current_user) %>
             </button>
           </div>
-          <div id="user-dropdown" class="hidden absolute divide-y divide-gray-100 right-0 z-10 mt-2 w-48 origin-top-right rounded-sm bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-            <div class="px-4 py-3">
-              <span class="block text-sm text-gray-900 dark:text-white"><%= current_user.name %></span>
-              <span class="block text-xs  text-gray-500 truncate dark:text-gray-400"><%= current_user.email %></span>
-            </div>
+          <div
+            id="user-dropdown"
+            class="hidden absolute divide-y divide-gray-100 right-0 z-10 mt-2 w-48 origin-top-right rounded-sm bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            role="menu"
+            aria-orientation="vertical"
+            aria-labelledby="user-menu-button"
+            tabindex="-1"
+          >
+            <div class="px-4 py-3"><span class="block text-sm text-gray-900 dark:text-white"><%= current_user.name %></span><span class="block text-xs text-gray-500 truncate dark:text-gray-400"><%= current_user.email %></span></div>
+
             <ul class="py-2" aria-labelledby="user-menu-button">
-              <li>
-                <a href="/settings/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Personal Settings</a>
-              </li>
-              <li>
-                <a href="/settings/import" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Import Candidates</a>
-              </li>
+              <li><a href="/settings/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Personal Settings</a></li>
+              <li><a href="/settings/import" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Import Candidates</a></li>
             </ul>
+
             <ul class="py-2" aria-labelledby="user-menu-button">
-              <li>
-                <a href="https://release.quicklabs.in/quick-recruit/changelogs" target="_blank" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Change Logs</a>
-              </li>
-              <li>
-                <a href="https://release.quicklabs.in/quick-recruit/roadmap" target="_blank" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Feature Roadmap</a>
-              </li>
+              <li><a href="https://release.quicklabs.in/quick-recruit/changelogs" target="_blank" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Change Logs</a></li>
+              <li><a href="https://release.quicklabs.in/quick-recruit/roadmap" target="_blank" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Feature Roadmap</a></li>
             </ul>
-            <div class="py-1">
-              <%= button_to "Sign Out", session_path, method: :delete, class: "w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" %>
-            </div>
+
+            <div class="py-1"><%= button_to "Sign Out", session_path, method: :delete, class: "w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" %></div>
           </div>
         </div>
       </div>

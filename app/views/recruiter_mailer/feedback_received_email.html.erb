@@ -1,4 +1,7 @@
 <p>Dear <%= @receiver.name %>,</p>
+
 <p>A new feedback has been received. Please click on the link below to see the feedback.</p>
+
 <%= link_to @feedback.title, member_feedback_url(@receiver, @feedback) %>
+
 <p>Thanks</p>

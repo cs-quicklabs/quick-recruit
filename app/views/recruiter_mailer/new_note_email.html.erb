@@ -1,5 +1,9 @@
 <p>Dear <%= @owner.name %>,</p>
+
 <p>A new note has been added for the candidate <%= @candidate.name %></p>
-<p>Please click on link below to see candidate notes </p>
+
+<p>Please click on link below to see candidate notes</p>
+
 <%= link_to @candidate.name, candidate_notes_url(@candidate) %>
+
 <p>Thanks</p>

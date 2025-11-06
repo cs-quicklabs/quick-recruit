@@ -1,8 +1,11 @@
 <!DOCTYPE html>
+
 <html>
   <head>
     <title>Quick Recruit</title>
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
@@ -12,24 +15,28 @@
     <%= turbo_refreshes_with method: :morph, scroll: :preserve %>
     <%= favicon_link_tag "favicon.ico" %>
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
+
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
     <link rel="manifest" href="/manifest.webmanifest">
+
     <%= yield :head %>
   </head>
   <body>
-    <main class="">
+    <main>
       <% if user_signed_in? %>
         <%= render "shared/navbar" %>
       <% end %>
+
       <% if notice = flash[:notice] %>
         <p class="text-sm font-medium text-center notice bg-green-100"><%= notice %></p>
       <% end %>
+
       <% if alert = flash[:alert] %>
         <p class="text-sm font-medium text-center alert bg-red-100"><%= alert %></p>
       <% end %>
-      <main>
-        <%= yield %>
-      </main>
+
+      <main><%= yield %></main>
     </main>
   </body>
- </html>
+</html>

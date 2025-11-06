@@ -6,13 +6,13 @@
   <body class="h-full">
   ```
 -->
+
 <div class="flex min-h-full flex-col">
   <!-- 3 column wrapper -->
   <div class="mx-auto w-full grow lg:flex xl:px-2 -ml-4">
     <!-- Left sidebar & main wrapper -->
-    <div class="w-80 xl:flex">
-      <%= render partial: "candidate/profile", locals: { candidate: @candidate } %>
-    </div>
+    <div class="w-80 xl:flex"><%= render partial: "candidate/profile", locals: { candidate: @candidate } %></div>
+
     <div class="flex-1">
       <!-- Main area -->
       <%= render partial: "candidate/nav", locals: { candidate: @candidate } %>
@@ -37,33 +37,39 @@
               </th>
             </tr>
           </thead>
-          <tbody>
-          </tbody>
+          <tbody></tbody>
         </table>
       </div>
     </div>
+
     <div class="shrink-0 border-t border-gray-200 px-4 py-4 sm:px-6 lg:w-80 lg:border-l lg:border-t-0 lg:pr-8 xl:pr-6">
       <!-- Right column area -->
       <% opening = @candidate.opening %>
       <% unless opening.nil? %>
         <div>
           <h5 class="mr-3 font-semibold dark:text-white">Complete A Survey</h5>
+
           <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Select which survey you want to fill for the candidate.</p>
+
           <div class="flex flex-col">
             <% unless opening.resume_screening_checklist.blank? %>
-              <%= link_to "Resume Screening Checklist", "#{opening.resume_screening_checklist}?name=#{@candidate.name}&email=#{@candidate.email}", target: "_blank", class: "font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm"%>
+              <%= link_to "Resume Screening Checklist", "#{opening.resume_screening_checklist}?name=#{@candidate.name}&email=#{@candidate.email}", target: "_blank", class: "font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm" %>
             <% end %>
+
             <% unless opening.telephonic_screening_checklist.blank? %>
-              <%= link_to "Telephonic Screening Checklist", "#{opening.telephonic_screening_checklist}?name=#{@candidate.name}&email=#{@candidate.email}", target: "_blank", class: "font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm"%>
+              <%= link_to "Telephonic Screening Checklist", "#{opening.telephonic_screening_checklist}?name=#{@candidate.name}&email=#{@candidate.email}", target: "_blank", class: "font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm" %>
             <% end %>
+
             <% unless opening.first_round_score.blank? %>
-              <%= link_to "First Round Score", "#{opening.first_round_score}?name=#{@candidate.name}&email=#{@candidate.email}", target: "_blank", class: "font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm"%>
+              <%= link_to "First Round Score", "#{opening.first_round_score}?name=#{@candidate.name}&email=#{@candidate.email}", target: "_blank", class: "font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm" %>
             <% end %>
+
             <% unless opening.second_round_score.blank? %>
-              <%= link_to "Second Round Score", "#{opening.second_round_score}?name=#{@candidate.name}&email=#{@candidate.email}", target: "_blank", class: "font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm"%>
+              <%= link_to "Second Round Score", "#{opening.second_round_score}?name=#{@candidate.name}&email=#{@candidate.email}", target: "_blank", class: "font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm" %>
             <% end %>
+
             <% unless opening.hr_round_score.blank? %>
-              <%= link_to "HR Round Score", "#{opening.hr_round_score}?name=#{@candidate.name}&email=#{@candidate.email}", target: "_blank", class: "font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm"%>
+              <%= link_to "HR Round Score", "#{opening.hr_round_score}?name=#{@candidate.name}&email=#{@candidate.email}", target: "_blank", class: "font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm" %>
             <% end %>
           </div>
         </div>

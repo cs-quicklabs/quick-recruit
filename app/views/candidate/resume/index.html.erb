@@ -6,20 +6,26 @@
   <body class="h-full">
   ```
 -->
+
 <div class="flex min-h-full flex-col">
   <!-- 3 column wrapper -->
   <div class="mx-auto w-full grow lg:flex xl:px-2 -ml-4">
     <!-- Left sidebar & main wrapper -->
-    <div class="w-80 xl:flex">
-      <%= render partial: "candidate/profile", locals: { candidate: @candidate } %>
-    </div>
+    <div class="w-80 xl:flex"><%= render partial: "candidate/profile", locals: { candidate: @candidate } %></div>
+
     <div class="flex-1">
       <!-- Main area -->
       <%= render partial: "candidate/nav", locals: { candidate: @candidate } %>
       <div class="px-0">
-        <iframe src="https://www.crownstack.com/pdfs/cs-mission-and-vision-statement.pdf" width="780" height="780" style="border: none;"> </iframe>
+        <iframe
+          src="https://www.crownstack.com/pdfs/cs-mission-and-vision-statement.pdf"
+          width="780"
+          height="780"
+          style="border: none;"
+        ></iframe>
       </div>
     </div>
+
     <div class="shrink-0 border-t border-gray-200 px-4 py-6 sm:px-6 lg:w-80 lg:border-l lg:border-t-0 lg:pr-8 xl:pr-6">
       <!-- Right column area -->
     </div>

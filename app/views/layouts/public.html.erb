@@ -1,8 +1,11 @@
 <!DOCTYPE html>
+
 <html>
   <head>
     <title>Quick Recruit</title>
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
@@ -11,10 +14,8 @@
     <%= yield :head %>
   </head>
   <body>
-    <main class="">
-      <main>
-        <%= yield %>
-      </main>
+    <main>
+      <main><%= yield %></main>
     </main>
-    </body>
-  </html>
+  </body>
+</html>

@@ -1,21 +1,15 @@
 <%= turbo_frame_tag dom_id(note) do %>
   <li class="py-4">
     <div class="flex space-x-3">
-      <div class="flex-shrink-0">
-        <%= display_medium_avatar(note.user) %>
-      </div>
+      <div class="flex-shrink-0"><%= display_medium_avatar(note.user) %></div>
       <div>
-        <div class="text-sm">
-          <a href="#" class="font-medium text-gray-900"><%= note.user.name %></a>
-        </div>
+        <div class="text-sm"><a href="#" class="font-medium text-gray-900"><%= note.user.name %></a></div>
+
         <div class="mt-1 text-sm text-gray-700">
           <p class="whitespace-pre-wrap"><%= auto_link_urls_in_text(note.body) %></p>
         </div>
-        <div class="mt-2 space-x-2 text-sm">
-          <span class="font-medium text-gray-500"><%= display_created_at(note) %></span>
-          <%= edit_button(edit_candidate_note_path(@candidate, note)) %>
-          <%= delete_button(candidate_note_path(@candidate, note)) %>
-        </div>
+
+        <div class="mt-2 space-x-2 text-sm"><span class="font-medium text-gray-500"><%= display_created_at(note) %></span><%= edit_button(edit_candidate_note_path(@candidate, note)) %><%= delete_button(candidate_note_path(@candidate, note)) %></div>
       </div>
     </div>
   </li>

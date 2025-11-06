@@ -4,14 +4,9 @@
       <div class="text-sm font-semibold"><%= email.kind.humanize.titleize %></div>
     </div>
   </th>
+  <td class="px-4 py-2"><%= email.user.name %></td>
+  <td class="px-4 py-2"><%= display_created_at_with_time(email) %></td>
   <td class="px-4 py-2">
-    <%= email.user.name %>
-  </td>
-  <td class="px-4 py-2">
-    <%= display_created_at_with_time(email) %>
-  </td>
-  <td class="px-4 py-2">
-    <div class="flex items-center">
-    </div>
+    <div class="flex items-center"></div>
   </td>
 <% end %>

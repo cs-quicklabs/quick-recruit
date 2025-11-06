@@ -2,8 +2,8 @@
   <div class="px-0 lg:px-6">
     <div class="flex items-center">
       <ul class="flex flex-col mt-0 w-full text-sm font-medium lg:flex-row">
-        <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0"><a href="" class="block py-3 px-4 border-b-2 text-primary-600 hover:text-primary-600 dark:text-primary-500 dark:border-primary-500 border-primary-600" aria-current="page">Timeline</a></li>
-        <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0"><a href="" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Interviews</a></li>
+        <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0"><a href="/" class="block py-3 px-4 border-b-2 text-primary-600 hover:text-primary-600 dark:text-primary-500 dark:border-primary-500 border-primary-600" aria-current="page">Timeline</a></li>
+        <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0"><a href="/" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-600">Interviews</a></li>
         <li class="block lg:inline"><a href="<%= opening_associations_path(@opening) %>" class="<%= current_page?(opening_associations_path(@opening)) ? "selected-tab" : "unselected-tab" %>">Associations</a></li>
         <li class="block lg:inline"><a href="<%= opening_note_index_path(@opening) %>" class="<%= current_page?(opening_note_index_path(@opening)) ? "selected-tab" : "unselected-tab" %>">Internal Note</a></li>
         <li class="block lg:inline"><a href="<%= opening_description_index_path(@opening) %>" class="<%= current_page?(opening_description_index_path(@opening)) ? "selected-tab" : "unselected-tab" %>">Job Description</a></li>

@@ -1,5 +1,5 @@
 <section class="bg-gray-50 dark:bg-gray-900 py-3 sm:py-5 min-h-screen">
-  <div class="mx-auto max-w-screen-2xl lg:px-8">  
+  <div class="mx-auto max-w-screen-2xl lg:px-8">
     <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-sm overflow-hidden">
       <div class="border-b dark:border-gray-700">
         <div class="divide-y dark:divide-gray-700">
@@ -16,7 +16,6 @@
         <div class="items-center hidden mr-4 text-sm font-medium text-gray-900 md:flex dark:text-white">
           Show records only for:
         </div>
-
         <div class="flex flex-wrap items-center">
           <div class="flex items-center mr-4">
             <a href="<%= campaigns_path(active: true) %>">
@@ -29,57 +28,55 @@
                   class="w-4 h-4 bg-gray-100 border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 cursor-pointer"
                   checked
                 >
-              <% else %>
-                <input
+                <% else %>
+                  <input
                   id="all-products"
                   type="radio"
                   value=""
                   name="show-only"
                   class="w-4 h-4 bg-gray-100 border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 cursor-pointer"
                 >
-              <% end %>
-              <label for="all-products" class="mr-4 text-sm font-medium text-gray-900 dark:text-gray-300">Ongoing Sprints</label>
-            </a>
-            <a href="<%= campaigns_path(active: false) %>">
-              <% if params[:active].present? && params[:active] == 'false' %>
-                <input
+                  <% end %>
+                  <label for="all-products" class="mr-4 text-sm font-medium text-gray-900 dark:text-gray-300">Ongoing Sprints</label>
+                </a>
+                <a href="<%= campaigns_path(active: false) %>">
+                  <% if params[:active].present? && params[:active] == 'false' %>
+                    <input
                   type="radio"
                   value=""
                   name="show-only"
                   class="w-4 h-4 bg-gray-100 border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 cursor-pointer"
                   checked
                 >
-              <% else %>
-                <input
+                    <% else %>
+                      <input
                   type="radio"
                   value=""
                   name="show-only"
                   class="w-4 h-4 bg-gray-100 border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 cursor-pointer"
                 >
-              <% end %>
-              <label for="all-products" class="text-sm font-medium text-gray-900 dark:text-gray-300">Completed Sprints</label>
-            </a>
+                      <% end %>
+                      <label for="all-products" class="text-sm font-medium text-gray-900 dark:text-gray-300">Completed Sprints</label>
+                    </a>
+                  </div>
+                </div>
+                <% unless params[:active].nil? %>
+                  <%= link_to "Show All", campaigns_path, class: "underline mr-4 font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm" %>
+                <% end %>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                  <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                      <th scope="col" class="px-4 py-3">Sprint Name</th>
+                      <th scope="col" class="px-4 py-3 min-w-[14rem]">Progress</th>
+                      <th scope="col" class="px-4 py-3">Owner</th>
+                      <th scope="col" class="px-4 py-3">Date Range</th>
+                    </tr>
+                  </thead>
+                  <tbody><%= render partial: "campaign", collection: @campaigns, as: :campaign %></tbody>
+                </table>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <% unless params[:active].nil? %>
-          <%= link_to "Show All", campaigns_path, class: "underline mr-4 font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm" %>
-        <% end %>
-      </div>
-    <div class="overflow-x-auto">
-      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-          <tr>
-            <th scope="col" class="px-4 py-3">Sprint Name</th>
-            <th scope="col" class="px-4 py-3 min-w-[14rem]">Progress</th>
-            <th scope="col" class="px-4 py-3">Owner</th>
-            <th scope="col" class="px-4 py-3">Date Range</th>
-          </tr>
-        </thead>
-        <tbody><%= render partial: "campaign", collection: @campaigns, as: :campaign %></tbody>
-      </table>
-    </div>
-  </div>
-      </div>
-
-</section>
+        </section>

@@ -79,7 +79,6 @@
             <%= link_to "Show All", openings_path, class: "underline mr-4 font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm" %>
           <% end %>
         </div>
-    </div>
 
     <% end %>
     <div class="overflow-x-auto">
@@ -97,6 +96,7 @@
         </thead>
         <tbody><%= render partial: "opening", collection: @openings, as: :opening %></tbody>
       </table>
+    </div>
     </div>
   </div>
 </section>

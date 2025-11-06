@@ -6,13 +6,13 @@
   <body class="h-full">
   ```
 -->
+
 <div class="flex min-h-full flex-col">
   <!-- 3 column wrapper -->
   <div class="mx-auto w-full grow lg:flex xl:px-2 -ml-4">
     <!-- Left sidebar & main wrapper -->
-    <div class="w-80 xl:flex">
-      <%= render partial: "candidate/profile", locals: { candidate: @candidate } %>
-    </div>
+    <div class="w-80 xl:flex"><%= render partial: "candidate/profile", locals: { candidate: @candidate } %></div>
+
     <div class="flex-1">
       <!-- Main area -->
       <%= render partial: "candidate/nav", locals: { candidate: @candidate } %>
@@ -40,7 +40,7 @@
           <tbody>
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
               <th scope="row" class="flex items-center px-4 py-2 text-gray-900 whitespace-nowrap dark:text-white">
-                <div class="">
+                <div>
                   <div class="text-sm font-semibold">Online Interview</div>
                 </div>
               </th>
@@ -58,13 +58,14 @@
               </td>
               <td class="px-4 py-2">
                 <!-- Modal toggle -->
-                <a href="#" type="button"  class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                <a href="#" type="button" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
+
     <div class="shrink-0 border-t border-gray-200 px-4 py-6 sm:px-6 lg:w-80 lg:border-l lg:border-t-0 lg:pr-8 xl:pr-6">
       <!-- Right column area -->
     </div>

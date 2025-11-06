@@ -20,7 +20,7 @@ class RecruiterMailer < ApplicationMailer
   def recycled_candidates_email
     @recruiter = params[:recruiter]
     @count = params[:count]
-    mail(to: [@recruiter.email, User.aashish.email, User.aditi.email], subject: "Quick Recruit: Recycling Report")
+    mail(to: [@recruiter.email, User.aashish.email], subject: "Quick Recruit: Recycling Report")
   end
 
   def daily_activity_report_email
@@ -31,7 +31,7 @@ class RecruiterMailer < ApplicationMailer
     @new_candidates_daily_report_url = params[:new_candidates_daily_report_url]
     @updated_candidates_daily_report_url = params[:updated_candidates_daily_report_url]
     @pipelined_candidates_daily_report_url = params[:pipelined_candidates_daily_report_url]
-    mail(to: [@recruiter.email, User.aashish.email, User.aditi.email], subject: "Quick Recruit: Daily Activity Report")
+    mail(to: [@recruiter.email, User.aashish.email], subject: "Quick Recruit: Daily Activity Report")
   end
 
   def feedback_received_email

@@ -1,9 +1,24 @@
 <p>Dear <%= @candidate.name %>,</p>
+
 <p>Since your face-to-face round is scheduled with us, we are excited to host you in our office. Here is some information which you might find useful as you are visiting us.</p>
+
 <p><b>Office Address:</b> Ofis Square Tower, A-1, Sector 3, Noida.</p>
-<p><b>Nearest Metro Station:</b> <a href="https://maps.app.goo.gl/d2xBmazo9QJ3tzjd6">Metro Station, Sector 16, Noida.</a></p>
-<p><b>Google Map Location:</b> <a href="https://maps.app.goo.gl/ZzyTv7DqT4cWzXWC7"> Open Google Map link </a></p>
-<p> <b>Interview Timings: </b> Our recruitment team will let you know about the interview timing on call and will also put an event in google calendar for you.  </p>
-<p> Office is walking distance (4 minutes) from metro station. You can take a rickshaw or walk to reach office. Here is <a href="https://maps.app.goo.gl/kHkPx9Z7iva4sZnk8"> preview of walking distance from metro to office.</a></p>
-<p> <b>What to do after reaching office?</b> Once you reach office, please call our recruiter <b><%= @candidate.owner.name %></b> on phone number <b><a href="tel:<%= @candidate.owner.phone %>"><%= @candidate.owner.phone %></a></b>. Our recruiter will assign <b><%= User.rashi.name %></b> from our HR team to help you throughout your interview journey and as long as you are in office. You can reach out to <b><%= User.rashi.name %></b> on phone number <b><a href="tel:<%= User.rashi.phone %>"><%= User.rashi.phone %></a></b> as well if need arises.</p>
+
+<p><b>Nearest Metro Station:</b><a href="https://maps.app.goo.gl/d2xBmazo9QJ3tzjd6">Metro Station, Sector 16, Noida.</a></p>
+
+<p><b>Google Map Location:</b><a href="https://maps.app.goo.gl/ZzyTv7DqT4cWzXWC7">Open Google Map link</a></p>
+
+<p><b>Interview Timings:</b> Our recruitment team will let you know about the interview timing on call and will also put an event in google calendar for you.</p>
+
+<p>Office is walking distance (4 minutes) from metro station. You can take a rickshaw or walk to reach office. Here is <a href="https://maps.app.goo.gl/kHkPx9Z7iva4sZnk8">preview of walking distance from metro to office.</a></p>
+
+<p>
+  <b>What to do after reaching office?</b>
+  Once you reach office, please call our recruiter
+  <b><%= @candidate.owner.name %></b>
+  on phone number
+  <b><a href="tel:<%= @candidate.owner.phone %>"><%= @candidate.owner.phone %></a></b>
+  . Our recruiter will assign someone from our HR team to help you throughout your interview journey and as long as you are in office.
+</p>
+
 <p>Thanks</p>

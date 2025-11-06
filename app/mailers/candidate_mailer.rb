@@ -32,13 +32,13 @@ class CandidateMailer < ApplicationMailer
   def lead_email
     @content = params[:content]
     @candidate = params[:candidate]
-    mail(to: [@candidate.owner.email, User.aditi.email, User.aashish.email], subject: "Hiring@Crownstack: New Lead from Website")
+    mail(to: [@candidate.owner.email, User.aashish.email], subject: "Hiring@Crownstack: New Lead from Website")
   end
 
   def f2f_detail_email
     @candidate = params[:candidate]
     @owner = @candidate.owner
-    mail(to: [@candidate.email, @owner.email, User.rashi.email], bcc: [User.aditi.email, User.aashish.email], subject: "Hiring@Crownstack: Face-to-Face Interview Details", reply_to: @owner.email)
+    mail(to: [@candidate.email, @owner.email], bcc:  [User.aashish.email], subject: "Hiring@Crownstack: Face-to-Face Interview Details", reply_to: @owner.email)
   end
 
   def position_closed_email

@@ -6,14 +6,14 @@
     <p class="text-blue-600 text-sm dark:text-blue-500 underline mr-2"><%= link_to "Resume", url_for(candidate.resume), target: :_blank %></p>
     <% if candidate.incomplete? %>
       <%= link_to "Delete", candidate_resume_path(candidate, candidate.resume.id), class: "text-red-600 dark:text-blue-500 hover:underline text-sm", data: {
-                                 controller: "confirmation",
-                                 "turbo-method": :delete,
-                                 "confirmation-message-value": "Are you sure you want to delete resume of Candidate?",
-                                 action: "confirmation#confirm",
-                               } %>
+                                                                                     controller: "confirmation",
+                                                                                     "turbo-method": :delete,
+                                                                                     "confirmation-message-value": "Are you sure you want to delete resume of Candidate?",
+                                                                                     action: "confirmation#confirm",
+                                                                                   } %>
     <% end %>
   </dd>
-<% else  %>
+<% else %>
   <dd class="border border-gray-200 p-4 mt-2">
     <div class="flex items-center text-sm font-light text-gray-900 dark:text-gray-400">
       <p class="text-xs text-italic mb-2">No resume attached. Please upload a PDF file to upload new resume.</p>
@@ -21,7 +21,7 @@
     <div>
       <%= form_with(model: candidate, id: dom_id(candidate, :resume), url: candidate_resume_index_path(candidate), method: "POST") do |form| %>
         <%= form.file_field :resume, class: "form-text-field" %>
-        <%= form.submit "Upload Resume", class: "px-2 py-1 shadow shadow-lg mt-2 text-xs font-medium text-center text-white bg-blue-700 rounded-sm hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200", data: { disable_with: "Submitting.." }  %>
+        <%= form.submit "Upload Resume", class: "px-2 py-1 shadow shadow-lg mt-2 text-xs font-medium text-center text-white bg-blue-700 rounded-sm hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200", data: { disable_with: "Submitting.." } %>
       <% end %>
     </div>
   </dd>

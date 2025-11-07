@@ -31,7 +31,7 @@
           <div class="flex flex-wrap items-center">
             <div class="flex items-center mr-4">
               <a href="<%= openings_path(active: true) %>">
-                <% if params[:active].present? && params[:active] == 'true' %>
+                <% if params[:active].present? && params[:active] == "true" %>
                   <input
                     id="all-products"
                     type="radio"
@@ -52,7 +52,7 @@
                 <label for="all-products" class="mr-4 text-sm font-medium text-gray-900 dark:text-gray-300">Active Openings</label>
               </a>
               <a href="<%= openings_path(active: false) %>">
-                <% if params[:active].present? && params[:active] == 'false' %>
+                <% if params[:active].present? && params[:active] == "false" %>
                   <input
                     id="all-products"
                     type="radio"

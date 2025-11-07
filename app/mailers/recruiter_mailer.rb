@@ -36,7 +36,7 @@ class RecruiterMailer < ApplicationMailer
 
   def feedback_received_email
     @feedback = params[:feedback]
-    @receiver = params[:feedback].user  
+    @receiver = params[:feedback].user
     mail(to: [@receiver.email, @feedback.submitter.email], subject: "Quick Recruit: New Feedback received")
   end
 end

@@ -31,10 +31,9 @@ class MembersController < BaseController
 
   private
 
-    def user_params
-      params.require(:user).permit(:first_name, :last_name, :phone, :location )
-    end
-
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :phone, :location)
+  end
 
   def set_user
     @user ||= User.find(params[:id])

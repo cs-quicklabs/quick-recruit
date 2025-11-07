@@ -7,11 +7,11 @@
             <h1 class="mr-3 text-lg font-semibold dark:text-white">Recycle Candidates</h1>
             <p class="text-gray-500 dark:text-gray-400 text-sm"><span class="font-bold"><%= @recycles.count %></span> candidates need to be recycled.</p>
           </div>
-          <%= button_to "Settle & Refresh", recycle_path ,  class: "btn-primary", data: {
-                                 controller: "confirmation",
-                                 "confirmation-message-value": "Are you sure you want to settle recycled candidates and refresh data again?",
-                                 action: "confirmation#confirm",
-                               } %>
+          <%= button_to "Settle & Refresh", recycle_path, class: "btn-primary", data: {
+                                                            controller: "confirmation",
+                                                            "confirmation-message-value": "Are you sure you want to settle recycled candidates and refresh data again?",
+                                                            action: "confirmation#confirm",
+                                                          } %>
         </div>
 
         <% if current_user.admin_or_recruiter_admin? %>
@@ -23,7 +23,7 @@
               <% @recruiters.each do |recruiter| %>
                 <a href="<%= recycle_path(recruiter: recruiter.id) %>">
                   <div class="flex items-center mt-3 mr-4">
-                    <% if params[:recruiter].to_i ==  recruiter.id %>
+                    <% if params[:recruiter].to_i == recruiter.id %>
                       <input
                         id="all-products"
                         type="radio"

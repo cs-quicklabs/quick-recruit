@@ -38,7 +38,7 @@
     <!-- Dropdown menu -->
     <div id="dropdownDefaultRadio" data-bucket-target="menu" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-40 dark:bg-gray-700 dark:divide-gray-600">
       <ul class="p-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-        <% buckets = current_user.admin_or_recruiter_admin? ? Candidate.buckets :  Candidate.buckets.except(:pipeline) %>
+        <% buckets = current_user.admin_or_recruiter_admin? ? Candidate.buckets : Candidate.buckets.except(:pipeline) %>
         <% buckets.each do |k, v| %>
           <li
             class="cursor-pointer"

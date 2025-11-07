@@ -33,7 +33,7 @@
           <% if @champions.count > 0 %>
             <p class="p-4 text-sm text-gray-500">
               This list is showing champions only who cleared hiring process in past. To see all the candidates associated with this opening,
-              <span><a href="<%= '/report/candidates?opening_id=' + @opening.id.to_s %>" class="text-blue-600 dark:text-blue-500 hover:underline text-sm font-medium">click here</a></span>
+              <span><a href="<%= "/report/candidates?opening_id=" + @opening.id.to_s %>" class="text-blue-600 dark:text-blue-500 hover:underline text-sm font-medium">click here</a></span>
               .
             </p>
           <% end %>

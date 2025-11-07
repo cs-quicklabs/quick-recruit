@@ -37,7 +37,7 @@
             <%= form.collection_select(:role_id, @roles, :id, :title, { :prompt => "Select Primary Skill" }, :class => "form-text-field", :required => true) %>
           </div>
 
-          <div><label for="user-role" class="inline-flex items-center mb-1 text-sm font-medium text-gray-900 dark:text-white">Select if Active</label><%= form.select(:active, [['Active', true], ['Inactive', false]], {}, :class => "form-text-field") %></div>
+          <div><label for="user-role" class="inline-flex items-center mb-1 text-sm font-medium text-gray-900 dark:text-white">Select if Active</label><%= form.select(:active, [["Active", true], ["Inactive", false]], {}, :class => "form-text-field") %></div>
 
           <div>
             <label for="user-role" class="inline-flex items-center mb-1 text-sm font-medium text-gray-900 dark:text-white">Priority</label>

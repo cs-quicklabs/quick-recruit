@@ -17,7 +17,7 @@ class AddFeedback < Patterns::Service
 
   private
 
-  def add_feedback  
+  def add_feedback
     feedback.user_id = user.id
     feedback.submitter_id = submitter.id
     feedback.status = status

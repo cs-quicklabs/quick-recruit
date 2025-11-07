@@ -20,7 +20,7 @@
             <% @recruiters.each do |recruiter| %>
               <a href="<%= hot_candidates_path(recruiter: recruiter.id) %>">
                 <div class="flex items-center mt-3 mr-4">
-                  <% if params[:recruiter].to_i ==  recruiter.id %>
+                  <% if params[:recruiter].to_i == recruiter.id %>
                     <input
                       id="all-products"
                       type="radio"

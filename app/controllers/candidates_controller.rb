@@ -44,7 +44,11 @@ class CandidatesController < BaseController
   def new
     @candidate = Candidate.new
     @roles = Role.all
-    @openings = Opening.all
+    if current_user.recruiter?
+      @openings = Opening.where(owner: current_user)
+    else
+      @openings = Opening.active
+    end
     @sources = Source.all
     @buckets = current_user.recruiter? ? Candidate.buckets.except(:pipeline) : Candidate.buckets
   end
@@ -83,14 +87,13 @@ class CandidatesController < BaseController
       if params[:recruiter].present?
         candidates = Candidate.unscoped.where(bucket: :hot, owner: params[:recruiter]).includes(:opening, :role, :owner, :user).order(bucket_updated_on: :desc)
       else
-      candidates = Candidate.unscoped.where(bucket: :hot).includes(:opening, :role, :owner, :user).order(bucket_updated_on: :desc)
+        candidates = Candidate.unscoped.where(bucket: :hot).includes(:opening, :role, :owner, :user).order(bucket_updated_on: :desc)
       end
     else
       candidates = Candidate.unscoped.where(bucket: :hot, owner: current_user).includes(:opening, :role, :owner, :user).order(bucket_updated_on: :desc)
     end
     @pagy, @candidates = pagy(candidates, items: LIMIT)
   end
-
 
   def pipeline
     @recruiters = User.recruiters
@@ -164,7 +167,7 @@ class CandidatesController < BaseController
         candidates = Candidate.unscoped.where(bucket: :leads, owner: params[:recruiter]).includes(:opening, :owner, :user).order(bucket_updated_on: :desc)
       else
         candidates = Candidate.unscoped.where(bucket: :leads).includes(:opening, :owner, :user).order(bucket_updated_on: :desc)
-      end 
+      end
     else
       candidates = Candidate.unscoped.where(bucket: :leads, owner: current_user).includes(:opening, :owner, :user).order(created_at: :desc)
     end

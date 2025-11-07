@@ -60,6 +60,5 @@ class ApplyForJob < Patterns::Service
     CandidateMailer.with(candidate: candidate, content: params.except(:resume)).lead_email.deliver_later
   end
 
-
   attr_reader :params
 end

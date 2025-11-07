@@ -8,12 +8,12 @@
             <p class="text-gray-500 dark:text-gray-400 text-sm">Following <span class="font-bold"><%= @candidates.count %></span> candidates are currently in this sprint under various stages.</p>
           </div>
           <% if @campaign.active? %>
-            <%= button_to "Close Sprint", close_campaign_path(@campaign) ,  class: "btn-primary", data: {
-                                 controller: "confirmation",
-                                 "confirmation-message-value": "Are you sure you want to close this sprint?",
-                                 action: "confirmation#confirm",
-                                 turbo_method: :patch  
-                               } %>
+            <%= button_to "Close Sprint", close_campaign_path(@campaign), class: "btn-primary", data: {
+                                                                            controller: "confirmation",
+                                                                            "confirmation-message-value": "Are you sure you want to close this sprint?",
+                                                                            action: "confirmation#confirm",
+                                                                            turbo_method: :patch,
+                                                                          } %>
           <% end %>
         </div>
       </div>

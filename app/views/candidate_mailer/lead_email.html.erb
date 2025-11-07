@@ -1,10 +1,10 @@
-<p><%= "First Name: " +  @content[:first_name] %></p>
-<p><%= "Last Name: " +  @content[:last_name] %></p>
-<p><%= "Email: " +  @content[:email] %></p>
-<p><%= "Phone: " +  @content[:phone] %></p>
+<p><%= "First Name: " + @content[:first_name] %></p>
+<p><%= "Last Name: " + @content[:last_name] %></p>
+<p><%= "Email: " + @content[:email] %></p>
+<p><%= "Phone: " + @content[:phone] %></p>
 <% unless @content[:opening_id].empty? %>
-  <p><%= "Opening: " +  Opening.find(@content[:opening_id]).title %></p>
+  <p><%= "Opening: " + Opening.find(@content[:opening_id]).title %></p>
 <% end %>
-<p><%= "Biography: " +  @content[:biography] %></p>
+<p><%= "Biography: " + @content[:biography] %></p>
 <p><%= link_to "See Candidate", candidate_timeline_url(@candidate) %></p>
 <p><%= link_to "See All Leads", leads_candidates_url %></p>

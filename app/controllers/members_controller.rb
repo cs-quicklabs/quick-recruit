@@ -32,7 +32,7 @@ class MembersController < BaseController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :phone, :location)
+    params.require(:user).permit(:first_name, :last_name, :phone, :location, :email, :role, :active, :biography, :facebook, :linkedin, :github, :twitter, :portfolio, :website, :current_company, :current_title)
   end
 
   def set_user

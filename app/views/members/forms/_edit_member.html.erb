@@ -1,0 +1,46 @@
+<%= tailwind_form_with(model: member, id: dom_id(member), url: member_path(member)) do |form| %>
+  <%= render "shared/error_messages", resource: member %>
+  <%= render "shared/form_messages", resource: member, message: local_assigns[:message] %>
+  <h2 class="mb-4 mt-8 text-xl font-semibold leading-none text-gray-900 dark:text-white">Personal Information</h2>
+
+  <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
+    <div><%= form.text_field :first_name, "First Name", required: true, placeholder: "John" %></div>
+
+    <div class="w-full"><%= form.text_field :last_name, "Last Name", required: true, placeholder: "Doe" %></div>
+
+    <div><%= form.text_field :email, "Email", required: true, placeholder: "name@domain.com" %></div>
+
+    <div><%= form.text_field :phone, "Phone", required: true, placeholder: "9876543210" %></div>
+
+    <div><%= form.text_field :location, "Current City", required: true, placeholder: "Noida" %></div>
+
+    <div class="sm:col-span-2"><%= form.text_area :biography, "Biography", required: true, placeholder: "Tell us about yourself..", style: "height:120px" %></div>
+  </div>
+
+  <h2 class="mb-4 mt-8 text-xl font-semibold leading-none text-gray-900 dark:text-white">Social Information</h2>
+
+  <div class="grid gap-4 mb-4 md:gap-6 md:grid-cols-2 sm:mb-8">
+    <div><%= form.text_field :linkedin, "Linkedin", placeholder: "Linkedin Profile URL" %></div>
+
+    <div><%= form.text_field :portfolio, "Portfolio Or Resume Link", placeholder: "Portfolio or resume URL" %></div>
+
+    <div><%= form.text_field :github, "Github", placeholder: "Github profile URL" %></div>
+
+    <div><%= form.text_field :twitter, "Twitter", placeholder: "Twitter Profile" %></div>
+
+    <div><%= form.text_field :website, "Personal Website", placeholder: "Personal Website URL" %></div>
+  </div>
+
+  <h2 class="mb-4 mt-8 text-xl font-semibold leading-none text-gray-900 dark:text-white">Professional Information</h2>
+
+  <div class="grid gap-4 mb-4 md:gap-6 md:grid-cols-2 sm:mb-8">
+    <div><%= form.text_field :current_title, "Current Job Title", placeholder: "Senior Software Engineer" %></div>
+    <div><%= form.text_field :current_company, "Current Employer", placeholder: "Current Company Name" %></div>
+  </div>
+
+  <button type="submit" class="btn-primary">
+    Update Information
+  </button>
+
+  <%= link_to "Cancel", :back, class: "btn-secondary" %>
+<% end %>

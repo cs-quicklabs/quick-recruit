@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_14_132600) do
+ActiveRecord::Schema[8.0].define(version: 2025_11_08_120859) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -367,6 +367,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_14_132600) do
     t.boolean "active", default: true
     t.datetime "inactive_at"
     t.string "zoho_id"
+    t.string "booking_url"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

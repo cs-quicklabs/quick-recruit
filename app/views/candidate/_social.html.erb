@@ -112,7 +112,7 @@
       </div>
     <% end %>
 
-    <% if candidate.booking_url.present? %>
+    <% if candidate.respond_to?(:booking_url) && candidate.booking_url.present? %>
       <a
         href="<%= absolute_url(candidate.booking_url) %>"
         target="_blank"

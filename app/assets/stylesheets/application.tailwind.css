@@ -24,32 +24,27 @@
   }
 
   .btn-inline-edit {
-    @apply text-sm text-gray-400 hover:text-blue-600 cursor-pointer
+    @apply text-sm text-gray-400 hover:text-blue-600 cursor-pointer;
   }
 
   .btn-inline-delete {
-    @apply text-sm text-gray-400 hover:text-red-600 cursor-pointer
-  }
-
-  .form-text-input {
-    @apply appearance-none block w-full px-2 py-2 border border-gray-300 text-gray-900 bg-gray-50 rounded shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm;
+    @apply text-sm text-gray-400 hover:text-red-600 cursor-pointer;
   }
 
   .form-text-field {
-
     @apply appearance-none block bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-sm focus:ring-primary-600 focus:border-primary-600 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
   }
 
   .nav-selected {
-    @apply bg-gray-500 text-white hover:bg-gray-500 hover:text-white px-3 py-2 rounded text-sm font-medium
+    @apply bg-gray-500 text-white hover:bg-gray-500 hover:text-white px-3 py-2 rounded text-sm font-medium;
   }
 
   .nav-unselected {
-    @apply text-gray-300 hover:bg-gray-500 hover:text-white px-3 py-2 rounded text-sm font-medium
+    @apply text-gray-300 hover:bg-gray-500 hover:text-white px-3 py-2 rounded text-sm font-medium;
   }
 
   .svg-icon {
-    @apply text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6
+    @apply text-gray-400 group-hover:text-gray-500 flex-shrink-0 -ml-1 mr-3 h-6 w-6;
   }
 
   .selected {
@@ -61,7 +56,7 @@
   }
 
   .table-head {
-    @apply px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase whitespace-nowrap
+    @apply px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase whitespace-nowrap;
   }
 
   .table-cell {
@@ -69,11 +64,11 @@
   }
 
   .table {
-    @apply min-w-full divide-y divide-gray-200
+    @apply min-w-full divide-y divide-gray-200;
   }
 
   .table-body {
-    @apply bg-white divide-y divide-gray-200
+    @apply bg-white divide-y divide-gray-200;
   }
 
   .unselected-nav {

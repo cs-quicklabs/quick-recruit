@@ -7,12 +7,16 @@
             <h1 class="mr-3 text-lg font-semibold dark:text-white">Leads</h1>
             <p class="text-gray-500 dark:text-gray-400 text-sm">Following <span class="font-bold"><%= @candidates.count %></span> leads were received from the website.</p>
           </div>
+
           <div class="flex items-center space-x-4">
-            <%= button_to "Archive Rejected Candidates", leads_candidates_path, class: "btn-secondary", data: {
+            <% if current_user.admin_or_recruiter_admin? %>
+              <%= button_to "Archive Rejected Candidates", leads_candidates_path, class: "btn-secondary", data: {
                                                                                   controller: "confirmation",
                                                                                   "confirmation-message-value": "Are you sure you want to archive rejected candidates and refresh data again? All candidates with status 'Rejected in Screening' will be archived. If you wish to move anyone to Icebox, please do so before proceeding.",
                                                                                   action: "confirmation#confirm",
                                                                                 } %>
+            <% end %>
+
             <a type="button" href="/candidates/new" class="btn-primary">Add new candidate</a>
           </div>
         </div>
@@ -23,6 +27,7 @@
           <div class="items-center hidden mt-3 mr-4 text-sm font-medium text-gray-900 md:flex dark:text-white">
             Show records only for:
           </div>
+
           <div class="flex flex-wrap">
             <% @recruiters.each do |recruiter| %>
               <a href="<%= leads_candidates_path(recruiter: recruiter.id) %>">
@@ -45,10 +50,12 @@
                       class="w-4 h-4 bg-gray-100 border-gray-300 text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 cursor-pointer"
                     >
                   <% end %>
+
                   <label for="all-products" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"><%= recruiter.name %></label>
                 </div>
               </a>
             <% end %>
+
             <% unless params[:recruiter].nil? %>
               <%= link_to "Show All", leads_candidates_path, class: "underline mt-3 mr-4 font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm" %>
             <% end %>
@@ -69,6 +76,7 @@
               <th scope="col" class="px-4 py-3 whitespace-nowrap">Last known status</th>
             </tr>
           </thead>
+
           <tbody><%= render partial: "lead", collection: @candidates, as: :candidate %></tbody>
         </table>
       </div>

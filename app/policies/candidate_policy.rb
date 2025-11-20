@@ -1,6 +1,6 @@
 class CandidatePolicy < ApplicationPolicy
   def update_bucket?
-    user.admin_or_recruiter_admin? or (user.recruiter? and (record.incomplete? or record.icebox?))
+    user.admin_or_recruiter_admin? or user.data? or (user.recruiter? and (record.incomplete? or record.icebox?))
   end
 
   def update_status?

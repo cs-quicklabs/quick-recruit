@@ -20,6 +20,11 @@ class Member::ReportsController < Member::BaseController
 
   def update
     @report.update(report_params)
+    if params[:commit] == "submitted"
+      @report.submitted!
+    elsif params[:commit] == "draft"
+      @report.draft!
+    end
     redirect_to member_reports_path(@member), notice: "Report was updated successfully"
   end
 

@@ -1,8 +1,9 @@
 <%= turbo_frame_tag dom_id(@candidate, :recycle_date) do %>
   <div>
     <dt class="font-semibold text-sm leading-none text-gray-900 dark:text-white">Change Recycle Date</dt>
+
     <%= form_with(modal: @candidate, url: candidate_update_recycle_path(@candidate), method: :patch) do |form| %>
-      <div class="flex items-center mt-2"><%= form.date_field :next_recycle_on, value: @candidate.next_recycle_on, class: "form-text-field" %><%= form.submit "Save", class: "btn-blue ml-2" %></div>
+      <div class="flex items-center mt-2"><%= form.date_field :next_recycle_on, value: @candidate.next_recycle_on, class: "form-text-field" %><%= form.submit "Save", class: "btn-primary ml-2" %></div>
     <% end %>
   </div>
 <% end %>

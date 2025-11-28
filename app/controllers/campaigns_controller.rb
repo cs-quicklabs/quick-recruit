@@ -32,24 +32,30 @@ class CampaignsController < BaseController
   end
 
   def index
-    @campaigns = nil
-    if current_user.admin_or_recruiter_admin?
-      if params[:active].present?
-        @campaigns = Campaign.includes(:owner).where(active: params[:active]).order(created_at: :desc)
-      else
-        @campaigns = Campaign.includes(:owner).all.order(created_at: :desc)
-      end
-    else
-      if params[:active].present?
-        @campaigns = Campaign.includes(:owner).where(owner: current_user, active: params[:active]).order(created_at: :desc)
-      else
-        @campaigns = Campaign.includes(:owner).where(owner: current_user).order(created_at: :desc)
-      end
-    end
-    @campaigns.limit(24) if @campaigns.present?
+    @campaigns = current_user.admin_or_recruiter_admin? ? campaings_for_admins : campaigns_for_current_user
   end
 
   private
+
+  def campaings_for_admins
+    @campaigns = nil
+    if params[:active].present?
+      @campaigns = Campaign.includes(:owner).where(active: params[:active]).order(created_at: :desc)
+    else
+      @campaigns = Campaign.includes(:owner).all.order(created_at: :desc).limit(20)
+    end
+    return @campaigns
+  end
+
+  def campaigns_for_current_user
+    @campaigns = nil
+    if params[:active].present?
+      @campaigns = Campaign.includes(:owner).where(owner: current_user, active: params[:active]).order(created_at: :desc)
+    else
+      @campaigns = Campaign.includes(:owner).where(owner: current_user).order(created_at: :desc).limit(20)
+    end
+    return @campaigns
+  end
 
   def campaign_params
     params.require(:campaign).permit(:name, :owner_id, :start_date, :end_date, :active)

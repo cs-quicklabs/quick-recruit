@@ -7,8 +7,7 @@ class CampaignsController < BaseController
   end
 
   def show
-    @candidates = @campaign.candidates.includes(:opening, :owner)
-    @candidates.order(updated_at: :desc)
+    @candidates = @campaign.candidates.includes(:opening, :owner).order(updated_at: :desc)
   end
 
   def edit
@@ -32,29 +31,24 @@ class CampaignsController < BaseController
   end
 
   def index
-    @campaigns = current_user.admin_or_recruiter_admin? ? campaings_for_admins : campaigns_for_current_user
+    @campaigns = current_user.admin_or_recruiter_admin? ? campaigns_for_admins : campaigns_for_current_user
   end
 
   private
 
-  def campaings_for_admins
-    @campaigns = nil
-    if params[:active].present?
-      @campaigns = Campaign.includes(:owner).where(active: params[:active]).order(created_at: :desc)
-    else
-      @campaigns = Campaign.includes(:owner).all.order(created_at: :desc).limit(20)
-    end
-    return @campaigns
+  def campaigns_for_admins
+    base_scope = Campaign.includes(:owner)
+    filter_campaigns(base_scope)
   end
 
   def campaigns_for_current_user
-    @campaigns = nil
-    if params[:active].present?
-      @campaigns = Campaign.includes(:owner).where(owner: current_user, active: params[:active]).order(created_at: :desc)
-    else
-      @campaigns = Campaign.includes(:owner).where(owner: current_user).order(created_at: :desc).limit(20)
-    end
-    return @campaigns
+    base_scope = Campaign.includes(:owner).where(owner: current_user)
+    filter_campaigns(base_scope)
+  end
+
+  def filter_campaigns(scope)
+    scope = scope.where(active: params[:active]) if params[:active].present?
+    scope.order(created_at: :desc).limit(20)
   end
 
   def campaign_params

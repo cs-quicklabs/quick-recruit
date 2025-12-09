@@ -42,5 +42,9 @@ class CandidateQuery
     def bucket(param)
       where(bucket: param)
     end
+
+    def owner_id(param)
+      where(owner_id: param)
+    end
   end
 end

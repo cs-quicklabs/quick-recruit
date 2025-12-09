@@ -6,36 +6,16 @@
           <h3 class="text-xs font-semibold tracking-wider text-gray-500 uppercase" id="teams-headline">
             Filter Candidates
           </h3>
+
           <%= form_with url: report_candidates_path, method: :get do |form| %>
             <main class="max-w-lg pt-6 pb-12 mx-auto space-y-4 lg:pb-16">
-              <div>
-                <label for="role" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Role
-                </label>
-                <%= form.collection_select(:role_id, @roles.order(:title), :id, :title, { :prompt => "Select Primary Skill", :selected => (params["role_id"] if !params["role_id"].blank?) }, :class => "form-text-field") %>
-              </div>
-              <div>
-                <label for="opening" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Job Association 
-                </label>
-                <%= form.collection_select(:opening_id, @openings.order(:title), :id, :title, { :prompt => "Select Associated With", :selected => (params["opening_id"] if !params["opening_id"].blank?) }, :class => "form-text-field") %>
-              </div>
-              <div>
-                <label for="created" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Created By
-                </label>
-                <%= form.collection_select(:user_id, User.owners, :id, :name, { :prompt => "Select Created by ", :selected => (params["user_id"] if !params["user_id"].blank?) }, :class => "form-text-field") %>
-              </div>
-              <div>
-                <label for="bucket" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                  Bucket
-                </label>
-                <%= select_tag :bucket, options_for_select(Candidate.buckets.map { |k, v| [k.humanize.capitalize, k] }, (params["bucket"] unless params["bucket"].blank?)), class: "form-text-field", :name => "bucket", :prompt => "Select Bucket" %>
-              </div>
-              <div class="flex justify-end mt-6">
-                <%= link_to "Reset", report_candidates_path, class: "btn-secondary mr-2" %>
-                <%= form.submit "Search", class: "btn-primary" %>
-              </div>
+              <div><label for="role" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Role </label><%= form.collection_select(:role_id, @roles.order(:title), :id, :title, { :prompt => "Select Primary Skill", :selected => (params["role_id"] if !params["role_id"].blank?) }, :class => "form-text-field") %></div>
+              <div><label for="opening" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Job Association </label><%= form.collection_select(:opening_id, @openings.order(:title), :id, :title, { :prompt => "Select Associated With", :selected => (params["opening_id"] if !params["opening_id"].blank?) }, :class => "form-text-field") %></div>
+              <div><label for="created" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Created By </label><%= form.collection_select(:user_id, User.owners, :id, :name, { :prompt => "Select Created by ", :selected => (params["user_id"] if !params["user_id"].blank?) }, :class => "form-text-field") %></div>
+              <div><label for="bucket" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Bucket </label><%= select_tag :bucket, options_for_select(Candidate.buckets.map { |k, v| [k.humanize.capitalize, k] }, (params["bucket"] unless params["bucket"].blank?)), class: "form-text-field", :name => "bucket", :prompt => "Select Bucket" %></div>
+              <div><label for="owner" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Owner </label><%= select_tag :owner_id, options_for_select(User.owners.map { |u| [u.name, u.id] }, (params["owner_id"] unless params["owner_id"].blank?)), class: "form-text-field", :name => "owner_id", :prompt => "Select Owner" %></div>
+
+              <div class="flex justify-end mt-6"><%= link_to "Reset", report_candidates_path, class: "btn-secondary mr-2" %><%= form.submit "Search", class: "btn-primary" %></div>
             </main>
           <% end %>
         </div>

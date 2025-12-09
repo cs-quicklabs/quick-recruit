@@ -62,6 +62,7 @@ Rails.application.routes.draw do
       resources :interviews
       resources :reviews
       resources :feedbacks
+      resources :candidates
       resources :reports
       get "timeline", to: "timeline#index"
     end

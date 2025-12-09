@@ -46,4 +46,14 @@ module ProgressHelper
     end
     display_opening_associations.html_safe
   end
+
+  def display_owner_associations(owner)
+    display_owner_associations = ""
+    Candidate.where(owner: owner.id).reorder("").group(:bucket).count.sort_by { |key, value| value }.each do |bucket, count|
+      bucket_name = bucket.humanize
+      association_count = count
+      display_owner_associations << "<a class='font-medium text-blue-600 dark:text-blue-500 hover:underline text-sm' href='/report/candidates?owner_id=#{owner.id}&bucket=#{bucket}'>#{association_count.to_s} #{bucket_name}</a>"
+    end
+    display_owner_associations.html_safe
+  end
 end

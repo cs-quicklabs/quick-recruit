@@ -1,18 +1,28 @@
 <section class="bg-gray-50 dark:bg-gray-900 py-3 sm:py-5 min-h-screen">
   <div class="px-4 mx-auto max-w-screen-2xl lg:px-8">
     <div class="relative overflow-hidden bg-white shadow-md dark:bg-gray-800 sm:rounded-sm">
-      <div class=" divide-y dark:divide-gray-700">
+      <div class="divide-y dark:divide-gray-700">
         <div class="flex-row items-center justify-between p-4 space-y-3 sm:flex sm:space-y-0 sm:space-x-4">
           <div>
             <h1 class="mr-3 text-lg font-semibold dark:text-white">Recruitment Team</h1>
             <p class="text-gray-500 dark:text-gray-400 text-sm">Manage all your existing team members or add a new one.</p>
           </div>
-          <a type="button" href="/members/new"
-                class="btn-primary">
-            Add new member
-          </a>
+
+          <div class="flex items-center space-x-2">
+            <a
+              type="button"
+              target="_blank"
+              href="/public/team"
+              class="btn-secondary"
+            >
+              Show Public Page
+            </a>
+
+            <a type="button" href="/members/new" class="btn-primary"> Add new member </a>
+          </div>
         </div>
       </div>
+
       <div class="overflow-x-auto">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -27,9 +37,8 @@
               <th scope="col" class="px-4 py-3 whitespace-nowrap">Added On</th>
             </tr>
           </thead>
-          <tbody>
-            <%= render partial: "member", collection: @members, as: :member %>
-          </tbody>
+
+          <tbody><%= render partial: "member", collection: @members, as: :member %></tbody>
         </table>
       </div>
     </div>

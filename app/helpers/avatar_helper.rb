@@ -11,6 +11,10 @@ module AvatarHelper
     display_avatar(resource, "w-10 h-10", "text-lg", [80, 80])
   end
 
+  def display_normal_avatar(resource)
+    display_avatar(resource, "w-16 h-16", "text-lg", [120, 120])
+  end
+
   def display_large_avatar(resource)
     display_avatar(resource, "w-40 h-40", "text-xl", [160, 160])
   end

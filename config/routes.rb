@@ -124,6 +124,7 @@ Rails.application.routes.draw do
 
   scope "/public" do
     get "/thanks", to: "public/apply#thanks", as: "public_thanks"
+    get "/team", to: "public/team#index", as: "public_team"
     get "/openings", to: "public/openings#index", as: "public_openings"
     get "/openings/apply", to: "public/apply#index", as: "public_apply"
     post "/openings/apply", to: "public/apply#create", as: "public_apply_create"

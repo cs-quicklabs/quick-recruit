@@ -10,7 +10,60 @@
     <p class="text-center text-sm"><%= member.biography %></p>
 
     <% if member.booking_url.present? %>
-      <div class="flex"><a class="w-full btn-primary" target="_blank" href="<%= member.booking_url %>">Book an appointment</a></div>
+      <div class="flex gap-2">
+        <a class="w-full btn-primary" target="_blank" href="<%= member.booking_url %>">Book an appointment</a>
+
+        <button
+          type="button"
+          class="flex items-center justify-center flex-shrink-0 p-2 rounded border border-gray-300 bg-white hover:bg-gray-50"
+          aria-label="Copy calendar link"
+          onclick="const btn=this;const icon=btn.querySelector('.copy-icon');const check=btn.querySelector('.copied-icon');navigator.clipboard.writeText('<%= j member.booking_url %>');icon.style.display='none';check.style.display='inline';setTimeout(()=>{icon.style.display='inline';check.style.display='none';},1200);"
+        >
+          <svg
+            class="copy-icon h-5 w-5 text-gray-500"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+            style="display:inline"
+          >
+            <rect
+              x="9"
+              y="9"
+              width="13"
+              height="13"
+              rx="2"
+              ry="2"
+              stroke="currentColor"
+              fill="none"
+            />
+
+            <rect
+              x="3"
+              y="3"
+              width="13"
+              height="13"
+              rx="2"
+              ry="2"
+              stroke="currentColor"
+              fill="none"
+            />
+          </svg>
+
+          <svg
+            class="copied-icon h-5 w-5 text-green-500"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+            style="display:none"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </button>
+      </div>
     <% end %>
 
     <div class="flex flex-row gap-2">

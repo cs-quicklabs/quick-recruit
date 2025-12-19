@@ -40,6 +40,19 @@ class OpeningsController < BaseController
   def destroy
   end
 
+  def toggle_interviewer
+    @opening = Opening.find(params[:id])
+    user = User.find(params[:user_id])
+
+    if params[:checked] == true || params[:checked] == "true"
+      @opening.interviewers << user unless @opening.interviewers.exists?(user.id)
+    else
+      @opening.interviewers.delete(user)
+    end
+
+    head :ok
+  end
+
   private
 
   def openings_params

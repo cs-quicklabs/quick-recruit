@@ -68,6 +68,24 @@
 
     <div class="shrink-0 border-t border-gray-200 px-4 py-6 sm:px-6 lg:w-80 lg:border-l lg:border-t-0 lg:pr-8 xl:pr-6">
       <!-- Right column area -->
+       <div>
+        <h5 class="mr-3 font-semibold dark:text-white">Select Interviewers</h5>
+        <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Click on interviewer to open their calendar to schedule an interview.</p>
+        <% @interviewers.each do |interviewer| %>
+          <div class="flex space-y-2">
+            <% if interviewer.booking_url.present? %>
+            <a class ="link" href="<%= interviewer.booking_url %>" target="_blank"><%= interviewer.name %></a>
+            <% else %>
+            <span class="text-gray-500 font-medium text-sm dark:text-gray-200"><%= interviewer.name %> </span>
+            <% end %>
+          </div>
+        <% end %> 
+        <% if @interviewers.empty? %>
+          <p class="text-gray-500 dark:text-gray-400 text-xs mb-4">No interviewers have been assigned for this opening yet.</p>
+        <% else %>
+        <p class="text-gray-500 dark:text-gray-400 text-xs mb-4 mt-2">If an interviewer does not have a calendar link, the interviewer name will appear as disabled.</p>
+        <% end %>
+        
     </div>
   </div>
 </div>

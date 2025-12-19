@@ -19,6 +19,7 @@ class User < ApplicationRecord
   scope :admins, -> { where(role: :admin, active: true) }
   scope :data, -> { where(role: :data, active: true) }
   scope :owners, -> { where(role: [:admin, :recruiter, :recruiter_admin], active: true).order(:first_name) }
+  scope :interviewers, -> { where(role: [:interviewer, :admin], active: true).order(:first_name) }
 
   def avatar_size
     if avatar.attached? && avatar.blob.byte_size > 1.megabytes

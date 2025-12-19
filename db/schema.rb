@@ -178,6 +178,16 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_08_120859) do
     t.index ["role_id"], name: "index_openings_on_role_id"
   end
 
+  create_table "openings_users", force: :cascade do |t|
+    t.bigint "opening_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["opening_id", "user_id"], name: "index_openings_users_on_opening_id_and_user_id", unique: true
+    t.index ["opening_id"], name: "index_openings_users_on_opening_id"
+    t.index ["user_id"], name: "index_openings_users_on_user_id"
+  end
+
   create_table "recycles", force: :cascade do |t|
     t.bigint "candidate_id", null: false
     t.boolean "recycled", default: false
@@ -385,6 +395,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_11_08_120859) do
   add_foreign_key "notes", "users"
   add_foreign_key "openings", "roles"
   add_foreign_key "openings", "users", column: "owner_id"
+  add_foreign_key "openings_users", "openings"
+  add_foreign_key "openings_users", "users"
   add_foreign_key "recycles", "candidates"
   add_foreign_key "reports", "users"
   add_foreign_key "reports", "users", column: "submitter_id"

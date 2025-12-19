@@ -4,6 +4,8 @@ class Opening < ApplicationRecord
   has_rich_text :description
   has_rich_text :note
   has_many :candidates, dependent: :destroy
+  has_many :openings_users, class_name: "OpeningsUser", dependent: :destroy
+  has_many :interviewers, class_name: "User", through: :openings_users, source: :user
 
   scope :active, -> { where(active: true) }
 

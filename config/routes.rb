@@ -69,6 +69,9 @@ Rails.application.routes.draw do
   end
 
   resources :openings do
+    member do
+      post :toggle_interviewer
+    end
     collection do
       get "description"
     end

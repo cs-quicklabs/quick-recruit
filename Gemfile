@@ -1,7 +1,5 @@
 source "https://rubygems.org"
 
-ruby "3.3.0"
-
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "8.0.1"
 
@@ -46,6 +44,8 @@ gem "solid_queue"
 
 # A database-backed ActiveSupport::Cache::Store [https://github.com/rails/solid_cache]
 gem "solid_cache"
+
+gem "ostruct"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

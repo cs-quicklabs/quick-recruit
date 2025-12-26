@@ -2,17 +2,17 @@
   <div class="px-0 lg:px-6">
     <div class="flex items-center">
       <ul class="flex flex-col mt-0 w-full text-sm font-medium lg:flex-row">
-        <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0"><a href="<%= member_timeline_path(@member) %>" class="block py-3 px-4 text-primary-600 hover:text-primary-600 dark:text-primary-500 <%= current_page?(member_timeline_path(@member)) ? "border-primary-600 border-b-2" : "hover:border-primary-600" %>" aria-current="page">Timeline</a></li>
+        <li class="block border-b border-gray-200 dark:border-gray-700 lg:inline lg:border-b-0"><a href="<%= member_timeline_path(@member) %>" class="block py-3 px-4 text-primary-600 hover:text-primary-600 dark:text-primary-500 <%= current_page?(member_timeline_path(@member)) ? "border-primary-600 border-b-2" : "hover:border-primary-600" %>" aria-current="page">Timeline</a></li>
 
-        <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
+        <li class="block border-b border-gray-200 dark:border-gray-700 lg:inline lg:border-b-0">
           <a href="<%= member_interviews_path(@member) %>" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 <%= current_page?(member_interviews_path(@member)) ? "border-primary-600 border-b-2" : "hover:border-primary-600" %>">Interviews</a>
         </li>
 
-        <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
+        <li class="block border-b border-gray-200 dark:border-gray-700 lg:inline lg:border-b-0">
           <a href="<%= member_candidates_path(@member) %>" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 <%= current_page?(member_candidates_path(@member)) ? "border-primary-600 border-b-2" : "hover:border-primary-600" %>">Candidates</a>
         </li>
 
-        <li class="block border-b dark:border-gray-700 lg:inline lg:border-b-0">
+        <li class="block border-b border-gray-200 dark:border-gray-700 lg:inline lg:border-b-0">
           <a href="<%= member_reviews_path(@member) %>" class="block py-3 px-4 text-gray-500 dark:text-gray-400 hover:text-primary-600 hover:border-b-2 dark:hover:text-primary-500 dark:hover:border-primary-500 <%= current_page?(member_reviews_path(@member)) ? "border-primary-600 border-b-2" : "hover:border-primary-600" %>">Reviews</a>
         </li>
 

@@ -8,13 +8,13 @@
         <div class="hidden sm:ml-2 sm:block">
           <div class="flex space-x-1">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-500 hover:text-white" -->
-            <a href="<%= members_path %>" class="<%= current_page?(members_path) ? "selected-nav" : "unselected-nav" %>">Team</a>
-            <a href="<%= candidates_path %>" class="<%= current_page?(candidates_path) ? "selected-nav" : "unselected-nav" %>">Candidates</a>
-            <a href="<%= pipeline_candidates_path %>" class="<%= current_page?(pipeline_candidates_path) ? "selected-nav" : "unselected-nav" %>">Pipeline</a>
-            <a href="<%= campaigns_path(active: true) %>" class="<%= current_page?(campaigns_path) ? "selected-nav" : "unselected-nav" %>">Sprints</a>
-            <a href="<%= recycle_path %>" class="<%= current_page?(recycle_path) ? "selected-nav" : "unselected-nav" %>">Recycle</a>
-            <a href="<%= openings_path(active: true) %>" class="<%= current_page?(openings_path) ? "selected-nav" : "unselected-nav" %>">Openings</a>
-            <a href="<%= reports_path %>" class="<%= current_page?(reports_path) ? "selected-nav" : "unselected-nav" %>">Reports</a>
+            <a href="<%= members_path %>" class="<%= current_page?(members_path) ? "nav-selected" : "nav-unselected" %>">Team</a>
+            <a href="<%= candidates_path %>" class="<%= current_page?(candidates_path) ? "nav-selected" : "nav-unselected" %>">Candidates</a>
+            <a href="<%= pipeline_candidates_path %>" class="<%= current_page?(pipeline_candidates_path) ? "nav-selected" : "nav-unselected" %>">Pipeline</a>
+            <a href="<%= campaigns_path(active: true) %>" class="<%= current_page?(campaigns_path) ? "nav-selected" : "nav-unselected" %>">Sprints</a>
+            <a href="<%= recycle_path %>" class="<%= current_page?(recycle_path) ? "nav-selected" : "nav-unselected" %>">Recycle</a>
+            <a href="<%= openings_path(active: true) %>" class="<%= current_page?(openings_path) ? "nav-selected" : "nav-unselected" %>">Openings</a>
+            <a href="<%= reports_path %>" class="<%= current_page?(reports_path) ? "nav-selected" : "nav-unselected" %>">Reports</a>
           </div>
         </div>
       </div>

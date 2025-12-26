@@ -9,8 +9,8 @@
         </div>
         <div class="hidden sm:ml-2 sm:block">
           <div class="flex space-x-1">
-            <a href="<%= member_timeline_path(current_user) %>" class="<%= current_page?(member_timeline_path(current_user)) ? "selected-nav" : "unselected-nav" %>"><%= current_user.first_name %></a>
-            <a href="<%= interviews_path %>" class="<%= current_page?(interviews_path) ? "selected-nav" : "unselected-nav" %>">Interviews</a>
+            <a href="<%= member_timeline_path(current_user) %>" class="<%= current_page?(member_timeline_path(current_user)) ? "nav-selected" : "nav-unselected" %>"><%= current_user.first_name %></a>
+            <a href="<%= interviews_path %>" class="<%= current_page?(interviews_path) ? "nav-selected" : "nav-unselected" %>">Interviews</a>
           </div>
         </div>
       </div>

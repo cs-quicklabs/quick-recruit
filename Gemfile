@@ -58,6 +58,7 @@ gem "rails-patterns"
 gem "pagy", "9.3.4"
 gem "pundit"
 gem "redis"
+gem "csv"
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]

@@ -19,7 +19,7 @@
         This bucket contains those candidates which we need to look and decide when to process.
         <div class="tooltip-arrow" data-popper-arrow></div>
       </div>
-      <div class="flex flex-1 items-center justify-between truncate rounded-sm-r-md border-b border-r border-t border-gray-200 bg-white">
+      <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
         <div class="flex-1 truncate px-4 py-2 text-sm">
           <a href="/candidates/hot" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Hot</a>
           <p class="text-gray-500"><%= @hot_count %>  Candidates</p>
@@ -32,7 +32,7 @@
         This bucket contains those candidates which are currently in our pipeline under various sprints.
         <div class="tooltip-arrow" data-popper-arrow></div>
       </div>
-      <div class="flex flex-1 items-center justify-between truncate rounded-sm-r-md border-b border-r border-t border-gray-200 bg-white">
+      <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
         <div class="flex-1 truncate px-4 py-2 text-sm">
           <a href="/candidates/pipeline" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Pipeline</a>
           <p class="text-gray-500"><%= @pipeline_count %>  Candidates</p>
@@ -45,7 +45,7 @@
         This bucket contains those candidates which cleared our process but did not join us and we might consider them in future.
         <div class="tooltip-arrow" data-popper-arrow></div>
       </div>
-      <div class="flex flex-1 items-center justify-between truncate rounded-sm-r-md border-b border-r border-t border-gray-200 bg-white">
+      <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
         <div class="flex-1 truncate px-4 py-2 text-sm">
           <a href="/candidates/champions" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Champions</a>
           <p class="text-gray-500"><%= @champions_count %>  Candidates</p>
@@ -58,7 +58,7 @@
         This bucket contains those candidates who are currently part of us.
         <div class="tooltip-arrow" data-popper-arrow></div>
       </div>
-      <div class="flex flex-1 items-center justify-between truncate rounded-sm-r-md border-b border-r border-t border-gray-200 bg-white">
+      <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
         <div class="flex-1 truncate px-4 py-2 text-sm">
           <a href="/candidates/employees" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Employees</a>
           <p class="text-gray-500"><%= @employees_count %>  Candidates</p>
@@ -73,7 +73,7 @@
         This bucket contains those leads which were collected from our career portal.
         <div class="tooltip-arrow" data-popper-arrow></div>
       </div>
-      <div class="flex flex-1 items-center justify-between truncate rounded-sm-r-md border-b border-r border-t border-gray-200 bg-white">
+      <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
         <div class="flex-1 truncate px-4 py-2 text-sm">
           <a href="/candidates/leads" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Leads</a>
           <p class="text-gray-500"><%= @leads_count %>  Candidates</p>
@@ -86,7 +86,7 @@
         This bucket contains newly added candidates and need review.
         <div class="tooltip-arrow" data-popper-arrow></div>
       </div>
-      <div class="flex flex-1 items-center justify-between truncate rounded-sm-r-md border-b border-r border-t border-gray-200 bg-white">
+      <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
         <div class="flex-1 truncate px-4 py-2 text-sm">
           <a href="/candidates/recent" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Recent</a>
           <p class="text-gray-500"><%= @recent_count %> Candidates</p>
@@ -99,7 +99,7 @@
         This bucket contains those candidates who are no longer with us.
         <div class="tooltip-arrow" data-popper-arrow></div>
       </div>
-      <div class="flex flex-1 items-center justify-between truncate rounded-sm-r-md border-b border-r border-t border-gray-200 bg-white">
+      <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
         <div class="flex-1 truncate px-4 py-2 text-sm">
           <a href="/candidates/alumni" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Alumni</a>
           <p class="text-gray-500"><%= @alumni_count %>  Candidates</p>
@@ -112,7 +112,7 @@
         This bucket contains those candidates which have worked with us as contractors in past.
         <div class="tooltip-arrow" data-popper-arrow></div>
       </div>
-      <div class="flex flex-1 items-center justify-between truncate rounded-sm-r-md border-b border-r border-t border-gray-200 bg-white">
+      <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
         <div class="flex-1 truncate px-4 py-2 text-sm">
           <a href="/candidates/contractors" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Contractors</a>
           <p class="text-gray-500"><%= @contractors_count %>  Candidates</p>
@@ -127,7 +127,7 @@
         This bucket contains those candidates for which we do not have enough data.
         <div class="tooltip-arrow" data-popper-arrow></div>
       </div>
-      <div class="flex flex-1 items-center justify-between truncate rounded-sm-r-md border-b border-r border-t border-gray-200 bg-white">
+      <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
         <div class="flex-1 truncate px-4 py-2 text-sm">
           <a href="/candidates/incomplete" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Incomplete</a>
           <p class="text-gray-500"><%= @incomplete_count %>  Candidates</p>
@@ -140,7 +140,7 @@
         This bucket contains those candidates which are joining in next few days.
         <div class="tooltip-arrow" data-popper-arrow></div>
       </div>
-      <div class="flex flex-1 items-center justify-between truncate rounded-sm-r-md border-b border-r border-t border-gray-200 bg-white">
+      <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
         <div class="flex-1 truncate px-4 py-2 text-sm">
           <a href="/candidates/joinings" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Joinings</a>
           <p class="text-gray-500"><%= @joinings_count %>  Candidates</p>
@@ -153,7 +153,7 @@
         This bucket contains those candidate which should be followed up with after some time.
         <div class="tooltip-arrow" data-popper-arrow></div>
       </div>
-      <div class="flex flex-1 items-center justify-between truncate rounded-sm-r-md border-b border-r border-t border-gray-200 bg-white">
+      <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
         <div class="flex-1 truncate px-4 py-2 text-sm">
           <a href="/candidates/icebox" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Icebox</a>
           <p class="text-gray-500"><%= @icebox_count %>  Candidates</p>
@@ -166,7 +166,7 @@
         This bucket contains those candidates which are not fit for us and we might not consider in future as well.
         <div class="tooltip-arrow" data-popper-arrow></div>
       </div>
-      <div class="flex flex-1 items-center justify-between truncate rounded-sm-r-md border-b border-r border-t border-gray-200 bg-white">
+      <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
         <div class="flex-1 truncate px-4 py-2 text-sm">
           <a href="/candidates/archive" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Archive</a>
           <p class="text-gray-500"><%= @archive_count %>  Candidates</p>
@@ -181,7 +181,7 @@
         This bucket contains those candidates which we need to nurture.
         <div class="tooltip-arrow" data-popper-arrow></div>
       </div>
-      <div class="flex flex-1 items-center justify-between truncate rounded-sm-r-md border-b border-r border-t border-gray-200 bg-white">
+      <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
         <div class="flex-1 truncate px-4 py-2 text-sm">
           <a href="/candidates/nurture" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Nurture</a>
           <p class="text-gray-500"><%= @nurture_count %>  Candidates</p>

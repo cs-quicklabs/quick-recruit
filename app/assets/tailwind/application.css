@@ -99,7 +99,7 @@
 }
 
 .radio {
-  @aply w-4 h-4 text-gray-300 border-gray-200 bg-gray-100 rounded-full checked:border-primary-500 focus:ring-2 focus:outline-none focus:ring-primary-500 border border-gray-200 appearance-none cursor-pointer checked:bg-primary-600;
+  @apply w-4 h-4 text-gray-300 border-gray-200 bg-gray-100 rounded-full checked:border-primary-500 focus:ring-2 focus:outline-none focus:ring-primary-500 border border-gray-200 appearance-none cursor-pointer checked:bg-primary-600;
 }
 /* Sort icons */
 .sort {

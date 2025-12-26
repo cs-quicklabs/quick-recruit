@@ -4,7 +4,7 @@
       <div class="flex items-center">
         <dt class="font-semibold text-sm leading-none text-gray-900 dark:text-white">Change Recycle Date</dt>
         <% if policy(candidate).update_recycle? %>
-          <div id="changeStatusButton" data-tooltip-target="tooltip-joining" class="cursor-pointer p-1 ml-1 text-gray-500 rounded-sm hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+          <div id="changeStatusButton" data-tooltip-target="tooltip-joining" class="cursor-pointer p-1 ml-1 text-gray-500 rounded-xs hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
             <a href="<%= candidate_edit_recycle_path(candidate) %>">
               <svg
                 class="w-4 h-4 text-gray-800 dark:text-white"
@@ -23,13 +23,13 @@
               </svg>
             </a>
           </div>
-          <div id="tooltip-joining" role="tooltip" class="inline-block text-xs absolute invisible z-10 py-1 px-2 text-xs font-medium text-white bg-gray-900 rounded-sm shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+          <div id="tooltip-joining" role="tooltip" class="inline-block text-xs absolute invisible z-10 py-1 px-2 text-xs font-medium text-white bg-gray-900 rounded-xs shadow-xs opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
             Edit Recycle Date
             <div class="tooltip-arrow" data-popper-arrow></div>
           </div>
         <% end %>
       </div>
-      <dd class="mb-4 sm:mb-5"><span class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2 py-0.5 rounded">Next Recycle On: <%= display_date(candidate.next_recycle_on) %></span></dd>
+      <dd class="mb-4 sm:mb-5"><span class="bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2 py-0.5 rounded-sm">Next Recycle On: <%= display_date(candidate.next_recycle_on) %></span></dd>
     </div>
   <% end %>
 <% end %>

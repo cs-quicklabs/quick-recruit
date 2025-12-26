@@ -1,4 +1,4 @@
-<section class="max-w-sm w-full border border-gray-200 rounded-sm shadow-sm p-4 md:p-6">
+<section class="max-w-sm w-full border border-gray-200 rounded-xs shadow-xs p-4 md:p-6">
   <div class="flex flex-col items-center gap-4 text-neutral-700">
     <%= display_normal_avatar(member) %>
 
@@ -15,7 +15,7 @@
 
         <button
           type="button"
-          class="flex items-center justify-center flex-shrink-0 p-2 rounded border border-gray-300 bg-white hover:bg-gray-50"
+          class="flex items-center justify-center flex-shrink-0 p-2 rounded-sm border border-gray-300 bg-white hover:bg-gray-50"
           aria-label="Copy calendar link"
           onclick="const btn=this;const icon=btn.querySelector('.copy-icon');const check=btn.querySelector('.copied-icon');navigator.clipboard.writeText('<%= j member.booking_url %>');icon.style.display='none';check.style.display='inline';setTimeout(()=>{icon.style.display='inline';check.style.display='none';},1200);"
         >

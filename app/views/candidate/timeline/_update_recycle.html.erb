@@ -5,7 +5,7 @@
     <div class="text-sm font-normal text-gray-500 dark:text-gray-300">
       <a href="<%= member_timeline_path(event.user) %>" class="font-medium text-gray-900 hover:underline"><%= event.user.name %></a>
       updated
-      <span class="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">next recycle date</span>
+      <span class="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2 py-0.5 rounded-sm dark:bg-primary-200 dark:text-primary-800">next recycle date</span>
       to
       <%= display_date(event.eventable.next_recycle_on) %>
       .

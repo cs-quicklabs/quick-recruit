@@ -4,6 +4,6 @@
   </span>
   <div class="items-center justify-between p-1  sm:flex dark:bg-gray-700 dark:border-gray-600">
     <time class="mb-1 text-xs font-normal text-gray-400 sm:order-last sm:mb-0"><%= display_created_at_with_time(event) %></time>
-    <div class="text-sm font-normal text-gray-500 dark:text-gray-300"><a href="<%= member_timeline_path(event.user) %>" class="font-medium text-gray-900 hover:underline"><%= event.user.name %></a> removed candidate from sprint <span class="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800"><%= event.trackable.name %></span></div>
+    <div class="text-sm font-normal text-gray-500 dark:text-gray-300"><a href="<%= member_timeline_path(event.user) %>" class="font-medium text-gray-900 hover:underline"><%= event.user.name %></a> removed candidate from sprint <span class="bg-green-100 text-green-800 text-xs font-medium inline-flex items-center px-2 py-0.5 rounded-sm dark:bg-primary-200 dark:text-primary-800"><%= event.trackable.name %></span></div>
   </div>
 </li>

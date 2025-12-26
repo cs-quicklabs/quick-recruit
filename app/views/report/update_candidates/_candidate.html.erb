@@ -18,11 +18,11 @@
   <td class="px-4 py-2"><%= candidate.owner.name %></td>
   <td class="px-4 py-2"><%= display_date(candidate.updated_at) %></td>
   <td class="px-4 py-2">
-    <span class="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
+    <span class="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2 py-0.5 rounded-sm dark:bg-primary-200 dark:text-primary-800">
       <%= candidate.bucket.titleize %>
     </span>
   </td>
   <td class="px-4 py-2">
-    <span class="bg-<%= status_color(candidate.status) %>-100 text-<%= status_color(candidate.status) %>-800 text-xs font-medium inline-flex items-center px-2 py-0.5 rounded"><%= candidate.status.humanize.titleize %></span>
+    <span class="bg-<%= status_color(candidate.status) %>-100 text-<%= status_color(candidate.status) %>-800 text-xs font-medium inline-flex items-center px-2 py-0.5 rounded-sm"><%= candidate.status.humanize.titleize %></span>
   </td>
 </tr>

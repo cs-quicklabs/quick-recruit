@@ -24,13 +24,13 @@
     <% if candidate.opening.active? %>
       <div class="flex items-center">
         <div class="w-3 h-3 mr-2 bg-green-500 border rounded-full"></div>
-        <span class="bg-<%= priority_color(candidate.opening.priority) %>-100 text-<%= priority_color(candidate.opening.priority) %>-800 text-xs font-medium me-2 px-1.5 py-0.5 rounded border  border-<%= priority_color(candidate.opening.priority) %>-400"><%= candidate.opening.priority.titleize %></span>
+        <span class="bg-<%= priority_color(candidate.opening.priority) %>-100 text-<%= priority_color(candidate.opening.priority) %>-800 text-xs font-medium me-2 px-1.5 py-0.5 rounded-sm border  border-<%= priority_color(candidate.opening.priority) %>-400"><%= candidate.opening.priority.titleize %></span>
         <%= candidate.opening.nil? ? "-" : candidate.opening.title %>
       </div>
     <% else %>
       <div class="flex items-center">
         <div class="w-3 h-3 mr-2 bg-red-500 border rounded-full"></div>
-        <span class="bg-<%= priority_color(candidate.opening.priority) %>-100 text-<%= priority_color(candidate.opening.priority) %>-800 text-xs font-medium me-2 px-1.5 py-0.5 rounded border  border-<%= priority_color(candidate.opening.priority) %>-400"><%= candidate.opening.priority.titleize %></span>
+        <span class="bg-<%= priority_color(candidate.opening.priority) %>-100 text-<%= priority_color(candidate.opening.priority) %>-800 text-xs font-medium me-2 px-1.5 py-0.5 rounded-sm border  border-<%= priority_color(candidate.opening.priority) %>-400"><%= candidate.opening.priority.titleize %></span>
         <%= candidate.opening.nil? ? "-" : candidate.opening.title %>
       </div>
     <% end %>

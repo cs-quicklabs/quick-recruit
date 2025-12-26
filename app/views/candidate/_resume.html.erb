@@ -21,7 +21,7 @@
     <div>
       <%= form_with(model: candidate, id: dom_id(candidate, :resume), url: candidate_resume_index_path(candidate), method: "POST") do |form| %>
         <%= form.file_field :resume, class: "form-text-field" %>
-        <%= form.submit "Upload Resume", class: "px-2 py-1 shadow shadow-lg mt-2 text-xs font-medium text-center text-white bg-blue-700 rounded-sm hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200", data: { disable_with: "Submitting.." } %>
+        <%= form.submit "Upload Resume", class: "px-2 py-1 shadow-sm shadow-lg mt-2 text-xs font-medium text-center text-white bg-blue-700 rounded-xs hover:bg-blue-800 focus:ring-4 focus:outline-hidden focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200", data: { disable_with: "Submitting.." } %>
       <% end %>
     </div>
   </dd>

@@ -6,8 +6,8 @@
     <div class="mt-1 lg:hidden">
       <div class="flex items-center">
         <div class="inline-block h-40 w-40 flex-shrink-0 overflow-hidden rounded-full" aria-hidden="true"><%= display_large_avatar(user) %></div>
-        <div class="ml-5 rounded-sm shadow-sm">
-          <div class="group relative flex items-center justify-center rounded-sm border border-gray-300 py-2 px-3 focus-within:ring-2 focus-within:ring-sky-500 focus-within:ring-offset-2 hover:bg-gray-50">
+        <div class="ml-5 rounded-xs shadow-xs">
+          <div class="group relative flex items-center justify-center rounded-xs border border-gray-300 py-2 px-3 focus-within:ring-2 focus-within:ring-sky-500 focus-within:ring-offset-2 hover:bg-gray-50">
             <label for="mobile-user-photo" class="pointer-events-none relative text-sm font-medium leading-4 text-gray-700"><span>Change</span><span class="sr-only">user photo</span></label>
           </div>
         </div>
@@ -23,7 +23,7 @@
           type="file"
           id="desktop-user-photo"
           name="user[avatar]"
-          class="absolute inset-0 h-full w-full cursor-pointer rounded-sm border-gray-300 opacity-0"
+          class="absolute inset-0 h-full w-full cursor-pointer rounded-xs border-gray-300 opacity-0"
           onchange="document.getElementById('avatar_upload').submit();"
         >
       </label>

@@ -17,7 +17,7 @@
         id="editButton"
         data-tooltip-target="tooltip-owner"
         data-dropdown-toggle="ownerButton"
-        class="cursor-pointer ml-1 text-gray-500 rounded-sm hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+        class="cursor-pointer ml-1 text-gray-500 rounded-xs hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
       >
         <svg
           class="w-4 h-4 text-gray-800 dark:text-white"
@@ -35,12 +35,12 @@
           />
         </svg>
       </div>
-      <div id="tooltip-owner" role="tooltip" class="inline-block text-xs absolute invisible z-10 py-1 px-2 text-xs font-medium text-white bg-gray-900 rounded-sm shadow-sm opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
+      <div id="tooltip-owner" role="tooltip" class="inline-block text-xs absolute invisible z-10 py-1 px-2 text-xs font-medium text-white bg-gray-900 rounded-xs shadow-xs opacity-0 transition-opacity duration-300 tooltip dark:bg-gray-700">
         Edit Owner
         <div class="tooltip-arrow" data-popper-arrow></div>
       </div>
       <!-- Dropdown menu -->
-      <div id="ownerButton" data-candidate-target="menu" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-40 dark:bg-gray-700 dark:divide-gray-600">
+      <div id="ownerButton" data-candidate-target="menu" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-sm-lg shadow-sm w-40 dark:bg-gray-700 dark:divide-gray-600">
         <ul class="p-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="editButton">
           <% User.owners.each do |user| %>
             <li
@@ -49,7 +49,7 @@
               data-candidate-owner-param="<%= user.id %>"
               data-candidate-candidate-param="<%= candidate.id %>"
             >
-              <div class="flex p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+              <div class="flex p-1 rounded-sm hover:bg-gray-100 dark:hover:bg-gray-600">
                 <div class="ms-2 text-xs"><label class="cursor-pointer font-medium text-gray-900 dark:text-gray-300"><div><%= user.name %></div>                </label></div>
               </div>
             </li>

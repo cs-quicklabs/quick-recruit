@@ -97,7 +97,7 @@
     We are an equal opportunity employer that values diversity at all levels. All qualified applicants will receive consideration for employment without regard to race, color, religion, gender, national origin, age, sexual orientation, gender identity or disability.
   </p>
 
-  <div class="mt-8 my-8 grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:gap-8 p-4 rounded">
+  <div class="mt-8 my-8 grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:gap-8 p-4 rounded-sm">
     <div class="dark:border-gray-700 dark:bg-gray-800">
       <h3 class="mb-4 text-lg font-extrabold dark:text-white">Some Useful Links</h3>
       <ul role="list" class="mb-4 text-red-600 dark:text-red-500 font-semibold">
@@ -127,7 +127,7 @@
   <% if @opening.active? %>
     <section class="dark:bg-gray-900">
       <div class="mx-auto flex max-w-screen-xl px-4 py-4 sm:py-4 lg:px-6 2xl:max-w-screen-2xl">
-        <%= image_tag asset_url("founders.png"), alt: "founders", class: "mb-4 hidden h-48 rounded-lg md:flex lg:mb-0 lg:flex" %>
+        <%= image_tag asset_url("founders.png"), alt: "founders", class: "mb-4 hidden h-48 rounded-sm-lg md:flex lg:mb-0 lg:flex" %>
         <div class="max-w-screen-md lg:ml-16">
           <h2 class="text-lg font-extrabold text-gray-900 dark:text-white">We would love to work with you</h2>
 
@@ -139,7 +139,7 @@
             <a
               href="<%= "/public/openings/apply?opening_id=" + @opening.id.to_s %>"
               target="_blank"
-              class="justify-center rounded-md bg-red-600 px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+              class="justify-center rounded-sm bg-red-600 px-4 py-3 text-sm font-semibold text-white shadow-xs hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
             >
               Apply Now <span aria-hidden="true">→</span>
             </a>
@@ -148,7 +148,7 @@
       </div>
     </section>
   <% else %>
-    <div class="flex items-center p-4 mb-4 text-sm text-yellow-800 border border-yellow-300 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 dark:border-yellow-800" role="alert">
+    <div class="flex items-center p-4 mb-4 text-sm text-yellow-800 border border-yellow-300 rounded-sm-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 dark:border-yellow-800" role="alert">
       <svg
         class="shrink-0 inline w-4 h-4 me-3"
         aria-hidden="true"

@@ -6,7 +6,7 @@
       <div class="hidden text-red-800 text-fuchsia-800 text-orange-800 text-yellow-800"></div>
 
       <div class="hidden border-red-400 border-fuchsia-400 border-orange-400 border-yellow-400"></div>
-      <span class="bg-<%= priority_color(opening.priority) %>-100 text-<%= priority_color(opening.priority) %>-800 text-xs font-medium me-2 px-1.5 py-0.5 rounded border border-<%= priority_color(opening.priority) %>-400"><%= opening.priority.titleize %></span>
+      <span class="bg-<%= priority_color(opening.priority) %>-100 text-<%= priority_color(opening.priority) %>-800 text-xs font-medium me-2 px-1.5 py-0.5 rounded-sm border border-<%= priority_color(opening.priority) %>-400"><%= opening.priority.titleize %></span>
       <a href="<%= opening_path(opening) %>"><%= opening.title %></a>
       <a href="<%= show_public_openings_path(opening) %>" class="font-medium ml-2 invisible group-hover:visible text-primary-600 dark:text-primary-500 inline-flex items-center" target="_blank">
         <svg

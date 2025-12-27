@@ -1,7 +1,7 @@
 production:
   recycle_candidates_job:
     class: MidnightJob
-    schedule: at 12am every day
+    schedule: every weekday at 12:00am
 
   remind_update_calendars_job:
     class: RemindUpdateCalendarJob

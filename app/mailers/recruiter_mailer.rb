@@ -40,8 +40,8 @@ class RecruiterMailer < ApplicationMailer
     mail(to: [@receiver.email, @feedback.submitter.email], subject: "Quick Recruit: New Feedback received")
   end
 
-  def remind_to_update_calendar(user)
-    @user = user
+  def remind_to_update_calendar
+    @user = params[:user]
     mail(to: @user.email, subject: "Quick Recruit: Reminder to Update Your Calendar")
   end
 end

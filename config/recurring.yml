@@ -5,4 +5,4 @@ production:
 
   remind_update_calendars_job:
     class: RemindUpdateCalendarJob
-    schedule: at 10am every monday
+    schedule: every monday at 10:00am

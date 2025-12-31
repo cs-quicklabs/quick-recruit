@@ -1,9 +1,9 @@
 <p>Hello <%= @user.name %>,</p>
 
-<p>Please update your booking calendar so that recruiters can schedule interviews.</p>
+<p>Please ensure your booking calendar is up to date this week so that recruiters can schedule interviews.</p>
 
 <% if @user.booking_url.present? %>
-<%= link_to "Booking Calendar", @user.booking_url %>
+<%= link_to "Go to My Booking Calendar", @user.booking_url %>
 <% end %>
 
 <p>Thanks</p>

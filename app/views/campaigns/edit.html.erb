@@ -1,0 +1,42 @@
+<section class="bg-white dark:bg-gray-900">
+  <div class="py-8 px-4 mx-auto max-w-2xl lg:py-8">
+    <%= render "shared/form_messages", resource: @form, message: local_assigns[:message] %>
+    <%= render "shared/form_header", title: "Edit Sprint", subtitle: "Please update the details of sprint." %>
+    <%= tailwind_form_with(model: @campaign, id: dom_id(@campaign)) do |form| %>
+      <div class="mt-4 mb-2 grid gap-4 sm:gap-6">
+        <div>
+          <%= form.text_field :name, "Sprint Name", required: true, placeholder: "e.g. Team Lead Hiring Sprint" %>
+        </div>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
+        <div class="sm:col-span-2 space-y-2">
+          <div>
+            <label for="user-role" class="inline-flex items-center mb-1 text-sm font-medium text-gray-900 dark:text-white">
+              Owner
+            </label>
+            <%= form.collection_select(:owner_id, @owners, :id, :name, { :prompt => "Select Owner" }, :class => "form-text-field", :required => true) %>
+          </div>
+        </div>
+      </div>
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 sm:gap-6">
+
+        <div>
+          <label for="start_date" class="inline-flex items-center mb-1 text-sm font-medium text-gray-900 dark:text-white">
+            Start Date
+          </label>
+          <%= form.date_field :start_date, class: "form-text-field" %>
+        </div>
+        <div>
+          <label for="end_date" class="inline-flex items-center mb-1 text-sm font-medium text-gray-900 dark:text-white">
+            End Date
+          </label>
+          <%= form.date_field :end_date, class: "form-text-field" %>
+        </div>
+      </div>
+      <button type="submit" class="btn-primary mt-4">
+        Edit Sprint
+      </button>
+      <%= link_to "Cancel", :back, class: "btn-secondary" %>
+    <% end %>
+  </div>
+</section>

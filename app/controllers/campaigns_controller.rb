@@ -11,9 +11,13 @@ class CampaignsController < BaseController
   end
 
   def edit
+    @owners = User.owners
+
   end
 
   def update
+    @campaign.update(campaign_params)
+    redirect_to campaigns_path(active: true), notice: "Sprint was updated successfully"
   end
 
   def destroy

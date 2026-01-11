@@ -26,7 +26,7 @@
         <div class="flex flex-col">
 
     <% @stats.location_stats.each do |stat| %>
-    <a class="ml-2 hover:font-medium text-gray-600 hover:text-blue-600 dark:text-blue-500 hover:underline text-sm" href="/report/bucket_report?location=<%= stat[:location] %>&bucket=<%= @bucket %>"><%= stat[:count].to_s %> <%= stat[:location].titleize %></a>      
+    <a class="ml-2 hover:font-medium text-gray-600 hover:text-blue-600 dark:text-blue-500 hover:underline text-sm" href="/report/bucket_report?location=<%= stat[:location] %>&bucket=<%= @bucket %>"><%= stat[:count].to_s %> <%= stat[:location] %></a>      
     <% end %>
           </div>
 

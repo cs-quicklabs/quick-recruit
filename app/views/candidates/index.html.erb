@@ -188,5 +188,20 @@
         </div>
       </div>
     </li>
+        <li class="col-span-1 flex rounded-xs shadow-xs">
+      <button data-tooltip-target="tooltip-inbound" type="button" class="flex w-16 flex-shrink-0 items-center justify-center bg-red-500 rounded-l-md text-sm font-medium text-white">N</button>
+      <div id="tooltip-inbound" role="tooltip" class="max-w-sm absolute z-10 invisible inline-block px-2 py-1 text-xs font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-xs shadow-xs opacity-0 tooltip dark:bg-gray-700">
+        This bucket contains those candidates which we received through inbound channels.
+        <div class="tooltip-arrow" data-popper-arrow></div>
+      </div>
+      <div class="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-white">
+        <div class="flex-1 truncate px-4 py-2 text-sm">
+          <a href="/candidates/inbound" class="font-medium text-gray-900 hover:text-gray-600 hover:underline">Inbound</a>
+          <p class="text-gray-500"><%= @inbound_count %>  Candidates</p>
+        </div>
+      </div>
+    </li>
+
   </ul>
+
 </div>

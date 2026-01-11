@@ -29,6 +29,7 @@ Rails.application.routes.draw do
       get "contractors"
       get "leads"
       get "nurture"
+      get "inbound"
       post "leads", to: "candidates#settle_leads"
     end
 

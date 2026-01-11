@@ -16,6 +16,7 @@ class CandidatesController < BaseController
     @contractors_count = count_all["contractors"] || 0
     @leads_count = count_all["leads"] || 0
     @nurture_count = count_all["nurture"] || 0
+    @inbound_count = count_all["inbound"] || 0
 
     @candidates_count = Candidate.count
   end
@@ -145,6 +146,10 @@ class CandidatesController < BaseController
 
   def incomplete
     @pagy, @candidates = pagy(candidates_for_bucket(:incomplete), items: LIMIT)
+  end
+
+   def inbound
+    @pagy, @candidates = pagy(candidates_for_bucket(:inbound), items: LIMIT)
   end
 
   def alumni

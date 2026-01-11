@@ -51,6 +51,11 @@ class Candidate < ApplicationRecord
     UpdateCandidatesQuery.new(self.unscoped.includes(:opening, :user, :owner), params).filter
   end
 
+  def self.bucket_report_query(params, includes = nil)
+    return [] if params.empty?
+    BucketReportQuery.new(self.unscoped.includes(:opening, :user, :owner), params).filter
+  end
+  
   def status_color
   end
 

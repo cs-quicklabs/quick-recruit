@@ -124,6 +124,7 @@ Rails.application.routes.draw do
     get "/candidates", to: "report/candidates#index", as: "report_candidates"
     get "/new_candidates", to: "report/new_candidates#index", as: "report_new_candidates"
     get "/update_candidates", to: "report/update_candidates#index", as: "report_update_candidates"
+    get "/bucket_report", to: "report/bucket_report#index", as: "bucket_report"
   end
 
   scope "/public" do

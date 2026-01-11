@@ -23,12 +23,15 @@
 <div class="relative inline-block px-3 text-left">
 
   <h5 class="mr-3 font-semibold dark:text-white mt-4">Location</h5>
-        <div class="flex flex-col">
 
+  <div class="flex flex-col">
     <% @stats.location_stats.each do |stat| %>
-    <a class="ml-2 hover:font-medium text-gray-600 hover:text-blue-600 dark:text-blue-500 hover:underline text-sm" href="/report/bucket_report?location=<%= stat[:location] %>&bucket=<%= @bucket %>"><%= stat[:count].to_s %> <%= stat[:location] %></a>      
+      <a class="ml-2 hover:font-medium text-gray-600 hover:text-blue-600 dark:text-blue-500 hover:underline text-sm" href="/report/bucket_report?location=<%= stat[:location] %>&bucket=<%= @bucket %>">
+        <span class="inline-block text-right font-mono" style="min-width: 2.5em;"> <%= stat[:count].to_s %> </span>
+        <span class="ml-2 align-middle"><%= stat[:location] %></span>
+      </a>
     <% end %>
-          </div>
+  </div>
 
 </div>
 

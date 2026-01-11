@@ -5,6 +5,14 @@
       <h1 class="mr-3 text-lg font-semibold dark:text-white">
         Bucket Report - <%= @bucket.titleize %> - <%= @stats.total %> Candidates
       </h1>
+            <% if current_user.admin_or_recruiter_admin? %>
+              <%= button_to "Archive These Candidates", inbound_candidates_path(filters: request.query_parameters), class: "btn-secondary", data: {
+                                                                                  controller: "confirmation",
+                                                                                  "confirmation-message-value": "Are you sure you want to archive these candidates and refresh data again? All candidates shown below will be archived. If you wish to move anyone to Icebox, please do so before proceeding.",
+                                                                                  action: "confirmation#confirm",
+                                                                                } %>
+            <% end %>
+
     </div>
   </div>
 </div>

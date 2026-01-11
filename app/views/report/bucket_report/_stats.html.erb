@@ -1,9 +1,18 @@
 <div class="flex flex-col pt-5 pb-4 border-r border-gray-200">
   <div class="flex flex-col flex-1 w-64 h-0 overflow-y-auto p-1">
 
+    <div class="relative inline-block px-3 text-left">
+      <h5 class="mr-3 font-semibold dark:text-white">Bucket</h5>
+      <div class="flex flex-col">
+        
+        <a class="ml-2 hover:font-medium text-gray-600 hover:text-blue-600 dark:text-blue-500 hover:underline text-sm" href="/report/bucket_report?bucket=<%= @bucket %>"><%= @stats.total.to_s %> <%= @bucket.titleize %></a>
+        
+      </div>
+</div>
+
 
     <div class="relative inline-block px-3 text-left">
-      <h5 class="mr-3 font-semibold dark:text-white">Job Openings</h5>
+      <h5 class="mr-3 font-semibold dark:text-white mt-4">Job Openings</h5>
       <div class="flex flex-col">
         <% @stats.opening_stats.each do |stat| %>
         <a class="ml-2 hover:font-medium text-gray-600 hover:text-blue-600 dark:text-blue-500 hover:underline text-sm" href="/report/bucket_report?opening_id=<%= stat[:id] %>&bucket=<%= @bucket %>"><%= stat[:count].to_s %> <%= stat[:title] %></a>

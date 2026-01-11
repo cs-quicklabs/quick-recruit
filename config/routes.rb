@@ -31,6 +31,7 @@ Rails.application.routes.draw do
       get "nurture"
       get "inbound"
       post "leads", to: "candidates#settle_leads"
+      post "inbound", to: "candidates#settle_inbound"
     end
 
     scope module: "candidate" do

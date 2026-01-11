@@ -5,7 +5,7 @@
       <h5 class="mr-3 font-semibold dark:text-white">Bucket</h5>
       <div class="flex flex-col">
         
-        <a class="ml-2 hover:font-medium text-gray-600 hover:text-blue-600 dark:text-blue-500 hover:underline text-sm" href="/report/bucket_report?bucket=<%= @bucket %>"><%= @stats.total.to_s %> <%= @bucket.titleize %></a>
+        <a class="ml-2 hover:font-medium text-gray-600 hover:text-blue-600 dark:text-blue-500 hover:underline text-xs" href="/report/bucket_report?bucket=<%= @bucket %>"><%= @stats.total.to_s %> <%= @bucket.titleize %></a>
         
       </div>
 </div>
@@ -15,7 +15,7 @@
       <h5 class="mr-3 font-semibold dark:text-white mt-4">Job Openings</h5>
       <div class="flex flex-col">
         <% @stats.opening_stats.each do |stat| %>
-        <a class="ml-2 hover:font-medium text-gray-600 hover:text-blue-600 dark:text-blue-500 hover:underline text-sm" href="/report/bucket_report?opening_id=<%= stat[:id] %>&bucket=<%= @bucket %>"><%= stat[:count].to_s %> <%= stat[:title] %></a>
+        <a class="ml-2 hover:font-medium text-gray-600 hover:text-blue-600 dark:text-blue-500 hover:underline text-xs" href="/report/bucket_report?opening_id=<%= stat[:id] %>&bucket=<%= @bucket %>"><%= stat[:count].to_s %> <%= stat[:title] %></a>
         <% end %> 
       </div>
 </div>
@@ -26,7 +26,7 @@
 
   <div class="flex flex-col">
     <% @stats.location_stats.each do |stat| %>
-      <a class="ml-2 hover:font-medium text-gray-600 hover:text-blue-600 dark:text-blue-500 hover:underline text-sm" href="/report/bucket_report?location=<%= stat[:location] %>&bucket=<%= @bucket %>">
+      <a class="ml-2 hover:font-medium text-gray-600 hover:text-blue-600 dark:text-blue-500 hover:underline text-xs" href="/report/bucket_report?location=<%= stat[:location] %>&bucket=<%= @bucket %>">
         <span class="inline-block text-right font-mono" style="min-width: 2.5em;"> <%= stat[:count].to_s %> </span>
         <span class="ml-2 align-middle"><%= stat[:location] %></span>
       </a>
@@ -40,7 +40,7 @@
         <div class="flex flex-col">
 
     <% @stats.status_stats.each do |stat| %>
-    <a class="ml-2 hover:font-medium text-gray-600 hover:text-blue-600 dark:text-blue-500 hover:underline text-sm" href="/report/bucket_report?status=<%= stat[:status] %>&bucket=<%= @bucket %>"><%= stat[:count].to_s %> <%= stat[:status].titleize %></a>      
+    <a class="ml-2 hover:font-medium text-gray-600 hover:text-blue-600 dark:text-blue-500 hover:underline text-xs" href="/report/bucket_report?status=<%= stat[:status] %>&bucket=<%= @bucket %>"><%= stat[:count].to_s %> <%= stat[:status].titleize %></a>      
     <% end %> 
           </div>
 
@@ -51,7 +51,7 @@
             <div class="flex flex-col">
 
         <% @stats.owner_stats.each do |stat| %>
-        <a class="ml-2 hover:font-medium text-gray-600 hover:text-blue-600 dark:text-blue-500 hover:underline text-sm" href="/report/bucket_report?owner_id=<%= stat[:id] %>&bucket=<%= @bucket %>"><%= stat[:count].to_s %> <%= stat[:name] %></a>
+        <a class="ml-2 hover:font-medium text-gray-600 hover:text-blue-600 dark:text-blue-500 hover:underline text-xs" href="/report/bucket_report?owner_id=<%= stat[:id] %>&bucket=<%= @bucket %>"><%= stat[:count].to_s %> <%= stat[:name] %></a>
         <% end %> 
               </div>
 

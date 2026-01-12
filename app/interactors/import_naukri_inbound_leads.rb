@@ -29,6 +29,7 @@ class ImportNaukriInboundLeads
       education = row["Under Graduation degree"].nil? ? "" : row["Under Graduation degree"]
       education = education + "/" + row["Post graduation degree"] unless row["Post graduation degree"].nil?
       company = row["Curr. Company name"].nil? ? "" : row["Curr. Company name"]
+      location = row["Current Location"].nil? ? "" : row["Current Location"]
 
       if candidate.nil?
         c = Candidate.create(first_name: first_name,
@@ -36,7 +37,7 @@ class ImportNaukriInboundLeads
                              email: row["Email ID"],
                              phone: row["Phone Number"],
                              biography: row["Resume Title"],
-                             location: row["Current Location"],
+                             location: location,
                              current_company: company,
                              current_title: row["Curr. Company Designation"],
                              experience: experience,
@@ -52,7 +53,7 @@ class ImportNaukriInboundLeads
                              notice_period: row["Notice period/ Availability to join"],
                              next_recycle_on: DateTime.now)
       else
-        candidate.update(bucket: bucket, opening_id: opening_id, current_ctc: salary, experience: experience, current_company: company)
+        candidate.update(bucket: bucket, opening_id: opening_id, current_ctc: salary, experience: experience, current_company: company, location: location)
       end
     end
   end

@@ -6,7 +6,7 @@
       <div class="flex flex-col">
 
         <% bucket_params = request.query_parameters.merge(bucket: @bucket) %>
-        <a class="ml-2  text-gray-600 hover:text-blue-600 dark:text-blue-500  text-xs" href="?<%= bucket_params.to_query %>">
+        <a class="ml-2 text-gray-600 hover:text-blue-600 dark:text-blue-500 text-xs hover:underline" href="?<%= bucket_params.to_query %>">
           <span class="inline-block text-right font-mono" style="min-width: 2.5em;"><%= @stats.total.to_s %></span>
           <span class="ml-2 align-middle"><%= @bucket.titleize %></span>
         </a>
@@ -20,7 +20,7 @@
           <div class="flex flex-col">      
                       <% @stats.opening_stats.each do |stat| %>
                         <% new_params = request.query_parameters.merge(opening_id: stat[:id]) %>
-                        <a class="ml-2  text-gray-600 hover:text-blue-600 dark:text-blue-500  text-xs" href="?<%= new_params.to_query %>">
+                        <a class="ml-2  text-gray-600 hover:text-blue-600 dark:text-blue-500  text-xs hover:underline" href="?<%= new_params.to_query %>">
                           <span class="inline-block text-right font-mono" style="min-width: 2.5em;"><%= stat[:count].to_s %></span>
                           <span class="ml-2 align-middle"><%= stat[:title] %></span>
                         </a>
@@ -35,7 +35,7 @@
           <div class="flex flex-col">        
             <% @stats.location_stats.each do |stat| %>
               <% new_params = request.query_parameters.merge(location: stat[:location]) %>
-              <a class="ml-2  text-gray-600 hover:text-blue-600 dark:text-blue-500  text-xs" href="?<%= new_params.to_query %>">
+              <a class="ml-2 text-gray-600 hover:text-blue-600 dark:text-blue-500 text-xs hover:underline" href="?<%= new_params.to_query %>">
                 <span class="inline-block text-right font-mono" style="min-width: 2.5em;"><%= stat[:count].to_s %></span>
                 <span class="ml-2 align-middle"><%= stat[:location] %></span>
               </a>
@@ -49,7 +49,7 @@
 
             <% @stats.status_stats.each do |stat| %>
               <% new_params = request.query_parameters.merge(status: stat[:status]) %>
-              <a class="ml-2  text-gray-600 hover:text-blue-600 dark:text-blue-500  text-xs" href="?<%= new_params.to_query %>">
+              <a class="ml-2  text-gray-600 hover:text-blue-600 dark:text-blue-500  text-xs hover:underline" href="?<%= new_params.to_query %>">
                 <span class="inline-block text-right font-mono" style="min-width: 2.5em;"><%= stat[:count].to_s %></span>
                 <span class="ml-2 align-middle"><%= stat[:status].titleize %></span>
               </a>
@@ -64,7 +64,7 @@
 
             <% @stats.owner_stats.each do |stat| %>
               <% new_params = request.query_parameters.merge(owner_id: stat[:id]) %>
-              <a class="ml-2  text-gray-600 hover:text-blue-600 dark:text-blue-500  text-xs" href="?<%= new_params.to_query %>">
+              <a class="ml-2  text-gray-600 hover:text-blue-600 dark:text-blue-500  text-xs hover:underline" href="?<%= new_params.to_query %>">
                 <span class="inline-block text-right font-mono" style="min-width: 2.5em;"><%= stat[:count].to_s %></span>
                 <span class="ml-2 align-middle"><%= stat[:name] %></span>
               </a>

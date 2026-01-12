@@ -188,8 +188,8 @@ class CandidatesController < BaseController
   end
 
   def settle_inbound 
-    Candidate.where(filter_params).each do |candidate|
-      UpdateBucket.call(candidate, :archive, current_user, false)
+    Candidate.where(filter_params.except(:target_bucket)).each do |candidate|
+      UpdateBucket.call(candidate, filter_params[:target_bucket], current_user, false)
     end
     redirect_to bucket_report_path(bucket: filter_params[:bucket]), notice: "Inbound candidates were settled successfully"
   end
@@ -208,6 +208,7 @@ class CandidatesController < BaseController
   end
 
   def filter_params
-    params.require(:filters).permit(:bucket, :status, :owner_id, :opening_id, :location )
+    params.require(:filters).permit(:bucket, :status, :owner_id, :opening_id, :location, :target_bucket) 
   end
+
 end

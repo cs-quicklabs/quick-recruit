@@ -17,7 +17,7 @@ class BucketReportStats
   end
 
   def location_stats
-        stats = entries.unscope(:order).group("LOWER(location)").count
+        stats = entries.unscope(:order).group(:location).count
         stats.map { |location, count| { location: location, count: count } }
           .sort_by { |h| -h[:count] }
   end

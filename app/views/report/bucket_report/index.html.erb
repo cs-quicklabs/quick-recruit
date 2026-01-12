@@ -1,6 +1,6 @@
 <div class="relative z-0 flex-1 overflow-y-auto focus:outline-hidden">
   <!-- Page title & actions -->
-  <div class="px-4 py-2 border-b border-gray-200 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-6">
+  <div class="px-4 py-2 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-6">
     <div class="flex flex-wrap items-baseline">
       <h1 class="mr-3 text-lg font-semibold dark:text-white">
         Bucket Report - <%= @bucket.titleize %> - <%= @stats.total %> Candidates
@@ -19,9 +19,26 @@
                                                                                 } %>
             <% end %>
 
-
     </div>
+    
   </div>
+          <div class="flex flex-wrap p-2 border-t border-b border-gray-200 dark:border-gray-700 px-4 space-y-3 sm:flex sm:space-y-0 sm:space-x-4">
+          <div class="items-center hidden m-2 ml-1 text-sm font-medium text-gray-900 md:flex dark:text-white">
+            Showing records for:
+          </div>
+          <div class="flex flex-wrap">
+    <% request.query_parameters.each do |key, value| %>
+      <% new_params = request.query_parameters.except(key) %>
+      <span class="inline-flex items-center bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 p-2 rounded-xs">
+        <span><%= key.titleize %>: <%= value %></span>
+        <a href="?<%= new_params.to_query %>" class="ml-2 text-blue-500 hover:text-red-600 font-bold" title="Remove filter">
+          &times;
+        </a>
+      </span>
+    <% end %>
+          </div>
+        </div>
+
 </div>
 <div class="flex w-full overflow-hidden bg-white">
   <div class="flex w-full">

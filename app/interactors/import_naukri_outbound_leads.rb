@@ -31,6 +31,7 @@ class ImportNaukriOutboundLeads
       salary = row["Annual Salary"].gsub("INR ", "").gsub(" L", "")
       education = row["U.G. Course"].nil? ? "" : row["U.G. Course"]
       education = education + "/" + row["P.G. Course"] unless row["P.G. Course"].nil?
+      company = row["Current Employer"].nil? ? "" : row["Current Employer"]
 
       if candidate.nil?
         c = Candidate.create(first_name: first_name,
@@ -39,7 +40,7 @@ class ImportNaukriOutboundLeads
                              phone: row["Contact No."],
                              biography: row["Resume Title"],
                              location: row["Current Location"],
-                             current_company: row["Current Employer"],
+                             current_company: company,
                              current_title: row["Designation"],
                              experience: experience,
                              source_id: 1,
@@ -54,7 +55,7 @@ class ImportNaukriOutboundLeads
                              highest_qualification: education,
                              next_recycle_on: DateTime.now)
       else
-        candidate.update(bucket: bucket, opening_id: opening_id)
+        candidate.update(bucket: bucket, opening_id: opening_id, current_ctc: salary, experience: experience, current_company: company)
       end
     end
   end

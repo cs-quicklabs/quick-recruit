@@ -25,9 +25,10 @@ class ImportNaukriInboundLeads
         year_of_birth = row["Date of Birth"].split("-").last.to_i
       end
 
-      salary = row["Annual Salary"].gsub("Rs. ", "").gsub(" Lakhs", "")
+      salary = row["Annual Salary"].gsub("Rs ", "").gsub(" Lakhs", "")
       education = row["Under Graduation degree"].nil? ? "" : row["Under Graduation degree"]
       education = education + "/" + row["Post graduation degree"] unless row["Post graduation degree"].nil?
+      company = row["Curr. Company name"].nil? ? "" : row["Curr. Company name"]
 
       if candidate.nil?
         c = Candidate.create(first_name: first_name,
@@ -36,7 +37,7 @@ class ImportNaukriInboundLeads
                              phone: row["Phone Number"],
                              biography: row["Resume Title"],
                              location: row["Current Location"],
-                             current_company: row["Curr. Company name"],
+                             current_company: company,
                              current_title: row["Curr. Company Designation"],
                              experience: experience,
                              source_id: 1,
@@ -51,7 +52,7 @@ class ImportNaukriInboundLeads
                              notice_period: row["Notice period/ Availability to join"],
                              next_recycle_on: DateTime.now)
       else
-        candidate.update(bucket: bucket, opening_id: opening_id)
+        candidate.update(bucket: bucket, opening_id: opening_id, current_ctc: salary, experience: experience, current_company: company)
       end
     end
   end

@@ -13,7 +13,8 @@ class BucketReportStats
     stats = entries.unscope(:order).select(:opening_id).group(:opening_id).count
     opening_ids = stats.keys
     titles = Opening.where(id: opening_ids).pluck(:id, :title).to_h
-    stats.map { |opening_id, count| { id: opening_id, title: titles[opening_id], count: count } }
+        stats.map { |opening_id, count| { id: opening_id, title: titles[opening_id], count: count } }
+          .sort_by { |h| -h[:count] }
   end
 
   def location_stats
@@ -26,11 +27,13 @@ class BucketReportStats
     stats = entries.unscope(:order).select(:owner_id).group(:owner_id).count
     owner_ids = stats.keys
     names = User.where(id: owner_ids).pluck(:id, :first_name).to_h
-    stats.map { |owner_id, count| { id: owner_id, name: names[owner_id], count: count } }
+        stats.map { |owner_id, count| { id: owner_id, name: names[owner_id], count: count } }
+          .sort_by { |h| -h[:count] }
   end
 
   def status_stats
-    stats = entries.unscope(:order).select(:status).group(:status).count
-    stats.map { |status, count| { status: status, count: count } }
+        stats = entries.unscope(:order).select(:status).group(:status).count
+        stats.map { |status, count| { status: status, count: count } }
+          .sort_by { |h| -h[:count] }
   end
 end

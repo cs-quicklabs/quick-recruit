@@ -5,45 +5,62 @@
       <h1 class="mr-3 text-lg font-semibold dark:text-white">
         Bucket Report - <%= @bucket.titleize %> - <%= @stats.total %> Candidates
       </h1>
-            <% if current_user.admin_or_recruiter_admin? %>
-              <%= button_to "Archive These Candidates", inbound_candidates_path(filters: request.query_parameters.merge(target_bucket: "archive")), class: "btn-secondary", data: {
+      <% if current_user.admin_or_recruiter_admin? %>
+        <%= button_to "Archive These Candidates", inbound_candidates_path(filters: request.query_parameters.merge(target_bucket: "archive")), class: "btn-secondary", data: {
                                                                                   controller: "confirmation",
                                                                                   "confirmation-message-value": "Are you sure you want to archive these candidates and refresh data again? All candidates shown below will be archived. If you wish to move anyone to Icebox, please do so before proceeding.",
                                                                                   action: "confirmation#confirm",
                                                                                 } %>
-
-                          <%= button_to "Icebox These Candidates", inbound_candidates_path(filters: request.query_parameters.merge(target_bucket: "icebox")), class: "btn-secondary ml-2", data: {
+        <%= button_to "Icebox These Candidates", inbound_candidates_path(filters: request.query_parameters.merge(target_bucket: "icebox")), class: "btn-secondary ml-2", data: {
                                                                                   controller: "confirmation",
                                                                                   "confirmation-message-value": "Are you sure you want to icebox these candidates and refresh data again? All candidates shown below will be moved to Icebox. If you wish to archive anyone, please do so before proceeding.",
                                                                                   action: "confirmation#confirm",
                                                                                 } %>
+      <% end %>
+    </div>
+  </div>
+  <div class="flex flex-wrap p-2 border-t border-b border-gray-200 dark:border-gray-700 px-4 space-y-3 sm:flex sm:space-y-0 sm:space-x-4">
+    <div class="items-center hidden m-2 ml-1 text-sm font-medium text-gray-900 md:flex dark:text-white">
+      Showing records for:
+    </div>
+    <div class="flex flex-wrap">
+      <% request.query_parameters.each do |key, value| %>
+        <% new_params = request.query_parameters.except(key) %>
+        <span class="inline-flex items-center bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 p-2 rounded-xs">
+          <% if key == "opening_id"%>
+            <% opening = Opening.find(value) %>
+            <span><%= key.titleize %>: <%= opening.title.titleize %></span>
+              <a href="?<%= new_params.to_query %>" class="ml-2 text-blue-500 hover:text-red-600 font-bold" title="Remove filter">
+            &times;
+          </a>
+            <% end %>
+            
+            <% if key == "owner_id"%>
+            <% owner = User.find(value) %>
+            <span><%= key.titleize %>: <%= owner.name.titleize %></span>
+              <a href="?<%= new_params.to_query %>" class="ml-2 text-blue-500 hover:text-red-600 font-bold" title="Remove filter">
+            &times;
+          </a>
+            <% end %>
+            <% if  key == "bucket" %>
+            <span><%= key.titleize %>: <%= value.titleize %></span>
             <% end %>
 
-    </div>
-    
-  </div>
-          <div class="flex flex-wrap p-2 border-t border-b border-gray-200 dark:border-gray-700 px-4 space-y-3 sm:flex sm:space-y-0 sm:space-x-4">
-          <div class="items-center hidden m-2 ml-1 text-sm font-medium text-gray-900 md:flex dark:text-white">
-            Showing records for:
-          </div>
-          <div class="flex flex-wrap">
-    <% request.query_parameters.each do |key, value| %>
-      <% new_params = request.query_parameters.except(key) %>
-      <span class="inline-flex items-center bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 p-2 rounded-xs">
-        <span><%= key.titleize %>: <%= value %></span>
-        <a href="?<%= new_params.to_query %>" class="ml-2 text-blue-500 hover:text-red-600 font-bold" title="Remove filter">
-          &times;
-        </a>
-      </span>
-    <% end %>
-          </div>
-        </div>
+            <% if key == "location" || key == "status" %>
+          <span><%= key.titleize %>: <%= value.titleize %></span>
+          <a href="?<%= new_params.to_query %>" class="ml-2 text-blue-500 hover:text-red-600 font-bold" title="Remove filter">
+            &times;
+          </a>
+      <% end %>
+              </span>
 
+      <% end %>
+    </div>
+  </div>
 </div>
 <div class="flex w-full overflow-hidden bg-white">
   <div class="flex w-full">
-        <%= render partial: "stats" %>
-
+    <%= render partial: "stats" %>
     <% if @candidates.size > 0 %>
       <div class="w-full overflow-hidden" data-controller="infinite-scroll">
         <!-- This example requires Tailwind CSS v2.0+ -->
